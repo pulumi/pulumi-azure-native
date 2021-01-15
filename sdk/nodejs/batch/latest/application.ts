@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Contains information about an application in a Batch account.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2021-01-01.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class Application extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/v20151201:Application" }, { type: "azure-nextgen:batch/v20170101:Application" }, { type: "azure-nextgen:batch/v20170501:Application" }, { type: "azure-nextgen:batch/v20170901:Application" }, { type: "azure-nextgen:batch/v20181201:Application" }, { type: "azure-nextgen:batch/v20190401:Application" }, { type: "azure-nextgen:batch/v20190801:Application" }, { type: "azure-nextgen:batch/v20200301:Application" }, { type: "azure-nextgen:batch/v20200501:Application" }, { type: "azure-nextgen:batch/v20200901:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batch/v20151201:Application" }, { type: "azure-nextgen:batch/v20170101:Application" }, { type: "azure-nextgen:batch/v20170501:Application" }, { type: "azure-nextgen:batch/v20170901:Application" }, { type: "azure-nextgen:batch/v20181201:Application" }, { type: "azure-nextgen:batch/v20190401:Application" }, { type: "azure-nextgen:batch/v20190801:Application" }, { type: "azure-nextgen:batch/v20200301:Application" }, { type: "azure-nextgen:batch/v20200501:Application" }, { type: "azure-nextgen:batch/v20200901:Application" }, { type: "azure-nextgen:batch/v20210101:Application" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Application.__pulumiType, name, inputs, opts);
     }

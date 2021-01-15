@@ -20,7 +20,10 @@ class GetDiskResult:
     """
     Disk resource.
     """
-    def __init__(__self__, creation_data=None, disk_access_id=None, disk_iops_read_only=None, disk_iops_read_write=None, disk_m_bps_read_only=None, disk_m_bps_read_write=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, hyper_v_generation=None, id=None, location=None, managed_by=None, managed_by_extended=None, max_shares=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, share_info=None, sku=None, tags=None, tier=None, time_created=None, type=None, unique_id=None, zones=None):
+    def __init__(__self__, bursting_enabled=None, creation_data=None, disk_access_id=None, disk_iops_read_only=None, disk_iops_read_write=None, disk_m_bps_read_only=None, disk_m_bps_read_write=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, location=None, managed_by=None, managed_by_extended=None, max_shares=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, purchase_plan=None, share_info=None, sku=None, tags=None, tier=None, time_created=None, type=None, unique_id=None, zones=None):
+        if bursting_enabled and not isinstance(bursting_enabled, bool):
+            raise TypeError("Expected argument 'bursting_enabled' to be a bool")
+        pulumi.set(__self__, "bursting_enabled", bursting_enabled)
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
@@ -54,6 +57,9 @@ class GetDiskResult:
         if encryption_settings_collection and not isinstance(encryption_settings_collection, dict):
             raise TypeError("Expected argument 'encryption_settings_collection' to be a dict")
         pulumi.set(__self__, "encryption_settings_collection", encryption_settings_collection)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if hyper_v_generation and not isinstance(hyper_v_generation, str):
             raise TypeError("Expected argument 'hyper_v_generation' to be a str")
         pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
@@ -84,6 +90,9 @@ class GetDiskResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if purchase_plan and not isinstance(purchase_plan, dict):
+            raise TypeError("Expected argument 'purchase_plan' to be a dict")
+        pulumi.set(__self__, "purchase_plan", purchase_plan)
         if share_info and not isinstance(share_info, list):
             raise TypeError("Expected argument 'share_info' to be a list")
         pulumi.set(__self__, "share_info", share_info)
@@ -108,6 +117,14 @@ class GetDiskResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="burstingEnabled")
+    def bursting_enabled(self) -> Optional[bool]:
+        """
+        Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+        """
+        return pulumi.get(self, "bursting_enabled")
 
     @property
     @pulumi.getter(name="creationData")
@@ -198,6 +215,14 @@ class GetDiskResult:
         return pulumi.get(self, "encryption_settings_collection")
 
     @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location where the disk will be created. Extended location cannot be changed.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> Optional[str]:
         """
@@ -278,6 +303,14 @@ class GetDiskResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="purchasePlan")
+    def purchase_plan(self) -> Optional['outputs.PurchasePlanResponse']:
+        """
+        Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+        """
+        return pulumi.get(self, "purchase_plan")
+
+    @property
     @pulumi.getter(name="shareInfo")
     def share_info(self) -> Sequence['outputs.ShareInfoElementResponse']:
         """
@@ -348,6 +381,7 @@ class AwaitableGetDiskResult(GetDiskResult):
         if False:
             yield self
         return GetDiskResult(
+            bursting_enabled=self.bursting_enabled,
             creation_data=self.creation_data,
             disk_access_id=self.disk_access_id,
             disk_iops_read_only=self.disk_iops_read_only,
@@ -359,6 +393,7 @@ class AwaitableGetDiskResult(GetDiskResult):
             disk_state=self.disk_state,
             encryption=self.encryption,
             encryption_settings_collection=self.encryption_settings_collection,
+            extended_location=self.extended_location,
             hyper_v_generation=self.hyper_v_generation,
             id=self.id,
             location=self.location,
@@ -369,6 +404,7 @@ class AwaitableGetDiskResult(GetDiskResult):
             network_access_policy=self.network_access_policy,
             os_type=self.os_type,
             provisioning_state=self.provisioning_state,
+            purchase_plan=self.purchase_plan,
             share_info=self.share_info,
             sku=self.sku,
             tags=self.tags,
@@ -398,6 +434,7 @@ def get_disk(disk_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:compute/latest:getDisk', __args__, opts=opts, typ=GetDiskResult).value
 
     return AwaitableGetDiskResult(
+        bursting_enabled=__ret__.bursting_enabled,
         creation_data=__ret__.creation_data,
         disk_access_id=__ret__.disk_access_id,
         disk_iops_read_only=__ret__.disk_iops_read_only,
@@ -409,6 +446,7 @@ def get_disk(disk_name: Optional[str] = None,
         disk_state=__ret__.disk_state,
         encryption=__ret__.encryption,
         encryption_settings_collection=__ret__.encryption_settings_collection,
+        extended_location=__ret__.extended_location,
         hyper_v_generation=__ret__.hyper_v_generation,
         id=__ret__.id,
         location=__ret__.location,
@@ -419,6 +457,7 @@ def get_disk(disk_name: Optional[str] = None,
         network_access_policy=__ret__.network_access_policy,
         os_type=__ret__.os_type,
         provisioning_state=__ret__.provisioning_state,
+        purchase_plan=__ret__.purchase_plan,
         share_info=__ret__.share_info,
         sku=__ret__.sku,
         tags=__ret__.tags,

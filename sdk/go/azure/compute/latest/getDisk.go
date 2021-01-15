@@ -25,6 +25,8 @@ type LookupDiskArgs struct {
 
 // Disk resource.
 type LookupDiskResult struct {
+	// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+	BurstingEnabled *bool `pulumi:"burstingEnabled"`
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationDataResponse `pulumi:"creationData"`
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
@@ -47,6 +49,8 @@ type LookupDiskResult struct {
 	Encryption *EncryptionResponse `pulumi:"encryption"`
 	// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
 	EncryptionSettingsCollection *EncryptionSettingsCollectionResponse `pulumi:"encryptionSettingsCollection"`
+	// The extended location where the disk will be created. Extended location cannot be changed.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource Id
@@ -67,6 +71,8 @@ type LookupDiskResult struct {
 	OsType *string `pulumi:"osType"`
 	// The disk provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+	PurchasePlan *PurchasePlanResponse `pulumi:"purchasePlan"`
 	// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
 	ShareInfo []ShareInfoElementResponse `pulumi:"shareInfo"`
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
 {
     /// <summary>
     /// Contains information about an Azure Batch account.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:batch/latest:BatchAccount")]
     public partial class BatchAccount : Pulumi.CustomResource
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:BatchAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -31,7 +31,7 @@ class Watcher(pulumi.CustomResource):
                  __opts__=None):
         """
         Definition of the watcher type.
-        Latest API Version: 2015-10-31.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -39,7 +39,7 @@ class Watcher(pulumi.CustomResource):
         :param pulumi.Input[str] description: Gets or sets the description.
         :param pulumi.Input[str] etag: Gets or sets the etag of the resource.
         :param pulumi.Input[float] execution_frequency_in_seconds: Gets or sets the frequency at which the watcher is invoked.
-        :param pulumi.Input[str] location: The Azure Region where the resource lives
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] script_name: Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] script_parameters: Gets or sets the parameters of the script.
@@ -87,7 +87,7 @@ class Watcher(pulumi.CustomResource):
             __props__['name'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Watcher")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Watcher"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Watcher"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Watcher")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Watcher, __self__).__init__(
             'azure-nextgen:automation/latest:Watcher',
@@ -165,7 +165,7 @@ class Watcher(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
-        The Azure Region where the resource lives
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 

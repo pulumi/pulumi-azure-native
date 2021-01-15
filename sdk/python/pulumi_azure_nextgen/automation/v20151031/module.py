@@ -84,7 +84,7 @@ class Module(pulumi.CustomResource):
             __props__['size_in_bytes'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/latest:Module")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/latest:Module"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Module"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Module")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Module, __self__).__init__(
             'azure-nextgen:automation/v20151031:Module',

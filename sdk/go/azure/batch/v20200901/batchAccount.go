@@ -100,6 +100,9 @@ func NewBatchAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200501:BatchAccount"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:batch/v20210101:BatchAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BatchAccount

@@ -5,18 +5,87 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./automationAccount";
+export * from "./certificate";
+export * from "./connection";
+export * from "./connectionType";
+export * from "./credential";
+export * from "./dscNodeConfiguration";
+export * from "./getAutomationAccount";
+export * from "./getCertificate";
+export * from "./getConnection";
+export * from "./getConnectionType";
+export * from "./getCredential";
+export * from "./getDscNodeConfiguration";
+export * from "./getJobSchedule";
+export * from "./getModule";
 export * from "./getPrivateEndpointConnection";
+export * from "./getPython2Package";
+export * from "./getSchedule";
+export * from "./getSourceControl";
+export * from "./getVariable";
+export * from "./getWatcher";
+export * from "./jobSchedule";
+export * from "./listKeyByAutomationAccount";
+export * from "./module";
 export * from "./privateEndpointConnection";
+export * from "./python2Package";
+export * from "./schedule";
+export * from "./sourceControl";
+export * from "./variable";
+export * from "./watcher";
+
+// Export enums:
+export * from "../../types/enums/automation/v20200113preview";
 
 // Import resources to register:
+import { AutomationAccount } from "./automationAccount";
+import { Certificate } from "./certificate";
+import { Connection } from "./connection";
+import { ConnectionType } from "./connectionType";
+import { Credential } from "./credential";
+import { DscNodeConfiguration } from "./dscNodeConfiguration";
+import { JobSchedule } from "./jobSchedule";
+import { Module } from "./module";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
+import { Python2Package } from "./python2Package";
+import { Schedule } from "./schedule";
+import { SourceControl } from "./sourceControl";
+import { Variable } from "./variable";
+import { Watcher } from "./watcher";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:automation/v20200113preview:AutomationAccount":
+                return new AutomationAccount(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:Connection":
+                return new Connection(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:ConnectionType":
+                return new ConnectionType(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:Credential":
+                return new Credential(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:DscNodeConfiguration":
+                return new DscNodeConfiguration(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:JobSchedule":
+                return new JobSchedule(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:Module":
+                return new Module(name, <any>undefined, { urn })
             case "azure-nextgen:automation/v20200113preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:Python2Package":
+                return new Python2Package(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:Schedule":
+                return new Schedule(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:SourceControl":
+                return new SourceControl(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:Variable":
+                return new Variable(name, <any>undefined, { urn })
+            case "azure-nextgen:automation/v20200113preview:Watcher":
+                return new Watcher(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

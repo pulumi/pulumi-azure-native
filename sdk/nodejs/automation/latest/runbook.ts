@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the runbook type.
- * Latest API Version: 2018-06-30.
+ * Latest API Version: 2019-06-01.
  */
 export class Runbook extends pulumi.CustomResource {
     /**
@@ -191,7 +191,7 @@ export class Runbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Runbook" }, { type: "azure-nextgen:automation/v20180630:Runbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Runbook" }, { type: "azure-nextgen:automation/v20180630:Runbook" }, { type: "azure-nextgen:automation/v20190601:Runbook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Runbook.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the schedule.
- * Latest API Version: 2015-10-31.
+ * Latest API Version: 2019-06-01.
  */
 export class Schedule extends pulumi.CustomResource {
     /**
@@ -173,7 +173,7 @@ export class Schedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Schedule" }, { type: "azure-nextgen:automation/v20190601:Schedule" }, { type: "azure-nextgen:automation/v20200113preview:Schedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Schedule.__pulumiType, name, inputs, opts);
     }

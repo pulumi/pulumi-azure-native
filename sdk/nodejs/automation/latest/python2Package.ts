@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the module type.
- * Latest API Version: 2018-06-30.
+ * Latest API Version: 2019-06-01.
  */
 export class Python2Package extends pulumi.CustomResource {
     /**
@@ -167,7 +167,7 @@ export class Python2Package extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20180630:Python2Package" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20180630:Python2Package" }, { type: "azure-nextgen:automation/v20190601:Python2Package" }, { type: "azure-nextgen:automation/v20200113preview:Python2Package" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Python2Package.__pulumiType, name, inputs, opts);
     }

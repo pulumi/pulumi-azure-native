@@ -12,7 +12,7 @@ import (
 )
 
 // Snapshot resource.
-// Latest API Version: 2020-06-30.
+// Latest API Version: 2020-09-30.
 type Snapshot struct {
 	pulumi.CustomResourceState
 
@@ -30,6 +30,8 @@ type Snapshot struct {
 	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
 	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
 	EncryptionSettingsCollection EncryptionSettingsCollectionResponsePtrOutput `pulumi:"encryptionSettingsCollection"`
+	// The extended location where the snapshot will be created. Extended location cannot be changed.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
 	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
@@ -46,7 +48,9 @@ type Snapshot struct {
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// The disk provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+	// Purchase plan information for the image from which the source disk for the snapshot was originally created.
+	PurchasePlan PurchasePlanResponsePtrOutput `pulumi:"purchasePlan"`
+	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 	Sku SnapshotSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -108,6 +112,9 @@ func NewSnapshot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200630:Snapshot"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20200930:Snapshot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Snapshot
@@ -146,6 +153,8 @@ type snapshotState struct {
 	Encryption *EncryptionResponse `pulumi:"encryption"`
 	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
 	EncryptionSettingsCollection *EncryptionSettingsCollectionResponse `pulumi:"encryptionSettingsCollection"`
+	// The extended location where the snapshot will be created. Extended location cannot be changed.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
@@ -162,7 +171,9 @@ type snapshotState struct {
 	OsType *string `pulumi:"osType"`
 	// The disk provisioning state.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+	// Purchase plan information for the image from which the source disk for the snapshot was originally created.
+	PurchasePlan *PurchasePlanResponse `pulumi:"purchasePlan"`
+	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 	Sku *SnapshotSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -189,6 +200,8 @@ type SnapshotState struct {
 	Encryption EncryptionResponsePtrInput
 	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
 	EncryptionSettingsCollection EncryptionSettingsCollectionResponsePtrInput
+	// The extended location where the snapshot will be created. Extended location cannot be changed.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration pulumi.StringPtrInput
 	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
@@ -205,7 +218,9 @@ type SnapshotState struct {
 	OsType pulumi.StringPtrInput
 	// The disk provisioning state.
 	ProvisioningState pulumi.StringPtrInput
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+	// Purchase plan information for the image from which the source disk for the snapshot was originally created.
+	PurchasePlan PurchasePlanResponsePtrInput
+	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 	Sku SnapshotSkuResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
@@ -232,6 +247,8 @@ type snapshotArgs struct {
 	Encryption *Encryption `pulumi:"encryption"`
 	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
 	EncryptionSettingsCollection *EncryptionSettingsCollection `pulumi:"encryptionSettingsCollection"`
+	// The extended location where the snapshot will be created. Extended location cannot be changed.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
@@ -242,9 +259,11 @@ type snapshotArgs struct {
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// The Operating System type.
 	OsType *string `pulumi:"osType"`
+	// Purchase plan information for the image from which the source disk for the snapshot was originally created.
+	PurchasePlan *PurchasePlan `pulumi:"purchasePlan"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 	Sku *SnapshotSku `pulumi:"sku"`
 	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
 	SnapshotName string `pulumi:"snapshotName"`
@@ -264,6 +283,8 @@ type SnapshotArgs struct {
 	Encryption EncryptionPtrInput
 	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
 	EncryptionSettingsCollection EncryptionSettingsCollectionPtrInput
+	// The extended location where the snapshot will be created. Extended location cannot be changed.
+	ExtendedLocation ExtendedLocationPtrInput
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration pulumi.StringPtrInput
 	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
@@ -274,9 +295,11 @@ type SnapshotArgs struct {
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// The Operating System type.
 	OsType OperatingSystemTypes
+	// Purchase plan information for the image from which the source disk for the snapshot was originally created.
+	PurchasePlan PurchasePlanPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 	Sku SnapshotSkuPtrInput
 	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
 	SnapshotName pulumi.StringInput

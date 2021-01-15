@@ -12,12 +12,12 @@ import (
 )
 
 // disk encryption set resource.
-// Latest API Version: 2020-06-30.
+// Latest API Version: 2020-09-30.
 type DiskEncryptionSet struct {
 	pulumi.CustomResourceState
 
 	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey KeyVaultAndKeyReferenceResponsePtrOutput `pulumi:"activeKey"`
+	ActiveKey KeyForDiskEncryptionSetResponsePtrOutput `pulumi:"activeKey"`
 	// The type of key used to encrypt the data of the disk.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
@@ -27,7 +27,7 @@ type DiskEncryptionSet struct {
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys KeyVaultAndKeyReferenceResponseArrayOutput `pulumi:"previousKeys"`
+	PreviousKeys KeyForDiskEncryptionSetResponseArrayOutput `pulumi:"previousKeys"`
 	// The disk encryption set provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags
@@ -65,6 +65,9 @@ func NewDiskEncryptionSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200630:DiskEncryptionSet"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20200930:DiskEncryptionSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DiskEncryptionSet
@@ -90,7 +93,7 @@ func GetDiskEncryptionSet(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DiskEncryptionSet resources.
 type diskEncryptionSetState struct {
 	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey *KeyVaultAndKeyReferenceResponse `pulumi:"activeKey"`
+	ActiveKey *KeyForDiskEncryptionSetResponse `pulumi:"activeKey"`
 	// The type of key used to encrypt the data of the disk.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
@@ -100,7 +103,7 @@ type diskEncryptionSetState struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys []KeyVaultAndKeyReferenceResponse `pulumi:"previousKeys"`
+	PreviousKeys []KeyForDiskEncryptionSetResponse `pulumi:"previousKeys"`
 	// The disk encryption set provisioning state.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
@@ -111,7 +114,7 @@ type diskEncryptionSetState struct {
 
 type DiskEncryptionSetState struct {
 	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey KeyVaultAndKeyReferenceResponsePtrInput
+	ActiveKey KeyForDiskEncryptionSetResponsePtrInput
 	// The type of key used to encrypt the data of the disk.
 	EncryptionType pulumi.StringPtrInput
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
@@ -121,7 +124,7 @@ type DiskEncryptionSetState struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys KeyVaultAndKeyReferenceResponseArrayInput
+	PreviousKeys KeyForDiskEncryptionSetResponseArrayInput
 	// The disk encryption set provisioning state.
 	ProvisioningState pulumi.StringPtrInput
 	// Resource tags
@@ -136,7 +139,7 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 
 type diskEncryptionSetArgs struct {
 	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey *KeyVaultAndKeyReference `pulumi:"activeKey"`
+	ActiveKey *KeyForDiskEncryptionSet `pulumi:"activeKey"`
 	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
 	DiskEncryptionSetName string `pulumi:"diskEncryptionSetName"`
 	// The type of key used to encrypt the data of the disk.
@@ -154,7 +157,7 @@ type diskEncryptionSetArgs struct {
 // The set of arguments for constructing a DiskEncryptionSet resource.
 type DiskEncryptionSetArgs struct {
 	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey KeyVaultAndKeyReferencePtrInput
+	ActiveKey KeyForDiskEncryptionSetPtrInput
 	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
 	DiskEncryptionSetName pulumi.StringInput
 	// The type of key used to encrypt the data of the disk.

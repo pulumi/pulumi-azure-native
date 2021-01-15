@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the automation account type.
- * Latest API Version: 2015-10-31.
+ * Latest API Version: 2019-06-01.
  */
 export class AutomationAccount extends pulumi.CustomResource {
     /**
@@ -130,7 +130,7 @@ export class AutomationAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:AutomationAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:AutomationAccount" }, { type: "azure-nextgen:automation/v20190601:AutomationAccount" }, { type: "azure-nextgen:automation/v20200113preview:AutomationAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AutomationAccount.__pulumiType, name, inputs, opts);
     }

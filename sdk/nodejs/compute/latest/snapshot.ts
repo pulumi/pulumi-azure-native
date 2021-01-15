@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Snapshot resource.
- * Latest API Version: 2020-06-30.
+ * Latest API Version: 2020-09-30.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -65,6 +65,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly encryptionSettingsCollection!: pulumi.Output<outputs.compute.latest.EncryptionSettingsCollectionResponse | undefined>;
     /**
+     * The extended location where the snapshot will be created. Extended location cannot be changed.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.compute.latest.ExtendedLocationResponse | undefined>;
+    /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
@@ -97,7 +101,11 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+     * Purchase plan information for the image from which the source disk for the snapshot was originally created.
+     */
+    public readonly purchasePlan!: pulumi.Output<outputs.compute.latest.PurchasePlanResponse | undefined>;
+    /**
+     * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
     public readonly sku!: pulumi.Output<outputs.compute.latest.SnapshotSkuResponse | undefined>;
     /**
@@ -144,11 +152,13 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
             inputs["incremental"] = args ? args.incremental : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
             inputs["osType"] = args ? args.osType : undefined;
+            inputs["purchasePlan"] = args ? args.purchasePlan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["snapshotName"] = args ? args.snapshotName : undefined;
@@ -169,6 +179,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["diskState"] = undefined /*out*/;
             inputs["encryption"] = undefined /*out*/;
             inputs["encryptionSettingsCollection"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["hyperVGeneration"] = undefined /*out*/;
             inputs["incremental"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -177,6 +188,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["networkAccessPolicy"] = undefined /*out*/;
             inputs["osType"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["purchasePlan"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeCreated"] = undefined /*out*/;
@@ -190,7 +202,7 @@ export class Snapshot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20160430preview:Snapshot" }, { type: "azure-nextgen:compute/v20170330:Snapshot" }, { type: "azure-nextgen:compute/v20180401:Snapshot" }, { type: "azure-nextgen:compute/v20180601:Snapshot" }, { type: "azure-nextgen:compute/v20180930:Snapshot" }, { type: "azure-nextgen:compute/v20190301:Snapshot" }, { type: "azure-nextgen:compute/v20190701:Snapshot" }, { type: "azure-nextgen:compute/v20191101:Snapshot" }, { type: "azure-nextgen:compute/v20200501:Snapshot" }, { type: "azure-nextgen:compute/v20200630:Snapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20160430preview:Snapshot" }, { type: "azure-nextgen:compute/v20170330:Snapshot" }, { type: "azure-nextgen:compute/v20180401:Snapshot" }, { type: "azure-nextgen:compute/v20180601:Snapshot" }, { type: "azure-nextgen:compute/v20180930:Snapshot" }, { type: "azure-nextgen:compute/v20190301:Snapshot" }, { type: "azure-nextgen:compute/v20190701:Snapshot" }, { type: "azure-nextgen:compute/v20191101:Snapshot" }, { type: "azure-nextgen:compute/v20200501:Snapshot" }, { type: "azure-nextgen:compute/v20200630:Snapshot" }, { type: "azure-nextgen:compute/v20200930:Snapshot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Snapshot.__pulumiType, name, inputs, opts);
     }
@@ -221,6 +233,10 @@ export interface SnapshotArgs {
      */
     readonly encryptionSettingsCollection?: pulumi.Input<inputs.compute.latest.EncryptionSettingsCollection>;
     /**
+     * The extended location where the snapshot will be created. Extended location cannot be changed.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.compute.latest.ExtendedLocation>;
+    /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
     readonly hyperVGeneration?: pulumi.Input<string | enums.compute.latest.HyperVGeneration>;
@@ -241,11 +257,15 @@ export interface SnapshotArgs {
      */
     readonly osType?: pulumi.Input<enums.compute.latest.OperatingSystemTypes>;
     /**
+     * Purchase plan information for the image from which the source disk for the snapshot was originally created.
+     */
+    readonly purchasePlan?: pulumi.Input<inputs.compute.latest.PurchasePlan>;
+    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+     * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
     readonly sku?: pulumi.Input<inputs.compute.latest.SnapshotSku>;
     /**

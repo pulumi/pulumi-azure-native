@@ -19,6 +19,7 @@ __all__ = [
     'DiskEncryptionSetType',
     'DiskStorageAccountTypes',
     'EncryptionType',
+    'ExtendedLocationTypes',
     'GallerySharingPermissionTypes',
     'HostCaching',
     'HyperVGeneration',
@@ -31,6 +32,7 @@ __all__ = [
     'OperatingSystemStateTypes',
     'OperatingSystemTypes',
     'PassNames',
+    'PrivateEndpointServiceConnectionStatus',
     'ProtocolTypes',
     'ProximityPlacementGroupType',
     'RebootIfNeeded',
@@ -137,9 +139,10 @@ class DiskCreateOptionTypes(str, Enum):
 
 class DiskEncryptionSetIdentityType(str, Enum):
     """
-    The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+    The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"
 
 
 class DiskEncryptionSetType(str, Enum):
@@ -167,6 +170,13 @@ class EncryptionType(str, Enum):
     ENCRYPTION_AT_REST_WITH_PLATFORM_KEY = "EncryptionAtRestWithPlatformKey"
     ENCRYPTION_AT_REST_WITH_CUSTOMER_KEY = "EncryptionAtRestWithCustomerKey"
     ENCRYPTION_AT_REST_WITH_PLATFORM_AND_CUSTOMER_KEYS = "EncryptionAtRestWithPlatformAndCustomerKeys"
+
+
+class ExtendedLocationTypes(str, Enum):
+    """
+    The type of the extended location.
+    """
+    EDGE_ZONE = "EdgeZone"
 
 
 class GallerySharingPermissionTypes(str, Enum):
@@ -266,6 +276,15 @@ class PassNames(str, Enum):
     The pass name. Currently, the only allowable value is OobeSystem.
     """
     OOBE_SYSTEM = "OobeSystem"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class ProtocolTypes(str, Enum):

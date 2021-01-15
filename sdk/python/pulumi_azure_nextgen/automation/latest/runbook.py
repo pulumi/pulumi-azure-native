@@ -36,7 +36,7 @@ class Runbook(pulumi.CustomResource):
                  __opts__=None):
         """
         Definition of the runbook type.
-        Latest API Version: 2018-06-30.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,7 +102,7 @@ class Runbook(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Runbook"), pulumi.Alias(type_="azure-nextgen:automation/v20180630:Runbook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Runbook"), pulumi.Alias(type_="azure-nextgen:automation/v20180630:Runbook"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Runbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Runbook, __self__).__init__(
             'azure-nextgen:automation/latest:Runbook',

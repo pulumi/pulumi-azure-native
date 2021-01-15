@@ -9,6 +9,7 @@ from .dedicated_host import *
 from .dedicated_host_group import *
 from .disk import *
 from .disk_access import *
+from .disk_access_a_private_endpoint_connection import *
 from .disk_encryption_set import *
 from .gallery import *
 from .gallery_application import *
@@ -20,6 +21,7 @@ from .get_dedicated_host import *
 from .get_dedicated_host_group import *
 from .get_disk import *
 from .get_disk_access import *
+from .get_disk_access_a_private_endpoint_connection import *
 from .get_disk_encryption_set import *
 from .get_gallery import *
 from .get_gallery_application import *
@@ -79,6 +81,8 @@ def _register_module():
                 return Disk(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:compute/latest:DiskAccess":
                 return DiskAccess(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection":
+                return DiskAccessAPrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:compute/latest:DiskEncryptionSet":
                 return DiskEncryptionSet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:compute/latest:Gallery":

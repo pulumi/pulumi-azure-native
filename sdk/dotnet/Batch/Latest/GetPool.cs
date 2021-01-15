@@ -83,6 +83,10 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The type of identity used for the Batch Pool.
+        /// </summary>
+        public readonly Outputs.BatchPoolIdentityResponse? Identity;
+        /// <summary>
         /// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
         /// </summary>
         public readonly string? InterNodeCommunication;
@@ -166,6 +170,8 @@ namespace Pulumi.AzureNextGen.Batch.Latest
 
             string id,
 
+            Outputs.BatchPoolIdentityResponse? identity,
+
             string? interNodeCommunication,
 
             string lastModified,
@@ -211,6 +217,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
             DisplayName = displayName;
             Etag = etag;
             Id = id;
+            Identity = identity;
             InterNodeCommunication = interNodeCommunication;
             LastModified = lastModified;
             Metadata = metadata;

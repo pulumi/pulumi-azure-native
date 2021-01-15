@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Snapshot resource.
-    /// Latest API Version: 2020-06-30.
+    /// Latest API Version: 2020-09-30.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:compute/latest:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
@@ -57,6 +57,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Output("encryptionSettingsCollection")]
         public Output<Outputs.EncryptionSettingsCollectionResponse?> EncryptionSettingsCollection { get; private set; } = null!;
+
+        /// <summary>
+        /// The extended location where the snapshot will be created. Extended location cannot be changed.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
@@ -107,7 +113,13 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+        /// Purchase plan information for the image from which the source disk for the snapshot was originally created.
+        /// </summary>
+        [Output("purchasePlan")]
+        public Output<Outputs.PurchasePlanResponse?> PurchasePlan { get; private set; } = null!;
+
+        /// <summary>
+        /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SnapshotSkuResponse?> Sku { get; private set; } = null!;
@@ -171,6 +183,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -225,6 +238,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         public Input<Inputs.EncryptionSettingsCollectionArgs>? EncryptionSettingsCollection { get; set; }
 
         /// <summary>
+        /// The extended location where the snapshot will be created. Extended location cannot be changed.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         [Input("hyperVGeneration")]
@@ -255,13 +274,19 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         public Input<Pulumi.AzureNextGen.Compute.Latest.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
+        /// Purchase plan information for the image from which the source disk for the snapshot was originally created.
+        /// </summary>
+        [Input("purchasePlan")]
+        public Input<Inputs.PurchasePlanArgs>? PurchasePlan { get; set; }
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+        /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SnapshotSkuArgs>? Sku { get; set; }

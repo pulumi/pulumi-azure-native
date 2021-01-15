@@ -24,7 +24,7 @@ class ApplicationPackage(pulumi.CustomResource):
                  __opts__=None):
         """
         An application package which represents a particular version of an application.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -70,7 +70,7 @@ class ApplicationPackage(pulumi.CustomResource):
             __props__['storage_url'] = None
             __props__['storage_url_expiry'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20151201:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20170101:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20170501:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20170901:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:ApplicationPackage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20151201:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20170101:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20170501:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20170901:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:ApplicationPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationPackage, __self__).__init__(
             'azure-nextgen:batch/latest:ApplicationPackage',

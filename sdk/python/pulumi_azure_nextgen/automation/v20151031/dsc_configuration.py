@@ -93,7 +93,7 @@ class DscConfiguration(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/latest:DscConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/latest:DscConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:DscConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DscConfiguration, __self__).__init__(
             'azure-nextgen:automation/v20151031:DscConfiguration',

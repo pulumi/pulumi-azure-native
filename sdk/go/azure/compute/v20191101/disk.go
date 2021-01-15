@@ -117,6 +117,9 @@ func NewDisk(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200630:Disk"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20200930:Disk"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Disk

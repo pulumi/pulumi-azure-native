@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// </summary>
         public readonly string LastModifiedTime;
         /// <summary>
-        /// The Azure Region where the resource lives
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string? Location;
         /// <summary>

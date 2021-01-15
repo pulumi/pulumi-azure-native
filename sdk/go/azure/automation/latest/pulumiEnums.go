@@ -38,6 +38,64 @@ func (e ContentSourceType) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Update classifications included in the software update configuration.
+type LinuxUpdateClasses pulumi.String
+
+const (
+	LinuxUpdateClassesUnclassified = LinuxUpdateClasses("Unclassified")
+	LinuxUpdateClassesCritical     = LinuxUpdateClasses("Critical")
+	LinuxUpdateClassesSecurity     = LinuxUpdateClasses("Security")
+	LinuxUpdateClassesOther        = LinuxUpdateClasses("Other")
+)
+
+func (LinuxUpdateClasses) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e LinuxUpdateClasses) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LinuxUpdateClasses) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LinuxUpdateClasses) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LinuxUpdateClasses) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// operating system of target machines
+type OperatingSystemType pulumi.String
+
+const (
+	OperatingSystemTypeWindows = OperatingSystemType("Windows")
+	OperatingSystemTypeLinux   = OperatingSystemType("Linux")
+)
+
+func (OperatingSystemType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e OperatingSystemType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OperatingSystemType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OperatingSystemType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OperatingSystemType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Gets or sets the type of the runbook.
 type RunbookTypeEnum pulumi.String
 
@@ -161,5 +219,125 @@ func (e SkuNameEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e SkuNameEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+type SourceType pulumi.String
+
+const (
+	SourceTypeVsoGit  = SourceType("VsoGit")
+	SourceTypeVsoTfvc = SourceType("VsoTfvc")
+	SourceTypeGitHub  = SourceType("GitHub")
+)
+
+func (SourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Filter VMs by Any or All specified tags.
+type TagOperators pulumi.String
+
+const (
+	TagOperatorsAll = TagOperators("All")
+	TagOperatorsAny = TagOperators("Any")
+)
+
+func (TagOperators) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e TagOperators) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TagOperators) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TagOperators) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TagOperators) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The token type. Must be either PersonalAccessToken or Oauth.
+type TokenType pulumi.String
+
+const (
+	TokenTypePersonalAccessToken = TokenType("PersonalAccessToken")
+	TokenTypeOauth               = TokenType("Oauth")
+)
+
+func (TokenType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e TokenType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TokenType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TokenType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TokenType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Update classification included in the software update configuration. A comma separated string with required values
+type WindowsUpdateClasses pulumi.String
+
+const (
+	WindowsUpdateClassesUnclassified = WindowsUpdateClasses("Unclassified")
+	WindowsUpdateClassesCritical     = WindowsUpdateClasses("Critical")
+	WindowsUpdateClassesSecurity     = WindowsUpdateClasses("Security")
+	WindowsUpdateClassesUpdateRollup = WindowsUpdateClasses("UpdateRollup")
+	WindowsUpdateClassesFeaturePack  = WindowsUpdateClasses("FeaturePack")
+	WindowsUpdateClassesServicePack  = WindowsUpdateClasses("ServicePack")
+	WindowsUpdateClassesDefinition   = WindowsUpdateClasses("Definition")
+	WindowsUpdateClassesTools        = WindowsUpdateClasses("Tools")
+	WindowsUpdateClassesUpdates      = WindowsUpdateClasses("Updates")
+)
+
+func (WindowsUpdateClasses) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e WindowsUpdateClasses) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WindowsUpdateClasses) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WindowsUpdateClasses) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WindowsUpdateClasses) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

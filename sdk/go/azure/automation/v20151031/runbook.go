@@ -83,6 +83,9 @@ func NewRunbook(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20180630:Runbook"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Runbook"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Runbook

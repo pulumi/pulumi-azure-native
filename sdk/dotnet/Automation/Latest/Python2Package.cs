@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 {
     /// <summary>
     /// Definition of the module type.
-    /// Latest API Version: 2018-06-30.
+    /// Latest API Version: 2019-06-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:automation/latest:Python2Package")]
     public partial class Python2Package : Pulumi.CustomResource
@@ -138,6 +138,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20180630:Python2Package"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Python2Package"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Python2Package"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

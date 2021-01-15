@@ -98,6 +98,11 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-nextgen:confluent/latest:Organization"},
+                    new Pulumi.Alias { Type = "azure-nextgen:confluent/v20200301:Organization"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

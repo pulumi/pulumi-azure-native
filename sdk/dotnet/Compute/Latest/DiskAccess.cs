@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// disk access resource.
-    /// Latest API Version: 2020-06-30.
+    /// Latest API Version: 2020-09-30.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:compute/latest:DiskAccess")]
     public partial class DiskAccess : Pulumi.CustomResource
@@ -85,6 +85,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:DiskAccess"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskAccess"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

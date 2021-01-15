@@ -57,29 +57,40 @@ class AttestationServiceCreationSpecificParamsArgs:
 @pulumi.input_type
 class JSONWebKeyArgs:
     def __init__(__self__, *,
-                 alg: pulumi.Input[str],
-                 kid: pulumi.Input[str],
                  kty: pulumi.Input[str],
-                 use: pulumi.Input[str],
+                 alg: Optional[pulumi.Input[str]] = None,
                  crv: Optional[pulumi.Input[str]] = None,
                  d: Optional[pulumi.Input[str]] = None,
                  dp: Optional[pulumi.Input[str]] = None,
                  dq: Optional[pulumi.Input[str]] = None,
                  e: Optional[pulumi.Input[str]] = None,
                  k: Optional[pulumi.Input[str]] = None,
+                 kid: Optional[pulumi.Input[str]] = None,
                  n: Optional[pulumi.Input[str]] = None,
                  p: Optional[pulumi.Input[str]] = None,
                  q: Optional[pulumi.Input[str]] = None,
                  qi: Optional[pulumi.Input[str]] = None,
+                 use: Optional[pulumi.Input[str]] = None,
                  x: Optional[pulumi.Input[str]] = None,
                  x5c: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  y: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] kty: The "kty" (key type) parameter identifies the cryptographic algorithm
+               family used with the key, such as "RSA" or "EC". "kty" values should
+               either be registered in the IANA "JSON Web Key Types" registry
+               established by [JWA] or be a value that contains a Collision-
+               Resistant Name.  The "kty" value is a case-sensitive string.
         :param pulumi.Input[str] alg: The "alg" (algorithm) parameter identifies the algorithm intended for
                use with the key.  The values used should either be registered in the
                IANA "JSON Web Signature and Encryption Algorithms" registry
                established by [JWA] or be a value that contains a Collision-
                Resistant Name.
+        :param pulumi.Input[str] crv: The "crv" (curve) parameter identifies the curve type
+        :param pulumi.Input[str] d: RSA private exponent or ECC private key
+        :param pulumi.Input[str] dp: RSA Private Key Parameter
+        :param pulumi.Input[str] dq: RSA Private Key Parameter
+        :param pulumi.Input[str] e: RSA public exponent, in Base64
+        :param pulumi.Input[str] k: Symmetric key
         :param pulumi.Input[str] kid: The "kid" (key ID) parameter is used to match a specific key.  This
                is used, for instance, to choose among a set of keys within a JWK Set
                during key rollover.  The structure of the "kid" value is
@@ -89,25 +100,14 @@ class JSONWebKeyArgs:
                they have different "kty" (key type) values but are considered to be
                equivalent alternatives by the application using them.)  The "kid"
                value is a case-sensitive string.
-        :param pulumi.Input[str] kty: The "kty" (key type) parameter identifies the cryptographic algorithm
-               family used with the key, such as "RSA" or "EC". "kty" values should
-               either be registered in the IANA "JSON Web Key Types" registry
-               established by [JWA] or be a value that contains a Collision-
-               Resistant Name.  The "kty" value is a case-sensitive string.
-        :param pulumi.Input[str] use: Use ("public key use") identifies the intended use of
-               the public key. The "use" parameter is employed to indicate whether
-               a public key is used for encrypting data or verifying the signature
-               on data. Values are commonly "sig" (signature) or "enc" (encryption).
-        :param pulumi.Input[str] crv: The "crv" (curve) parameter identifies the curve type
-        :param pulumi.Input[str] d: RSA private exponent or ECC private key
-        :param pulumi.Input[str] dp: RSA Private Key Parameter
-        :param pulumi.Input[str] dq: RSA Private Key Parameter
-        :param pulumi.Input[str] e: RSA public exponent, in Base64
-        :param pulumi.Input[str] k: Symmetric key
         :param pulumi.Input[str] n: RSA modulus, in Base64
         :param pulumi.Input[str] p: RSA secret prime
         :param pulumi.Input[str] q: RSA secret prime, with p < q
         :param pulumi.Input[str] qi: RSA Private Key Parameter
+        :param pulumi.Input[str] use: Use ("public key use") identifies the intended use of
+               the public key. The "use" parameter is employed to indicate whether
+               a public key is used for encrypting data or verifying the signature
+               on data. Values are commonly "sig" (signature) or "enc" (encryption).
         :param pulumi.Input[str] x: X coordinate for the Elliptic Curve point
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x5c: The "x5c" (X.509 certificate chain) parameter contains a chain of one
                or more PKIX certificates [RFC5280].  The certificate chain is
@@ -118,10 +118,9 @@ class JSONWebKeyArgs:
                certificate.
         :param pulumi.Input[str] y: Y coordinate for the Elliptic Curve point
         """
-        pulumi.set(__self__, "alg", alg)
-        pulumi.set(__self__, "kid", kid)
         pulumi.set(__self__, "kty", kty)
-        pulumi.set(__self__, "use", use)
+        if alg is not None:
+            pulumi.set(__self__, "alg", alg)
         if crv is not None:
             pulumi.set(__self__, "crv", crv)
         if d is not None:
@@ -134,6 +133,8 @@ class JSONWebKeyArgs:
             pulumi.set(__self__, "e", e)
         if k is not None:
             pulumi.set(__self__, "k", k)
+        if kid is not None:
+            pulumi.set(__self__, "kid", kid)
         if n is not None:
             pulumi.set(__self__, "n", n)
         if p is not None:
@@ -142,48 +143,14 @@ class JSONWebKeyArgs:
             pulumi.set(__self__, "q", q)
         if qi is not None:
             pulumi.set(__self__, "qi", qi)
+        if use is not None:
+            pulumi.set(__self__, "use", use)
         if x is not None:
             pulumi.set(__self__, "x", x)
         if x5c is not None:
             pulumi.set(__self__, "x5c", x5c)
         if y is not None:
             pulumi.set(__self__, "y", y)
-
-    @property
-    @pulumi.getter
-    def alg(self) -> pulumi.Input[str]:
-        """
-        The "alg" (algorithm) parameter identifies the algorithm intended for
-        use with the key.  The values used should either be registered in the
-        IANA "JSON Web Signature and Encryption Algorithms" registry
-        established by [JWA] or be a value that contains a Collision-
-        Resistant Name.
-        """
-        return pulumi.get(self, "alg")
-
-    @alg.setter
-    def alg(self, value: pulumi.Input[str]):
-        pulumi.set(self, "alg", value)
-
-    @property
-    @pulumi.getter
-    def kid(self) -> pulumi.Input[str]:
-        """
-        The "kid" (key ID) parameter is used to match a specific key.  This
-        is used, for instance, to choose among a set of keys within a JWK Set
-        during key rollover.  The structure of the "kid" value is
-        unspecified.  When "kid" values are used within a JWK Set, different
-        keys within the JWK Set SHOULD use distinct "kid" values.  (One
-        example in which different keys might use the same "kid" value is if
-        they have different "kty" (key type) values but are considered to be
-        equivalent alternatives by the application using them.)  The "kid"
-        value is a case-sensitive string.
-        """
-        return pulumi.get(self, "kid")
-
-    @kid.setter
-    def kid(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kid", value)
 
     @property
     @pulumi.getter
@@ -203,18 +170,19 @@ class JSONWebKeyArgs:
 
     @property
     @pulumi.getter
-    def use(self) -> pulumi.Input[str]:
+    def alg(self) -> Optional[pulumi.Input[str]]:
         """
-        Use ("public key use") identifies the intended use of
-        the public key. The "use" parameter is employed to indicate whether
-        a public key is used for encrypting data or verifying the signature
-        on data. Values are commonly "sig" (signature) or "enc" (encryption).
+        The "alg" (algorithm) parameter identifies the algorithm intended for
+        use with the key.  The values used should either be registered in the
+        IANA "JSON Web Signature and Encryption Algorithms" registry
+        established by [JWA] or be a value that contains a Collision-
+        Resistant Name.
         """
-        return pulumi.get(self, "use")
+        return pulumi.get(self, "alg")
 
-    @use.setter
-    def use(self, value: pulumi.Input[str]):
-        pulumi.set(self, "use", value)
+    @alg.setter
+    def alg(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alg", value)
 
     @property
     @pulumi.getter
@@ -290,6 +258,26 @@ class JSONWebKeyArgs:
 
     @property
     @pulumi.getter
+    def kid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The "kid" (key ID) parameter is used to match a specific key.  This
+        is used, for instance, to choose among a set of keys within a JWK Set
+        during key rollover.  The structure of the "kid" value is
+        unspecified.  When "kid" values are used within a JWK Set, different
+        keys within the JWK Set SHOULD use distinct "kid" values.  (One
+        example in which different keys might use the same "kid" value is if
+        they have different "kty" (key type) values but are considered to be
+        equivalent alternatives by the application using them.)  The "kid"
+        value is a case-sensitive string.
+        """
+        return pulumi.get(self, "kid")
+
+    @kid.setter
+    def kid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kid", value)
+
+    @property
+    @pulumi.getter
     def n(self) -> Optional[pulumi.Input[str]]:
         """
         RSA modulus, in Base64
@@ -335,6 +323,21 @@ class JSONWebKeyArgs:
     @qi.setter
     def qi(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "qi", value)
+
+    @property
+    @pulumi.getter
+    def use(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use ("public key use") identifies the intended use of
+        the public key. The "use" parameter is employed to indicate whether
+        a public key is used for encrypting data or verifying the signature
+        on data. Values are commonly "sig" (signature) or "enc" (encryption).
+        """
+        return pulumi.get(self, "use")
+
+    @use.setter
+    def use(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "use", value)
 
     @property
     @pulumi.getter

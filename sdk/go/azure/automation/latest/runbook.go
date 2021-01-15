@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the runbook type.
-// Latest API Version: 2018-06-30.
+// Latest API Version: 2019-06-01.
 type Runbook struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +83,9 @@ func NewRunbook(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20180630:Runbook"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Runbook"),
 		},
 	})
 	opts = append(opts, aliases)

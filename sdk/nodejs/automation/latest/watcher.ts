@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the watcher type.
- * Latest API Version: 2015-10-31.
+ * Latest API Version: 2019-06-01.
  */
 export class Watcher extends pulumi.CustomResource {
     /**
@@ -60,7 +60,7 @@ export class Watcher extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
-     * The Azure Region where the resource lives
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export class Watcher extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Watcher" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Watcher" }, { type: "azure-nextgen:automation/v20190601:Watcher" }, { type: "azure-nextgen:automation/v20200113preview:Watcher" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Watcher.__pulumiType, name, inputs, opts);
     }
@@ -178,7 +178,7 @@ export interface WatcherArgs {
      */
     readonly executionFrequencyInSeconds?: pulumi.Input<number>;
     /**
-     * The Azure Region where the resource lives
+     * The geo-location where the resource lives
      */
     readonly location?: pulumi.Input<string>;
     /**

@@ -61,6 +61,15 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	if args.UpdateConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'UpdateConfiguration'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SoftwareUpdateConfigurationByName
 	err := ctx.RegisterResource("azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName", name, args, &resource, opts...)
 	if err != nil {

@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the job schedule.
-// Latest API Version: 2015-10-31.
+// Latest API Version: 2019-06-01.
 type JobSchedule struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +57,12 @@ func NewJobSchedule(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:JobSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:JobSchedule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:JobSchedule"),
 		},
 	})
 	opts = append(opts, aliases)

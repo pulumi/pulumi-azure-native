@@ -35,6 +35,10 @@ export interface GetDiskArgs {
  */
 export interface GetDiskResult {
     /**
+     * Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+     */
+    readonly burstingEnabled?: boolean;
+    /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
     readonly creationData: outputs.compute.latest.CreationDataResponse;
@@ -79,6 +83,10 @@ export interface GetDiskResult {
      */
     readonly encryptionSettingsCollection?: outputs.compute.latest.EncryptionSettingsCollectionResponse;
     /**
+     * The extended location where the disk will be created. Extended location cannot be changed.
+     */
+    readonly extendedLocation?: outputs.compute.latest.ExtendedLocationResponse;
+    /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
     readonly hyperVGeneration?: string;
@@ -118,6 +126,10 @@ export interface GetDiskResult {
      * The disk provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+     */
+    readonly purchasePlan?: outputs.compute.latest.PurchasePlanResponse;
     /**
      * Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
      */

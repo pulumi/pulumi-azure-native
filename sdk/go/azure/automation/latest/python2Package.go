@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the module type.
-// Latest API Version: 2018-06-30.
+// Latest API Version: 2019-06-01.
 type Python2Package struct {
 	pulumi.CustomResourceState
 
@@ -72,6 +72,12 @@ func NewPython2Package(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20180630:Python2Package"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Python2Package"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Python2Package"),
 		},
 	})
 	opts = append(opts, aliases)

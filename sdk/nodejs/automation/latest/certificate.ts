@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the certificate.
- * Latest API Version: 2015-10-31.
+ * Latest API Version: 2019-06-01.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -122,7 +122,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Certificate" }, { type: "azure-nextgen:automation/v20190601:Certificate" }, { type: "azure-nextgen:automation/v20200113preview:Certificate" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Certificate.__pulumiType, name, inputs, opts);
     }

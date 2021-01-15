@@ -137,6 +137,8 @@ namespace Pulumi.AzureNextGen.Automation.V20180630
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Python2Package"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Python2Package"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Python2Package"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

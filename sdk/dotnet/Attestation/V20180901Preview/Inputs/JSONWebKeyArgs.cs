@@ -19,8 +19,8 @@ namespace Pulumi.AzureNextGen.Attestation.V20180901Preview.Inputs
         /// established by [JWA] or be a value that contains a Collision-
         /// Resistant Name.
         /// </summary>
-        [Input("alg", required: true)]
-        public Input<string> Alg { get; set; } = null!;
+        [Input("alg")]
+        public Input<string>? Alg { get; set; }
 
         /// <summary>
         /// The "crv" (curve) parameter identifies the curve type
@@ -69,8 +69,8 @@ namespace Pulumi.AzureNextGen.Attestation.V20180901Preview.Inputs
         /// equivalent alternatives by the application using them.)  The "kid"
         /// value is a case-sensitive string.
         /// </summary>
-        [Input("kid", required: true)]
-        public Input<string> Kid { get; set; } = null!;
+        [Input("kid")]
+        public Input<string>? Kid { get; set; }
 
         /// <summary>
         /// The "kty" (key type) parameter identifies the cryptographic algorithm
@@ -112,8 +112,8 @@ namespace Pulumi.AzureNextGen.Attestation.V20180901Preview.Inputs
         /// a public key is used for encrypting data or verifying the signature
         /// on data. Values are commonly "sig" (signature) or "enc" (encryption).
         /// </summary>
-        [Input("use", required: true)]
-        public Input<string> Use { get; set; } = null!;
+        [Input("use")]
+        public Input<string>? Use { get; set; }
 
         /// <summary>
         /// X coordinate for the Elliptic Curve point

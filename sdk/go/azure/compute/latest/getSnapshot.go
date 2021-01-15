@@ -39,6 +39,8 @@ type LookupSnapshotResult struct {
 	Encryption *EncryptionResponse `pulumi:"encryption"`
 	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
 	EncryptionSettingsCollection *EncryptionSettingsCollectionResponse `pulumi:"encryptionSettingsCollection"`
+	// The extended location where the snapshot will be created. Extended location cannot be changed.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource Id
@@ -57,7 +59,9 @@ type LookupSnapshotResult struct {
 	OsType *string `pulumi:"osType"`
 	// The disk provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+	// Purchase plan information for the image from which the source disk for the snapshot was originally created.
+	PurchasePlan *PurchasePlanResponse `pulumi:"purchasePlan"`
+	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 	Sku *SnapshotSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`

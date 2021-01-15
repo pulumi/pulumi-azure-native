@@ -116,6 +116,7 @@ namespace Pulumi.AzureNextGen.Batch.V20181201
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:BatchAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

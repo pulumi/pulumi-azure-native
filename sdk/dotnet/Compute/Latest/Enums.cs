@@ -346,7 +346,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     }
 
     /// <summary>
-    /// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+    /// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
     /// </summary>
     [EnumType]
     public readonly struct DiskEncryptionSetIdentityType : IEquatable<DiskEncryptionSetIdentityType>
@@ -359,6 +359,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         }
 
         public static DiskEncryptionSetIdentityType SystemAssigned { get; } = new DiskEncryptionSetIdentityType("SystemAssigned");
+        public static DiskEncryptionSetIdentityType None { get; } = new DiskEncryptionSetIdentityType("None");
 
         public static bool operator ==(DiskEncryptionSetIdentityType left, DiskEncryptionSetIdentityType right) => left.Equals(right);
         public static bool operator !=(DiskEncryptionSetIdentityType left, DiskEncryptionSetIdentityType right) => !left.Equals(right);
@@ -491,6 +492,36 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EncryptionType other && Equals(other);
         public bool Equals(EncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the extended location.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationTypes : IEquatable<ExtendedLocationTypes>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExtendedLocationTypes EdgeZone { get; } = new ExtendedLocationTypes("EdgeZone");
+
+        public static bool operator ==(ExtendedLocationTypes left, ExtendedLocationTypes right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationTypes left, ExtendedLocationTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
+        public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -881,6 +912,38 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PassNames other && Equals(other);
         public bool Equals(PassNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointServiceConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
+        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
+        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
+
+        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
+        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

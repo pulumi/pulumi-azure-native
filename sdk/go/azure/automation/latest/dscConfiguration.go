@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the configuration type.
-// Latest API Version: 2015-10-31.
+// Latest API Version: 2019-06-01.
 type DscConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -70,6 +70,9 @@ func NewDscConfiguration(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:DscConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:DscConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -29,7 +29,7 @@ class Module(pulumi.CustomResource):
                  __opts__=None):
         """
         Definition of the module type.
-        Latest API Version: 2015-10-31.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -85,7 +85,7 @@ class Module(pulumi.CustomResource):
             __props__['size_in_bytes'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Module")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Module"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Module"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Module")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Module, __self__).__init__(
             'azure-nextgen:automation/latest:Module',

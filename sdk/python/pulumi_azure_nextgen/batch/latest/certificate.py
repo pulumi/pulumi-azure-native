@@ -30,7 +30,7 @@ class Certificate(pulumi.CustomResource):
                  __opts__=None):
         """
         Contains information about a certificate.
-        Latest API Version: 2020-09-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -85,7 +85,7 @@ class Certificate(pulumi.CustomResource):
             __props__['provisioning_state_transition_time'] = None
             __props__['public_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20170901:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20170901:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Certificate"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-nextgen:batch/latest:Certificate',

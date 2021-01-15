@@ -25,7 +25,7 @@ class DiskAccess(pulumi.CustomResource):
                  __opts__=None):
         """
         disk access resource.
-        Latest API Version: 2020-06-30.
+        Latest API Version: 2020-09-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -66,7 +66,7 @@ class DiskAccess(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['time_created'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20200501:DiskAccess"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:DiskAccess")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20200501:DiskAccess"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:DiskAccess"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:DiskAccess")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskAccess, __self__).__init__(
             'azure-nextgen:compute/latest:DiskAccess',

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// disk encryption set resource.
-    /// Latest API Version: 2020-06-30.
+    /// Latest API Version: 2020-09-30.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:compute/latest:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : Pulumi.CustomResource
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// The key vault key which is currently used by this disk encryption set.
         /// </summary>
         [Output("activeKey")]
-        public Output<Outputs.KeyVaultAndKeyReferenceResponse?> ActiveKey { get; private set; } = null!;
+        public Output<Outputs.KeyForDiskEncryptionSetResponse?> ActiveKey { get; private set; } = null!;
 
         /// <summary>
         /// The type of key used to encrypt the data of the disk.
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
         /// </summary>
         [Output("previousKeys")]
-        public Output<ImmutableArray<Outputs.KeyVaultAndKeyReferenceResponse>> PreviousKeys { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.KeyForDiskEncryptionSetResponse>> PreviousKeys { get; private set; } = null!;
 
         /// <summary>
         /// The disk encryption set provisioning state.
@@ -99,6 +99,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:DiskEncryptionSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskEncryptionSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -126,7 +127,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// The key vault key which is currently used by this disk encryption set.
         /// </summary>
         [Input("activeKey")]
-        public Input<Inputs.KeyVaultAndKeyReferenceArgs>? ActiveKey { get; set; }
+        public Input<Inputs.KeyForDiskEncryptionSetArgs>? ActiveKey { get; set; }
 
         /// <summary>
         /// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.

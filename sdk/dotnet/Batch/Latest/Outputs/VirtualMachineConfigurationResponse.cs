@@ -25,6 +25,10 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Outputs
         /// If specified, encryption is performed on each node in the pool during node provisioning.
         /// </summary>
         public readonly Outputs.DiskEncryptionConfigurationResponse? DiskEncryptionConfiguration;
+        /// <summary>
+        /// If specified, the extensions mentioned in this configuration will be installed on each node.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VMExtensionResponse> Extensions;
         public readonly Outputs.ImageReferenceResponse ImageReference;
         /// <summary>
         /// This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
@@ -38,6 +42,10 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Outputs
         /// </summary>
         public readonly string NodeAgentSkuId;
         /// <summary>
+        /// This configuration will specify rules on how nodes in the pool will be physically allocated.
+        /// </summary>
+        public readonly Outputs.NodePlacementConfigurationResponse? NodePlacementConfiguration;
+        /// <summary>
         /// This property must not be specified if the imageReference specifies a Linux OS image.
         /// </summary>
         public readonly Outputs.WindowsConfigurationResponse? WindowsConfiguration;
@@ -50,20 +58,26 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Outputs
 
             Outputs.DiskEncryptionConfigurationResponse? diskEncryptionConfiguration,
 
+            ImmutableArray<Outputs.VMExtensionResponse> extensions,
+
             Outputs.ImageReferenceResponse imageReference,
 
             string? licenseType,
 
             string nodeAgentSkuId,
 
+            Outputs.NodePlacementConfigurationResponse? nodePlacementConfiguration,
+
             Outputs.WindowsConfigurationResponse? windowsConfiguration)
         {
             ContainerConfiguration = containerConfiguration;
             DataDisks = dataDisks;
             DiskEncryptionConfiguration = diskEncryptionConfiguration;
+            Extensions = extensions;
             ImageReference = imageReference;
             LicenseType = licenseType;
             NodeAgentSkuId = nodeAgentSkuId;
+            NodePlacementConfiguration = nodePlacementConfiguration;
             WindowsConfiguration = windowsConfiguration;
         }
     }

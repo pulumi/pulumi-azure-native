@@ -34,7 +34,7 @@ class DscConfiguration(pulumi.CustomResource):
                  __opts__=None):
         """
         Definition of the configuration type.
-        Latest API Version: 2015-10-31.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -94,7 +94,7 @@ class DscConfiguration(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:DscConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:DscConfiguration"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:DscConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DscConfiguration, __self__).__init__(
             'azure-nextgen:automation/latest:DscConfiguration',

@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly Outputs.EncryptionSettingsCollectionResponse? EncryptionSettingsCollection;
         /// <summary>
+        /// The extended location where the snapshot will be created. Extended location cannot be changed.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         public readonly string? HyperVGeneration;
@@ -104,7 +108,11 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+        /// Purchase plan information for the image from which the source disk for the snapshot was originally created.
+        /// </summary>
+        public readonly Outputs.PurchasePlanResponse? PurchasePlan;
+        /// <summary>
+        /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         /// </summary>
         public readonly Outputs.SnapshotSkuResponse? Sku;
         /// <summary>
@@ -140,6 +148,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             Outputs.EncryptionSettingsCollectionResponse? encryptionSettingsCollection,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string? hyperVGeneration,
 
             string id,
@@ -158,6 +168,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             string provisioningState,
 
+            Outputs.PurchasePlanResponse? purchasePlan,
+
             Outputs.SnapshotSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
@@ -175,6 +187,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             DiskState = diskState;
             Encryption = encryption;
             EncryptionSettingsCollection = encryptionSettingsCollection;
+            ExtendedLocation = extendedLocation;
             HyperVGeneration = hyperVGeneration;
             Id = id;
             Incremental = incremental;
@@ -184,6 +197,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             NetworkAccessPolicy = networkAccessPolicy;
             OsType = osType;
             ProvisioningState = provisioningState;
+            PurchasePlan = purchasePlan;
             Sku = sku;
             Tags = tags;
             TimeCreated = timeCreated;

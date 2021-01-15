@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the connection.
-// Latest API Version: 2015-10-31.
+// Latest API Version: 2019-06-01.
 type Connection struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +57,12 @@ func NewConnection(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Connection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Connection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Connection"),
 		},
 	})
 	opts = append(opts, aliases)

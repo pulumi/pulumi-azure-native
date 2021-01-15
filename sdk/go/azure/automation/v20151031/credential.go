@@ -58,6 +58,12 @@ func NewCredential(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Credential"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Credential"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Credential"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Credential

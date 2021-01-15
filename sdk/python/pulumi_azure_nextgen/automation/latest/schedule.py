@@ -34,7 +34,7 @@ class Schedule(pulumi.CustomResource):
                  __opts__=None):
         """
         Definition of the schedule.
-        Latest API Version: 2015-10-31.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,7 +98,7 @@ class Schedule(pulumi.CustomResource):
             __props__['next_run_offset_minutes'] = None
             __props__['start_time_offset_minutes'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Schedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
             'azure-nextgen:automation/latest:Schedule',

@@ -23,6 +23,8 @@ from .get_module import *
 from .get_python2_package import *
 from .get_runbook import *
 from .get_schedule import *
+from .get_software_update_configuration_by_name import *
+from .get_source_control import *
 from .get_variable import *
 from .get_watcher import *
 from .get_webhook import *
@@ -32,6 +34,8 @@ from .module import *
 from .python2_package import *
 from .runbook import *
 from .schedule import *
+from .software_update_configuration_by_name import *
+from .source_control import *
 from .variable import *
 from .watcher import *
 from .webhook import *
@@ -74,6 +78,10 @@ def _register_module():
                 return Runbook(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:automation/latest:Schedule":
                 return Schedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName":
+                return SoftwareUpdateConfigurationByName(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:automation/latest:SourceControl":
+                return SourceControl(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:automation/latest:Variable":
                 return Variable(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:automation/latest:Watcher":

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * disk encryption set resource.
- * Latest API Version: 2020-06-30.
+ * Latest API Version: 2020-09-30.
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
@@ -39,7 +39,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
      * The key vault key which is currently used by this disk encryption set.
      */
-    public readonly activeKey!: pulumi.Output<outputs.compute.latest.KeyVaultAndKeyReferenceResponse | undefined>;
+    public readonly activeKey!: pulumi.Output<outputs.compute.latest.KeyForDiskEncryptionSetResponse | undefined>;
     /**
      * The type of key used to encrypt the data of the disk.
      */
@@ -59,7 +59,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
      * A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
      */
-    public /*out*/ readonly previousKeys!: pulumi.Output<outputs.compute.latest.KeyVaultAndKeyReferenceResponse[]>;
+    public /*out*/ readonly previousKeys!: pulumi.Output<outputs.compute.latest.KeyForDiskEncryptionSetResponse[]>;
     /**
      * The disk encryption set provisioning state.
      */
@@ -121,7 +121,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20190701:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20191101:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200501:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200630:DiskEncryptionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20190701:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20191101:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200501:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200630:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200930:DiskEncryptionSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DiskEncryptionSet.__pulumiType, name, inputs, opts);
     }
@@ -134,7 +134,7 @@ export interface DiskEncryptionSetArgs {
     /**
      * The key vault key which is currently used by this disk encryption set.
      */
-    readonly activeKey?: pulumi.Input<inputs.compute.latest.KeyVaultAndKeyReference>;
+    readonly activeKey?: pulumi.Input<inputs.compute.latest.KeyForDiskEncryptionSet>;
     /**
      * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
      */

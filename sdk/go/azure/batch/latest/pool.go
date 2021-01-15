@@ -12,7 +12,7 @@ import (
 )
 
 // Contains information about a pool.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2021-01-01.
 type Pool struct {
 	pulumi.CustomResourceState
 
@@ -35,6 +35,8 @@ type Pool struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The ETag of the resource, used for concurrency statements.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The type of identity used for the Batch Pool.
+	Identity BatchPoolIdentityResponsePtrOutput `pulumi:"identity"`
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
 	InterNodeCommunication pulumi.StringPtrOutput `pulumi:"interNodeCommunication"`
 	// This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
@@ -104,6 +106,9 @@ func NewPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200901:Pool"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:batch/v20210101:Pool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Pool
@@ -147,6 +152,8 @@ type poolState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The ETag of the resource, used for concurrency statements.
 	Etag *string `pulumi:"etag"`
+	// The type of identity used for the Batch Pool.
+	Identity *BatchPoolIdentityResponse `pulumi:"identity"`
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
 	InterNodeCommunication *string `pulumi:"interNodeCommunication"`
 	// This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
@@ -198,6 +205,8 @@ type PoolState struct {
 	DisplayName pulumi.StringPtrInput
 	// The ETag of the resource, used for concurrency statements.
 	Etag pulumi.StringPtrInput
+	// The type of identity used for the Batch Pool.
+	Identity BatchPoolIdentityResponsePtrInput
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
 	InterNodeCommunication pulumi.StringPtrInput
 	// This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
@@ -246,6 +255,8 @@ type poolArgs struct {
 	DeploymentConfiguration *DeploymentConfiguration `pulumi:"deploymentConfiguration"`
 	// The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
 	DisplayName *string `pulumi:"displayName"`
+	// The type of identity used for the Batch Pool.
+	Identity *BatchPoolIdentity `pulumi:"identity"`
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
 	InterNodeCommunication *string `pulumi:"interNodeCommunication"`
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
@@ -285,6 +296,8 @@ type PoolArgs struct {
 	DeploymentConfiguration DeploymentConfigurationPtrInput
 	// The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
 	DisplayName pulumi.StringPtrInput
+	// The type of identity used for the Batch Pool.
+	Identity BatchPoolIdentityPtrInput
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
 	InterNodeCommunication InterNodeCommunicationState
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.

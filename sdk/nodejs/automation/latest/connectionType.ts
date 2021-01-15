@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the connection type.
- * Latest API Version: 2015-10-31.
+ * Latest API Version: 2019-06-01.
  */
 export class ConnectionType extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class ConnectionType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:ConnectionType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:ConnectionType" }, { type: "azure-nextgen:automation/v20190601:ConnectionType" }, { type: "azure-nextgen:automation/v20200113preview:ConnectionType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConnectionType.__pulumiType, name, inputs, opts);
     }

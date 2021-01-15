@@ -83,6 +83,8 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Variable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Variable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Variable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

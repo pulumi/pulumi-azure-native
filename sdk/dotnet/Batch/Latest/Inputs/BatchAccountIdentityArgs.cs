@@ -21,6 +21,18 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
         [Input("type", required: true)]
         public Input<Pulumi.AzureNextGen.Batch.Latest.ResourceIdentityType> Type { get; set; } = null!;
 
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+
+        /// <summary>
+        /// The list of user identities associated with the Batch account. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// </summary>
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
+
         public BatchAccountIdentityArgs()
         {
         }

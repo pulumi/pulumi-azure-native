@@ -11,11 +11,17 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
     /// Disk resource.
-    /// Latest API Version: 2020-06-30.
+    /// Latest API Version: 2020-09-30.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:compute/latest:Disk")]
     public partial class Disk : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+        /// </summary>
+        [Output("burstingEnabled")]
+        public Output<bool?> BurstingEnabled { get; private set; } = null!;
+
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
@@ -83,6 +89,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         public Output<Outputs.EncryptionSettingsCollectionResponse?> EncryptionSettingsCollection { get; private set; } = null!;
 
         /// <summary>
+        /// The extended location where the disk will be created. Extended location cannot be changed.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         [Output("hyperVGeneration")]
@@ -135,6 +147,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+        /// </summary>
+        [Output("purchasePlan")]
+        public Output<Outputs.PurchasePlanResponse?> PurchasePlan { get; private set; } = null!;
 
         /// <summary>
         /// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
@@ -219,6 +237,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -242,6 +261,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
     public sealed class DiskArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+        /// </summary>
+        [Input("burstingEnabled")]
+        public Input<bool>? BurstingEnabled { get; set; }
+
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
@@ -303,6 +328,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         public Input<Inputs.EncryptionSettingsCollectionArgs>? EncryptionSettingsCollection { get; set; }
 
         /// <summary>
+        /// The extended location where the disk will be created. Extended location cannot be changed.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         [Input("hyperVGeneration")]
@@ -331,6 +362,12 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         [Input("osType")]
         public Input<Pulumi.AzureNextGen.Compute.Latest.OperatingSystemTypes>? OsType { get; set; }
+
+        /// <summary>
+        /// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+        /// </summary>
+        [Input("purchasePlan")]
+        public Input<Inputs.PurchasePlanArgs>? PurchasePlan { get; set; }
 
         /// <summary>
         /// The name of the resource group.

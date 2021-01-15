@@ -12,7 +12,7 @@ import (
 )
 
 // Contains information about an Azure Batch account.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2021-01-01.
 type BatchAccount struct {
 	pulumi.CustomResourceState
 
@@ -100,6 +100,9 @@ func NewBatchAccount(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:batch/v20200901:BatchAccount"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:batch/v20210101:BatchAccount"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+        /// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
         /// </summary>
         public readonly string? Type;
 

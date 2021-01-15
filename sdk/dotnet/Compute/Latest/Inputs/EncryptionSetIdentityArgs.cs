@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
     public sealed class EncryptionSetIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
+        /// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.DiskEncryptionSetIdentityType>? Type { get; set; }

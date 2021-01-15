@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the module type.
-// Latest API Version: 2015-10-31.
+// Latest API Version: 2019-06-01.
 type Module struct {
 	pulumi.CustomResourceState
 
@@ -72,6 +72,12 @@ func NewModule(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Module"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Module"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Module"),
 		},
 	})
 	opts = append(opts, aliases)

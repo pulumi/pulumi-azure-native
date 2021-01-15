@@ -12,7 +12,7 @@ import (
 )
 
 // Definition of the watcher type.
-// Latest API Version: 2015-10-31.
+// Latest API Version: 2019-06-01.
 type Watcher struct {
 	pulumi.CustomResourceState
 
@@ -28,7 +28,7 @@ type Watcher struct {
 	LastModifiedBy pulumi.StringOutput `pulumi:"lastModifiedBy"`
 	// Gets or sets the last modified time.
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// The Azure Region where the resource lives
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -66,6 +66,12 @@ func NewWatcher(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20151031:Watcher"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Watcher"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Watcher"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Watcher
@@ -102,7 +108,7 @@ type watcherState struct {
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
 	// Gets or sets the last modified time.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The Azure Region where the resource lives
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
@@ -133,7 +139,7 @@ type WatcherState struct {
 	LastModifiedBy pulumi.StringPtrInput
 	// Gets or sets the last modified time.
 	LastModifiedTime pulumi.StringPtrInput
-	// The Azure Region where the resource lives
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
@@ -164,7 +170,7 @@ type watcherArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Gets or sets the frequency at which the watcher is invoked.
 	ExecutionFrequencyInSeconds *float64 `pulumi:"executionFrequencyInSeconds"`
-	// The Azure Region where the resource lives
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -190,7 +196,7 @@ type WatcherArgs struct {
 	Etag pulumi.StringPtrInput
 	// Gets or sets the frequency at which the watcher is invoked.
 	ExecutionFrequencyInSeconds pulumi.Float64PtrInput
-	// The Azure Region where the resource lives
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput

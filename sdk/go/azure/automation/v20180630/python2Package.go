@@ -72,6 +72,12 @@ func NewPython2Package(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:automation/latest:Python2Package"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20190601:Python2Package"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Python2Package"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Python2Package

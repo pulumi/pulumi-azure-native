@@ -5,31 +5,54 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./disk";
+export * from "./diskAccess";
+export * from "./diskAccessAPrivateEndpointConnection";
+export * from "./diskEncryptionSet";
 export * from "./gallery";
 export * from "./galleryApplication";
 export * from "./galleryApplicationVersion";
 export * from "./galleryImage";
 export * from "./galleryImageVersion";
+export * from "./getDisk";
+export * from "./getDiskAccess";
+export * from "./getDiskAccessAPrivateEndpointConnection";
+export * from "./getDiskEncryptionSet";
 export * from "./getGallery";
 export * from "./getGalleryApplication";
 export * from "./getGalleryApplicationVersion";
 export * from "./getGalleryImage";
 export * from "./getGalleryImageVersion";
+export * from "./getSnapshot";
+export * from "./snapshot";
 
 // Export enums:
 export * from "../../types/enums/compute/v20200930";
 
 // Import resources to register:
+import { Disk } from "./disk";
+import { DiskAccess } from "./diskAccess";
+import { DiskAccessAPrivateEndpointConnection } from "./diskAccessAPrivateEndpointConnection";
+import { DiskEncryptionSet } from "./diskEncryptionSet";
 import { Gallery } from "./gallery";
 import { GalleryApplication } from "./galleryApplication";
 import { GalleryApplicationVersion } from "./galleryApplicationVersion";
 import { GalleryImage } from "./galleryImage";
 import { GalleryImageVersion } from "./galleryImageVersion";
+import { Snapshot } from "./snapshot";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:compute/v20200930:Disk":
+                return new Disk(name, <any>undefined, { urn })
+            case "azure-nextgen:compute/v20200930:DiskAccess":
+                return new DiskAccess(name, <any>undefined, { urn })
+            case "azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection":
+                return new DiskAccessAPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-nextgen:compute/v20200930:DiskEncryptionSet":
+                return new DiskEncryptionSet(name, <any>undefined, { urn })
             case "azure-nextgen:compute/v20200930:Gallery":
                 return new Gallery(name, <any>undefined, { urn })
             case "azure-nextgen:compute/v20200930:GalleryApplication":
@@ -40,6 +63,8 @@ const _module = {
                 return new GalleryImage(name, <any>undefined, { urn })
             case "azure-nextgen:compute/v20200930:GalleryImageVersion":
                 return new GalleryImageVersion(name, <any>undefined, { urn })
+            case "azure-nextgen:compute/v20200930:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -36,6 +36,18 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
         [Input("diskEncryptionConfiguration")]
         public Input<Inputs.DiskEncryptionConfigurationArgs>? DiskEncryptionConfiguration { get; set; }
 
+        [Input("extensions")]
+        private InputList<Inputs.VMExtensionArgs>? _extensions;
+
+        /// <summary>
+        /// If specified, the extensions mentioned in this configuration will be installed on each node.
+        /// </summary>
+        public InputList<Inputs.VMExtensionArgs> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<Inputs.VMExtensionArgs>());
+            set => _extensions = value;
+        }
+
         [Input("imageReference", required: true)]
         public Input<Inputs.ImageReferenceArgs> ImageReference { get; set; } = null!;
 
@@ -53,6 +65,12 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
         /// </summary>
         [Input("nodeAgentSkuId", required: true)]
         public Input<string> NodeAgentSkuId { get; set; } = null!;
+
+        /// <summary>
+        /// This configuration will specify rules on how nodes in the pool will be physically allocated.
+        /// </summary>
+        [Input("nodePlacementConfiguration")]
+        public Input<Inputs.NodePlacementConfigurationArgs>? NodePlacementConfiguration { get; set; }
 
         /// <summary>
         /// This property must not be specified if the imageReference specifies a Linux OS image.

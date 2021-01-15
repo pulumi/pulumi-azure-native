@@ -169,7 +169,7 @@ type JSONWebKey struct {
 	// IANA "JSON Web Signature and Encryption Algorithms" registry
 	// established by [JWA] or be a value that contains a Collision-
 	// Resistant Name.
-	Alg string `pulumi:"alg"`
+	Alg *string `pulumi:"alg"`
 	// The "crv" (curve) parameter identifies the curve type
 	Crv *string `pulumi:"crv"`
 	// RSA private exponent or ECC private key
@@ -191,7 +191,7 @@ type JSONWebKey struct {
 	// they have different "kty" (key type) values but are considered to be
 	// equivalent alternatives by the application using them.)  The "kid"
 	// value is a case-sensitive string.
-	Kid string `pulumi:"kid"`
+	Kid *string `pulumi:"kid"`
 	// The "kty" (key type) parameter identifies the cryptographic algorithm
 	// family used with the key, such as "RSA" or "EC". "kty" values should
 	// either be registered in the IANA "JSON Web Key Types" registry
@@ -210,7 +210,7 @@ type JSONWebKey struct {
 	// the public key. The "use" parameter is employed to indicate whether
 	// a public key is used for encrypting data or verifying the signature
 	// on data. Values are commonly "sig" (signature) or "enc" (encryption).
-	Use string `pulumi:"use"`
+	Use *string `pulumi:"use"`
 	// X coordinate for the Elliptic Curve point
 	X *string `pulumi:"x"`
 	// The "x5c" (X.509 certificate chain) parameter contains a chain of one
@@ -242,7 +242,7 @@ type JSONWebKeyArgs struct {
 	// IANA "JSON Web Signature and Encryption Algorithms" registry
 	// established by [JWA] or be a value that contains a Collision-
 	// Resistant Name.
-	Alg pulumi.StringInput `pulumi:"alg"`
+	Alg pulumi.StringPtrInput `pulumi:"alg"`
 	// The "crv" (curve) parameter identifies the curve type
 	Crv pulumi.StringPtrInput `pulumi:"crv"`
 	// RSA private exponent or ECC private key
@@ -264,7 +264,7 @@ type JSONWebKeyArgs struct {
 	// they have different "kty" (key type) values but are considered to be
 	// equivalent alternatives by the application using them.)  The "kid"
 	// value is a case-sensitive string.
-	Kid pulumi.StringInput `pulumi:"kid"`
+	Kid pulumi.StringPtrInput `pulumi:"kid"`
 	// The "kty" (key type) parameter identifies the cryptographic algorithm
 	// family used with the key, such as "RSA" or "EC". "kty" values should
 	// either be registered in the IANA "JSON Web Key Types" registry
@@ -283,7 +283,7 @@ type JSONWebKeyArgs struct {
 	// the public key. The "use" parameter is employed to indicate whether
 	// a public key is used for encrypting data or verifying the signature
 	// on data. Values are commonly "sig" (signature) or "enc" (encryption).
-	Use pulumi.StringInput `pulumi:"use"`
+	Use pulumi.StringPtrInput `pulumi:"use"`
 	// X coordinate for the Elliptic Curve point
 	X pulumi.StringPtrInput `pulumi:"x"`
 	// The "x5c" (X.509 certificate chain) parameter contains a chain of one
@@ -354,8 +354,8 @@ func (o JSONWebKeyOutput) ToJSONWebKeyOutputWithContext(ctx context.Context) JSO
 // IANA "JSON Web Signature and Encryption Algorithms" registry
 // established by [JWA] or be a value that contains a Collision-
 // Resistant Name.
-func (o JSONWebKeyOutput) Alg() pulumi.StringOutput {
-	return o.ApplyT(func(v JSONWebKey) string { return v.Alg }).(pulumi.StringOutput)
+func (o JSONWebKeyOutput) Alg() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JSONWebKey) *string { return v.Alg }).(pulumi.StringPtrOutput)
 }
 
 // The "crv" (curve) parameter identifies the curve type
@@ -397,8 +397,8 @@ func (o JSONWebKeyOutput) K() pulumi.StringPtrOutput {
 // they have different "kty" (key type) values but are considered to be
 // equivalent alternatives by the application using them.)  The "kid"
 // value is a case-sensitive string.
-func (o JSONWebKeyOutput) Kid() pulumi.StringOutput {
-	return o.ApplyT(func(v JSONWebKey) string { return v.Kid }).(pulumi.StringOutput)
+func (o JSONWebKeyOutput) Kid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JSONWebKey) *string { return v.Kid }).(pulumi.StringPtrOutput)
 }
 
 // The "kty" (key type) parameter identifies the cryptographic algorithm
@@ -434,8 +434,8 @@ func (o JSONWebKeyOutput) Qi() pulumi.StringPtrOutput {
 // the public key. The "use" parameter is employed to indicate whether
 // a public key is used for encrypting data or verifying the signature
 // on data. Values are commonly "sig" (signature) or "enc" (encryption).
-func (o JSONWebKeyOutput) Use() pulumi.StringOutput {
-	return o.ApplyT(func(v JSONWebKey) string { return v.Use }).(pulumi.StringOutput)
+func (o JSONWebKeyOutput) Use() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JSONWebKey) *string { return v.Use }).(pulumi.StringPtrOutput)
 }
 
 // X coordinate for the Elliptic Curve point

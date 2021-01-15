@@ -18,6 +18,7 @@ class Disk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bursting_enabled: Optional[pulumi.Input[bool]] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_only: Optional[pulumi.Input[float]] = None,
@@ -28,11 +29,13 @@ class Disk(pulumi.CustomResource):
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_shares: Optional[pulumi.Input[int]] = None,
                  network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['DiskSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -43,10 +46,11 @@ class Disk(pulumi.CustomResource):
                  __opts__=None):
         """
         Disk resource.
-        Latest API Version: 2020-06-30.
+        Latest API Version: 2020-09-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] bursting_enabled: Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
         :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
         :param pulumi.Input[float] disk_iops_read_only: The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
@@ -57,11 +61,13 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location where the disk will be created. Extended location cannot be changed.
         :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[Union[str, 'NetworkAccessPolicy']] network_access_policy: Policy for accessing the disk via network.
         :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
+        :param pulumi.Input[pulumi.InputType['PurchasePlanArgs']] purchase_plan: Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['DiskSkuArgs']] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -85,6 +91,7 @@ class Disk(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['bursting_enabled'] = bursting_enabled
             if creation_data is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_data'")
             __props__['creation_data'] = creation_data
@@ -99,6 +106,7 @@ class Disk(pulumi.CustomResource):
             __props__['disk_size_gb'] = disk_size_gb
             __props__['encryption'] = encryption
             __props__['encryption_settings_collection'] = encryption_settings_collection
+            __props__['extended_location'] = extended_location
             __props__['hyper_v_generation'] = hyper_v_generation
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
@@ -106,6 +114,7 @@ class Disk(pulumi.CustomResource):
             __props__['max_shares'] = max_shares
             __props__['network_access_policy'] = network_access_policy
             __props__['os_type'] = os_type
+            __props__['purchase_plan'] = purchase_plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -123,7 +132,7 @@ class Disk(pulumi.CustomResource):
             __props__['time_created'] = None
             __props__['type'] = None
             __props__['unique_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Disk")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Disk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Disk, __self__).__init__(
             'azure-nextgen:compute/latest:Disk',
@@ -148,6 +157,14 @@ class Disk(pulumi.CustomResource):
         __props__ = dict()
 
         return Disk(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="burstingEnabled")
+    def bursting_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+        """
+        return pulumi.get(self, "bursting_enabled")
 
     @property
     @pulumi.getter(name="creationData")
@@ -238,6 +255,14 @@ class Disk(pulumi.CustomResource):
         return pulumi.get(self, "encryption_settings_collection")
 
     @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The extended location where the disk will be created. Extended location cannot be changed.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> pulumi.Output[Optional[str]]:
         """
@@ -308,6 +333,14 @@ class Disk(pulumi.CustomResource):
         The disk provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="purchasePlan")
+    def purchase_plan(self) -> pulumi.Output[Optional['outputs.PurchasePlanResponse']]:
+        """
+        Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+        """
+        return pulumi.get(self, "purchase_plan")
 
     @property
     @pulumi.getter(name="shareInfo")

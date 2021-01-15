@@ -27,7 +27,7 @@ class Python2Package(pulumi.CustomResource):
                  __opts__=None):
         """
         Definition of the module type.
-        Latest API Version: 2018-06-30.
+        Latest API Version: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,7 +81,7 @@ class Python2Package(pulumi.CustomResource):
             __props__['size_in_bytes'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20180630:Python2Package")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20180630:Python2Package"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Python2Package"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Python2Package")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Python2Package, __self__).__init__(
             'azure-nextgen:automation/latest:Python2Package',

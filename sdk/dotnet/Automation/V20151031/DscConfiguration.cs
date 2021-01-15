@@ -131,6 +131,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:DscConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:DscConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
