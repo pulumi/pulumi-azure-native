@@ -34,6 +34,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
         public Input<string>? HostName { get; set; }
 
         /// <summary>
+        /// The last commit ID
+        /// </summary>
+        [Input("lastCommitId")]
+        public Input<string>? LastCommitId { get; set; }
+
+        /// <summary>
         /// VSTS project name
         /// </summary>
         [Input("projectName")]
@@ -50,6 +56,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
         /// </summary>
         [Input("rootFolder")]
         public Input<string>? RootFolder { get; set; }
+
+        /// <summary>
+        /// The VSTS tenant ID
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
 
         /// <summary>
         /// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration

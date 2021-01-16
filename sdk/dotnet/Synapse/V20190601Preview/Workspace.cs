@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ADLA resource ID.
+        /// </summary>
+        [Output("adlaResourceId")]
+        public Output<string> AdlaResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// Connectivity endpoints
         /// </summary>
         [Output("connectivityEndpoints")]

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['SqlPoolSensitivityLabel']
 
@@ -20,6 +21,7 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
                  information_type_id: Optional[pulumi.Input[str]] = None,
                  label_id: Optional[pulumi.Input[str]] = None,
                  label_name: Optional[pulumi.Input[str]] = None,
+                 rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  sensitivity_label_source: Optional[pulumi.Input[str]] = None,
@@ -70,6 +72,7 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
             __props__['information_type_id'] = information_type_id
             __props__['label_id'] = label_id
             __props__['label_name'] = label_name
+            __props__['rank'] = rank
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -89,6 +92,7 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['is_disabled'] = None
+            __props__['managed_by'] = None
             __props__['name'] = None
             __props__['type'] = None
         super(SqlPoolSensitivityLabel, __self__).__init__(
@@ -114,6 +118,14 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
         __props__ = dict()
 
         return SqlPoolSensitivityLabel(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Output[str]:
+        """
+        The column name.
+        """
+        return pulumi.get(self, "column_name")
 
     @property
     @pulumi.getter(name="informationType")
@@ -156,12 +168,41 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
         return pulumi.get(self, "label_name")
 
     @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[str]:
+        """
+        managed by
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def rank(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "rank")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Output[str]:
+        """
+        The schema name.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Output[str]:
+        """
+        The table name.
+        """
+        return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter

@@ -91,7 +91,7 @@ class GetBudgetResult:
     @pulumi.getter
     def filter(self) -> Optional['outputs.BudgetFilterResponse']:
         """
-        May be used to filter budgets by resource group, resource, or meter.
+        May be used to filter budgets by user-specified dimensions and/or tags.
         """
         return pulumi.get(self, "filter")
 

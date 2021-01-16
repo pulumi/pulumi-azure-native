@@ -17,6 +17,7 @@ __all__ = [
     'ComponentSetupResponse',
     'CustomerManagedKeyDetailsResponse',
     'DataLakeStorageAccountDetailsResponse',
+    'DynamicExecutorAllocationResponse',
     'EncryptionDetailsResponse',
     'EntityReferenceResponse',
     'EnvironmentVariableSetupResponse',
@@ -330,6 +331,32 @@ class DataLakeStorageAccountDetailsResponse(dict):
         Filesystem name
         """
         return pulumi.get(self, "filesystem")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DynamicExecutorAllocationResponse(dict):
+    """
+    Dynamic Executor Allocation Properties
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Dynamic Executor Allocation Properties
+        :param bool enabled: Indicates whether Dynamic Executor Allocation is enabled or not.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether Dynamic Executor Allocation is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3155,18 +3182,22 @@ class WorkspaceRepositoryConfigurationResponse(dict):
                  account_name: Optional[str] = None,
                  collaboration_branch: Optional[str] = None,
                  host_name: Optional[str] = None,
+                 last_commit_id: Optional[str] = None,
                  project_name: Optional[str] = None,
                  repository_name: Optional[str] = None,
                  root_folder: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
                  type: Optional[str] = None):
         """
         Git integration settings
         :param str account_name: Account name
         :param str collaboration_branch: Collaboration branch
         :param str host_name: GitHub Enterprise host name. For example: https://github.mydomain.com
+        :param str last_commit_id: The last commit ID
         :param str project_name: VSTS project name
         :param str repository_name: Repository name
         :param str root_folder: Root folder to use in the repository
+        :param str tenant_id: The VSTS tenant ID
         :param str type: Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
         """
         if account_name is not None:
@@ -3175,12 +3206,16 @@ class WorkspaceRepositoryConfigurationResponse(dict):
             pulumi.set(__self__, "collaboration_branch", collaboration_branch)
         if host_name is not None:
             pulumi.set(__self__, "host_name", host_name)
+        if last_commit_id is not None:
+            pulumi.set(__self__, "last_commit_id", last_commit_id)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if repository_name is not None:
             pulumi.set(__self__, "repository_name", repository_name)
         if root_folder is not None:
             pulumi.set(__self__, "root_folder", root_folder)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -3209,6 +3244,14 @@ class WorkspaceRepositoryConfigurationResponse(dict):
         return pulumi.get(self, "host_name")
 
     @property
+    @pulumi.getter(name="lastCommitId")
+    def last_commit_id(self) -> Optional[str]:
+        """
+        The last commit ID
+        """
+        return pulumi.get(self, "last_commit_id")
+
+    @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[str]:
         """
@@ -3231,6 +3274,14 @@ class WorkspaceRepositoryConfigurationResponse(dict):
         Root folder to use in the repository
         """
         return pulumi.get(self, "root_folder")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The VSTS tenant ID
+        """
+        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter

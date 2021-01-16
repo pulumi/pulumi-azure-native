@@ -48,6 +48,10 @@ export interface GetBigDataPoolResult {
      */
     readonly autoScale?: outputs.synapse.v20190601preview.AutoScalePropertiesResponse;
     /**
+     * The cache size
+     */
+    readonly cacheSize?: number;
+    /**
      * The time when the Big Data pool was created.
      */
     readonly creationDate?: string;
@@ -56,9 +60,9 @@ export interface GetBigDataPoolResult {
      */
     readonly defaultSparkLogFolder?: string;
     /**
-     * Whether library requirements changed.
+     * Dynamic Executor Allocation
      */
-    readonly haveLibraryRequirementsChanged?: boolean;
+    readonly dynamicExecutorAllocation?: outputs.synapse.v20190601preview.DynamicExecutorAllocationResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

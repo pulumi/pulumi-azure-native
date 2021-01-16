@@ -1575,6 +1575,274 @@ func (o DataLakeStorageAccountDetailsResponsePtrOutput) Filesystem() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Dynamic Executor Allocation Properties
+type DynamicExecutorAllocation struct {
+	// Indicates whether Dynamic Executor Allocation is enabled or not.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DynamicExecutorAllocationInput is an input type that accepts DynamicExecutorAllocationArgs and DynamicExecutorAllocationOutput values.
+// You can construct a concrete instance of `DynamicExecutorAllocationInput` via:
+//
+//          DynamicExecutorAllocationArgs{...}
+type DynamicExecutorAllocationInput interface {
+	pulumi.Input
+
+	ToDynamicExecutorAllocationOutput() DynamicExecutorAllocationOutput
+	ToDynamicExecutorAllocationOutputWithContext(context.Context) DynamicExecutorAllocationOutput
+}
+
+// Dynamic Executor Allocation Properties
+type DynamicExecutorAllocationArgs struct {
+	// Indicates whether Dynamic Executor Allocation is enabled or not.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DynamicExecutorAllocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicExecutorAllocation)(nil)).Elem()
+}
+
+func (i DynamicExecutorAllocationArgs) ToDynamicExecutorAllocationOutput() DynamicExecutorAllocationOutput {
+	return i.ToDynamicExecutorAllocationOutputWithContext(context.Background())
+}
+
+func (i DynamicExecutorAllocationArgs) ToDynamicExecutorAllocationOutputWithContext(ctx context.Context) DynamicExecutorAllocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicExecutorAllocationOutput)
+}
+
+func (i DynamicExecutorAllocationArgs) ToDynamicExecutorAllocationPtrOutput() DynamicExecutorAllocationPtrOutput {
+	return i.ToDynamicExecutorAllocationPtrOutputWithContext(context.Background())
+}
+
+func (i DynamicExecutorAllocationArgs) ToDynamicExecutorAllocationPtrOutputWithContext(ctx context.Context) DynamicExecutorAllocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicExecutorAllocationOutput).ToDynamicExecutorAllocationPtrOutputWithContext(ctx)
+}
+
+// DynamicExecutorAllocationPtrInput is an input type that accepts DynamicExecutorAllocationArgs, DynamicExecutorAllocationPtr and DynamicExecutorAllocationPtrOutput values.
+// You can construct a concrete instance of `DynamicExecutorAllocationPtrInput` via:
+//
+//          DynamicExecutorAllocationArgs{...}
+//
+//  or:
+//
+//          nil
+type DynamicExecutorAllocationPtrInput interface {
+	pulumi.Input
+
+	ToDynamicExecutorAllocationPtrOutput() DynamicExecutorAllocationPtrOutput
+	ToDynamicExecutorAllocationPtrOutputWithContext(context.Context) DynamicExecutorAllocationPtrOutput
+}
+
+type dynamicExecutorAllocationPtrType DynamicExecutorAllocationArgs
+
+func DynamicExecutorAllocationPtr(v *DynamicExecutorAllocationArgs) DynamicExecutorAllocationPtrInput {
+	return (*dynamicExecutorAllocationPtrType)(v)
+}
+
+func (*dynamicExecutorAllocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DynamicExecutorAllocation)(nil)).Elem()
+}
+
+func (i *dynamicExecutorAllocationPtrType) ToDynamicExecutorAllocationPtrOutput() DynamicExecutorAllocationPtrOutput {
+	return i.ToDynamicExecutorAllocationPtrOutputWithContext(context.Background())
+}
+
+func (i *dynamicExecutorAllocationPtrType) ToDynamicExecutorAllocationPtrOutputWithContext(ctx context.Context) DynamicExecutorAllocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicExecutorAllocationPtrOutput)
+}
+
+// Dynamic Executor Allocation Properties
+type DynamicExecutorAllocationOutput struct{ *pulumi.OutputState }
+
+func (DynamicExecutorAllocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicExecutorAllocation)(nil)).Elem()
+}
+
+func (o DynamicExecutorAllocationOutput) ToDynamicExecutorAllocationOutput() DynamicExecutorAllocationOutput {
+	return o
+}
+
+func (o DynamicExecutorAllocationOutput) ToDynamicExecutorAllocationOutputWithContext(ctx context.Context) DynamicExecutorAllocationOutput {
+	return o
+}
+
+func (o DynamicExecutorAllocationOutput) ToDynamicExecutorAllocationPtrOutput() DynamicExecutorAllocationPtrOutput {
+	return o.ToDynamicExecutorAllocationPtrOutputWithContext(context.Background())
+}
+
+func (o DynamicExecutorAllocationOutput) ToDynamicExecutorAllocationPtrOutputWithContext(ctx context.Context) DynamicExecutorAllocationPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocation) *DynamicExecutorAllocation {
+		return &v
+	}).(DynamicExecutorAllocationPtrOutput)
+}
+
+// Indicates whether Dynamic Executor Allocation is enabled or not.
+func (o DynamicExecutorAllocationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DynamicExecutorAllocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DynamicExecutorAllocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DynamicExecutorAllocation)(nil)).Elem()
+}
+
+func (o DynamicExecutorAllocationPtrOutput) ToDynamicExecutorAllocationPtrOutput() DynamicExecutorAllocationPtrOutput {
+	return o
+}
+
+func (o DynamicExecutorAllocationPtrOutput) ToDynamicExecutorAllocationPtrOutputWithContext(ctx context.Context) DynamicExecutorAllocationPtrOutput {
+	return o
+}
+
+func (o DynamicExecutorAllocationPtrOutput) Elem() DynamicExecutorAllocationOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocation) DynamicExecutorAllocation { return *v }).(DynamicExecutorAllocationOutput)
+}
+
+// Indicates whether Dynamic Executor Allocation is enabled or not.
+func (o DynamicExecutorAllocationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Dynamic Executor Allocation Properties
+type DynamicExecutorAllocationResponse struct {
+	// Indicates whether Dynamic Executor Allocation is enabled or not.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DynamicExecutorAllocationResponseInput is an input type that accepts DynamicExecutorAllocationResponseArgs and DynamicExecutorAllocationResponseOutput values.
+// You can construct a concrete instance of `DynamicExecutorAllocationResponseInput` via:
+//
+//          DynamicExecutorAllocationResponseArgs{...}
+type DynamicExecutorAllocationResponseInput interface {
+	pulumi.Input
+
+	ToDynamicExecutorAllocationResponseOutput() DynamicExecutorAllocationResponseOutput
+	ToDynamicExecutorAllocationResponseOutputWithContext(context.Context) DynamicExecutorAllocationResponseOutput
+}
+
+// Dynamic Executor Allocation Properties
+type DynamicExecutorAllocationResponseArgs struct {
+	// Indicates whether Dynamic Executor Allocation is enabled or not.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DynamicExecutorAllocationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicExecutorAllocationResponse)(nil)).Elem()
+}
+
+func (i DynamicExecutorAllocationResponseArgs) ToDynamicExecutorAllocationResponseOutput() DynamicExecutorAllocationResponseOutput {
+	return i.ToDynamicExecutorAllocationResponseOutputWithContext(context.Background())
+}
+
+func (i DynamicExecutorAllocationResponseArgs) ToDynamicExecutorAllocationResponseOutputWithContext(ctx context.Context) DynamicExecutorAllocationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicExecutorAllocationResponseOutput)
+}
+
+func (i DynamicExecutorAllocationResponseArgs) ToDynamicExecutorAllocationResponsePtrOutput() DynamicExecutorAllocationResponsePtrOutput {
+	return i.ToDynamicExecutorAllocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DynamicExecutorAllocationResponseArgs) ToDynamicExecutorAllocationResponsePtrOutputWithContext(ctx context.Context) DynamicExecutorAllocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicExecutorAllocationResponseOutput).ToDynamicExecutorAllocationResponsePtrOutputWithContext(ctx)
+}
+
+// DynamicExecutorAllocationResponsePtrInput is an input type that accepts DynamicExecutorAllocationResponseArgs, DynamicExecutorAllocationResponsePtr and DynamicExecutorAllocationResponsePtrOutput values.
+// You can construct a concrete instance of `DynamicExecutorAllocationResponsePtrInput` via:
+//
+//          DynamicExecutorAllocationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DynamicExecutorAllocationResponsePtrInput interface {
+	pulumi.Input
+
+	ToDynamicExecutorAllocationResponsePtrOutput() DynamicExecutorAllocationResponsePtrOutput
+	ToDynamicExecutorAllocationResponsePtrOutputWithContext(context.Context) DynamicExecutorAllocationResponsePtrOutput
+}
+
+type dynamicExecutorAllocationResponsePtrType DynamicExecutorAllocationResponseArgs
+
+func DynamicExecutorAllocationResponsePtr(v *DynamicExecutorAllocationResponseArgs) DynamicExecutorAllocationResponsePtrInput {
+	return (*dynamicExecutorAllocationResponsePtrType)(v)
+}
+
+func (*dynamicExecutorAllocationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DynamicExecutorAllocationResponse)(nil)).Elem()
+}
+
+func (i *dynamicExecutorAllocationResponsePtrType) ToDynamicExecutorAllocationResponsePtrOutput() DynamicExecutorAllocationResponsePtrOutput {
+	return i.ToDynamicExecutorAllocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dynamicExecutorAllocationResponsePtrType) ToDynamicExecutorAllocationResponsePtrOutputWithContext(ctx context.Context) DynamicExecutorAllocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicExecutorAllocationResponsePtrOutput)
+}
+
+// Dynamic Executor Allocation Properties
+type DynamicExecutorAllocationResponseOutput struct{ *pulumi.OutputState }
+
+func (DynamicExecutorAllocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicExecutorAllocationResponse)(nil)).Elem()
+}
+
+func (o DynamicExecutorAllocationResponseOutput) ToDynamicExecutorAllocationResponseOutput() DynamicExecutorAllocationResponseOutput {
+	return o
+}
+
+func (o DynamicExecutorAllocationResponseOutput) ToDynamicExecutorAllocationResponseOutputWithContext(ctx context.Context) DynamicExecutorAllocationResponseOutput {
+	return o
+}
+
+func (o DynamicExecutorAllocationResponseOutput) ToDynamicExecutorAllocationResponsePtrOutput() DynamicExecutorAllocationResponsePtrOutput {
+	return o.ToDynamicExecutorAllocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DynamicExecutorAllocationResponseOutput) ToDynamicExecutorAllocationResponsePtrOutputWithContext(ctx context.Context) DynamicExecutorAllocationResponsePtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *DynamicExecutorAllocationResponse {
+		return &v
+	}).(DynamicExecutorAllocationResponsePtrOutput)
+}
+
+// Indicates whether Dynamic Executor Allocation is enabled or not.
+func (o DynamicExecutorAllocationResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DynamicExecutorAllocationResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DynamicExecutorAllocationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DynamicExecutorAllocationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DynamicExecutorAllocationResponse)(nil)).Elem()
+}
+
+func (o DynamicExecutorAllocationResponsePtrOutput) ToDynamicExecutorAllocationResponsePtrOutput() DynamicExecutorAllocationResponsePtrOutput {
+	return o
+}
+
+func (o DynamicExecutorAllocationResponsePtrOutput) ToDynamicExecutorAllocationResponsePtrOutputWithContext(ctx context.Context) DynamicExecutorAllocationResponsePtrOutput {
+	return o
+}
+
+func (o DynamicExecutorAllocationResponsePtrOutput) Elem() DynamicExecutorAllocationResponseOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocationResponse) DynamicExecutorAllocationResponse { return *v }).(DynamicExecutorAllocationResponseOutput)
+}
+
+// Indicates whether Dynamic Executor Allocation is enabled or not.
+func (o DynamicExecutorAllocationResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DynamicExecutorAllocationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Details of the encryption associated with the workspace
 type EncryptionDetails struct {
 	// Customer Managed Key Details
@@ -11460,12 +11728,16 @@ type WorkspaceRepositoryConfiguration struct {
 	CollaborationBranch *string `pulumi:"collaborationBranch"`
 	// GitHub Enterprise host name. For example: https://github.mydomain.com
 	HostName *string `pulumi:"hostName"`
+	// The last commit ID
+	LastCommitId *string `pulumi:"lastCommitId"`
 	// VSTS project name
 	ProjectName *string `pulumi:"projectName"`
 	// Repository name
 	RepositoryName *string `pulumi:"repositoryName"`
 	// Root folder to use in the repository
 	RootFolder *string `pulumi:"rootFolder"`
+	// The VSTS tenant ID
+	TenantId *string `pulumi:"tenantId"`
 	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
 	Type *string `pulumi:"type"`
 }
@@ -11489,12 +11761,16 @@ type WorkspaceRepositoryConfigurationArgs struct {
 	CollaborationBranch pulumi.StringPtrInput `pulumi:"collaborationBranch"`
 	// GitHub Enterprise host name. For example: https://github.mydomain.com
 	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// The last commit ID
+	LastCommitId pulumi.StringPtrInput `pulumi:"lastCommitId"`
 	// VSTS project name
 	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
 	// Repository name
 	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
 	// Root folder to use in the repository
 	RootFolder pulumi.StringPtrInput `pulumi:"rootFolder"`
+	// The VSTS tenant ID
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -11592,6 +11868,11 @@ func (o WorkspaceRepositoryConfigurationOutput) HostName() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }
 
+// The last commit ID
+func (o WorkspaceRepositoryConfigurationOutput) LastCommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.LastCommitId }).(pulumi.StringPtrOutput)
+}
+
 // VSTS project name
 func (o WorkspaceRepositoryConfigurationOutput) ProjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
@@ -11605,6 +11886,11 @@ func (o WorkspaceRepositoryConfigurationOutput) RepositoryName() pulumi.StringPt
 // Root folder to use in the repository
 func (o WorkspaceRepositoryConfigurationOutput) RootFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.RootFolder }).(pulumi.StringPtrOutput)
+}
+
+// The VSTS tenant ID
+func (o WorkspaceRepositoryConfigurationOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 // Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
@@ -11660,6 +11946,16 @@ func (o WorkspaceRepositoryConfigurationPtrOutput) HostName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The last commit ID
+func (o WorkspaceRepositoryConfigurationPtrOutput) LastCommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastCommitId
+	}).(pulumi.StringPtrOutput)
+}
+
 // VSTS project name
 func (o WorkspaceRepositoryConfigurationPtrOutput) ProjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
@@ -11690,6 +11986,16 @@ func (o WorkspaceRepositoryConfigurationPtrOutput) RootFolder() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The VSTS tenant ID
+func (o WorkspaceRepositoryConfigurationPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
 func (o WorkspaceRepositoryConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
@@ -11708,12 +12014,16 @@ type WorkspaceRepositoryConfigurationResponse struct {
 	CollaborationBranch *string `pulumi:"collaborationBranch"`
 	// GitHub Enterprise host name. For example: https://github.mydomain.com
 	HostName *string `pulumi:"hostName"`
+	// The last commit ID
+	LastCommitId *string `pulumi:"lastCommitId"`
 	// VSTS project name
 	ProjectName *string `pulumi:"projectName"`
 	// Repository name
 	RepositoryName *string `pulumi:"repositoryName"`
 	// Root folder to use in the repository
 	RootFolder *string `pulumi:"rootFolder"`
+	// The VSTS tenant ID
+	TenantId *string `pulumi:"tenantId"`
 	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
 	Type *string `pulumi:"type"`
 }
@@ -11737,12 +12047,16 @@ type WorkspaceRepositoryConfigurationResponseArgs struct {
 	CollaborationBranch pulumi.StringPtrInput `pulumi:"collaborationBranch"`
 	// GitHub Enterprise host name. For example: https://github.mydomain.com
 	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// The last commit ID
+	LastCommitId pulumi.StringPtrInput `pulumi:"lastCommitId"`
 	// VSTS project name
 	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
 	// Repository name
 	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
 	// Root folder to use in the repository
 	RootFolder pulumi.StringPtrInput `pulumi:"rootFolder"`
+	// The VSTS tenant ID
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -11840,6 +12154,11 @@ func (o WorkspaceRepositoryConfigurationResponseOutput) HostName() pulumi.String
 	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }
 
+// The last commit ID
+func (o WorkspaceRepositoryConfigurationResponseOutput) LastCommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.LastCommitId }).(pulumi.StringPtrOutput)
+}
+
 // VSTS project name
 func (o WorkspaceRepositoryConfigurationResponseOutput) ProjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
@@ -11853,6 +12172,11 @@ func (o WorkspaceRepositoryConfigurationResponseOutput) RepositoryName() pulumi.
 // Root folder to use in the repository
 func (o WorkspaceRepositoryConfigurationResponseOutput) RootFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.RootFolder }).(pulumi.StringPtrOutput)
+}
+
+// The VSTS tenant ID
+func (o WorkspaceRepositoryConfigurationResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
 // Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
@@ -11908,6 +12232,16 @@ func (o WorkspaceRepositoryConfigurationResponsePtrOutput) HostName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The last commit ID
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) LastCommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastCommitId
+	}).(pulumi.StringPtrOutput)
+}
+
 // VSTS project name
 func (o WorkspaceRepositoryConfigurationResponsePtrOutput) ProjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
@@ -11935,6 +12269,16 @@ func (o WorkspaceRepositoryConfigurationResponsePtrOutput) RootFolder() pulumi.S
 			return nil
 		}
 		return v.RootFolder
+	}).(pulumi.StringPtrOutput)
+}
+
+// The VSTS tenant ID
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11969,6 +12313,10 @@ func init() {
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DataLakeStorageAccountDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(DynamicExecutorAllocationOutput{})
+	pulumi.RegisterOutputType(DynamicExecutorAllocationPtrOutput{})
+	pulumi.RegisterOutputType(DynamicExecutorAllocationResponseOutput{})
+	pulumi.RegisterOutputType(DynamicExecutorAllocationResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionDetailsOutput{})
 	pulumi.RegisterOutputType(EncryptionDetailsPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionDetailsResponseOutput{})

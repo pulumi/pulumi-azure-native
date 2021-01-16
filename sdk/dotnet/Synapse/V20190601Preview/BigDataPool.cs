@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<Outputs.AutoScalePropertiesResponse?> AutoScale { get; private set; } = null!;
 
         /// <summary>
+        /// The cache size
+        /// </summary>
+        [Output("cacheSize")]
+        public Output<int?> CacheSize { get; private set; } = null!;
+
+        /// <summary>
         /// The time when the Big Data pool was created.
         /// </summary>
         [Output("creationDate")]
@@ -40,10 +46,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string?> DefaultSparkLogFolder { get; private set; } = null!;
 
         /// <summary>
-        /// Whether library requirements changed.
+        /// Dynamic Executor Allocation
         /// </summary>
-        [Output("haveLibraryRequirementsChanged")]
-        public Output<bool?> HaveLibraryRequirementsChanged { get; private set; } = null!;
+        [Output("dynamicExecutorAllocation")]
+        public Output<Outputs.DynamicExecutorAllocationResponse?> DynamicExecutorAllocation { get; private set; } = null!;
 
         /// <summary>
         /// Whether compute isolation is required or not.
@@ -193,6 +199,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Input<string> BigDataPoolName { get; set; } = null!;
 
         /// <summary>
+        /// The cache size
+        /// </summary>
+        [Input("cacheSize")]
+        public Input<int>? CacheSize { get; set; }
+
+        /// <summary>
         /// The time when the Big Data pool was created.
         /// </summary>
         [Input("creationDate")]
@@ -205,16 +217,16 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Input<string>? DefaultSparkLogFolder { get; set; }
 
         /// <summary>
+        /// Dynamic Executor Allocation
+        /// </summary>
+        [Input("dynamicExecutorAllocation")]
+        public Input<Inputs.DynamicExecutorAllocationArgs>? DynamicExecutorAllocation { get; set; }
+
+        /// <summary>
         /// Whether to stop any running jobs in the Big Data pool
         /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
-
-        /// <summary>
-        /// Whether library requirements changed.
-        /// </summary>
-        [Input("haveLibraryRequirementsChanged")]
-        public Input<bool>? HaveLibraryRequirementsChanged { get; set; }
 
         /// <summary>
         /// Whether compute isolation is required or not.

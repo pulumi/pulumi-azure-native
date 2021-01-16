@@ -19,7 +19,10 @@ class GetSqlPoolSensitivityLabelResult:
     """
     A sensitivity label.
     """
-    def __init__(__self__, id=None, information_type=None, information_type_id=None, is_disabled=None, label_id=None, label_name=None, name=None, type=None):
+    def __init__(__self__, column_name=None, id=None, information_type=None, information_type_id=None, is_disabled=None, label_id=None, label_name=None, managed_by=None, name=None, rank=None, schema_name=None, table_name=None, type=None):
+        if column_name and not isinstance(column_name, str):
+            raise TypeError("Expected argument 'column_name' to be a str")
+        pulumi.set(__self__, "column_name", column_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,12 +41,32 @@ class GetSqlPoolSensitivityLabelResult:
         if label_name and not isinstance(label_name, str):
             raise TypeError("Expected argument 'label_name' to be a str")
         pulumi.set(__self__, "label_name", label_name)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if rank and not isinstance(rank, str):
+            raise TypeError("Expected argument 'rank' to be a str")
+        pulumi.set(__self__, "rank", rank)
+        if schema_name and not isinstance(schema_name, str):
+            raise TypeError("Expected argument 'schema_name' to be a str")
+        pulumi.set(__self__, "schema_name", schema_name)
+        if table_name and not isinstance(table_name, str):
+            raise TypeError("Expected argument 'table_name' to be a str")
+        pulumi.set(__self__, "table_name", table_name)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        The column name.
+        """
+        return pulumi.get(self, "column_name")
 
     @property
     @pulumi.getter
@@ -94,12 +117,41 @@ class GetSqlPoolSensitivityLabelResult:
         return pulumi.get(self, "label_name")
 
     @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> str:
+        """
+        managed by
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def rank(self) -> Optional[str]:
+        return pulumi.get(self, "rank")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        """
+        The schema name.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The table name.
+        """
+        return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter
@@ -116,13 +168,18 @@ class AwaitableGetSqlPoolSensitivityLabelResult(GetSqlPoolSensitivityLabelResult
         if False:
             yield self
         return GetSqlPoolSensitivityLabelResult(
+            column_name=self.column_name,
             id=self.id,
             information_type=self.information_type,
             information_type_id=self.information_type_id,
             is_disabled=self.is_disabled,
             label_id=self.label_id,
             label_name=self.label_name,
+            managed_by=self.managed_by,
             name=self.name,
+            rank=self.rank,
+            schema_name=self.schema_name,
+            table_name=self.table_name,
             type=self.type)
 
 
@@ -160,11 +217,16 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:synapse/v20190601preview:getSqlPoolSensitivityLabel', __args__, opts=opts, typ=GetSqlPoolSensitivityLabelResult).value
 
     return AwaitableGetSqlPoolSensitivityLabelResult(
+        column_name=__ret__.column_name,
         id=__ret__.id,
         information_type=__ret__.information_type,
         information_type_id=__ret__.information_type_id,
         is_disabled=__ret__.is_disabled,
         label_id=__ret__.label_id,
         label_name=__ret__.label_name,
+        managed_by=__ret__.managed_by,
         name=__ret__.name,
+        rank=__ret__.rank,
+        schema_name=__ret__.schema_name,
+        table_name=__ret__.table_name,
         type=__ret__.type)

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public partial class SqlPoolSensitivityLabel : Pulumi.CustomResource
     {
         /// <summary>
+        /// The column name.
+        /// </summary>
+        [Output("columnName")]
+        public Output<string> ColumnName { get; private set; } = null!;
+
+        /// <summary>
         /// The information type.
         /// </summary>
         [Output("informationType")]
@@ -46,10 +52,31 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public Output<string?> LabelName { get; private set; } = null!;
 
         /// <summary>
+        /// managed by
+        /// </summary>
+        [Output("managedBy")]
+        public Output<string> ManagedBy { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("rank")]
+        public Output<string?> Rank { get; private set; } = null!;
+
+        /// <summary>
+        /// The schema name.
+        /// </summary>
+        [Output("schemaName")]
+        public Output<string> SchemaName { get; private set; } = null!;
+
+        /// <summary>
+        /// The table name.
+        /// </summary>
+        [Output("tableName")]
+        public Output<string> TableName { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -131,6 +158,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         [Input("labelName")]
         public Input<string>? LabelName { get; set; }
+
+        [Input("rank")]
+        public Input<Pulumi.AzureNextGen.Synapse.V20190601Preview.SensitivityLabelRank>? Rank { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

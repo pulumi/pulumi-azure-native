@@ -19,12 +19,14 @@ type BigDataPool struct {
 	AutoPause AutoPausePropertiesResponsePtrOutput `pulumi:"autoPause"`
 	// Auto-scaling properties
 	AutoScale AutoScalePropertiesResponsePtrOutput `pulumi:"autoScale"`
+	// The cache size
+	CacheSize pulumi.IntPtrOutput `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
 	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrOutput `pulumi:"defaultSparkLogFolder"`
-	// Whether library requirements changed.
-	HaveLibraryRequirementsChanged pulumi.BoolPtrOutput `pulumi:"haveLibraryRequirementsChanged"`
+	// Dynamic Executor Allocation
+	DynamicExecutorAllocation DynamicExecutorAllocationResponsePtrOutput `pulumi:"dynamicExecutorAllocation"`
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled pulumi.BoolPtrOutput `pulumi:"isComputeIsolationEnabled"`
 	// Library version requirements
@@ -100,12 +102,14 @@ type bigDataPoolState struct {
 	AutoPause *AutoPausePropertiesResponse `pulumi:"autoPause"`
 	// Auto-scaling properties
 	AutoScale *AutoScalePropertiesResponse `pulumi:"autoScale"`
+	// The cache size
+	CacheSize *int `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
-	// Whether library requirements changed.
-	HaveLibraryRequirementsChanged *bool `pulumi:"haveLibraryRequirementsChanged"`
+	// Dynamic Executor Allocation
+	DynamicExecutorAllocation *DynamicExecutorAllocationResponse `pulumi:"dynamicExecutorAllocation"`
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
 	// Library version requirements
@@ -141,12 +145,14 @@ type BigDataPoolState struct {
 	AutoPause AutoPausePropertiesResponsePtrInput
 	// Auto-scaling properties
 	AutoScale AutoScalePropertiesResponsePtrInput
+	// The cache size
+	CacheSize pulumi.IntPtrInput
 	// The time when the Big Data pool was created.
 	CreationDate pulumi.StringPtrInput
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrInput
-	// Whether library requirements changed.
-	HaveLibraryRequirementsChanged pulumi.BoolPtrInput
+	// Dynamic Executor Allocation
+	DynamicExecutorAllocation DynamicExecutorAllocationResponsePtrInput
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled pulumi.BoolPtrInput
 	// Library version requirements
@@ -188,14 +194,16 @@ type bigDataPoolArgs struct {
 	AutoScale *AutoScaleProperties `pulumi:"autoScale"`
 	// Big Data pool name
 	BigDataPoolName string `pulumi:"bigDataPoolName"`
+	// The cache size
+	CacheSize *int `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
+	// Dynamic Executor Allocation
+	DynamicExecutorAllocation *DynamicExecutorAllocation `pulumi:"dynamicExecutorAllocation"`
 	// Whether to stop any running jobs in the Big Data pool
 	Force *bool `pulumi:"force"`
-	// Whether library requirements changed.
-	HaveLibraryRequirementsChanged *bool `pulumi:"haveLibraryRequirementsChanged"`
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
 	// Library version requirements
@@ -234,14 +242,16 @@ type BigDataPoolArgs struct {
 	AutoScale AutoScalePropertiesPtrInput
 	// Big Data pool name
 	BigDataPoolName pulumi.StringInput
+	// The cache size
+	CacheSize pulumi.IntPtrInput
 	// The time when the Big Data pool was created.
 	CreationDate pulumi.StringPtrInput
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder pulumi.StringPtrInput
+	// Dynamic Executor Allocation
+	DynamicExecutorAllocation DynamicExecutorAllocationPtrInput
 	// Whether to stop any running jobs in the Big Data pool
 	Force pulumi.BoolPtrInput
-	// Whether library requirements changed.
-	HaveLibraryRequirementsChanged pulumi.BoolPtrInput
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled pulumi.BoolPtrInput
 	// Library version requirements

@@ -15,6 +15,8 @@ import (
 type SqlPoolSensitivityLabel struct {
 	pulumi.CustomResourceState
 
+	// The column name.
+	ColumnName pulumi.StringOutput `pulumi:"columnName"`
 	// The information type.
 	InformationType pulumi.StringPtrOutput `pulumi:"informationType"`
 	// The information type ID.
@@ -25,8 +27,15 @@ type SqlPoolSensitivityLabel struct {
 	LabelId pulumi.StringPtrOutput `pulumi:"labelId"`
 	// The label name.
 	LabelName pulumi.StringPtrOutput `pulumi:"labelName"`
+	// managed by
+	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
 	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput    `pulumi:"name"`
+	Rank pulumi.StringPtrOutput `pulumi:"rank"`
+	// The schema name.
+	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
+	// The table name.
+	TableName pulumi.StringOutput `pulumi:"tableName"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -81,6 +90,8 @@ func GetSqlPoolSensitivityLabel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlPoolSensitivityLabel resources.
 type sqlPoolSensitivityLabelState struct {
+	// The column name.
+	ColumnName *string `pulumi:"columnName"`
 	// The information type.
 	InformationType *string `pulumi:"informationType"`
 	// The information type ID.
@@ -91,13 +102,22 @@ type sqlPoolSensitivityLabelState struct {
 	LabelId *string `pulumi:"labelId"`
 	// The label name.
 	LabelName *string `pulumi:"labelName"`
+	// managed by
+	ManagedBy *string `pulumi:"managedBy"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	Rank *string `pulumi:"rank"`
+	// The schema name.
+	SchemaName *string `pulumi:"schemaName"`
+	// The table name.
+	TableName *string `pulumi:"tableName"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
 type SqlPoolSensitivityLabelState struct {
+	// The column name.
+	ColumnName pulumi.StringPtrInput
 	// The information type.
 	InformationType pulumi.StringPtrInput
 	// The information type ID.
@@ -108,8 +128,15 @@ type SqlPoolSensitivityLabelState struct {
 	LabelId pulumi.StringPtrInput
 	// The label name.
 	LabelName pulumi.StringPtrInput
+	// managed by
+	ManagedBy pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	Rank pulumi.StringPtrInput
+	// The schema name.
+	SchemaName pulumi.StringPtrInput
+	// The table name.
+	TableName pulumi.StringPtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
@@ -129,6 +156,7 @@ type sqlPoolSensitivityLabelArgs struct {
 	LabelId *string `pulumi:"labelId"`
 	// The label name.
 	LabelName *string `pulumi:"labelName"`
+	Rank      *string `pulumi:"rank"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the schema.
@@ -155,6 +183,7 @@ type SqlPoolSensitivityLabelArgs struct {
 	LabelId pulumi.StringPtrInput
 	// The label name.
 	LabelName pulumi.StringPtrInput
+	Rank      SensitivityLabelRank
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the schema.

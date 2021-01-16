@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// </summary>
         public readonly string? HostName;
         /// <summary>
+        /// The last commit ID
+        /// </summary>
+        public readonly string? LastCommitId;
+        /// <summary>
         /// VSTS project name
         /// </summary>
         public readonly string? ProjectName;
@@ -37,6 +41,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
         /// Root folder to use in the repository
         /// </summary>
         public readonly string? RootFolder;
+        /// <summary>
+        /// The VSTS tenant ID
+        /// </summary>
+        public readonly string? TenantId;
         /// <summary>
         /// Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
         /// </summary>
@@ -50,20 +58,26 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Outputs
 
             string? hostName,
 
+            string? lastCommitId,
+
             string? projectName,
 
             string? repositoryName,
 
             string? rootFolder,
 
+            string? tenantId,
+
             string? type)
         {
             AccountName = accountName;
             CollaborationBranch = collaborationBranch;
             HostName = hostName;
+            LastCommitId = lastCommitId;
             ProjectName = projectName;
             RepositoryName = repositoryName;
             RootFolder = rootFolder;
+            TenantId = tenantId;
             Type = type;
         }
     }

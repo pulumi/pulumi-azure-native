@@ -20,22 +20,25 @@ class GetBigDataPoolResult:
     """
     A Big Data pool
     """
-    def __init__(__self__, auto_pause=None, auto_scale=None, creation_date=None, default_spark_log_folder=None, have_library_requirements_changed=None, id=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
+    def __init__(__self__, auto_pause=None, auto_scale=None, cache_size=None, creation_date=None, default_spark_log_folder=None, dynamic_executor_allocation=None, id=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
         if auto_pause and not isinstance(auto_pause, dict):
             raise TypeError("Expected argument 'auto_pause' to be a dict")
         pulumi.set(__self__, "auto_pause", auto_pause)
         if auto_scale and not isinstance(auto_scale, dict):
             raise TypeError("Expected argument 'auto_scale' to be a dict")
         pulumi.set(__self__, "auto_scale", auto_scale)
+        if cache_size and not isinstance(cache_size, int):
+            raise TypeError("Expected argument 'cache_size' to be a int")
+        pulumi.set(__self__, "cache_size", cache_size)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
         if default_spark_log_folder and not isinstance(default_spark_log_folder, str):
             raise TypeError("Expected argument 'default_spark_log_folder' to be a str")
         pulumi.set(__self__, "default_spark_log_folder", default_spark_log_folder)
-        if have_library_requirements_changed and not isinstance(have_library_requirements_changed, bool):
-            raise TypeError("Expected argument 'have_library_requirements_changed' to be a bool")
-        pulumi.set(__self__, "have_library_requirements_changed", have_library_requirements_changed)
+        if dynamic_executor_allocation and not isinstance(dynamic_executor_allocation, dict):
+            raise TypeError("Expected argument 'dynamic_executor_allocation' to be a dict")
+        pulumi.set(__self__, "dynamic_executor_allocation", dynamic_executor_allocation)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -99,6 +102,14 @@ class GetBigDataPoolResult:
         return pulumi.get(self, "auto_scale")
 
     @property
+    @pulumi.getter(name="cacheSize")
+    def cache_size(self) -> Optional[int]:
+        """
+        The cache size
+        """
+        return pulumi.get(self, "cache_size")
+
+    @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[str]:
         """
@@ -115,12 +126,12 @@ class GetBigDataPoolResult:
         return pulumi.get(self, "default_spark_log_folder")
 
     @property
-    @pulumi.getter(name="haveLibraryRequirementsChanged")
-    def have_library_requirements_changed(self) -> Optional[bool]:
+    @pulumi.getter(name="dynamicExecutorAllocation")
+    def dynamic_executor_allocation(self) -> Optional['outputs.DynamicExecutorAllocationResponse']:
         """
-        Whether library requirements changed.
+        Dynamic Executor Allocation
         """
-        return pulumi.get(self, "have_library_requirements_changed")
+        return pulumi.get(self, "dynamic_executor_allocation")
 
     @property
     @pulumi.getter
@@ -251,9 +262,10 @@ class AwaitableGetBigDataPoolResult(GetBigDataPoolResult):
         return GetBigDataPoolResult(
             auto_pause=self.auto_pause,
             auto_scale=self.auto_scale,
+            cache_size=self.cache_size,
             creation_date=self.creation_date,
             default_spark_log_folder=self.default_spark_log_folder,
-            have_library_requirements_changed=self.have_library_requirements_changed,
+            dynamic_executor_allocation=self.dynamic_executor_allocation,
             id=self.id,
             is_compute_isolation_enabled=self.is_compute_isolation_enabled,
             library_requirements=self.library_requirements,
@@ -295,9 +307,10 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
     return AwaitableGetBigDataPoolResult(
         auto_pause=__ret__.auto_pause,
         auto_scale=__ret__.auto_scale,
+        cache_size=__ret__.cache_size,
         creation_date=__ret__.creation_date,
         default_spark_log_folder=__ret__.default_spark_log_folder,
-        have_library_requirements_changed=__ret__.have_library_requirements_changed,
+        dynamic_executor_allocation=__ret__.dynamic_executor_allocation,
         id=__ret__.id,
         is_compute_isolation_enabled=__ret__.is_compute_isolation_enabled,
         library_requirements=__ret__.library_requirements,

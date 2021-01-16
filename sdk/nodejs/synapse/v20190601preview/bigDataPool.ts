@@ -44,6 +44,10 @@ export class BigDataPool extends pulumi.CustomResource {
      */
     public readonly autoScale!: pulumi.Output<outputs.synapse.v20190601preview.AutoScalePropertiesResponse | undefined>;
     /**
+     * The cache size
+     */
+    public readonly cacheSize!: pulumi.Output<number | undefined>;
+    /**
      * The time when the Big Data pool was created.
      */
     public readonly creationDate!: pulumi.Output<string | undefined>;
@@ -52,9 +56,9 @@ export class BigDataPool extends pulumi.CustomResource {
      */
     public readonly defaultSparkLogFolder!: pulumi.Output<string | undefined>;
     /**
-     * Whether library requirements changed.
+     * Dynamic Executor Allocation
      */
-    public readonly haveLibraryRequirementsChanged!: pulumi.Output<boolean | undefined>;
+    public readonly dynamicExecutorAllocation!: pulumi.Output<outputs.synapse.v20190601preview.DynamicExecutorAllocationResponse | undefined>;
     /**
      * Whether compute isolation is required or not.
      */
@@ -137,10 +141,11 @@ export class BigDataPool extends pulumi.CustomResource {
             inputs["autoPause"] = args ? args.autoPause : undefined;
             inputs["autoScale"] = args ? args.autoScale : undefined;
             inputs["bigDataPoolName"] = args ? args.bigDataPoolName : undefined;
+            inputs["cacheSize"] = args ? args.cacheSize : undefined;
             inputs["creationDate"] = args ? args.creationDate : undefined;
             inputs["defaultSparkLogFolder"] = args ? args.defaultSparkLogFolder : undefined;
+            inputs["dynamicExecutorAllocation"] = args ? args.dynamicExecutorAllocation : undefined;
             inputs["force"] = args ? args.force : undefined;
-            inputs["haveLibraryRequirementsChanged"] = args ? args.haveLibraryRequirementsChanged : undefined;
             inputs["isComputeIsolationEnabled"] = args ? args.isComputeIsolationEnabled : undefined;
             inputs["libraryRequirements"] = args ? args.libraryRequirements : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -160,9 +165,10 @@ export class BigDataPool extends pulumi.CustomResource {
         } else {
             inputs["autoPause"] = undefined /*out*/;
             inputs["autoScale"] = undefined /*out*/;
+            inputs["cacheSize"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["defaultSparkLogFolder"] = undefined /*out*/;
-            inputs["haveLibraryRequirementsChanged"] = undefined /*out*/;
+            inputs["dynamicExecutorAllocation"] = undefined /*out*/;
             inputs["isComputeIsolationEnabled"] = undefined /*out*/;
             inputs["libraryRequirements"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -206,6 +212,10 @@ export interface BigDataPoolArgs {
      */
     readonly bigDataPoolName: pulumi.Input<string>;
     /**
+     * The cache size
+     */
+    readonly cacheSize?: pulumi.Input<number>;
+    /**
      * The time when the Big Data pool was created.
      */
     readonly creationDate?: pulumi.Input<string>;
@@ -214,13 +224,13 @@ export interface BigDataPoolArgs {
      */
     readonly defaultSparkLogFolder?: pulumi.Input<string>;
     /**
+     * Dynamic Executor Allocation
+     */
+    readonly dynamicExecutorAllocation?: pulumi.Input<inputs.synapse.v20190601preview.DynamicExecutorAllocation>;
+    /**
      * Whether to stop any running jobs in the Big Data pool
      */
     readonly force?: pulumi.Input<boolean>;
-    /**
-     * Whether library requirements changed.
-     */
-    readonly haveLibraryRequirementsChanged?: pulumi.Input<boolean>;
     /**
      * Whether compute isolation is required or not.
      */

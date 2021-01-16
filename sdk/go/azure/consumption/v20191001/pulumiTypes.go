@@ -1593,9 +1593,9 @@ func (o CurrentSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
 
 // The notification associated with a budget.
 type Notification struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded.
+	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails []string `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded.
+	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups []string `pulumi:"contactGroups"`
 	// Contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles []string `pulumi:"contactRoles"`
@@ -1622,9 +1622,9 @@ type NotificationInput interface {
 
 // The notification associated with a budget.
 type NotificationArgs struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded.
+	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded.
+	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
 	// Contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
@@ -1690,12 +1690,12 @@ func (o NotificationOutput) ToNotificationOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Email addresses to send the budget notification to when the threshold is exceeded.
+// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 func (o NotificationOutput) ContactEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Notification) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
 }
 
-// Action groups to send the budget notification to when the threshold is exceeded.
+// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 func (o NotificationOutput) ContactGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Notification) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
 }
@@ -1747,9 +1747,9 @@ func (o NotificationMapOutput) MapIndex(k pulumi.StringInput) NotificationOutput
 
 // The notification associated with a budget.
 type NotificationResponse struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded.
+	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails []string `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded.
+	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups []string `pulumi:"contactGroups"`
 	// Contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles []string `pulumi:"contactRoles"`
@@ -1776,9 +1776,9 @@ type NotificationResponseInput interface {
 
 // The notification associated with a budget.
 type NotificationResponseArgs struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded.
+	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded.
+	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
 	// Contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
@@ -1844,12 +1844,12 @@ func (o NotificationResponseOutput) ToNotificationResponseOutputWithContext(ctx 
 	return o
 }
 
-// Email addresses to send the budget notification to when the threshold is exceeded.
+// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 func (o NotificationResponseOutput) ContactEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
 }
 
-// Action groups to send the budget notification to when the threshold is exceeded.
+// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 func (o NotificationResponseOutput) ContactGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
 }

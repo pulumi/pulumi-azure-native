@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -35,6 +36,10 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
     }
 
     /**
+     * The column name.
+     */
+    public readonly columnName!: pulumi.Output<string>;
+    /**
      * The information type.
      */
     public readonly informationType!: pulumi.Output<string | undefined>;
@@ -55,9 +60,22 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
      */
     public readonly labelName!: pulumi.Output<string | undefined>;
     /**
+     * managed by
+     */
+    public /*out*/ readonly managedBy!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly rank!: pulumi.Output<string | undefined>;
+    /**
+     * The schema name.
+     */
+    public readonly schemaName!: pulumi.Output<string>;
+    /**
+     * The table name.
+     */
+    public readonly tableName!: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -99,6 +117,7 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
             inputs["informationTypeId"] = args ? args.informationTypeId : undefined;
             inputs["labelId"] = args ? args.labelId : undefined;
             inputs["labelName"] = args ? args.labelName : undefined;
+            inputs["rank"] = args ? args.rank : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["schemaName"] = args ? args.schemaName : undefined;
             inputs["sensitivityLabelSource"] = args ? args.sensitivityLabelSource : undefined;
@@ -106,15 +125,21 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
             inputs["tableName"] = args ? args.tableName : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["isDisabled"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["columnName"] = undefined /*out*/;
             inputs["informationType"] = undefined /*out*/;
             inputs["informationTypeId"] = undefined /*out*/;
             inputs["isDisabled"] = undefined /*out*/;
             inputs["labelId"] = undefined /*out*/;
             inputs["labelName"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["rank"] = undefined /*out*/;
+            inputs["schemaName"] = undefined /*out*/;
+            inputs["tableName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -152,6 +177,7 @@ export interface SqlPoolSensitivityLabelArgs {
      * The label name.
      */
     readonly labelName?: pulumi.Input<string>;
+    readonly rank?: pulumi.Input<enums.synapse.v20190601preview.SensitivityLabelRank>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly Outputs.AutoScalePropertiesResponse? AutoScale;
         /// <summary>
+        /// The cache size
+        /// </summary>
+        public readonly int? CacheSize;
+        /// <summary>
         /// The time when the Big Data pool was created.
         /// </summary>
         public readonly string? CreationDate;
@@ -62,9 +66,9 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string? DefaultSparkLogFolder;
         /// <summary>
-        /// Whether library requirements changed.
+        /// Dynamic Executor Allocation
         /// </summary>
-        public readonly bool? HaveLibraryRequirementsChanged;
+        public readonly Outputs.DynamicExecutorAllocationResponse? DynamicExecutorAllocation;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -132,11 +136,13 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             Outputs.AutoScalePropertiesResponse? autoScale,
 
+            int? cacheSize,
+
             string? creationDate,
 
             string? defaultSparkLogFolder,
 
-            bool? haveLibraryRequirementsChanged,
+            Outputs.DynamicExecutorAllocationResponse? dynamicExecutorAllocation,
 
             string id,
 
@@ -170,9 +176,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         {
             AutoPause = autoPause;
             AutoScale = autoScale;
+            CacheSize = cacheSize;
             CreationDate = creationDate;
             DefaultSparkLogFolder = defaultSparkLogFolder;
-            HaveLibraryRequirementsChanged = haveLibraryRequirementsChanged;
+            DynamicExecutorAllocation = dynamicExecutorAllocation;
             Id = id;
             IsComputeIsolationEnabled = isComputeIsolationEnabled;
             LibraryRequirements = libraryRequirements;

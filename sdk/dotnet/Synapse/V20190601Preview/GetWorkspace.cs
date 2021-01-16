@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// The ADLA resource ID.
+        /// </summary>
+        public readonly string AdlaResourceId;
+        /// <summary>
         /// Connectivity endpoints
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ConnectivityEndpoints;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string adlaResourceId,
+
             ImmutableDictionary<string, string>? connectivityEndpoints,
 
             Outputs.DataLakeStorageAccountDetailsResponse? defaultDataLakeStorage,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string workspaceUID)
         {
+            AdlaResourceId = adlaResourceId;
             ConnectivityEndpoints = connectivityEndpoints;
             DefaultDataLakeStorage = defaultDataLakeStorage;
             Encryption = encryption;

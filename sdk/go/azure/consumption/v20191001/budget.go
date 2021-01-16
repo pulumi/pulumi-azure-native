@@ -23,7 +23,7 @@ type Budget struct {
 	CurrentSpend CurrentSpendResponseOutput `pulumi:"currentSpend"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// May be used to filter budgets by resource group, resource, or meter.
+	// May be used to filter budgets by user-specified dimensions and/or tags.
 	Filter BudgetFilterResponsePtrOutput `pulumi:"filter"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -113,7 +113,7 @@ type budgetState struct {
 	CurrentSpend *CurrentSpendResponse `pulumi:"currentSpend"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
-	// May be used to filter budgets by resource group, resource, or meter.
+	// May be used to filter budgets by user-specified dimensions and/or tags.
 	Filter *BudgetFilterResponse `pulumi:"filter"`
 	// Resource name.
 	Name *string `pulumi:"name"`
@@ -136,7 +136,7 @@ type BudgetState struct {
 	CurrentSpend CurrentSpendResponsePtrInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
-	// May be used to filter budgets by resource group, resource, or meter.
+	// May be used to filter budgets by user-specified dimensions and/or tags.
 	Filter BudgetFilterResponsePtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
@@ -163,7 +163,7 @@ type budgetArgs struct {
 	Category string `pulumi:"category"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
-	// May be used to filter budgets by resource group, resource, or meter.
+	// May be used to filter budgets by user-specified dimensions and/or tags.
 	Filter *BudgetFilter `pulumi:"filter"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
 	Notifications map[string]Notification `pulumi:"notifications"`
@@ -185,7 +185,7 @@ type BudgetArgs struct {
 	Category pulumi.StringInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
-	// May be used to filter budgets by resource group, resource, or meter.
+	// May be used to filter budgets by user-specified dimensions and/or tags.
 	Filter BudgetFilterPtrInput
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
 	Notifications NotificationMapInput

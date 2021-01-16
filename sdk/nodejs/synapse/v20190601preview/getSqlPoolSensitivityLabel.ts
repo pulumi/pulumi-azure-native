@@ -60,6 +60,10 @@ export interface GetSqlPoolSensitivityLabelArgs {
  */
 export interface GetSqlPoolSensitivityLabelResult {
     /**
+     * The column name.
+     */
+    readonly columnName: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -84,9 +88,22 @@ export interface GetSqlPoolSensitivityLabelResult {
      */
     readonly labelName?: string;
     /**
+     * managed by
+     */
+    readonly managedBy: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
+    readonly rank?: string;
+    /**
+     * The schema name.
+     */
+    readonly schemaName: string;
+    /**
+     * The table name.
+     */
+    readonly tableName: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -15,6 +15,8 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
+	// The ADLA resource ID.
+	AdlaResourceId pulumi.StringOutput `pulumi:"adlaResourceId"`
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
@@ -95,6 +97,8 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
+	// The ADLA resource ID.
+	AdlaResourceId *string `pulumi:"adlaResourceId"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
@@ -138,6 +142,8 @@ type workspaceState struct {
 }
 
 type WorkspaceState struct {
+	// The ADLA resource ID.
+	AdlaResourceId pulumi.StringPtrInput
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapInput
 	// Workspace default data lake storage account details

@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20191001
         public Output<string?> ETag { get; private set; } = null!;
 
         /// <summary>
-        /// May be used to filter budgets by resource group, resource, or meter.
+        /// May be used to filter budgets by user-specified dimensions and/or tags.
         /// </summary>
         [Output("filter")]
         public Output<Outputs.BudgetFilterResponse?> Filter { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20191001
         public Input<string>? ETag { get; set; }
 
         /// <summary>
-        /// May be used to filter budgets by resource group, resource, or meter.
+        /// May be used to filter budgets by user-specified dimensions and/or tags.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BudgetFilterArgs>? Filter { get; set; }

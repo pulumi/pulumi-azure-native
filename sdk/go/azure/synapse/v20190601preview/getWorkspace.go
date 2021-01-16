@@ -25,6 +25,8 @@ type LookupWorkspaceArgs struct {
 
 // A workspace
 type LookupWorkspaceResult struct {
+	// The ADLA resource ID.
+	AdlaResourceId string `pulumi:"adlaResourceId"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details

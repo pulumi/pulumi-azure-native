@@ -16,6 +16,7 @@ __all__ = [
     'ComponentSetupArgs',
     'CustomerManagedKeyDetailsArgs',
     'DataLakeStorageAccountDetailsArgs',
+    'DynamicExecutorAllocationArgs',
     'EncryptionDetailsArgs',
     'EntityReferenceArgs',
     'EnvironmentVariableSetupArgs',
@@ -329,6 +330,30 @@ class DataLakeStorageAccountDetailsArgs:
     @filesystem.setter
     def filesystem(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filesystem", value)
+
+
+@pulumi.input_type
+class DynamicExecutorAllocationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Dynamic Executor Allocation Properties
+        :param pulumi.Input[bool] enabled: Indicates whether Dynamic Executor Allocation is enabled or not.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Dynamic Executor Allocation is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
@@ -1603,18 +1628,22 @@ class WorkspaceRepositoryConfigurationArgs:
                  account_name: Optional[pulumi.Input[str]] = None,
                  collaboration_branch: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
+                 last_commit_id: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  root_folder: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Git integration settings
         :param pulumi.Input[str] account_name: Account name
         :param pulumi.Input[str] collaboration_branch: Collaboration branch
         :param pulumi.Input[str] host_name: GitHub Enterprise host name. For example: https://github.mydomain.com
+        :param pulumi.Input[str] last_commit_id: The last commit ID
         :param pulumi.Input[str] project_name: VSTS project name
         :param pulumi.Input[str] repository_name: Repository name
         :param pulumi.Input[str] root_folder: Root folder to use in the repository
+        :param pulumi.Input[str] tenant_id: The VSTS tenant ID
         :param pulumi.Input[str] type: Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
         """
         if account_name is not None:
@@ -1623,12 +1652,16 @@ class WorkspaceRepositoryConfigurationArgs:
             pulumi.set(__self__, "collaboration_branch", collaboration_branch)
         if host_name is not None:
             pulumi.set(__self__, "host_name", host_name)
+        if last_commit_id is not None:
+            pulumi.set(__self__, "last_commit_id", last_commit_id)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if repository_name is not None:
             pulumi.set(__self__, "repository_name", repository_name)
         if root_folder is not None:
             pulumi.set(__self__, "root_folder", root_folder)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -1669,6 +1702,18 @@ class WorkspaceRepositoryConfigurationArgs:
         pulumi.set(self, "host_name", value)
 
     @property
+    @pulumi.getter(name="lastCommitId")
+    def last_commit_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last commit ID
+        """
+        return pulumi.get(self, "last_commit_id")
+
+    @last_commit_id.setter
+    def last_commit_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_commit_id", value)
+
+    @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1703,6 +1748,18 @@ class WorkspaceRepositoryConfigurationArgs:
     @root_folder.setter
     def root_folder(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "root_folder", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The VSTS tenant ID
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
     @property
     @pulumi.getter

@@ -53,7 +53,7 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
     /**
-     * May be used to filter budgets by resource group, resource, or meter.
+     * May be used to filter budgets by user-specified dimensions and/or tags.
      */
     public readonly filter!: pulumi.Output<outputs.consumption.latest.BudgetFilterResponse | undefined>;
     /**
@@ -163,7 +163,7 @@ export interface BudgetArgs {
      */
     readonly eTag?: pulumi.Input<string>;
     /**
-     * May be used to filter budgets by resource group, resource, or meter.
+     * May be used to filter budgets by user-specified dimensions and/or tags.
      */
     readonly filter?: pulumi.Input<inputs.consumption.latest.BudgetFilter>;
     /**
