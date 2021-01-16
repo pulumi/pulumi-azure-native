@@ -35,6 +35,10 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * The ADLA resource ID.
+     */
+    readonly adlaResourceId: string;
+    /**
      * Connectivity endpoints
      */
     readonly connectivityEndpoints?: {[key: string]: string};

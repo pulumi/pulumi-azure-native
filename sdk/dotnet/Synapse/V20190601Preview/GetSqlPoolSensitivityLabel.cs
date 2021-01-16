@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public sealed class GetSqlPoolSensitivityLabelResult
     {
         /// <summary>
+        /// The column name.
+        /// </summary>
+        public readonly string ColumnName;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -94,9 +98,22 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string? LabelName;
         /// <summary>
+        /// managed by
+        /// </summary>
+        public readonly string ManagedBy;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        public readonly string? Rank;
+        /// <summary>
+        /// The schema name.
+        /// </summary>
+        public readonly string SchemaName;
+        /// <summary>
+        /// The table name.
+        /// </summary>
+        public readonly string TableName;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -104,6 +121,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
         [OutputConstructor]
         private GetSqlPoolSensitivityLabelResult(
+            string columnName,
+
             string id,
 
             string? informationType,
@@ -116,17 +135,30 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string? labelName,
 
+            string managedBy,
+
             string name,
+
+            string? rank,
+
+            string schemaName,
+
+            string tableName,
 
             string type)
         {
+            ColumnName = columnName;
             Id = id;
             InformationType = informationType;
             InformationTypeId = informationTypeId;
             IsDisabled = isDisabled;
             LabelId = labelId;
             LabelName = labelName;
+            ManagedBy = managedBy;
             Name = name;
+            Rank = rank;
+            SchemaName = schemaName;
+            TableName = tableName;
             Type = type;
         }
     }

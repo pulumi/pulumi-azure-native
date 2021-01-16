@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Consumption.Latest
         /// </summary>
         public readonly string? ETag;
         /// <summary>
-        /// May be used to filter budgets by resource group, resource, or meter.
+        /// May be used to filter budgets by user-specified dimensions and/or tags.
         /// </summary>
         public readonly Outputs.BudgetFilterResponse? Filter;
         /// <summary>

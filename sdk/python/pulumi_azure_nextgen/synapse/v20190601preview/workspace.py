@@ -101,6 +101,7 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['workspace_repository_configuration'] = workspace_repository_configuration
+            __props__['adla_resource_id'] = None
             __props__['extra_properties'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
@@ -129,6 +130,14 @@ class Workspace(pulumi.CustomResource):
         __props__ = dict()
 
         return Workspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="adlaResourceId")
+    def adla_resource_id(self) -> pulumi.Output[str]:
+        """
+        The ADLA resource ID.
+        """
+        return pulumi.get(self, "adla_resource_id")
 
     @property
     @pulumi.getter(name="connectivityEndpoints")

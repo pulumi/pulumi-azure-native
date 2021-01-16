@@ -31,12 +31,14 @@ type LookupBigDataPoolResult struct {
 	AutoPause *AutoPausePropertiesResponse `pulumi:"autoPause"`
 	// Auto-scaling properties
 	AutoScale *AutoScalePropertiesResponse `pulumi:"autoScale"`
+	// The cache size
+	CacheSize *int `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
-	// Whether library requirements changed.
-	HaveLibraryRequirementsChanged *bool `pulumi:"haveLibraryRequirementsChanged"`
+	// Dynamic Executor Allocation
+	DynamicExecutorAllocation *DynamicExecutorAllocationResponse `pulumi:"dynamicExecutorAllocation"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Whether compute isolation is required or not.

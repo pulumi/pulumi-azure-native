@@ -20,7 +20,10 @@ class GetWorkspaceResult:
     """
     A workspace
     """
-    def __init__(__self__, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, purview_configuration=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
+    def __init__(__self__, adla_resource_id=None, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, purview_configuration=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
+        if adla_resource_id and not isinstance(adla_resource_id, str):
+            raise TypeError("Expected argument 'adla_resource_id' to be a str")
+        pulumi.set(__self__, "adla_resource_id", adla_resource_id)
         if connectivity_endpoints and not isinstance(connectivity_endpoints, dict):
             raise TypeError("Expected argument 'connectivity_endpoints' to be a dict")
         pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
@@ -84,6 +87,14 @@ class GetWorkspaceResult:
         if workspace_uid and not isinstance(workspace_uid, str):
             raise TypeError("Expected argument 'workspace_uid' to be a str")
         pulumi.set(__self__, "workspace_uid", workspace_uid)
+
+    @property
+    @pulumi.getter(name="adlaResourceId")
+    def adla_resource_id(self) -> str:
+        """
+        The ADLA resource ID.
+        """
+        return pulumi.get(self, "adla_resource_id")
 
     @property
     @pulumi.getter(name="connectivityEndpoints")
@@ -260,6 +271,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            adla_resource_id=self.adla_resource_id,
             connectivity_endpoints=self.connectivity_endpoints,
             default_data_lake_storage=self.default_data_lake_storage,
             encryption=self.encryption,
@@ -302,6 +314,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:synapse/v20190601preview:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        adla_resource_id=__ret__.adla_resource_id,
         connectivity_endpoints=__ret__.connectivity_endpoints,
         default_data_lake_storage=__ret__.default_data_lake_storage,
         encryption=__ret__.encryption,

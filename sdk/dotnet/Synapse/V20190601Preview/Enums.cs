@@ -294,6 +294,37 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct SensitivityLabelRank : IEquatable<SensitivityLabelRank>
+    {
+        private readonly string _value;
+
+        private SensitivityLabelRank(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SensitivityLabelRank None { get; } = new SensitivityLabelRank("None");
+        public static SensitivityLabelRank Low { get; } = new SensitivityLabelRank("Low");
+        public static SensitivityLabelRank Medium { get; } = new SensitivityLabelRank("Medium");
+        public static SensitivityLabelRank High { get; } = new SensitivityLabelRank("High");
+        public static SensitivityLabelRank Critical { get; } = new SensitivityLabelRank("Critical");
+
+        public static bool operator ==(SensitivityLabelRank left, SensitivityLabelRank right) => left.Equals(right);
+        public static bool operator !=(SensitivityLabelRank left, SensitivityLabelRank right) => !left.Equals(right);
+
+        public static explicit operator string(SensitivityLabelRank value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SensitivityLabelRank other && Equals(other);
+        public bool Equals(SensitivityLabelRank other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The status of the database transparent data encryption.
     /// </summary>

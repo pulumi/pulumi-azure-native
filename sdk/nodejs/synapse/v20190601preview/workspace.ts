@@ -36,6 +36,10 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * The ADLA resource ID.
+     */
+    public /*out*/ readonly adlaResourceId!: pulumi.Output<string>;
+    /**
      * Connectivity endpoints
      */
     public readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -152,12 +156,14 @@ export class Workspace extends pulumi.CustomResource {
             inputs["virtualNetworkProfile"] = args ? args.virtualNetworkProfile : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["workspaceRepositoryConfiguration"] = args ? args.workspaceRepositoryConfiguration : undefined;
+            inputs["adlaResourceId"] = undefined /*out*/;
             inputs["extraProperties"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["workspaceUID"] = undefined /*out*/;
         } else {
+            inputs["adlaResourceId"] = undefined /*out*/;
             inputs["connectivityEndpoints"] = undefined /*out*/;
             inputs["defaultDataLakeStorage"] = undefined /*out*/;
             inputs["encryption"] = undefined /*out*/;

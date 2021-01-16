@@ -14,6 +14,7 @@ __all__ = [
     'NodeSize',
     'NodeSizeFamily',
     'ResourceIdentityType',
+    'SensitivityLabelRank',
     'TransparentDataEncryptionStatus',
 ]
 
@@ -96,6 +97,14 @@ class ResourceIdentityType(str, Enum):
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class SensitivityLabelRank(str, Enum):
+    NONE = "None"
+    LOW = "Low"
+    MEDIUM = "Medium"
+    HIGH = "High"
+    CRITICAL = "Critical"
 
 
 class TransparentDataEncryptionStatus(str, Enum):

@@ -35,6 +35,8 @@ type LookupSqlPoolSensitivityLabelArgs struct {
 
 // A sensitivity label.
 type LookupSqlPoolSensitivityLabelResult struct {
+	// The column name.
+	ColumnName string `pulumi:"columnName"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The information type.
@@ -47,8 +49,15 @@ type LookupSqlPoolSensitivityLabelResult struct {
 	LabelId *string `pulumi:"labelId"`
 	// The label name.
 	LabelName *string `pulumi:"labelName"`
+	// managed by
+	ManagedBy string `pulumi:"managedBy"`
 	// The name of the resource
-	Name string `pulumi:"name"`
+	Name string  `pulumi:"name"`
+	Rank *string `pulumi:"rank"`
+	// The schema name.
+	SchemaName string `pulumi:"schemaName"`
+	// The table name.
+	TableName string `pulumi:"tableName"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

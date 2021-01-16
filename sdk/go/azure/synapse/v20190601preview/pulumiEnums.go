@@ -270,6 +270,36 @@ func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type SensitivityLabelRank pulumi.String
+
+const (
+	SensitivityLabelRankNone     = SensitivityLabelRank("None")
+	SensitivityLabelRankLow      = SensitivityLabelRank("Low")
+	SensitivityLabelRankMedium   = SensitivityLabelRank("Medium")
+	SensitivityLabelRankHigh     = SensitivityLabelRank("High")
+	SensitivityLabelRankCritical = SensitivityLabelRank("Critical")
+)
+
+func (SensitivityLabelRank) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SensitivityLabelRank) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SensitivityLabelRank) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SensitivityLabelRank) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SensitivityLabelRank) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The status of the database transparent data encryption.
 type TransparentDataEncryptionStatus pulumi.String
 

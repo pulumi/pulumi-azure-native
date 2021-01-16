@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20191001.Inputs
         private InputList<string>? _contactEmails;
 
         /// <summary>
-        /// Email addresses to send the budget notification to when the threshold is exceeded.
+        /// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
         /// </summary>
         public InputList<string> ContactEmails
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20191001.Inputs
         private InputList<string>? _contactGroups;
 
         /// <summary>
-        /// Action groups to send the budget notification to when the threshold is exceeded.
+        /// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
         /// </summary>
         public InputList<string> ContactGroups
         {
@@ -77,6 +77,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20191001.Inputs
 
         public NotificationArgs()
         {
+            ThresholdType = "Actual";
         }
     }
 }

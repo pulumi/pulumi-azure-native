@@ -100,6 +100,16 @@ export const ResourceIdentityType = {
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
+export const SensitivityLabelRank = {
+    None: "None",
+    Low: "Low",
+    Medium: "Medium",
+    High: "High",
+    Critical: "Critical",
+} as const;
+
+export type SensitivityLabelRank = (typeof SensitivityLabelRank)[keyof typeof SensitivityLabelRank];
+
 export const TransparentDataEncryptionStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",

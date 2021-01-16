@@ -21,10 +21,11 @@ class BigDataPool(pulumi.CustomResource):
                  auto_pause: Optional[pulumi.Input[pulumi.InputType['AutoPausePropertiesArgs']]] = None,
                  auto_scale: Optional[pulumi.Input[pulumi.InputType['AutoScalePropertiesArgs']]] = None,
                  big_data_pool_name: Optional[pulumi.Input[str]] = None,
+                 cache_size: Optional[pulumi.Input[int]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
+                 dynamic_executor_allocation: Optional[pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']]] = None,
                  force: Optional[pulumi.Input[bool]] = None,
-                 have_library_requirements_changed: Optional[pulumi.Input[bool]] = None,
                  is_compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  library_requirements: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -50,10 +51,11 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AutoPausePropertiesArgs']] auto_pause: Auto-pausing properties
         :param pulumi.Input[pulumi.InputType['AutoScalePropertiesArgs']] auto_scale: Auto-scaling properties
         :param pulumi.Input[str] big_data_pool_name: Big Data pool name
+        :param pulumi.Input[int] cache_size: The cache size
         :param pulumi.Input[str] creation_date: The time when the Big Data pool was created.
         :param pulumi.Input[str] default_spark_log_folder: The default folder where Spark logs will be written.
+        :param pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']] dynamic_executor_allocation: Dynamic Executor Allocation
         :param pulumi.Input[bool] force: Whether to stop any running jobs in the Big Data pool
-        :param pulumi.Input[bool] have_library_requirements_changed: Whether library requirements changed.
         :param pulumi.Input[bool] is_compute_isolation_enabled: Whether compute isolation is required or not.
         :param pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']] library_requirements: Library version requirements
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -91,10 +93,11 @@ class BigDataPool(pulumi.CustomResource):
             if big_data_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'big_data_pool_name'")
             __props__['big_data_pool_name'] = big_data_pool_name
+            __props__['cache_size'] = cache_size
             __props__['creation_date'] = creation_date
             __props__['default_spark_log_folder'] = default_spark_log_folder
+            __props__['dynamic_executor_allocation'] = dynamic_executor_allocation
             __props__['force'] = force
-            __props__['have_library_requirements_changed'] = have_library_requirements_changed
             __props__['is_compute_isolation_enabled'] = is_compute_isolation_enabled
             __props__['library_requirements'] = library_requirements
             if location is None and not opts.urn:
@@ -158,6 +161,14 @@ class BigDataPool(pulumi.CustomResource):
         return pulumi.get(self, "auto_scale")
 
     @property
+    @pulumi.getter(name="cacheSize")
+    def cache_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        The cache size
+        """
+        return pulumi.get(self, "cache_size")
+
+    @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
@@ -174,12 +185,12 @@ class BigDataPool(pulumi.CustomResource):
         return pulumi.get(self, "default_spark_log_folder")
 
     @property
-    @pulumi.getter(name="haveLibraryRequirementsChanged")
-    def have_library_requirements_changed(self) -> pulumi.Output[Optional[bool]]:
+    @pulumi.getter(name="dynamicExecutorAllocation")
+    def dynamic_executor_allocation(self) -> pulumi.Output[Optional['outputs.DynamicExecutorAllocationResponse']]:
         """
-        Whether library requirements changed.
+        Dynamic Executor Allocation
         """
-        return pulumi.get(self, "have_library_requirements_changed")
+        return pulumi.get(self, "dynamic_executor_allocation")
 
     @property
     @pulumi.getter(name="isComputeIsolationEnabled")
