@@ -1015,13 +1015,7 @@ func (k *azureNextGenProvider) azureCreateOrUpdate(
 		autorest.ByUnmarshallingJSON(&outputs),
 		autorest.ByClosing())
 	if err != nil {
-		switch err.(type) {
-		case *json.UnmarshalTypeError:
-			body, _ := ioutil.ReadAll(resp.Body)
-			return nil, errors.Wrapf(err, "status: %d, body: %q", resp.StatusCode, body)
-		default:
-			return nil, err
-		}
+		return nil, err
 	}
 	return outputs, nil
 }
