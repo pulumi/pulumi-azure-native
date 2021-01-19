@@ -54,8 +54,8 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to.
         :param pulumi.Input[int] severity: Alert severity {0, 1, 2, 3, 4}
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] target_resource_region: the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
-        :param pulumi.Input[str] target_resource_type: the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        :param pulumi.Input[str] target_resource_region: the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+        :param pulumi.Input[str] target_resource_type: the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
         """
         if __name__ is not None:
@@ -96,6 +96,8 @@ class MetricAlert(pulumi.CustomResource):
             if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
+            if scopes is None and not opts.urn:
+                raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
             if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")
@@ -106,6 +108,7 @@ class MetricAlert(pulumi.CustomResource):
             if window_size is None and not opts.urn:
                 raise TypeError("Missing required property 'window_size'")
             __props__['window_size'] = window_size
+            __props__['is_migrated'] = None
             __props__['last_updated_time'] = None
             __props__['name'] = None
             __props__['type'] = None
@@ -184,6 +187,14 @@ class MetricAlert(pulumi.CustomResource):
         return pulumi.get(self, "evaluation_frequency")
 
     @property
+    @pulumi.getter(name="isMigrated")
+    def is_migrated(self) -> pulumi.Output[str]:
+        """
+        the value indicating whether this alert rule is migrated.
+        """
+        return pulumi.get(self, "is_migrated")
+
+    @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
         """
@@ -209,7 +220,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def scopes(self) -> pulumi.Output[Sequence[str]]:
         """
         the list of resource id's that this metric alert is scoped to.
         """
@@ -235,7 +246,7 @@ class MetricAlert(pulumi.CustomResource):
     @pulumi.getter(name="targetResourceRegion")
     def target_resource_region(self) -> pulumi.Output[Optional[str]]:
         """
-        the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         """
         return pulumi.get(self, "target_resource_region")
 
@@ -243,7 +254,7 @@ class MetricAlert(pulumi.CustomResource):
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> pulumi.Output[Optional[str]]:
         """
-        the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         """
         return pulumi.get(self, "target_resource_type")
 

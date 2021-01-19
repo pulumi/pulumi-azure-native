@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerBackendAddressPoolReferenceResponse> LoadBalancerBackendAddressPools;
         /// <summary>
+        /// Gets or sets the references of the load balancer NAT rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LoadBalancerNatRuleReferenceResponse> LoadBalancerNatRules;
+        /// <summary>
         /// Gets or sets the IP configuration name.
         /// </summary>
         public readonly string? Name;
@@ -34,6 +38,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         /// </summary>
         public readonly string? PrivateIpAllocationMethod;
         /// <summary>
+        /// Defines reference to a public IP.
+        /// </summary>
+        public readonly Outputs.PublicIpReferenceResponse? PublicIp;
+        /// <summary>
         /// Defines reference to subnet.
         /// </summary>
         public readonly Outputs.SubnetReferenceResponse? Subnet;
@@ -41,6 +49,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         [OutputConstructor]
         private NicIpConfigurationResourceSettingsResponse(
             ImmutableArray<Outputs.LoadBalancerBackendAddressPoolReferenceResponse> loadBalancerBackendAddressPools,
+
+            ImmutableArray<Outputs.LoadBalancerNatRuleReferenceResponse> loadBalancerNatRules,
 
             string? name,
 
@@ -50,13 +60,17 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
 
             string? privateIpAllocationMethod,
 
+            Outputs.PublicIpReferenceResponse? publicIp,
+
             Outputs.SubnetReferenceResponse? subnet)
         {
             LoadBalancerBackendAddressPools = loadBalancerBackendAddressPools;
+            LoadBalancerNatRules = loadBalancerNatRules;
             Name = name;
             Primary = primary;
             PrivateIpAddress = privateIpAddress;
             PrivateIpAllocationMethod = privateIpAllocationMethod;
+            PublicIp = publicIp;
             Subnet = subnet;
         }
     }

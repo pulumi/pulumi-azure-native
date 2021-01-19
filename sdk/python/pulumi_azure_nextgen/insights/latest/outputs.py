@@ -1603,7 +1603,7 @@ class MetricAlertActionResponse(dict):
         """
         An alert action.
         :param str action_group_id: the id of the action group to use.
-        :param Mapping[str, str] web_hook_properties: The properties of a webhook object.
+        :param Mapping[str, str] web_hook_properties: This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
         """
         if action_group_id is not None:
             pulumi.set(__self__, "action_group_id", action_group_id)
@@ -1622,7 +1622,7 @@ class MetricAlertActionResponse(dict):
     @pulumi.getter(name="webHookProperties")
     def web_hook_properties(self) -> Optional[Mapping[str, str]]:
         """
-        The properties of a webhook object.
+        This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
         """
         return pulumi.get(self, "web_hook_properties")
 

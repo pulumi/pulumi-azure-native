@@ -18,7 +18,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Outputs
         /// </summary>
         public readonly string? ActionGroupId;
         /// <summary>
-        /// The properties of a webhook object.
+        /// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? WebHookProperties;
 

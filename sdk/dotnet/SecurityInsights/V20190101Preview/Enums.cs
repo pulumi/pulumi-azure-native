@@ -23,6 +23,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public static AlertRuleKind Scheduled { get; } = new AlertRuleKind("Scheduled");
         public static AlertRuleKind MicrosoftSecurityIncidentCreation { get; } = new AlertRuleKind("MicrosoftSecurityIncidentCreation");
         public static AlertRuleKind Fusion { get; } = new AlertRuleKind("Fusion");
+        public static AlertRuleKind MLBehaviorAnalytics { get; } = new AlertRuleKind("MLBehaviorAnalytics");
+        public static AlertRuleKind ThreatIntelligence { get; } = new AlertRuleKind("ThreatIntelligence");
 
         public static bool operator ==(AlertRuleKind left, AlertRuleKind right) => left.Equals(right);
         public static bool operator !=(AlertRuleKind left, AlertRuleKind right) => !left.Equals(right);

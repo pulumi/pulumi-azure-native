@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// the value indicating whether this alert rule is migrated.
+        /// </summary>
+        public readonly string IsMigrated;
+        /// <summary>
         /// Last time the rule was updated in ISO8601 format.
         /// </summary>
         public readonly string LastUpdatedTime;
@@ -92,11 +96,11 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        /// the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         /// </summary>
         public readonly string? TargetResourceRegion;
         /// <summary>
-        /// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        /// the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         /// </summary>
         public readonly string? TargetResourceType;
         /// <summary>
@@ -123,6 +127,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
             string evaluationFrequency,
 
             string id,
+
+            string isMigrated,
 
             string lastUpdatedTime,
 
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
             Enabled = enabled;
             EvaluationFrequency = evaluationFrequency;
             Id = id;
+            IsMigrated = isMigrated;
             LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;

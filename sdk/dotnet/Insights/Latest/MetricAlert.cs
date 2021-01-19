@@ -53,6 +53,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public Output<string> EvaluationFrequency { get; private set; } = null!;
 
         /// <summary>
+        /// the value indicating whether this alert rule is migrated.
+        /// </summary>
+        [Output("isMigrated")]
+        public Output<string> IsMigrated { get; private set; } = null!;
+
+        /// <summary>
         /// Last time the rule was updated in ISO8601 format.
         /// </summary>
         [Output("lastUpdatedTime")]
@@ -89,13 +95,13 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        /// the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         /// </summary>
         [Output("targetResourceRegion")]
         public Output<string?> TargetResourceRegion { get; private set; } = null!;
 
         /// <summary>
-        /// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        /// the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         /// </summary>
         [Output("targetResourceType")]
         public Output<string?> TargetResourceType { get; private set; } = null!;
@@ -221,7 +227,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
-        [Input("scopes")]
+        [Input("scopes", required: true)]
         private InputList<string>? _scopes;
 
         /// <summary>
@@ -252,13 +258,13 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         }
 
         /// <summary>
-        /// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        /// the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         /// </summary>
         [Input("targetResourceRegion")]
         public Input<string>? TargetResourceRegion { get; set; }
 
         /// <summary>
-        /// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        /// the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         /// </summary>
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }

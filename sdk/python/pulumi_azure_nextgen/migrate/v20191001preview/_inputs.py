@@ -15,6 +15,7 @@ __all__ = [
     'LBBackendAddressPoolResourceSettingsArgs',
     'LBFrontendIPConfigurationResourceSettingsArgs',
     'LoadBalancerBackendAddressPoolReferenceArgs',
+    'LoadBalancerNatRuleReferenceArgs',
     'LoadBalancerResourceSettingsArgs',
     'MoveCollectionPropertiesArgs',
     'MoveResourceDependencyOverrideArgs',
@@ -22,8 +23,10 @@ __all__ = [
     'NetworkInterfaceResourceSettingsArgs',
     'NetworkSecurityGroupResourceSettingsArgs',
     'NicIpConfigurationResourceSettingsArgs',
+    'NsgReferenceArgs',
     'NsgSecurityRuleArgs',
     'PublicIPAddressResourceSettingsArgs',
+    'PublicIpReferenceArgs',
     'ResourceGroupResourceSettingsArgs',
     'SqlDatabaseResourceSettingsArgs',
     'SqlElasticPoolResourceSettingsArgs',
@@ -283,6 +286,45 @@ class LoadBalancerBackendAddressPoolReferenceArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Defines reference to load balancer backend address pools.
+        :param pulumi.Input[str] source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
+        :param pulumi.Input[str] name: Gets the name of the proxy resource on the target side.
+        """
+        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="sourceArmResourceId")
+    def source_arm_resource_id(self) -> pulumi.Input[str]:
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        return pulumi.get(self, "source_arm_resource_id")
+
+    @source_arm_resource_id.setter
+    def source_arm_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_arm_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets the name of the proxy resource on the target side.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class LoadBalancerNatRuleReferenceArgs:
+    def __init__(__self__, *,
+                 source_arm_resource_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Defines reference to load balancer NAT rules.
         :param pulumi.Input[str] source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         :param pulumi.Input[str] name: Gets the name of the proxy resource on the target side.
         """
@@ -704,22 +746,28 @@ class NetworkSecurityGroupResourceSettingsArgs:
 class NicIpConfigurationResourceSettingsArgs:
     def __init__(__self__, *,
                  load_balancer_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']]]] = None,
+                 load_balancer_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerNatRuleReferenceArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
+                 public_ip: Optional[pulumi.Input['PublicIpReferenceArgs']] = None,
                  subnet: Optional[pulumi.Input['SubnetReferenceArgs']] = None):
         """
         Defines NIC IP configuration properties.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']]] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerNatRuleReferenceArgs']]] load_balancer_nat_rules: Gets or sets the references of the load balancer NAT rules.
         :param pulumi.Input[str] name: Gets or sets the IP configuration name.
         :param pulumi.Input[bool] primary: Gets or sets a value indicating whether this IP configuration is the primary.
         :param pulumi.Input[str] private_ip_address: Gets or sets the private IP address of the network interface IP Configuration.
         :param pulumi.Input[str] private_ip_allocation_method: Gets or sets the private IP address allocation method.
+        :param pulumi.Input['PublicIpReferenceArgs'] public_ip: Defines reference to a public IP.
         :param pulumi.Input['SubnetReferenceArgs'] subnet: Defines reference to subnet.
         """
         if load_balancer_backend_address_pools is not None:
             pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
+        if load_balancer_nat_rules is not None:
+            pulumi.set(__self__, "load_balancer_nat_rules", load_balancer_nat_rules)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -728,6 +776,8 @@ class NicIpConfigurationResourceSettingsArgs:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if private_ip_allocation_method is not None:
             pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if public_ip is not None:
+            pulumi.set(__self__, "public_ip", public_ip)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
 
@@ -742,6 +792,18 @@ class NicIpConfigurationResourceSettingsArgs:
     @load_balancer_backend_address_pools.setter
     def load_balancer_backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']]]]):
         pulumi.set(self, "load_balancer_backend_address_pools", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerNatRules")
+    def load_balancer_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerNatRuleReferenceArgs']]]]:
+        """
+        Gets or sets the references of the load balancer NAT rules.
+        """
+        return pulumi.get(self, "load_balancer_nat_rules")
+
+    @load_balancer_nat_rules.setter
+    def load_balancer_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerNatRuleReferenceArgs']]]]):
+        pulumi.set(self, "load_balancer_nat_rules", value)
 
     @property
     @pulumi.getter
@@ -792,6 +854,18 @@ class NicIpConfigurationResourceSettingsArgs:
         pulumi.set(self, "private_ip_allocation_method", value)
 
     @property
+    @pulumi.getter(name="publicIp")
+    def public_ip(self) -> Optional[pulumi.Input['PublicIpReferenceArgs']]:
+        """
+        Defines reference to a public IP.
+        """
+        return pulumi.get(self, "public_ip")
+
+    @public_ip.setter
+    def public_ip(self, value: Optional[pulumi.Input['PublicIpReferenceArgs']]):
+        pulumi.set(self, "public_ip", value)
+
+    @property
     @pulumi.getter
     def subnet(self) -> Optional[pulumi.Input['SubnetReferenceArgs']]:
         """
@@ -802,6 +876,29 @@ class NicIpConfigurationResourceSettingsArgs:
     @subnet.setter
     def subnet(self, value: Optional[pulumi.Input['SubnetReferenceArgs']]):
         pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
+class NsgReferenceArgs:
+    def __init__(__self__, *,
+                 source_arm_resource_id: pulumi.Input[str]):
+        """
+        Defines reference to NSG.
+        :param pulumi.Input[str] source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+
+    @property
+    @pulumi.getter(name="sourceArmResourceId")
+    def source_arm_resource_id(self) -> pulumi.Input[str]:
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        return pulumi.get(self, "source_arm_resource_id")
+
+    @source_arm_resource_id.setter
+    def source_arm_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_arm_resource_id", value)
 
 
 @pulumi.input_type
@@ -1115,6 +1212,29 @@ class PublicIPAddressResourceSettingsArgs:
 
 
 @pulumi.input_type
+class PublicIpReferenceArgs:
+    def __init__(__self__, *,
+                 source_arm_resource_id: pulumi.Input[str]):
+        """
+        Defines reference to a public IP.
+        :param pulumi.Input[str] source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+
+    @property
+    @pulumi.getter(name="sourceArmResourceId")
+    def source_arm_resource_id(self) -> pulumi.Input[str]:
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        return pulumi.get(self, "source_arm_resource_id")
+
+    @source_arm_resource_id.setter
+    def source_arm_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_arm_resource_id", value)
+
+
+@pulumi.input_type
 class ResourceGroupResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
@@ -1349,16 +1469,20 @@ class SubnetReferenceArgs:
 class SubnetResourceSettingsArgs:
     def __init__(__self__, *,
                  address_prefix: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_security_group: Optional[pulumi.Input['NsgReferenceArgs']] = None):
         """
         Defines the virtual network subnets resource settings.
         :param pulumi.Input[str] address_prefix: Gets or sets address prefix for the subnet.
         :param pulumi.Input[str] name: Gets or sets the Subnet name.
+        :param pulumi.Input['NsgReferenceArgs'] network_security_group: Defines reference to NSG.
         """
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_security_group is not None:
+            pulumi.set(__self__, "network_security_group", network_security_group)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -1383,6 +1507,18 @@ class SubnetResourceSettingsArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional[pulumi.Input['NsgReferenceArgs']]:
+        """
+        Defines reference to NSG.
+        """
+        return pulumi.get(self, "network_security_group")
+
+    @network_security_group.setter
+    def network_security_group(self, value: Optional[pulumi.Input['NsgReferenceArgs']]):
+        pulumi.set(self, "network_security_group", value)
 
 
 @pulumi.input_type

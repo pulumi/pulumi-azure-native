@@ -27,6 +27,12 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Defines reference to NSG.
+        /// </summary>
+        [Input("networkSecurityGroup")]
+        public Input<Inputs.NsgReferenceArgs>? NetworkSecurityGroup { get; set; }
+
         public SubnetResourceSettingsArgs()
         {
         }

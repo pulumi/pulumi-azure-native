@@ -126,6 +126,7 @@ import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
 import * as providerhub from "./providerhub";
 import * as purview from "./purview";
+import * as quantum from "./quantum";
 import * as recoveryservices from "./recoveryservices";
 import * as redhatopenshift from "./redhatopenshift";
 import * as relay from "./relay";
@@ -281,6 +282,7 @@ export {
     powerplatform,
     providerhub,
     purview,
+    quantum,
     recoveryservices,
     redhatopenshift,
     relay,

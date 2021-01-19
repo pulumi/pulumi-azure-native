@@ -102,6 +102,7 @@ import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
 import * as purview from "./purview";
+import * as quantum from "./quantum";
 import * as recoveryservices from "./recoveryservices";
 import * as relay from "./relay";
 import * as resources from "./resources";
@@ -234,6 +235,7 @@ export {
     powerbidedicated,
     powerplatform,
     purview,
+    quantum,
     recoveryservices,
     relay,
     resources,

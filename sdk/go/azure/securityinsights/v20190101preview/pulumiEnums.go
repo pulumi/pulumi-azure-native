@@ -17,6 +17,8 @@ const (
 	AlertRuleKindScheduled                         = AlertRuleKind("Scheduled")
 	AlertRuleKindMicrosoftSecurityIncidentCreation = AlertRuleKind("MicrosoftSecurityIncidentCreation")
 	AlertRuleKindFusion                            = AlertRuleKind("Fusion")
+	AlertRuleKindMLBehaviorAnalytics               = AlertRuleKind("MLBehaviorAnalytics")
+	AlertRuleKindThreatIntelligence                = AlertRuleKind("ThreatIntelligence")
 )
 
 func (AlertRuleKind) ElementType() reflect.Type {

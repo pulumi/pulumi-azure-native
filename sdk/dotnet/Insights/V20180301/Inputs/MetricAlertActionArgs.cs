@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Inputs
         private InputMap<string>? _webHookProperties;
 
         /// <summary>
-        /// The properties of a webhook object.
+        /// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
         /// </summary>
         public InputMap<string> WebHookProperties
         {
