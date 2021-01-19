@@ -28,6 +28,8 @@ type MetricAlert struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency pulumi.StringOutput `pulumi:"evaluationFrequency"`
+	// the value indicating whether this alert rule is migrated.
+	IsMigrated pulumi.StringOutput `pulumi:"isMigrated"`
 	// Last time the rule was updated in ISO8601 format.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Resource location
@@ -40,9 +42,9 @@ type MetricAlert struct {
 	Severity pulumi.IntOutput `pulumi:"severity"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceRegion pulumi.StringPtrOutput `pulumi:"targetResourceRegion"`
-	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceType pulumi.StringPtrOutput `pulumi:"targetResourceType"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -74,6 +76,9 @@ func NewMetricAlert(ctx *pulumi.Context,
 	}
 	if args.RuleName == nil {
 		return nil, errors.New("invalid value for required argument 'RuleName'")
+	}
+	if args.Scopes == nil {
+		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
 	if args.Severity == nil {
 		return nil, errors.New("invalid value for required argument 'Severity'")
@@ -121,6 +126,8 @@ type metricAlertState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
+	// the value indicating whether this alert rule is migrated.
+	IsMigrated *string `pulumi:"isMigrated"`
 	// Last time the rule was updated in ISO8601 format.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Resource location
@@ -133,9 +140,9 @@ type metricAlertState struct {
 	Severity *int `pulumi:"severity"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceRegion *string `pulumi:"targetResourceRegion"`
-	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceType *string `pulumi:"targetResourceType"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
@@ -156,6 +163,8 @@ type MetricAlertState struct {
 	Enabled pulumi.BoolPtrInput
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency pulumi.StringPtrInput
+	// the value indicating whether this alert rule is migrated.
+	IsMigrated pulumi.StringPtrInput
 	// Last time the rule was updated in ISO8601 format.
 	LastUpdatedTime pulumi.StringPtrInput
 	// Resource location
@@ -168,9 +177,9 @@ type MetricAlertState struct {
 	Severity pulumi.IntPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
-	// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceRegion pulumi.StringPtrInput
-	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceType pulumi.StringPtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
@@ -207,9 +216,9 @@ type metricAlertArgs struct {
 	Severity int `pulumi:"severity"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceRegion *string `pulumi:"targetResourceRegion"`
-	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceType *string `pulumi:"targetResourceType"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
 	WindowSize string `pulumi:"windowSize"`
@@ -241,9 +250,9 @@ type MetricAlertArgs struct {
 	Severity pulumi.IntInput
 	// Resource tags
 	Tags pulumi.StringMapInput
-	// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceRegion pulumi.StringPtrInput
-	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceType pulumi.StringPtrInput
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
 	WindowSize pulumi.StringInput

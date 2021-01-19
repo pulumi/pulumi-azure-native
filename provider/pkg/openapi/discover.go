@@ -5,6 +5,7 @@ package openapi
 import (
 	"fmt"
 	"github.com/go-openapi/spec"
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"os"
@@ -46,7 +47,7 @@ func AllVersions() AzureProviders {
 	for _, location := range swaggerSpecLocations {
 		swagger, err := NewSpec(location)
 		if err != nil {
-			panic(err)
+			panic(errors.Wrapf(err, "failed to parse %q", location))
 		}
 
 		specs = append(specs, swagger)
@@ -158,7 +159,7 @@ func swaggerLocations() ([]string, error) {
 		return nil, err
 	}
 
-	pattern := filepath.Join(dir, "/azure-rest-api-specs/specification/**/resource-manager/Microsoft.*/*/*/*.json")
+	pattern := filepath.Join(dir, "/azure-rest-api-specs/specification/**/resource-manager/Microsoft.*/**/20*/*.json")
 	files, err := filepath.Glob(pattern)
 	if err != nil {
 		return nil, err

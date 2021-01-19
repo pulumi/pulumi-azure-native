@@ -27,6 +27,18 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
             set => _loadBalancerBackendAddressPools = value;
         }
 
+        [Input("loadBalancerNatRules")]
+        private InputList<Inputs.LoadBalancerNatRuleReferenceArgs>? _loadBalancerNatRules;
+
+        /// <summary>
+        /// Gets or sets the references of the load balancer NAT rules.
+        /// </summary>
+        public InputList<Inputs.LoadBalancerNatRuleReferenceArgs> LoadBalancerNatRules
+        {
+            get => _loadBalancerNatRules ?? (_loadBalancerNatRules = new InputList<Inputs.LoadBalancerNatRuleReferenceArgs>());
+            set => _loadBalancerNatRules = value;
+        }
+
         /// <summary>
         /// Gets or sets the IP configuration name.
         /// </summary>
@@ -50,6 +62,12 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
         /// </summary>
         [Input("privateIpAllocationMethod")]
         public Input<string>? PrivateIpAllocationMethod { get; set; }
+
+        /// <summary>
+        /// Defines reference to a public IP.
+        /// </summary>
+        [Input("publicIp")]
+        public Input<Inputs.PublicIpReferenceArgs>? PublicIp { get; set; }
 
         /// <summary>
         /// Defines reference to subnet.

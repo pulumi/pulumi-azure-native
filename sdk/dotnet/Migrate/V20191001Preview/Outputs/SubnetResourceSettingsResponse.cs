@@ -21,15 +21,22 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         /// Gets or sets the Subnet name.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Defines reference to NSG.
+        /// </summary>
+        public readonly Outputs.NsgReferenceResponse? NetworkSecurityGroup;
 
         [OutputConstructor]
         private SubnetResourceSettingsResponse(
             string? addressPrefix,
 
-            string? name)
+            string? name,
+
+            Outputs.NsgReferenceResponse? networkSecurityGroup)
         {
             AddressPrefix = addressPrefix;
             Name = name;
+            NetworkSecurityGroup = networkSecurityGroup;
         }
     }
 }

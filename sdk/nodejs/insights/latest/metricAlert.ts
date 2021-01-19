@@ -61,6 +61,10 @@ export class MetricAlert extends pulumi.CustomResource {
      */
     public readonly evaluationFrequency!: pulumi.Output<string>;
     /**
+     * the value indicating whether this alert rule is migrated.
+     */
+    public /*out*/ readonly isMigrated!: pulumi.Output<string>;
+    /**
      * Last time the rule was updated in ISO8601 format.
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
@@ -75,7 +79,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * the list of resource id's that this metric alert is scoped to.
      */
-    public readonly scopes!: pulumi.Output<string[] | undefined>;
+    public readonly scopes!: pulumi.Output<string[]>;
     /**
      * Alert severity {0, 1, 2, 3, 4}
      */
@@ -85,11 +89,11 @@ export class MetricAlert extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+     * the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
      */
     public readonly targetResourceRegion!: pulumi.Output<string | undefined>;
     /**
-     * the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+     * the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
      */
     public readonly targetResourceType!: pulumi.Output<string | undefined>;
     /**
@@ -129,6 +133,9 @@ export class MetricAlert extends pulumi.CustomResource {
             if ((!args || args.ruleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleName'");
             }
+            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'scopes'");
+            }
             if ((!args || args.severity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'severity'");
             }
@@ -150,6 +157,7 @@ export class MetricAlert extends pulumi.CustomResource {
             inputs["targetResourceRegion"] = args ? args.targetResourceRegion : undefined;
             inputs["targetResourceType"] = args ? args.targetResourceType : undefined;
             inputs["windowSize"] = args ? args.windowSize : undefined;
+            inputs["isMigrated"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -160,6 +168,7 @@ export class MetricAlert extends pulumi.CustomResource {
             inputs["description"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
             inputs["evaluationFrequency"] = undefined /*out*/;
+            inputs["isMigrated"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -227,7 +236,7 @@ export interface MetricAlertArgs {
     /**
      * the list of resource id's that this metric alert is scoped to.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Alert severity {0, 1, 2, 3, 4}
      */
@@ -237,11 +246,11 @@ export interface MetricAlertArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+     * the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
      */
     readonly targetResourceRegion?: pulumi.Input<string>;
     /**
-     * the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+     * the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
      */
     readonly targetResourceType?: pulumi.Input<string>;
     /**

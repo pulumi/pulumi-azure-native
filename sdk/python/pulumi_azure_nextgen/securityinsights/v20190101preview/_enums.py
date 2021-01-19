@@ -26,6 +26,8 @@ class AlertRuleKind(str, Enum):
     SCHEDULED = "Scheduled"
     MICROSOFT_SECURITY_INCIDENT_CREATION = "MicrosoftSecurityIncidentCreation"
     FUSION = "Fusion"
+    ML_BEHAVIOR_ANALYTICS = "MLBehaviorAnalytics"
+    THREAT_INTELLIGENCE = "ThreatIntelligence"
 
 
 class CaseSeverity(str, Enum):

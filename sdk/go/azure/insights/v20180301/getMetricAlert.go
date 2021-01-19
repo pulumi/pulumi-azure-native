@@ -39,6 +39,8 @@ type LookupMetricAlertResult struct {
 	EvaluationFrequency string `pulumi:"evaluationFrequency"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
+	// the value indicating whether this alert rule is migrated.
+	IsMigrated string `pulumi:"isMigrated"`
 	// Last time the rule was updated in ISO8601 format.
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	// Resource location
@@ -51,9 +53,9 @@ type LookupMetricAlertResult struct {
 	Severity int `pulumi:"severity"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceRegion *string `pulumi:"targetResourceRegion"`
-	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
 	TargetResourceType *string `pulumi:"targetResourceType"`
 	// Azure resource type
 	Type string `pulumi:"type"`

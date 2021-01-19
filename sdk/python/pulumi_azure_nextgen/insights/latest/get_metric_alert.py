@@ -20,7 +20,7 @@ class GetMetricAlertResult:
     """
     The metric alert resource.
     """
-    def __init__(__self__, actions=None, auto_mitigate=None, criteria=None, description=None, enabled=None, evaluation_frequency=None, id=None, last_updated_time=None, location=None, name=None, scopes=None, severity=None, tags=None, target_resource_region=None, target_resource_type=None, type=None, window_size=None):
+    def __init__(__self__, actions=None, auto_mitigate=None, criteria=None, description=None, enabled=None, evaluation_frequency=None, id=None, is_migrated=None, last_updated_time=None, location=None, name=None, scopes=None, severity=None, tags=None, target_resource_region=None, target_resource_type=None, type=None, window_size=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -42,6 +42,9 @@ class GetMetricAlertResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_migrated and not isinstance(is_migrated, str):
+            raise TypeError("Expected argument 'is_migrated' to be a str")
+        pulumi.set(__self__, "is_migrated", is_migrated)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -130,6 +133,14 @@ class GetMetricAlertResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="isMigrated")
+    def is_migrated(self) -> str:
+        """
+        the value indicating whether this alert rule is migrated.
+        """
+        return pulumi.get(self, "is_migrated")
+
+    @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> str:
         """
@@ -155,7 +166,7 @@ class GetMetricAlertResult:
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[Sequence[str]]:
+    def scopes(self) -> Sequence[str]:
         """
         the list of resource id's that this metric alert is scoped to.
         """
@@ -181,7 +192,7 @@ class GetMetricAlertResult:
     @pulumi.getter(name="targetResourceRegion")
     def target_resource_region(self) -> Optional[str]:
         """
-        the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         """
         return pulumi.get(self, "target_resource_region")
 
@@ -189,7 +200,7 @@ class GetMetricAlertResult:
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> Optional[str]:
         """
-        the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         """
         return pulumi.get(self, "target_resource_type")
 
@@ -223,6 +234,7 @@ class AwaitableGetMetricAlertResult(GetMetricAlertResult):
             enabled=self.enabled,
             evaluation_frequency=self.evaluation_frequency,
             id=self.id,
+            is_migrated=self.is_migrated,
             last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
@@ -261,6 +273,7 @@ def get_metric_alert(resource_group_name: Optional[str] = None,
         enabled=__ret__.enabled,
         evaluation_frequency=__ret__.evaluation_frequency,
         id=__ret__.id,
+        is_migrated=__ret__.is_migrated,
         last_updated_time=__ret__.last_updated_time,
         location=__ret__.location,
         name=__ret__.name,

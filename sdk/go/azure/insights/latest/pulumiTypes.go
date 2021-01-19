@@ -7228,7 +7228,7 @@ func (o ManagementEventRuleConditionResponseOutput) OdataType() pulumi.StringOut
 type MetricAlertAction struct {
 	// the id of the action group to use.
 	ActionGroupId *string `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
+	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
 	WebHookProperties map[string]string `pulumi:"webHookProperties"`
 }
 
@@ -7247,7 +7247,7 @@ type MetricAlertActionInput interface {
 type MetricAlertActionArgs struct {
 	// the id of the action group to use.
 	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
+	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
 	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
 }
 
@@ -7308,7 +7308,7 @@ func (o MetricAlertActionOutput) ActionGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlertAction) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The properties of a webhook object.
+// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
 func (o MetricAlertActionOutput) WebHookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MetricAlertAction) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
 }
@@ -7337,7 +7337,7 @@ func (o MetricAlertActionArrayOutput) Index(i pulumi.IntInput) MetricAlertAction
 type MetricAlertActionResponse struct {
 	// the id of the action group to use.
 	ActionGroupId *string `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
+	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
 	WebHookProperties map[string]string `pulumi:"webHookProperties"`
 }
 
@@ -7356,7 +7356,7 @@ type MetricAlertActionResponseInput interface {
 type MetricAlertActionResponseArgs struct {
 	// the id of the action group to use.
 	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
+	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
 	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
 }
 
@@ -7417,7 +7417,7 @@ func (o MetricAlertActionResponseOutput) ActionGroupId() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v MetricAlertActionResponse) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The properties of a webhook object.
+// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
 func (o MetricAlertActionResponseOutput) WebHookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MetricAlertActionResponse) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
 }

@@ -63,6 +63,10 @@ export interface GetMetricAlertResult {
      */
     readonly id: string;
     /**
+     * the value indicating whether this alert rule is migrated.
+     */
+    readonly isMigrated: string;
+    /**
      * Last time the rule was updated in ISO8601 format.
      */
     readonly lastUpdatedTime: string;
@@ -77,7 +81,7 @@ export interface GetMetricAlertResult {
     /**
      * the list of resource id's that this metric alert is scoped to.
      */
-    readonly scopes?: string[];
+    readonly scopes: string[];
     /**
      * Alert severity {0, 1, 2, 3, 4}
      */
@@ -87,11 +91,11 @@ export interface GetMetricAlertResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+     * the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
      */
     readonly targetResourceRegion?: string;
     /**
-     * the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+     * the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
      */
     readonly targetResourceType?: string;
     /**

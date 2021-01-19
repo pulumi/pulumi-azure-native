@@ -18,6 +18,7 @@ __all__ = [
     'LBBackendAddressPoolResourceSettingsResponse',
     'LBFrontendIPConfigurationResourceSettingsResponse',
     'LoadBalancerBackendAddressPoolReferenceResponse',
+    'LoadBalancerNatRuleReferenceResponse',
     'LoadBalancerResourceSettingsResponse',
     'ManualResolutionPropertiesResponse',
     'MoveCollectionPropertiesResponse',
@@ -32,8 +33,10 @@ __all__ = [
     'NetworkInterfaceResourceSettingsResponse',
     'NetworkSecurityGroupResourceSettingsResponse',
     'NicIpConfigurationResourceSettingsResponse',
+    'NsgReferenceResponse',
     'NsgSecurityRuleResponse',
     'PublicIPAddressResourceSettingsResponse',
+    'PublicIpReferenceResponse',
     'ResourceGroupResourceSettingsResponse',
     'SqlDatabaseResourceSettingsResponse',
     'SqlElasticPoolResourceSettingsResponse',
@@ -332,6 +335,43 @@ class LoadBalancerBackendAddressPoolReferenceResponse(dict):
                  name: Optional[str] = None):
         """
         Defines reference to load balancer backend address pools.
+        :param str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
+        :param str name: Gets the name of the proxy resource on the target side.
+        """
+        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="sourceArmResourceId")
+    def source_arm_resource_id(self) -> str:
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        return pulumi.get(self, "source_arm_resource_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets the name of the proxy resource on the target side.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LoadBalancerNatRuleReferenceResponse(dict):
+    """
+    Defines reference to load balancer NAT rules.
+    """
+    def __init__(__self__, *,
+                 source_arm_resource_id: str,
+                 name: Optional[str] = None):
+        """
+        Defines reference to load balancer NAT rules.
         :param str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
         :param str name: Gets the name of the proxy resource on the target side.
         """
@@ -1122,22 +1162,28 @@ class NicIpConfigurationResourceSettingsResponse(dict):
     """
     def __init__(__self__, *,
                  load_balancer_backend_address_pools: Optional[Sequence['outputs.LoadBalancerBackendAddressPoolReferenceResponse']] = None,
+                 load_balancer_nat_rules: Optional[Sequence['outputs.LoadBalancerNatRuleReferenceResponse']] = None,
                  name: Optional[str] = None,
                  primary: Optional[bool] = None,
                  private_ip_address: Optional[str] = None,
                  private_ip_allocation_method: Optional[str] = None,
+                 public_ip: Optional['outputs.PublicIpReferenceResponse'] = None,
                  subnet: Optional['outputs.SubnetReferenceResponse'] = None):
         """
         Defines NIC IP configuration properties.
         :param Sequence['LoadBalancerBackendAddressPoolReferenceResponseArgs'] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
+        :param Sequence['LoadBalancerNatRuleReferenceResponseArgs'] load_balancer_nat_rules: Gets or sets the references of the load balancer NAT rules.
         :param str name: Gets or sets the IP configuration name.
         :param bool primary: Gets or sets a value indicating whether this IP configuration is the primary.
         :param str private_ip_address: Gets or sets the private IP address of the network interface IP Configuration.
         :param str private_ip_allocation_method: Gets or sets the private IP address allocation method.
+        :param 'PublicIpReferenceResponseArgs' public_ip: Defines reference to a public IP.
         :param 'SubnetReferenceResponseArgs' subnet: Defines reference to subnet.
         """
         if load_balancer_backend_address_pools is not None:
             pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
+        if load_balancer_nat_rules is not None:
+            pulumi.set(__self__, "load_balancer_nat_rules", load_balancer_nat_rules)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -1146,6 +1192,8 @@ class NicIpConfigurationResourceSettingsResponse(dict):
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if private_ip_allocation_method is not None:
             pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if public_ip is not None:
+            pulumi.set(__self__, "public_ip", public_ip)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
 
@@ -1156,6 +1204,14 @@ class NicIpConfigurationResourceSettingsResponse(dict):
         Gets or sets the references of the load balancer backend address pools.
         """
         return pulumi.get(self, "load_balancer_backend_address_pools")
+
+    @property
+    @pulumi.getter(name="loadBalancerNatRules")
+    def load_balancer_nat_rules(self) -> Optional[Sequence['outputs.LoadBalancerNatRuleReferenceResponse']]:
+        """
+        Gets or sets the references of the load balancer NAT rules.
+        """
+        return pulumi.get(self, "load_balancer_nat_rules")
 
     @property
     @pulumi.getter
@@ -1190,12 +1246,45 @@ class NicIpConfigurationResourceSettingsResponse(dict):
         return pulumi.get(self, "private_ip_allocation_method")
 
     @property
+    @pulumi.getter(name="publicIp")
+    def public_ip(self) -> Optional['outputs.PublicIpReferenceResponse']:
+        """
+        Defines reference to a public IP.
+        """
+        return pulumi.get(self, "public_ip")
+
+    @property
     @pulumi.getter
     def subnet(self) -> Optional['outputs.SubnetReferenceResponse']:
         """
         Defines reference to subnet.
         """
         return pulumi.get(self, "subnet")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NsgReferenceResponse(dict):
+    """
+    Defines reference to NSG.
+    """
+    def __init__(__self__, *,
+                 source_arm_resource_id: str):
+        """
+        Defines reference to NSG.
+        :param str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+
+    @property
+    @pulumi.getter(name="sourceArmResourceId")
+    def source_arm_resource_id(self) -> str:
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        return pulumi.get(self, "source_arm_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1456,6 +1545,31 @@ class PublicIPAddressResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
+class PublicIpReferenceResponse(dict):
+    """
+    Defines reference to a public IP.
+    """
+    def __init__(__self__, *,
+                 source_arm_resource_id: str):
+        """
+        Defines reference to a public IP.
+        :param str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+
+    @property
+    @pulumi.getter(name="sourceArmResourceId")
+    def source_arm_resource_id(self) -> str:
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        return pulumi.get(self, "source_arm_resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ResourceGroupResourceSettingsResponse(dict):
     """
     Defines the resource group resource settings.
@@ -1675,16 +1789,20 @@ class SubnetResourceSettingsResponse(dict):
     """
     def __init__(__self__, *,
                  address_prefix: Optional[str] = None,
-                 name: Optional[str] = None):
+                 name: Optional[str] = None,
+                 network_security_group: Optional['outputs.NsgReferenceResponse'] = None):
         """
         Defines the virtual network subnets resource settings.
         :param str address_prefix: Gets or sets address prefix for the subnet.
         :param str name: Gets or sets the Subnet name.
+        :param 'NsgReferenceResponseArgs' network_security_group: Defines reference to NSG.
         """
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_security_group is not None:
+            pulumi.set(__self__, "network_security_group", network_security_group)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -1701,6 +1819,14 @@ class SubnetResourceSettingsResponse(dict):
         Gets or sets the Subnet name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional['outputs.NsgReferenceResponse']:
+        """
+        Defines reference to NSG.
+        """
+        return pulumi.get(self, "network_security_group")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

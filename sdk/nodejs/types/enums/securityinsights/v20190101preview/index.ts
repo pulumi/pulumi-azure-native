@@ -6,6 +6,8 @@ export const AlertRuleKind = {
     Scheduled: "Scheduled",
     MicrosoftSecurityIncidentCreation: "MicrosoftSecurityIncidentCreation",
     Fusion: "Fusion",
+    MLBehaviorAnalytics: "MLBehaviorAnalytics",
+    ThreatIntelligence: "ThreatIntelligence",
 } as const;
 
 /**

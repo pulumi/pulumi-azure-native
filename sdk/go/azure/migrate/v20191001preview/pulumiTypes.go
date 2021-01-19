@@ -1511,6 +1511,224 @@ func (o LoadBalancerBackendAddressPoolReferenceResponseArrayOutput) Index(i pulu
 	}).(LoadBalancerBackendAddressPoolReferenceResponseOutput)
 }
 
+// Defines reference to load balancer NAT rules.
+type LoadBalancerNatRuleReference struct {
+	// Gets the name of the proxy resource on the target side.
+	Name *string `pulumi:"name"`
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+}
+
+// LoadBalancerNatRuleReferenceInput is an input type that accepts LoadBalancerNatRuleReferenceArgs and LoadBalancerNatRuleReferenceOutput values.
+// You can construct a concrete instance of `LoadBalancerNatRuleReferenceInput` via:
+//
+//          LoadBalancerNatRuleReferenceArgs{...}
+type LoadBalancerNatRuleReferenceInput interface {
+	pulumi.Input
+
+	ToLoadBalancerNatRuleReferenceOutput() LoadBalancerNatRuleReferenceOutput
+	ToLoadBalancerNatRuleReferenceOutputWithContext(context.Context) LoadBalancerNatRuleReferenceOutput
+}
+
+// Defines reference to load balancer NAT rules.
+type LoadBalancerNatRuleReferenceArgs struct {
+	// Gets the name of the proxy resource on the target side.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+}
+
+func (LoadBalancerNatRuleReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerNatRuleReference)(nil)).Elem()
+}
+
+func (i LoadBalancerNatRuleReferenceArgs) ToLoadBalancerNatRuleReferenceOutput() LoadBalancerNatRuleReferenceOutput {
+	return i.ToLoadBalancerNatRuleReferenceOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerNatRuleReferenceArgs) ToLoadBalancerNatRuleReferenceOutputWithContext(ctx context.Context) LoadBalancerNatRuleReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNatRuleReferenceOutput)
+}
+
+// LoadBalancerNatRuleReferenceArrayInput is an input type that accepts LoadBalancerNatRuleReferenceArray and LoadBalancerNatRuleReferenceArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerNatRuleReferenceArrayInput` via:
+//
+//          LoadBalancerNatRuleReferenceArray{ LoadBalancerNatRuleReferenceArgs{...} }
+type LoadBalancerNatRuleReferenceArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerNatRuleReferenceArrayOutput() LoadBalancerNatRuleReferenceArrayOutput
+	ToLoadBalancerNatRuleReferenceArrayOutputWithContext(context.Context) LoadBalancerNatRuleReferenceArrayOutput
+}
+
+type LoadBalancerNatRuleReferenceArray []LoadBalancerNatRuleReferenceInput
+
+func (LoadBalancerNatRuleReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerNatRuleReference)(nil)).Elem()
+}
+
+func (i LoadBalancerNatRuleReferenceArray) ToLoadBalancerNatRuleReferenceArrayOutput() LoadBalancerNatRuleReferenceArrayOutput {
+	return i.ToLoadBalancerNatRuleReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerNatRuleReferenceArray) ToLoadBalancerNatRuleReferenceArrayOutputWithContext(ctx context.Context) LoadBalancerNatRuleReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNatRuleReferenceArrayOutput)
+}
+
+// Defines reference to load balancer NAT rules.
+type LoadBalancerNatRuleReferenceOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerNatRuleReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerNatRuleReference)(nil)).Elem()
+}
+
+func (o LoadBalancerNatRuleReferenceOutput) ToLoadBalancerNatRuleReferenceOutput() LoadBalancerNatRuleReferenceOutput {
+	return o
+}
+
+func (o LoadBalancerNatRuleReferenceOutput) ToLoadBalancerNatRuleReferenceOutputWithContext(ctx context.Context) LoadBalancerNatRuleReferenceOutput {
+	return o
+}
+
+// Gets the name of the proxy resource on the target side.
+func (o LoadBalancerNatRuleReferenceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerNatRuleReference) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets the ARM resource ID of the tracked resource being referenced.
+func (o LoadBalancerNatRuleReferenceOutput) SourceArmResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerNatRuleReference) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
+}
+
+type LoadBalancerNatRuleReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerNatRuleReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerNatRuleReference)(nil)).Elem()
+}
+
+func (o LoadBalancerNatRuleReferenceArrayOutput) ToLoadBalancerNatRuleReferenceArrayOutput() LoadBalancerNatRuleReferenceArrayOutput {
+	return o
+}
+
+func (o LoadBalancerNatRuleReferenceArrayOutput) ToLoadBalancerNatRuleReferenceArrayOutputWithContext(ctx context.Context) LoadBalancerNatRuleReferenceArrayOutput {
+	return o
+}
+
+func (o LoadBalancerNatRuleReferenceArrayOutput) Index(i pulumi.IntInput) LoadBalancerNatRuleReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerNatRuleReference {
+		return vs[0].([]LoadBalancerNatRuleReference)[vs[1].(int)]
+	}).(LoadBalancerNatRuleReferenceOutput)
+}
+
+// Defines reference to load balancer NAT rules.
+type LoadBalancerNatRuleReferenceResponse struct {
+	// Gets the name of the proxy resource on the target side.
+	Name *string `pulumi:"name"`
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+}
+
+// LoadBalancerNatRuleReferenceResponseInput is an input type that accepts LoadBalancerNatRuleReferenceResponseArgs and LoadBalancerNatRuleReferenceResponseOutput values.
+// You can construct a concrete instance of `LoadBalancerNatRuleReferenceResponseInput` via:
+//
+//          LoadBalancerNatRuleReferenceResponseArgs{...}
+type LoadBalancerNatRuleReferenceResponseInput interface {
+	pulumi.Input
+
+	ToLoadBalancerNatRuleReferenceResponseOutput() LoadBalancerNatRuleReferenceResponseOutput
+	ToLoadBalancerNatRuleReferenceResponseOutputWithContext(context.Context) LoadBalancerNatRuleReferenceResponseOutput
+}
+
+// Defines reference to load balancer NAT rules.
+type LoadBalancerNatRuleReferenceResponseArgs struct {
+	// Gets the name of the proxy resource on the target side.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+}
+
+func (LoadBalancerNatRuleReferenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerNatRuleReferenceResponse)(nil)).Elem()
+}
+
+func (i LoadBalancerNatRuleReferenceResponseArgs) ToLoadBalancerNatRuleReferenceResponseOutput() LoadBalancerNatRuleReferenceResponseOutput {
+	return i.ToLoadBalancerNatRuleReferenceResponseOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerNatRuleReferenceResponseArgs) ToLoadBalancerNatRuleReferenceResponseOutputWithContext(ctx context.Context) LoadBalancerNatRuleReferenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNatRuleReferenceResponseOutput)
+}
+
+// LoadBalancerNatRuleReferenceResponseArrayInput is an input type that accepts LoadBalancerNatRuleReferenceResponseArray and LoadBalancerNatRuleReferenceResponseArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerNatRuleReferenceResponseArrayInput` via:
+//
+//          LoadBalancerNatRuleReferenceResponseArray{ LoadBalancerNatRuleReferenceResponseArgs{...} }
+type LoadBalancerNatRuleReferenceResponseArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerNatRuleReferenceResponseArrayOutput() LoadBalancerNatRuleReferenceResponseArrayOutput
+	ToLoadBalancerNatRuleReferenceResponseArrayOutputWithContext(context.Context) LoadBalancerNatRuleReferenceResponseArrayOutput
+}
+
+type LoadBalancerNatRuleReferenceResponseArray []LoadBalancerNatRuleReferenceResponseInput
+
+func (LoadBalancerNatRuleReferenceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerNatRuleReferenceResponse)(nil)).Elem()
+}
+
+func (i LoadBalancerNatRuleReferenceResponseArray) ToLoadBalancerNatRuleReferenceResponseArrayOutput() LoadBalancerNatRuleReferenceResponseArrayOutput {
+	return i.ToLoadBalancerNatRuleReferenceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerNatRuleReferenceResponseArray) ToLoadBalancerNatRuleReferenceResponseArrayOutputWithContext(ctx context.Context) LoadBalancerNatRuleReferenceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerNatRuleReferenceResponseArrayOutput)
+}
+
+// Defines reference to load balancer NAT rules.
+type LoadBalancerNatRuleReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerNatRuleReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerNatRuleReferenceResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerNatRuleReferenceResponseOutput) ToLoadBalancerNatRuleReferenceResponseOutput() LoadBalancerNatRuleReferenceResponseOutput {
+	return o
+}
+
+func (o LoadBalancerNatRuleReferenceResponseOutput) ToLoadBalancerNatRuleReferenceResponseOutputWithContext(ctx context.Context) LoadBalancerNatRuleReferenceResponseOutput {
+	return o
+}
+
+// Gets the name of the proxy resource on the target side.
+func (o LoadBalancerNatRuleReferenceResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerNatRuleReferenceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets the ARM resource ID of the tracked resource being referenced.
+func (o LoadBalancerNatRuleReferenceResponseOutput) SourceArmResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerNatRuleReferenceResponse) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
+}
+
+type LoadBalancerNatRuleReferenceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerNatRuleReferenceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerNatRuleReferenceResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerNatRuleReferenceResponseArrayOutput) ToLoadBalancerNatRuleReferenceResponseArrayOutput() LoadBalancerNatRuleReferenceResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancerNatRuleReferenceResponseArrayOutput) ToLoadBalancerNatRuleReferenceResponseArrayOutputWithContext(ctx context.Context) LoadBalancerNatRuleReferenceResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancerNatRuleReferenceResponseArrayOutput) Index(i pulumi.IntInput) LoadBalancerNatRuleReferenceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerNatRuleReferenceResponse {
+		return vs[0].([]LoadBalancerNatRuleReferenceResponse)[vs[1].(int)]
+	}).(LoadBalancerNatRuleReferenceResponseOutput)
+}
+
 // Defines the load balancer resource settings.
 type LoadBalancerResourceSettings struct {
 	// Gets or sets the backend address pools of the load balancer.
@@ -4265,6 +4483,8 @@ func (o NetworkSecurityGroupResourceSettingsResponseOutput) TargetResourceName()
 type NicIpConfigurationResourceSettings struct {
 	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools []LoadBalancerBackendAddressPoolReference `pulumi:"loadBalancerBackendAddressPools"`
+	// Gets or sets the references of the load balancer NAT rules.
+	LoadBalancerNatRules []LoadBalancerNatRuleReference `pulumi:"loadBalancerNatRules"`
 	// Gets or sets the IP configuration name.
 	Name *string `pulumi:"name"`
 	// Gets or sets a value indicating whether this IP configuration is the primary.
@@ -4273,6 +4493,8 @@ type NicIpConfigurationResourceSettings struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// Gets or sets the private IP address allocation method.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
+	// Defines reference to a public IP.
+	PublicIp *PublicIpReference `pulumi:"publicIp"`
 	// Defines reference to subnet.
 	Subnet *SubnetReference `pulumi:"subnet"`
 }
@@ -4292,6 +4514,8 @@ type NicIpConfigurationResourceSettingsInput interface {
 type NicIpConfigurationResourceSettingsArgs struct {
 	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools LoadBalancerBackendAddressPoolReferenceArrayInput `pulumi:"loadBalancerBackendAddressPools"`
+	// Gets or sets the references of the load balancer NAT rules.
+	LoadBalancerNatRules LoadBalancerNatRuleReferenceArrayInput `pulumi:"loadBalancerNatRules"`
 	// Gets or sets the IP configuration name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Gets or sets a value indicating whether this IP configuration is the primary.
@@ -4300,6 +4524,8 @@ type NicIpConfigurationResourceSettingsArgs struct {
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// Gets or sets the private IP address allocation method.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
+	// Defines reference to a public IP.
+	PublicIp PublicIpReferencePtrInput `pulumi:"publicIp"`
 	// Defines reference to subnet.
 	Subnet SubnetReferencePtrInput `pulumi:"subnet"`
 }
@@ -4363,6 +4589,13 @@ func (o NicIpConfigurationResourceSettingsOutput) LoadBalancerBackendAddressPool
 	}).(LoadBalancerBackendAddressPoolReferenceArrayOutput)
 }
 
+// Gets or sets the references of the load balancer NAT rules.
+func (o NicIpConfigurationResourceSettingsOutput) LoadBalancerNatRules() LoadBalancerNatRuleReferenceArrayOutput {
+	return o.ApplyT(func(v NicIpConfigurationResourceSettings) []LoadBalancerNatRuleReference {
+		return v.LoadBalancerNatRules
+	}).(LoadBalancerNatRuleReferenceArrayOutput)
+}
+
 // Gets or sets the IP configuration name.
 func (o NicIpConfigurationResourceSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -4381,6 +4614,11 @@ func (o NicIpConfigurationResourceSettingsOutput) PrivateIpAddress() pulumi.Stri
 // Gets or sets the private IP address allocation method.
 func (o NicIpConfigurationResourceSettingsOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettings) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
+}
+
+// Defines reference to a public IP.
+func (o NicIpConfigurationResourceSettingsOutput) PublicIp() PublicIpReferencePtrOutput {
+	return o.ApplyT(func(v NicIpConfigurationResourceSettings) *PublicIpReference { return v.PublicIp }).(PublicIpReferencePtrOutput)
 }
 
 // Defines reference to subnet.
@@ -4412,6 +4650,8 @@ func (o NicIpConfigurationResourceSettingsArrayOutput) Index(i pulumi.IntInput) 
 type NicIpConfigurationResourceSettingsResponse struct {
 	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools []LoadBalancerBackendAddressPoolReferenceResponse `pulumi:"loadBalancerBackendAddressPools"`
+	// Gets or sets the references of the load balancer NAT rules.
+	LoadBalancerNatRules []LoadBalancerNatRuleReferenceResponse `pulumi:"loadBalancerNatRules"`
 	// Gets or sets the IP configuration name.
 	Name *string `pulumi:"name"`
 	// Gets or sets a value indicating whether this IP configuration is the primary.
@@ -4420,6 +4660,8 @@ type NicIpConfigurationResourceSettingsResponse struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// Gets or sets the private IP address allocation method.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
+	// Defines reference to a public IP.
+	PublicIp *PublicIpReferenceResponse `pulumi:"publicIp"`
 	// Defines reference to subnet.
 	Subnet *SubnetReferenceResponse `pulumi:"subnet"`
 }
@@ -4439,6 +4681,8 @@ type NicIpConfigurationResourceSettingsResponseInput interface {
 type NicIpConfigurationResourceSettingsResponseArgs struct {
 	// Gets or sets the references of the load balancer backend address pools.
 	LoadBalancerBackendAddressPools LoadBalancerBackendAddressPoolReferenceResponseArrayInput `pulumi:"loadBalancerBackendAddressPools"`
+	// Gets or sets the references of the load balancer NAT rules.
+	LoadBalancerNatRules LoadBalancerNatRuleReferenceResponseArrayInput `pulumi:"loadBalancerNatRules"`
 	// Gets or sets the IP configuration name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Gets or sets a value indicating whether this IP configuration is the primary.
@@ -4447,6 +4691,8 @@ type NicIpConfigurationResourceSettingsResponseArgs struct {
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// Gets or sets the private IP address allocation method.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
+	// Defines reference to a public IP.
+	PublicIp PublicIpReferenceResponsePtrInput `pulumi:"publicIp"`
 	// Defines reference to subnet.
 	Subnet SubnetReferenceResponsePtrInput `pulumi:"subnet"`
 }
@@ -4510,6 +4756,13 @@ func (o NicIpConfigurationResourceSettingsResponseOutput) LoadBalancerBackendAdd
 	}).(LoadBalancerBackendAddressPoolReferenceResponseArrayOutput)
 }
 
+// Gets or sets the references of the load balancer NAT rules.
+func (o NicIpConfigurationResourceSettingsResponseOutput) LoadBalancerNatRules() LoadBalancerNatRuleReferenceResponseArrayOutput {
+	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) []LoadBalancerNatRuleReferenceResponse {
+		return v.LoadBalancerNatRules
+	}).(LoadBalancerNatRuleReferenceResponseArrayOutput)
+}
+
 // Gets or sets the IP configuration name.
 func (o NicIpConfigurationResourceSettingsResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -4528,6 +4781,11 @@ func (o NicIpConfigurationResourceSettingsResponseOutput) PrivateIpAddress() pul
 // Gets or sets the private IP address allocation method.
 func (o NicIpConfigurationResourceSettingsResponseOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
+}
+
+// Defines reference to a public IP.
+func (o NicIpConfigurationResourceSettingsResponseOutput) PublicIp() PublicIpReferenceResponsePtrOutput {
+	return o.ApplyT(func(v NicIpConfigurationResourceSettingsResponse) *PublicIpReferenceResponse { return v.PublicIp }).(PublicIpReferenceResponsePtrOutput)
 }
 
 // Defines reference to subnet.
@@ -4553,6 +4811,274 @@ func (o NicIpConfigurationResourceSettingsResponseArrayOutput) Index(i pulumi.In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NicIpConfigurationResourceSettingsResponse {
 		return vs[0].([]NicIpConfigurationResourceSettingsResponse)[vs[1].(int)]
 	}).(NicIpConfigurationResourceSettingsResponseOutput)
+}
+
+// Defines reference to NSG.
+type NsgReference struct {
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+}
+
+// NsgReferenceInput is an input type that accepts NsgReferenceArgs and NsgReferenceOutput values.
+// You can construct a concrete instance of `NsgReferenceInput` via:
+//
+//          NsgReferenceArgs{...}
+type NsgReferenceInput interface {
+	pulumi.Input
+
+	ToNsgReferenceOutput() NsgReferenceOutput
+	ToNsgReferenceOutputWithContext(context.Context) NsgReferenceOutput
+}
+
+// Defines reference to NSG.
+type NsgReferenceArgs struct {
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+}
+
+func (NsgReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NsgReference)(nil)).Elem()
+}
+
+func (i NsgReferenceArgs) ToNsgReferenceOutput() NsgReferenceOutput {
+	return i.ToNsgReferenceOutputWithContext(context.Background())
+}
+
+func (i NsgReferenceArgs) ToNsgReferenceOutputWithContext(ctx context.Context) NsgReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsgReferenceOutput)
+}
+
+func (i NsgReferenceArgs) ToNsgReferencePtrOutput() NsgReferencePtrOutput {
+	return i.ToNsgReferencePtrOutputWithContext(context.Background())
+}
+
+func (i NsgReferenceArgs) ToNsgReferencePtrOutputWithContext(ctx context.Context) NsgReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsgReferenceOutput).ToNsgReferencePtrOutputWithContext(ctx)
+}
+
+// NsgReferencePtrInput is an input type that accepts NsgReferenceArgs, NsgReferencePtr and NsgReferencePtrOutput values.
+// You can construct a concrete instance of `NsgReferencePtrInput` via:
+//
+//          NsgReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type NsgReferencePtrInput interface {
+	pulumi.Input
+
+	ToNsgReferencePtrOutput() NsgReferencePtrOutput
+	ToNsgReferencePtrOutputWithContext(context.Context) NsgReferencePtrOutput
+}
+
+type nsgReferencePtrType NsgReferenceArgs
+
+func NsgReferencePtr(v *NsgReferenceArgs) NsgReferencePtrInput {
+	return (*nsgReferencePtrType)(v)
+}
+
+func (*nsgReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NsgReference)(nil)).Elem()
+}
+
+func (i *nsgReferencePtrType) ToNsgReferencePtrOutput() NsgReferencePtrOutput {
+	return i.ToNsgReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *nsgReferencePtrType) ToNsgReferencePtrOutputWithContext(ctx context.Context) NsgReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsgReferencePtrOutput)
+}
+
+// Defines reference to NSG.
+type NsgReferenceOutput struct{ *pulumi.OutputState }
+
+func (NsgReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NsgReference)(nil)).Elem()
+}
+
+func (o NsgReferenceOutput) ToNsgReferenceOutput() NsgReferenceOutput {
+	return o
+}
+
+func (o NsgReferenceOutput) ToNsgReferenceOutputWithContext(ctx context.Context) NsgReferenceOutput {
+	return o
+}
+
+func (o NsgReferenceOutput) ToNsgReferencePtrOutput() NsgReferencePtrOutput {
+	return o.ToNsgReferencePtrOutputWithContext(context.Background())
+}
+
+func (o NsgReferenceOutput) ToNsgReferencePtrOutputWithContext(ctx context.Context) NsgReferencePtrOutput {
+	return o.ApplyT(func(v NsgReference) *NsgReference {
+		return &v
+	}).(NsgReferencePtrOutput)
+}
+
+// Gets the ARM resource ID of the tracked resource being referenced.
+func (o NsgReferenceOutput) SourceArmResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v NsgReference) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
+}
+
+type NsgReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (NsgReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NsgReference)(nil)).Elem()
+}
+
+func (o NsgReferencePtrOutput) ToNsgReferencePtrOutput() NsgReferencePtrOutput {
+	return o
+}
+
+func (o NsgReferencePtrOutput) ToNsgReferencePtrOutputWithContext(ctx context.Context) NsgReferencePtrOutput {
+	return o
+}
+
+func (o NsgReferencePtrOutput) Elem() NsgReferenceOutput {
+	return o.ApplyT(func(v *NsgReference) NsgReference { return *v }).(NsgReferenceOutput)
+}
+
+// Gets the ARM resource ID of the tracked resource being referenced.
+func (o NsgReferencePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NsgReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceArmResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines reference to NSG.
+type NsgReferenceResponse struct {
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+}
+
+// NsgReferenceResponseInput is an input type that accepts NsgReferenceResponseArgs and NsgReferenceResponseOutput values.
+// You can construct a concrete instance of `NsgReferenceResponseInput` via:
+//
+//          NsgReferenceResponseArgs{...}
+type NsgReferenceResponseInput interface {
+	pulumi.Input
+
+	ToNsgReferenceResponseOutput() NsgReferenceResponseOutput
+	ToNsgReferenceResponseOutputWithContext(context.Context) NsgReferenceResponseOutput
+}
+
+// Defines reference to NSG.
+type NsgReferenceResponseArgs struct {
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+}
+
+func (NsgReferenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NsgReferenceResponse)(nil)).Elem()
+}
+
+func (i NsgReferenceResponseArgs) ToNsgReferenceResponseOutput() NsgReferenceResponseOutput {
+	return i.ToNsgReferenceResponseOutputWithContext(context.Background())
+}
+
+func (i NsgReferenceResponseArgs) ToNsgReferenceResponseOutputWithContext(ctx context.Context) NsgReferenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsgReferenceResponseOutput)
+}
+
+func (i NsgReferenceResponseArgs) ToNsgReferenceResponsePtrOutput() NsgReferenceResponsePtrOutput {
+	return i.ToNsgReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i NsgReferenceResponseArgs) ToNsgReferenceResponsePtrOutputWithContext(ctx context.Context) NsgReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsgReferenceResponseOutput).ToNsgReferenceResponsePtrOutputWithContext(ctx)
+}
+
+// NsgReferenceResponsePtrInput is an input type that accepts NsgReferenceResponseArgs, NsgReferenceResponsePtr and NsgReferenceResponsePtrOutput values.
+// You can construct a concrete instance of `NsgReferenceResponsePtrInput` via:
+//
+//          NsgReferenceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type NsgReferenceResponsePtrInput interface {
+	pulumi.Input
+
+	ToNsgReferenceResponsePtrOutput() NsgReferenceResponsePtrOutput
+	ToNsgReferenceResponsePtrOutputWithContext(context.Context) NsgReferenceResponsePtrOutput
+}
+
+type nsgReferenceResponsePtrType NsgReferenceResponseArgs
+
+func NsgReferenceResponsePtr(v *NsgReferenceResponseArgs) NsgReferenceResponsePtrInput {
+	return (*nsgReferenceResponsePtrType)(v)
+}
+
+func (*nsgReferenceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NsgReferenceResponse)(nil)).Elem()
+}
+
+func (i *nsgReferenceResponsePtrType) ToNsgReferenceResponsePtrOutput() NsgReferenceResponsePtrOutput {
+	return i.ToNsgReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *nsgReferenceResponsePtrType) ToNsgReferenceResponsePtrOutputWithContext(ctx context.Context) NsgReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsgReferenceResponsePtrOutput)
+}
+
+// Defines reference to NSG.
+type NsgReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (NsgReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NsgReferenceResponse)(nil)).Elem()
+}
+
+func (o NsgReferenceResponseOutput) ToNsgReferenceResponseOutput() NsgReferenceResponseOutput {
+	return o
+}
+
+func (o NsgReferenceResponseOutput) ToNsgReferenceResponseOutputWithContext(ctx context.Context) NsgReferenceResponseOutput {
+	return o
+}
+
+func (o NsgReferenceResponseOutput) ToNsgReferenceResponsePtrOutput() NsgReferenceResponsePtrOutput {
+	return o.ToNsgReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o NsgReferenceResponseOutput) ToNsgReferenceResponsePtrOutputWithContext(ctx context.Context) NsgReferenceResponsePtrOutput {
+	return o.ApplyT(func(v NsgReferenceResponse) *NsgReferenceResponse {
+		return &v
+	}).(NsgReferenceResponsePtrOutput)
+}
+
+// Gets the ARM resource ID of the tracked resource being referenced.
+func (o NsgReferenceResponseOutput) SourceArmResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v NsgReferenceResponse) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
+}
+
+type NsgReferenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NsgReferenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NsgReferenceResponse)(nil)).Elem()
+}
+
+func (o NsgReferenceResponsePtrOutput) ToNsgReferenceResponsePtrOutput() NsgReferenceResponsePtrOutput {
+	return o
+}
+
+func (o NsgReferenceResponsePtrOutput) ToNsgReferenceResponsePtrOutputWithContext(ctx context.Context) NsgReferenceResponsePtrOutput {
+	return o
+}
+
+func (o NsgReferenceResponsePtrOutput) Elem() NsgReferenceResponseOutput {
+	return o.ApplyT(func(v *NsgReferenceResponse) NsgReferenceResponse { return *v }).(NsgReferenceResponseOutput)
+}
+
+// Gets the ARM resource ID of the tracked resource being referenced.
+func (o NsgReferenceResponsePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NsgReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceArmResourceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Security Rule data model for Network Security Groups.
@@ -5205,6 +5731,274 @@ func (o PublicIPAddressResourceSettingsResponseOutput) TargetResourceName() pulu
 // Gets or sets public IP zones.
 func (o PublicIPAddressResourceSettingsResponseOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) *string { return v.Zones }).(pulumi.StringPtrOutput)
+}
+
+// Defines reference to a public IP.
+type PublicIpReference struct {
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+}
+
+// PublicIpReferenceInput is an input type that accepts PublicIpReferenceArgs and PublicIpReferenceOutput values.
+// You can construct a concrete instance of `PublicIpReferenceInput` via:
+//
+//          PublicIpReferenceArgs{...}
+type PublicIpReferenceInput interface {
+	pulumi.Input
+
+	ToPublicIpReferenceOutput() PublicIpReferenceOutput
+	ToPublicIpReferenceOutputWithContext(context.Context) PublicIpReferenceOutput
+}
+
+// Defines reference to a public IP.
+type PublicIpReferenceArgs struct {
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+}
+
+func (PublicIpReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIpReference)(nil)).Elem()
+}
+
+func (i PublicIpReferenceArgs) ToPublicIpReferenceOutput() PublicIpReferenceOutput {
+	return i.ToPublicIpReferenceOutputWithContext(context.Background())
+}
+
+func (i PublicIpReferenceArgs) ToPublicIpReferenceOutputWithContext(ctx context.Context) PublicIpReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpReferenceOutput)
+}
+
+func (i PublicIpReferenceArgs) ToPublicIpReferencePtrOutput() PublicIpReferencePtrOutput {
+	return i.ToPublicIpReferencePtrOutputWithContext(context.Background())
+}
+
+func (i PublicIpReferenceArgs) ToPublicIpReferencePtrOutputWithContext(ctx context.Context) PublicIpReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpReferenceOutput).ToPublicIpReferencePtrOutputWithContext(ctx)
+}
+
+// PublicIpReferencePtrInput is an input type that accepts PublicIpReferenceArgs, PublicIpReferencePtr and PublicIpReferencePtrOutput values.
+// You can construct a concrete instance of `PublicIpReferencePtrInput` via:
+//
+//          PublicIpReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type PublicIpReferencePtrInput interface {
+	pulumi.Input
+
+	ToPublicIpReferencePtrOutput() PublicIpReferencePtrOutput
+	ToPublicIpReferencePtrOutputWithContext(context.Context) PublicIpReferencePtrOutput
+}
+
+type publicIpReferencePtrType PublicIpReferenceArgs
+
+func PublicIpReferencePtr(v *PublicIpReferenceArgs) PublicIpReferencePtrInput {
+	return (*publicIpReferencePtrType)(v)
+}
+
+func (*publicIpReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicIpReference)(nil)).Elem()
+}
+
+func (i *publicIpReferencePtrType) ToPublicIpReferencePtrOutput() PublicIpReferencePtrOutput {
+	return i.ToPublicIpReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *publicIpReferencePtrType) ToPublicIpReferencePtrOutputWithContext(ctx context.Context) PublicIpReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpReferencePtrOutput)
+}
+
+// Defines reference to a public IP.
+type PublicIpReferenceOutput struct{ *pulumi.OutputState }
+
+func (PublicIpReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIpReference)(nil)).Elem()
+}
+
+func (o PublicIpReferenceOutput) ToPublicIpReferenceOutput() PublicIpReferenceOutput {
+	return o
+}
+
+func (o PublicIpReferenceOutput) ToPublicIpReferenceOutputWithContext(ctx context.Context) PublicIpReferenceOutput {
+	return o
+}
+
+func (o PublicIpReferenceOutput) ToPublicIpReferencePtrOutput() PublicIpReferencePtrOutput {
+	return o.ToPublicIpReferencePtrOutputWithContext(context.Background())
+}
+
+func (o PublicIpReferenceOutput) ToPublicIpReferencePtrOutputWithContext(ctx context.Context) PublicIpReferencePtrOutput {
+	return o.ApplyT(func(v PublicIpReference) *PublicIpReference {
+		return &v
+	}).(PublicIpReferencePtrOutput)
+}
+
+// Gets the ARM resource ID of the tracked resource being referenced.
+func (o PublicIpReferenceOutput) SourceArmResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicIpReference) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
+}
+
+type PublicIpReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (PublicIpReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicIpReference)(nil)).Elem()
+}
+
+func (o PublicIpReferencePtrOutput) ToPublicIpReferencePtrOutput() PublicIpReferencePtrOutput {
+	return o
+}
+
+func (o PublicIpReferencePtrOutput) ToPublicIpReferencePtrOutputWithContext(ctx context.Context) PublicIpReferencePtrOutput {
+	return o
+}
+
+func (o PublicIpReferencePtrOutput) Elem() PublicIpReferenceOutput {
+	return o.ApplyT(func(v *PublicIpReference) PublicIpReference { return *v }).(PublicIpReferenceOutput)
+}
+
+// Gets the ARM resource ID of the tracked resource being referenced.
+func (o PublicIpReferencePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIpReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceArmResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines reference to a public IP.
+type PublicIpReferenceResponse struct {
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+}
+
+// PublicIpReferenceResponseInput is an input type that accepts PublicIpReferenceResponseArgs and PublicIpReferenceResponseOutput values.
+// You can construct a concrete instance of `PublicIpReferenceResponseInput` via:
+//
+//          PublicIpReferenceResponseArgs{...}
+type PublicIpReferenceResponseInput interface {
+	pulumi.Input
+
+	ToPublicIpReferenceResponseOutput() PublicIpReferenceResponseOutput
+	ToPublicIpReferenceResponseOutputWithContext(context.Context) PublicIpReferenceResponseOutput
+}
+
+// Defines reference to a public IP.
+type PublicIpReferenceResponseArgs struct {
+	// Gets the ARM resource ID of the tracked resource being referenced.
+	SourceArmResourceId pulumi.StringInput `pulumi:"sourceArmResourceId"`
+}
+
+func (PublicIpReferenceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIpReferenceResponse)(nil)).Elem()
+}
+
+func (i PublicIpReferenceResponseArgs) ToPublicIpReferenceResponseOutput() PublicIpReferenceResponseOutput {
+	return i.ToPublicIpReferenceResponseOutputWithContext(context.Background())
+}
+
+func (i PublicIpReferenceResponseArgs) ToPublicIpReferenceResponseOutputWithContext(ctx context.Context) PublicIpReferenceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpReferenceResponseOutput)
+}
+
+func (i PublicIpReferenceResponseArgs) ToPublicIpReferenceResponsePtrOutput() PublicIpReferenceResponsePtrOutput {
+	return i.ToPublicIpReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PublicIpReferenceResponseArgs) ToPublicIpReferenceResponsePtrOutputWithContext(ctx context.Context) PublicIpReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpReferenceResponseOutput).ToPublicIpReferenceResponsePtrOutputWithContext(ctx)
+}
+
+// PublicIpReferenceResponsePtrInput is an input type that accepts PublicIpReferenceResponseArgs, PublicIpReferenceResponsePtr and PublicIpReferenceResponsePtrOutput values.
+// You can construct a concrete instance of `PublicIpReferenceResponsePtrInput` via:
+//
+//          PublicIpReferenceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PublicIpReferenceResponsePtrInput interface {
+	pulumi.Input
+
+	ToPublicIpReferenceResponsePtrOutput() PublicIpReferenceResponsePtrOutput
+	ToPublicIpReferenceResponsePtrOutputWithContext(context.Context) PublicIpReferenceResponsePtrOutput
+}
+
+type publicIpReferenceResponsePtrType PublicIpReferenceResponseArgs
+
+func PublicIpReferenceResponsePtr(v *PublicIpReferenceResponseArgs) PublicIpReferenceResponsePtrInput {
+	return (*publicIpReferenceResponsePtrType)(v)
+}
+
+func (*publicIpReferenceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicIpReferenceResponse)(nil)).Elem()
+}
+
+func (i *publicIpReferenceResponsePtrType) ToPublicIpReferenceResponsePtrOutput() PublicIpReferenceResponsePtrOutput {
+	return i.ToPublicIpReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *publicIpReferenceResponsePtrType) ToPublicIpReferenceResponsePtrOutputWithContext(ctx context.Context) PublicIpReferenceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicIpReferenceResponsePtrOutput)
+}
+
+// Defines reference to a public IP.
+type PublicIpReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (PublicIpReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicIpReferenceResponse)(nil)).Elem()
+}
+
+func (o PublicIpReferenceResponseOutput) ToPublicIpReferenceResponseOutput() PublicIpReferenceResponseOutput {
+	return o
+}
+
+func (o PublicIpReferenceResponseOutput) ToPublicIpReferenceResponseOutputWithContext(ctx context.Context) PublicIpReferenceResponseOutput {
+	return o
+}
+
+func (o PublicIpReferenceResponseOutput) ToPublicIpReferenceResponsePtrOutput() PublicIpReferenceResponsePtrOutput {
+	return o.ToPublicIpReferenceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PublicIpReferenceResponseOutput) ToPublicIpReferenceResponsePtrOutputWithContext(ctx context.Context) PublicIpReferenceResponsePtrOutput {
+	return o.ApplyT(func(v PublicIpReferenceResponse) *PublicIpReferenceResponse {
+		return &v
+	}).(PublicIpReferenceResponsePtrOutput)
+}
+
+// Gets the ARM resource ID of the tracked resource being referenced.
+func (o PublicIpReferenceResponseOutput) SourceArmResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicIpReferenceResponse) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
+}
+
+type PublicIpReferenceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PublicIpReferenceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicIpReferenceResponse)(nil)).Elem()
+}
+
+func (o PublicIpReferenceResponsePtrOutput) ToPublicIpReferenceResponsePtrOutput() PublicIpReferenceResponsePtrOutput {
+	return o
+}
+
+func (o PublicIpReferenceResponsePtrOutput) ToPublicIpReferenceResponsePtrOutputWithContext(ctx context.Context) PublicIpReferenceResponsePtrOutput {
+	return o
+}
+
+func (o PublicIpReferenceResponsePtrOutput) Elem() PublicIpReferenceResponseOutput {
+	return o.ApplyT(func(v *PublicIpReferenceResponse) PublicIpReferenceResponse { return *v }).(PublicIpReferenceResponseOutput)
+}
+
+// Gets the ARM resource ID of the tracked resource being referenced.
+func (o PublicIpReferenceResponsePtrOutput) SourceArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIpReferenceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceArmResourceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Defines the resource group resource settings.
@@ -6091,6 +6885,8 @@ type SubnetResourceSettings struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// Gets or sets the Subnet name.
 	Name *string `pulumi:"name"`
+	// Defines reference to NSG.
+	NetworkSecurityGroup *NsgReference `pulumi:"networkSecurityGroup"`
 }
 
 // SubnetResourceSettingsInput is an input type that accepts SubnetResourceSettingsArgs and SubnetResourceSettingsOutput values.
@@ -6110,6 +6906,8 @@ type SubnetResourceSettingsArgs struct {
 	AddressPrefix pulumi.StringPtrInput `pulumi:"addressPrefix"`
 	// Gets or sets the Subnet name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Defines reference to NSG.
+	NetworkSecurityGroup NsgReferencePtrInput `pulumi:"networkSecurityGroup"`
 }
 
 func (SubnetResourceSettingsArgs) ElementType() reflect.Type {
@@ -6174,6 +6972,11 @@ func (o SubnetResourceSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResourceSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Defines reference to NSG.
+func (o SubnetResourceSettingsOutput) NetworkSecurityGroup() NsgReferencePtrOutput {
+	return o.ApplyT(func(v SubnetResourceSettings) *NsgReference { return v.NetworkSecurityGroup }).(NsgReferencePtrOutput)
+}
+
 type SubnetResourceSettingsArrayOutput struct{ *pulumi.OutputState }
 
 func (SubnetResourceSettingsArrayOutput) ElementType() reflect.Type {
@@ -6200,6 +7003,8 @@ type SubnetResourceSettingsResponse struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// Gets or sets the Subnet name.
 	Name *string `pulumi:"name"`
+	// Defines reference to NSG.
+	NetworkSecurityGroup *NsgReferenceResponse `pulumi:"networkSecurityGroup"`
 }
 
 // SubnetResourceSettingsResponseInput is an input type that accepts SubnetResourceSettingsResponseArgs and SubnetResourceSettingsResponseOutput values.
@@ -6219,6 +7024,8 @@ type SubnetResourceSettingsResponseArgs struct {
 	AddressPrefix pulumi.StringPtrInput `pulumi:"addressPrefix"`
 	// Gets or sets the Subnet name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Defines reference to NSG.
+	NetworkSecurityGroup NsgReferenceResponsePtrInput `pulumi:"networkSecurityGroup"`
 }
 
 func (SubnetResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -6281,6 +7088,11 @@ func (o SubnetResourceSettingsResponseOutput) AddressPrefix() pulumi.StringPtrOu
 // Gets or sets the Subnet name.
 func (o SubnetResourceSettingsResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetResourceSettingsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Defines reference to NSG.
+func (o SubnetResourceSettingsResponseOutput) NetworkSecurityGroup() NsgReferenceResponsePtrOutput {
+	return o.ApplyT(func(v SubnetResourceSettingsResponse) *NsgReferenceResponse { return v.NetworkSecurityGroup }).(NsgReferenceResponsePtrOutput)
 }
 
 type SubnetResourceSettingsResponseArrayOutput struct{ *pulumi.OutputState }
@@ -6732,6 +7544,10 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerBackendAddressPoolReferenceArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerBackendAddressPoolReferenceResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancerBackendAddressPoolReferenceResponseArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerNatRuleReferenceOutput{})
+	pulumi.RegisterOutputType(LoadBalancerNatRuleReferenceArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerNatRuleReferenceResponseOutput{})
+	pulumi.RegisterOutputType(LoadBalancerNatRuleReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerResourceSettingsOutput{})
 	pulumi.RegisterOutputType(LoadBalancerResourceSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ManualResolutionPropertiesResponseOutput{})
@@ -6769,12 +7585,20 @@ func init() {
 	pulumi.RegisterOutputType(NicIpConfigurationResourceSettingsArrayOutput{})
 	pulumi.RegisterOutputType(NicIpConfigurationResourceSettingsResponseOutput{})
 	pulumi.RegisterOutputType(NicIpConfigurationResourceSettingsResponseArrayOutput{})
+	pulumi.RegisterOutputType(NsgReferenceOutput{})
+	pulumi.RegisterOutputType(NsgReferencePtrOutput{})
+	pulumi.RegisterOutputType(NsgReferenceResponseOutput{})
+	pulumi.RegisterOutputType(NsgReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(NsgSecurityRuleOutput{})
 	pulumi.RegisterOutputType(NsgSecurityRuleArrayOutput{})
 	pulumi.RegisterOutputType(NsgSecurityRuleResponseOutput{})
 	pulumi.RegisterOutputType(NsgSecurityRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(PublicIPAddressResourceSettingsOutput{})
 	pulumi.RegisterOutputType(PublicIPAddressResourceSettingsResponseOutput{})
+	pulumi.RegisterOutputType(PublicIpReferenceOutput{})
+	pulumi.RegisterOutputType(PublicIpReferencePtrOutput{})
+	pulumi.RegisterOutputType(PublicIpReferenceResponseOutput{})
+	pulumi.RegisterOutputType(PublicIpReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupResourceSettingsOutput{})
 	pulumi.RegisterOutputType(ResourceGroupResourceSettingsResponseOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseResourceSettingsOutput{})

@@ -125,6 +125,7 @@ from . import (
     powerplatform,
     providerhub,
     purview,
+    quantum,
     recoveryservices,
     redhatopenshift,
     relay,
