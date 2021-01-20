@@ -34,10 +34,12 @@ type exampleRenderData struct {
 	LanguageToExampleProgram languageToExampleProgram
 }
 type resourceExamplesRenderData struct {
+	Data []exampleRenderData
+}
+type resourceImportRenderData struct {
 	Token         string
 	SampleResID   string
 	SampleResName string
-	Data          []exampleRenderData
 }
 
 // Examples renders Azure API examples to the pkgSpec for the specified list of languages.
@@ -77,108 +79,112 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 		}
 		resourceName := pcl.Camel(split[len(split)-1])
 
-		resourceExamples, ok := resExamples[pulumiToken]
-		if !ok {
-			continue
-		}
-		examplesRenderData := resourceExamplesRenderData{
+		examplesRenderData := resourceExamplesRenderData{}
+		importRenderData := resourceImportRenderData{
 			Token: pulumiToken,
 			// The name and ID will be overridden later if we find an example that contains a sample response.
 			SampleResName: "myresource1",
-			SampleResID:   "<Azure resource ID>",
+			SampleResID:   resource.Path,
 		}
-		for _, example := range resourceExamples {
-			var items []model.BodyItem
-			if seen.Has(example.Location) {
-				continue
-			}
+		if resourceExamples, ok := resExamples[pulumiToken]; ok {
+			for _, example := range resourceExamples {
+				var items []model.BodyItem
+				if seen.Has(example.Location) {
+					continue
+				}
 
-			seen.Add(example.Location)
-			f, err := os.Open(example.Location)
-			if err != nil {
-				return err
-			}
-			var exampleJSON map[string]interface{}
-			if err = json.NewDecoder(f).Decode(&exampleJSON); err != nil {
-				return err
-			}
-			if err = f.Close(); err != nil {
-				return err
-			}
-			if _, ok := exampleJSON["parameters"]; !ok {
-				return fmt.Errorf("example %s missing expected key: 'parameters'", example.Location)
-			}
+				seen.Add(example.Location)
+				f, err := os.Open(example.Location)
+				if err != nil {
+					return err
+				}
+				var exampleJSON map[string]interface{}
+				if err = json.NewDecoder(f).Decode(&exampleJSON); err != nil {
+					return err
+				}
+				if err = f.Close(); err != nil {
+					return err
+				}
+				if _, ok := exampleJSON["parameters"]; !ok {
+					return fmt.Errorf("example %s missing expected key: 'parameters'", example.Location)
+				}
 
-			resourceParams := map[string]resources.AzureAPIParameter{}
-			for _, param := range resource.PutParameters {
-				resourceParams[param.Name] = param
-			}
+				resourceParams := map[string]resources.AzureAPIParameter{}
+				for _, param := range resource.PutParameters {
+					resourceParams[param.Name] = param
+				}
 
-			if _, ok := exampleJSON["parameters"].(map[string]interface{}); !ok {
-				fmt.Printf("Expect parameters to be a map, received: %T for resource: %s, skipping.",
-					exampleJSON["parameters"], pulumiToken)
-				continue
-			}
-			exampleParams := exampleJSON["parameters"].(map[string]interface{})
+				if _, ok := exampleJSON["parameters"].(map[string]interface{}); !ok {
+					fmt.Printf("Expect parameters to be a map, received: %T for resource: %s, skipping.",
+						exampleJSON["parameters"], pulumiToken)
+					continue
+				}
+				exampleParams := exampleJSON["parameters"].(map[string]interface{})
 
-			// Fill in sample name and ID for the import section.
-			if exampleResponses, ok := exampleJSON["responses"].(map[string]interface{}); ok {
-				for _, response := range exampleResponses {
-					if responseMap, ok := response.(map[string]interface{}); ok {
-						if body, ok := responseMap["body"].(map[string]interface{}); ok {
-							if exampleID, ok := body["id"].(string); ok {
-								examplesRenderData.SampleResID = exampleID
-							}
-							if exampleName, ok := body["name"].(string); ok {
-								examplesRenderData.SampleResName = exampleName
+				// Fill in sample name and ID for the import section.
+				if exampleResponses, ok := exampleJSON["responses"].(map[string]interface{}); ok {
+					for _, response := range exampleResponses {
+						if responseMap, ok := response.(map[string]interface{}); ok {
+							if body, ok := responseMap["body"].(map[string]interface{}); ok {
+								if exampleID, ok := body["id"].(string); ok {
+									importRenderData.SampleResID = exampleID
+								}
+								if exampleName, ok := body["name"].(string); ok {
+									importRenderData.SampleResName = exampleName
+								}
 							}
 						}
 					}
 				}
-			}
 
-			flattened, err := FlattenParams(exampleParams, resourceParams, metadata.Types)
-			if err != nil {
-				fmt.Printf("tranforming input for example %s for resource %s: %v", example.Description, pulumiToken, err)
-				continue
-			}
+				flattened, err := FlattenParams(exampleParams, resourceParams, metadata.Types)
+				if err != nil {
+					fmt.Printf("tranforming input for example %s for resource %s: %v", example.Description, pulumiToken, err)
+					continue
+				}
 
-			keys := codegen.SortedKeys(flattened)
-			for _, k := range keys {
-				v := flattened[k]
-				val, err := pcl.RenderValue(v)
+				keys := codegen.SortedKeys(flattened)
+				for _, k := range keys {
+					v := flattened[k]
+					val, err := pcl.RenderValue(v)
+					if err != nil {
+						return err
+					}
+					items = append(items, &model.Attribute{
+						Name:  k,
+						Value: val,
+					})
+				}
+
+				block := model.Block{
+					Type:   "resource",
+					Body:   &model.Body{Items: items},
+					Labels: []string{resourceName, pulumiToken},
+				}
+				body := &model.Body{Items: []model.BodyItem{&block}}
+				pcl.FormatBody(body)
+				languageExample, err := generateExamplePrograms(example, body, languages, hcl2Cache, loaderOption)
 				if err != nil {
 					return err
 				}
-				items = append(items, &model.Attribute{
-					Name:  k,
-					Value: val,
-				})
-			}
 
-			block := model.Block{
-				Type:   "resource",
-				Body:   &model.Body{Items: items},
-				Labels: []string{resourceName, pulumiToken},
+				examplesRenderData.Data = append(examplesRenderData.Data,
+					exampleRenderData{
+						ExampleDescription:       description(example.Description),
+						LanguageToExampleProgram: languageExample,
+					})
 			}
-			body := &model.Body{Items: []model.BodyItem{&block}}
-			pcl.FormatBody(body)
-			languageExample, err := generateExamplePrograms(example, body, languages, hcl2Cache, loaderOption)
-			if err != nil {
-				return err
+			if len(examplesRenderData.Data) > 0 {
+				err := renderExampleToSchema(pkgSpec, pulumiToken, &examplesRenderData)
+				if err != nil {
+					return err
+				}
 			}
-
-			examplesRenderData.Data = append(examplesRenderData.Data,
-				exampleRenderData{
-					ExampleDescription:       description(example.Description),
-					LanguageToExampleProgram: languageExample,
-				})
 		}
-		if len(examplesRenderData.Data) > 0 {
-			err := renderExampleToSchema(pkgSpec, pulumiToken, &examplesRenderData)
-			if err != nil {
-				return err
-			}
+
+		err = renderImportToSchema(pkgSpec, pulumiToken, &importRenderData)
+		if err != nil {
+			return err
 		}
 
 		metadata.Resources[pulumiToken] = resource
@@ -294,14 +300,7 @@ func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string,
 {{"{{% /example %}}"}}
 {{- end }}
 {{"{{% /examples %}}"}}
-
-## Import
-
-An existing resource can be imported using its type token, name, and identifier, e.g.
-
-` + "```" + `sh
-$ pulumi import {{ .Token }} {{ .SampleResName }} {{ .SampleResID }} 
-` + "```\n"
+`
 	res, ok := pkgSpec.Resources[resourceName]
 	if !ok {
 		return fmt.Errorf("missing resource from schema: %s", resourceName)
@@ -327,6 +326,34 @@ $ pulumi import {{ .Token }} {{ .SampleResName }} {{ .SampleResID }}
 	}
 	b := strings.Builder{}
 	if err = t.Execute(&b, examplesRenderData); err != nil {
+		return err
+	}
+	res.Description += b.String()
+	pkgSpec.Resources[resourceName] = res
+	return nil
+}
+
+func renderImportToSchema(pkgSpec *schema.PackageSpec, resourceName string,
+	importRenderData *resourceImportRenderData) error {
+	const tmpl = `
+## Import
+
+An existing resource can be imported using its type token, name, and identifier, e.g.
+
+` + "```" + `sh
+$ pulumi import {{ .Token }} {{ .SampleResName }} {{ .SampleResID }} 
+` + "```\n"
+	res, ok := pkgSpec.Resources[resourceName]
+	if !ok {
+		return fmt.Errorf("missing resource from schema: %s", resourceName)
+	}
+
+	t, err := template.New("import").Parse(tmpl)
+	if err != nil {
+		return err
+	}
+	b := strings.Builder{}
+	if err = t.Execute(&b, importRenderData); err != nil {
 		return err
 	}
 	res.Description += b.String()
