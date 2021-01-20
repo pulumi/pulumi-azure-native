@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the service.
- * Latest API Version: 2020-03-30.
+ * Latest API Version: 2021-01-11.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -61,6 +61,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.healthcareapis.latest.ServicesPropertiesResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.healthcareapis.latest.SystemDataResponse>;
+    /**
      * The resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -100,6 +104,7 @@ export class Service extends pulumi.CustomResource {
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -108,6 +113,7 @@ export class Service extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -118,7 +124,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthcareapis/v20180820preview:Service" }, { type: "azure-nextgen:healthcareapis/v20190916:Service" }, { type: "azure-nextgen:healthcareapis/v20200315:Service" }, { type: "azure-nextgen:healthcareapis/v20200330:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthcareapis/v20180820preview:Service" }, { type: "azure-nextgen:healthcareapis/v20190916:Service" }, { type: "azure-nextgen:healthcareapis/v20200315:Service" }, { type: "azure-nextgen:healthcareapis/v20200330:Service" }, { type: "azure-nextgen:healthcareapis/v20210111:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

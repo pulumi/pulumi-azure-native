@@ -104,6 +104,7 @@ const (
 	ManagedRuleExclusionMatchVariableRequestCookieNames      = ManagedRuleExclusionMatchVariable("RequestCookieNames")
 	ManagedRuleExclusionMatchVariableQueryStringArgNames     = ManagedRuleExclusionMatchVariable("QueryStringArgNames")
 	ManagedRuleExclusionMatchVariableRequestBodyPostArgNames = ManagedRuleExclusionMatchVariable("RequestBodyPostArgNames")
+	ManagedRuleExclusionMatchVariableRequestBodyJsonArgNames = ManagedRuleExclusionMatchVariable("RequestBodyJsonArgNames")
 )
 
 func (ManagedRuleExclusionMatchVariable) ElementType() reflect.Type {

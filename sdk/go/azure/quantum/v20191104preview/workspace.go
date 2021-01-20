@@ -15,6 +15,8 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
+	// The URI of the workspace endpoint.
+	EndpointUri pulumi.StringOutput `pulumi:"endpointUri"`
 	// Managed Identity information.
 	Identity QuantumWorkspaceResponseIdentityPtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
@@ -73,6 +75,8 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
+	// The URI of the workspace endpoint.
+	EndpointUri *string `pulumi:"endpointUri"`
 	// Managed Identity information.
 	Identity *QuantumWorkspaceResponseIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
@@ -94,6 +98,8 @@ type workspaceState struct {
 }
 
 type WorkspaceState struct {
+	// The URI of the workspace endpoint.
+	EndpointUri pulumi.StringPtrInput
 	// Managed Identity information.
 	Identity QuantumWorkspaceResponseIdentityPtrInput
 	// The geo-location where the resource lives

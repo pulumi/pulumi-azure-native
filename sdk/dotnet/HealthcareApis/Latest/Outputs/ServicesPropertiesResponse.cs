@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceAccessPolicyEntryResponse> AccessPolicies;
         /// <summary>
+        /// The azure container registry settings used for convert data operation of the service instance.
+        /// </summary>
+        public readonly Outputs.ServiceAcrConfigurationInfoResponse? AcrConfiguration;
+        /// <summary>
         /// The authentication configuration for the service instance.
         /// </summary>
         public readonly Outputs.ServiceAuthenticationConfigurationInfoResponse? AuthenticationConfiguration;
@@ -50,6 +54,8 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Outputs
         private ServicesPropertiesResponse(
             ImmutableArray<Outputs.ServiceAccessPolicyEntryResponse> accessPolicies,
 
+            Outputs.ServiceAcrConfigurationInfoResponse? acrConfiguration,
+
             Outputs.ServiceAuthenticationConfigurationInfoResponse? authenticationConfiguration,
 
             Outputs.ServiceCorsConfigurationInfoResponse? corsConfiguration,
@@ -65,6 +71,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Outputs
             string? publicNetworkAccess)
         {
             AccessPolicies = accessPolicies;
+            AcrConfiguration = acrConfiguration;
             AuthenticationConfiguration = authenticationConfiguration;
             CorsConfiguration = corsConfiguration;
             CosmosDbConfiguration = cosmosDbConfiguration;

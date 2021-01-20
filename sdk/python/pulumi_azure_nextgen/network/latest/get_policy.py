@@ -20,7 +20,7 @@ class GetPolicyResult:
     """
     Defines web application firewall policy.
     """
-    def __init__(__self__, custom_rules=None, etag=None, frontend_endpoint_links=None, id=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, resource_state=None, routing_rule_links=None, sku=None, tags=None, type=None):
+    def __init__(__self__, custom_rules=None, etag=None, frontend_endpoint_links=None, id=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, resource_state=None, routing_rule_links=None, security_policy_links=None, sku=None, tags=None, type=None):
         if custom_rules and not isinstance(custom_rules, dict):
             raise TypeError("Expected argument 'custom_rules' to be a dict")
         pulumi.set(__self__, "custom_rules", custom_rules)
@@ -54,6 +54,9 @@ class GetPolicyResult:
         if routing_rule_links and not isinstance(routing_rule_links, list):
             raise TypeError("Expected argument 'routing_rule_links' to be a list")
         pulumi.set(__self__, "routing_rule_links", routing_rule_links)
+        if security_policy_links and not isinstance(security_policy_links, list):
+            raise TypeError("Expected argument 'security_policy_links' to be a list")
+        pulumi.set(__self__, "security_policy_links", security_policy_links)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -150,6 +153,14 @@ class GetPolicyResult:
         return pulumi.get(self, "routing_rule_links")
 
     @property
+    @pulumi.getter(name="securityPolicyLinks")
+    def security_policy_links(self) -> Sequence['outputs.SecurityPolicyLinkResponse']:
+        """
+        Describes Security Policy associated with this Web Application Firewall policy.
+        """
+        return pulumi.get(self, "security_policy_links")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
@@ -191,6 +202,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
             routing_rule_links=self.routing_rule_links,
+            security_policy_links=self.security_policy_links,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -226,6 +238,7 @@ def get_policy(policy_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
         routing_rule_links=__ret__.routing_rule_links,
+        security_policy_links=__ret__.security_policy_links,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)

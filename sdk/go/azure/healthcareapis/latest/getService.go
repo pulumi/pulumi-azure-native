@@ -39,6 +39,8 @@ type LookupServiceResult struct {
 	Name string `pulumi:"name"`
 	// The common properties of a service.
 	Properties ServicesPropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

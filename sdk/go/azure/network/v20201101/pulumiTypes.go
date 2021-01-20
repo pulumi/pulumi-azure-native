@@ -2818,6 +2818,106 @@ func (o RoutingRuleLinkResponseArrayOutput) Index(i pulumi.IntInput) RoutingRule
 	}).(RoutingRuleLinkResponseOutput)
 }
 
+// Defines the Resource ID for a Security Policy.
+type SecurityPolicyLinkResponse struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// SecurityPolicyLinkResponseInput is an input type that accepts SecurityPolicyLinkResponseArgs and SecurityPolicyLinkResponseOutput values.
+// You can construct a concrete instance of `SecurityPolicyLinkResponseInput` via:
+//
+//          SecurityPolicyLinkResponseArgs{...}
+type SecurityPolicyLinkResponseInput interface {
+	pulumi.Input
+
+	ToSecurityPolicyLinkResponseOutput() SecurityPolicyLinkResponseOutput
+	ToSecurityPolicyLinkResponseOutputWithContext(context.Context) SecurityPolicyLinkResponseOutput
+}
+
+// Defines the Resource ID for a Security Policy.
+type SecurityPolicyLinkResponseArgs struct {
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SecurityPolicyLinkResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPolicyLinkResponse)(nil)).Elem()
+}
+
+func (i SecurityPolicyLinkResponseArgs) ToSecurityPolicyLinkResponseOutput() SecurityPolicyLinkResponseOutput {
+	return i.ToSecurityPolicyLinkResponseOutputWithContext(context.Background())
+}
+
+func (i SecurityPolicyLinkResponseArgs) ToSecurityPolicyLinkResponseOutputWithContext(ctx context.Context) SecurityPolicyLinkResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyLinkResponseOutput)
+}
+
+// SecurityPolicyLinkResponseArrayInput is an input type that accepts SecurityPolicyLinkResponseArray and SecurityPolicyLinkResponseArrayOutput values.
+// You can construct a concrete instance of `SecurityPolicyLinkResponseArrayInput` via:
+//
+//          SecurityPolicyLinkResponseArray{ SecurityPolicyLinkResponseArgs{...} }
+type SecurityPolicyLinkResponseArrayInput interface {
+	pulumi.Input
+
+	ToSecurityPolicyLinkResponseArrayOutput() SecurityPolicyLinkResponseArrayOutput
+	ToSecurityPolicyLinkResponseArrayOutputWithContext(context.Context) SecurityPolicyLinkResponseArrayOutput
+}
+
+type SecurityPolicyLinkResponseArray []SecurityPolicyLinkResponseInput
+
+func (SecurityPolicyLinkResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityPolicyLinkResponse)(nil)).Elem()
+}
+
+func (i SecurityPolicyLinkResponseArray) ToSecurityPolicyLinkResponseArrayOutput() SecurityPolicyLinkResponseArrayOutput {
+	return i.ToSecurityPolicyLinkResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityPolicyLinkResponseArray) ToSecurityPolicyLinkResponseArrayOutputWithContext(ctx context.Context) SecurityPolicyLinkResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyLinkResponseArrayOutput)
+}
+
+// Defines the Resource ID for a Security Policy.
+type SecurityPolicyLinkResponseOutput struct{ *pulumi.OutputState }
+
+func (SecurityPolicyLinkResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityPolicyLinkResponse)(nil)).Elem()
+}
+
+func (o SecurityPolicyLinkResponseOutput) ToSecurityPolicyLinkResponseOutput() SecurityPolicyLinkResponseOutput {
+	return o
+}
+
+func (o SecurityPolicyLinkResponseOutput) ToSecurityPolicyLinkResponseOutputWithContext(ctx context.Context) SecurityPolicyLinkResponseOutput {
+	return o
+}
+
+// Resource ID.
+func (o SecurityPolicyLinkResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityPolicyLinkResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type SecurityPolicyLinkResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityPolicyLinkResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityPolicyLinkResponse)(nil)).Elem()
+}
+
+func (o SecurityPolicyLinkResponseArrayOutput) ToSecurityPolicyLinkResponseArrayOutput() SecurityPolicyLinkResponseArrayOutput {
+	return o
+}
+
+func (o SecurityPolicyLinkResponseArrayOutput) ToSecurityPolicyLinkResponseArrayOutputWithContext(ctx context.Context) SecurityPolicyLinkResponseArrayOutput {
+	return o
+}
+
+func (o SecurityPolicyLinkResponseArrayOutput) Index(i pulumi.IntInput) SecurityPolicyLinkResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityPolicyLinkResponse {
+		return vs[0].([]SecurityPolicyLinkResponse)[vs[1].(int)]
+	}).(SecurityPolicyLinkResponseOutput)
+}
+
 // The pricing tier of the web application firewall policy.
 type Sku struct {
 	// Name of the pricing tier.
@@ -3127,6 +3227,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(RoutingRuleLinkResponseOutput{})
 	pulumi.RegisterOutputType(RoutingRuleLinkResponseArrayOutput{})
+	pulumi.RegisterOutputType(SecurityPolicyLinkResponseOutput{})
+	pulumi.RegisterOutputType(SecurityPolicyLinkResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

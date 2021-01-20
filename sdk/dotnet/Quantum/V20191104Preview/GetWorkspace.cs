@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// The URI of the workspace endpoint.
+        /// </summary>
+        public readonly string EndpointUri;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string endpointUri,
+
             string id,
 
             Outputs.QuantumWorkspaceResponseIdentity? identity,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
 
             string usable)
         {
+            EndpointUri = endpointUri;
             Id = id;
             Identity = identity;
             Location = location;

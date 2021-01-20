@@ -81,6 +81,7 @@ class Policy(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['routing_rule_links'] = None
+            __props__['security_policy_links'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20190301:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20191001:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20201101:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -184,6 +185,14 @@ class Policy(pulumi.CustomResource):
         Describes Routing Rules associated with this Web Application Firewall policy.
         """
         return pulumi.get(self, "routing_rule_links")
+
+    @property
+    @pulumi.getter(name="securityPolicyLinks")
+    def security_policy_links(self) -> pulumi.Output[Sequence['outputs.SecurityPolicyLinkResponse']]:
+        """
+        Describes Security Policy associated with this Web Application Firewall policy.
+        """
+        return pulumi.get(self, "security_policy_links")
 
     @property
     @pulumi.getter

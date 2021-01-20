@@ -961,6 +961,7 @@ class ManagedRuleExclusionMatchVariable(str, Enum):
     REQUEST_COOKIE_NAMES = "RequestCookieNames"
     QUERY_STRING_ARG_NAMES = "QueryStringArgNames"
     REQUEST_BODY_POST_ARG_NAMES = "RequestBodyPostArgNames"
+    REQUEST_BODY_JSON_ARG_NAMES = "RequestBodyJsonArgNames"
 
 
 class ManagedRuleExclusionSelectorMatchOperator(str, Enum):

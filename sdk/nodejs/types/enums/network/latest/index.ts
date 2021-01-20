@@ -971,6 +971,7 @@ export const ManagedRuleExclusionMatchVariable = {
     RequestCookieNames: "RequestCookieNames",
     QueryStringArgNames: "QueryStringArgNames",
     RequestBodyPostArgNames: "RequestBodyPostArgNames",
+    RequestBodyJsonArgNames: "RequestBodyJsonArgNames",
 } as const;
 
 /**

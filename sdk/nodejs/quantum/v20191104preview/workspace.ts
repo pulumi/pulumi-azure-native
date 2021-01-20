@@ -36,6 +36,10 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * The URI of the workspace endpoint.
+     */
+    public /*out*/ readonly endpointUri!: pulumi.Output<string>;
+    /**
      * Managed Identity information.
      */
     public readonly identity!: pulumi.Output<outputs.quantum.v20191104preview.QuantumWorkspaceResponseIdentity | undefined>;
@@ -98,11 +102,13 @@ export class Workspace extends pulumi.CustomResource {
             inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["endpointUri"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["usable"] = undefined /*out*/;
         } else {
+            inputs["endpointUri"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;

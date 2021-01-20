@@ -16,6 +16,8 @@ type ApplicationGetEndpoint struct {
 	DestinationPort *int `pulumi:"destinationPort"`
 	// The location of the endpoint.
 	Location *string `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort *int `pulumi:"publicPort"`
 }
@@ -37,6 +39,8 @@ type ApplicationGetEndpointArgs struct {
 	DestinationPort pulumi.IntPtrInput `pulumi:"destinationPort"`
 	// The location of the endpoint.
 	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
 }
@@ -103,6 +107,11 @@ func (o ApplicationGetEndpointOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGetEndpoint) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
+// The private ip address of the endpoint.
+func (o ApplicationGetEndpointOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGetEndpoint) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
+}
+
 // The public port to connect to.
 func (o ApplicationGetEndpointOutput) PublicPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGetEndpoint) *int { return v.PublicPort }).(pulumi.IntPtrOutput)
@@ -134,6 +143,8 @@ type ApplicationGetEndpointResponse struct {
 	DestinationPort *int `pulumi:"destinationPort"`
 	// The location of the endpoint.
 	Location *string `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort *int `pulumi:"publicPort"`
 }
@@ -155,6 +166,8 @@ type ApplicationGetEndpointResponseArgs struct {
 	DestinationPort pulumi.IntPtrInput `pulumi:"destinationPort"`
 	// The location of the endpoint.
 	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
 }
@@ -219,6 +232,11 @@ func (o ApplicationGetEndpointResponseOutput) DestinationPort() pulumi.IntPtrOut
 // The location of the endpoint.
 func (o ApplicationGetEndpointResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGetEndpointResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The private ip address of the endpoint.
+func (o ApplicationGetEndpointResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGetEndpointResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
 // The public port to connect to.
@@ -5319,6 +5337,8 @@ type ConnectivityEndpointResponse struct {
 	Name *string `pulumi:"name"`
 	// The port to connect to.
 	Port *int `pulumi:"port"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The protocol of the endpoint.
 	Protocol *string `pulumi:"protocol"`
 }
@@ -5342,6 +5362,8 @@ type ConnectivityEndpointResponseArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The port to connect to.
 	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The private ip address of the endpoint.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The protocol of the endpoint.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
@@ -5411,6 +5433,11 @@ func (o ConnectivityEndpointResponseOutput) Name() pulumi.StringPtrOutput {
 // The port to connect to.
 func (o ConnectivityEndpointResponseOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectivityEndpointResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The private ip address of the endpoint.
+func (o ConnectivityEndpointResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectivityEndpointResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
 // The protocol of the endpoint.

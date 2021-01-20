@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Inputs
         }
 
         /// <summary>
+        /// The azure container registry settings used for convert data operation of the service instance.
+        /// </summary>
+        [Input("acrConfiguration")]
+        public Input<Inputs.ServiceAcrConfigurationInfoArgs>? AcrConfiguration { get; set; }
+
+        /// <summary>
         /// The authentication configuration for the service instance.
         /// </summary>
         [Input("authenticationConfiguration")]

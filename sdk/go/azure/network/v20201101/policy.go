@@ -34,6 +34,8 @@ type Policy struct {
 	ResourceState     pulumi.StringOutput `pulumi:"resourceState"`
 	// Describes Routing Rules associated with this Web Application Firewall policy.
 	RoutingRuleLinks RoutingRuleLinkResponseArrayOutput `pulumi:"routingRuleLinks"`
+	// Describes Security Policy associated with this Web Application Firewall policy.
+	SecurityPolicyLinks SecurityPolicyLinkResponseArrayOutput `pulumi:"securityPolicyLinks"`
 	// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
@@ -114,6 +116,8 @@ type policyState struct {
 	ResourceState     *string `pulumi:"resourceState"`
 	// Describes Routing Rules associated with this Web Application Firewall policy.
 	RoutingRuleLinks []RoutingRuleLinkResponse `pulumi:"routingRuleLinks"`
+	// Describes Security Policy associated with this Web Application Firewall policy.
+	SecurityPolicyLinks []SecurityPolicyLinkResponse `pulumi:"securityPolicyLinks"`
 	// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
@@ -142,6 +146,8 @@ type PolicyState struct {
 	ResourceState     pulumi.StringPtrInput
 	// Describes Routing Rules associated with this Web Application Firewall policy.
 	RoutingRuleLinks RoutingRuleLinkResponseArrayInput
+	// Describes Security Policy associated with this Web Application Firewall policy.
+	SecurityPolicyLinks SecurityPolicyLinkResponseArrayInput
 	// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
 	Sku SkuResponsePtrInput
 	// Resource tags.

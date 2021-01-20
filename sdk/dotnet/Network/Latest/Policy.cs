@@ -74,6 +74,12 @@ namespace Pulumi.AzureNextGen.Network.Latest
         public Output<ImmutableArray<Outputs.RoutingRuleLinkResponse>> RoutingRuleLinks { get; private set; } = null!;
 
         /// <summary>
+        /// Describes Security Policy associated with this Web Application Firewall policy.
+        /// </summary>
+        [Output("securityPolicyLinks")]
+        public Output<ImmutableArray<Outputs.SecurityPolicyLinkResponse>> SecurityPolicyLinks { get; private set; } = null!;
+
+        /// <summary>
         /// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
         /// </summary>
         [Output("sku")]

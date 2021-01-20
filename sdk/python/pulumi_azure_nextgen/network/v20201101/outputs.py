@@ -22,6 +22,7 @@ __all__ = [
     'MatchConditionResponse',
     'PolicySettingsResponse',
     'RoutingRuleLinkResponse',
+    'SecurityPolicyLinkResponse',
     'SkuResponse',
 ]
 
@@ -616,6 +617,32 @@ class RoutingRuleLinkResponse(dict):
                  id: Optional[str] = None):
         """
         Defines the Resource ID for a Routing Rule.
+        :param str id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecurityPolicyLinkResponse(dict):
+    """
+    Defines the Resource ID for a Security Policy.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Defines the Resource ID for a Security Policy.
         :param str id: Resource ID.
         """
         if id is not None:

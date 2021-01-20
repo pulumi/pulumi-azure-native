@@ -5,20 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./getRemoteRenderingAccount";
 export * from "./getSpatialAnchorsAccount";
+export * from "./listRemoteRenderingAccountKeys";
 export * from "./listSpatialAnchorsAccountKeys";
+export * from "./remoteRenderingAccount";
 export * from "./spatialAnchorsAccount";
 
 // Export enums:
 export * from "../../types/enums/mixedreality/latest";
 
 // Import resources to register:
+import { RemoteRenderingAccount } from "./remoteRenderingAccount";
 import { SpatialAnchorsAccount } from "./spatialAnchorsAccount";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:mixedreality/latest:RemoteRenderingAccount":
+                return new RemoteRenderingAccount(name, <any>undefined, { urn })
             case "azure-nextgen:mixedreality/latest:SpatialAnchorsAccount":
                 return new SpatialAnchorsAccount(name, <any>undefined, { urn })
             default:

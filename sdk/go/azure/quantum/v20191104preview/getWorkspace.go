@@ -25,6 +25,8 @@ type LookupWorkspaceArgs struct {
 
 // The resource proxy definition object for quantum workspace.
 type LookupWorkspaceResult struct {
+	// The URI of the workspace endpoint.
+	EndpointUri string `pulumi:"endpointUri"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Managed Identity information.

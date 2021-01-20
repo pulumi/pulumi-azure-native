@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
 {
     /// <summary>
     /// The description of the service.
-    /// Latest API Version: 2020-03-30.
+    /// Latest API Version: 2021-01-11.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:healthcareapis/latest:Service")]
     public partial class Service : Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
         /// </summary>
         [Output("properties")]
         public Output<Outputs.ServicesPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20190916:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200315:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200330:Service"},
+                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20210111:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

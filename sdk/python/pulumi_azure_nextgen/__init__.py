@@ -72,6 +72,7 @@ from . import (
     digitaltwins,
     documentdb,
     domainregistration,
+    edgeorder,
     engagementfabric,
     enterpriseknowledgegraph,
     eventgrid,

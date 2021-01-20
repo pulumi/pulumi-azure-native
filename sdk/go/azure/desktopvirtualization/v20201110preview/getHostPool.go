@@ -57,8 +57,6 @@ type LookupHostPoolResult struct {
 	SsoClientId *string `pulumi:"ssoClientId"`
 	// Path to Azure KeyVault storing the secret used for communication to ADFS.
 	SsoClientSecretKeyVaultPath *string `pulumi:"ssoClientSecretKeyVaultPath"`
-	// Path to keyvault containing ssoContext secret.
-	SsoContext *string `pulumi:"ssoContext"`
 	// The type of single sign on Secret Type.
 	SsoSecretType *string `pulumi:"ssoSecretType"`
 	// URL to customer ADFS server for signing WVD SSO certificates.

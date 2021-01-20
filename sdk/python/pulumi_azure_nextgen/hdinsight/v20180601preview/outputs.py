@@ -57,17 +57,21 @@ class ApplicationGetEndpointResponse(dict):
     def __init__(__self__, *,
                  destination_port: Optional[int] = None,
                  location: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
                  public_port: Optional[int] = None):
         """
         Gets the application SSH endpoint
         :param int destination_port: The destination port to connect to.
         :param str location: The location of the endpoint.
+        :param str private_ip_address: The private ip address of the endpoint.
         :param int public_port: The public port to connect to.
         """
         if destination_port is not None:
             pulumi.set(__self__, "destination_port", destination_port)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
         if public_port is not None:
             pulumi.set(__self__, "public_port", public_port)
 
@@ -86,6 +90,14 @@ class ApplicationGetEndpointResponse(dict):
         The location of the endpoint.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private ip address of the endpoint.
+        """
+        return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="publicPort")
@@ -1083,12 +1095,14 @@ class ConnectivityEndpointResponse(dict):
                  location: Optional[str] = None,
                  name: Optional[str] = None,
                  port: Optional[int] = None,
+                 private_ip_address: Optional[str] = None,
                  protocol: Optional[str] = None):
         """
         The connectivity properties
         :param str location: The location of the endpoint.
         :param str name: The name of the endpoint.
         :param int port: The port to connect to.
+        :param str private_ip_address: The private ip address of the endpoint.
         :param str protocol: The protocol of the endpoint.
         """
         if location is not None:
@@ -1097,6 +1111,8 @@ class ConnectivityEndpointResponse(dict):
             pulumi.set(__self__, "name", name)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
 
@@ -1123,6 +1139,14 @@ class ConnectivityEndpointResponse(dict):
         The port to connect to.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private ip address of the endpoint.
+        """
+        return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter

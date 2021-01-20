@@ -5,15 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./action";
 export * from "./alertRule";
-export * from "./alertRuleAction";
 export * from "./bookmark";
 export * from "./cluster";
 export * from "./dataConnector";
 export * from "./dataExport";
 export * from "./dataSource";
+export * from "./getAction";
 export * from "./getAlertRule";
-export * from "./getAlertRuleAction";
 export * from "./getBookmark";
 export * from "./getCluster";
 export * from "./getDataConnector";
@@ -37,8 +37,8 @@ export * from "./workspace";
 export * from "../../types/enums/operationalinsights/latest";
 
 // Import resources to register:
+import { Action } from "./action";
 import { AlertRule } from "./alertRule";
-import { AlertRuleAction } from "./alertRuleAction";
 import { Bookmark } from "./bookmark";
 import { Cluster } from "./cluster";
 import { DataConnector } from "./dataConnector";
@@ -55,10 +55,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:operationalinsights/latest:Action":
+                return new Action(name, <any>undefined, { urn })
             case "azure-nextgen:operationalinsights/latest:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/latest:AlertRuleAction":
-                return new AlertRuleAction(name, <any>undefined, { urn })
             case "azure-nextgen:operationalinsights/latest:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
             case "azure-nextgen:operationalinsights/latest:Cluster":

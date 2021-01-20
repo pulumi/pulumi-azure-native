@@ -117,7 +117,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthcareapis/latest:Service" }, { type: "azure-nextgen:healthcareapis/v20180820preview:Service" }, { type: "azure-nextgen:healthcareapis/v20200315:Service" }, { type: "azure-nextgen:healthcareapis/v20200330:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthcareapis/latest:Service" }, { type: "azure-nextgen:healthcareapis/v20180820preview:Service" }, { type: "azure-nextgen:healthcareapis/v20200315:Service" }, { type: "azure-nextgen:healthcareapis/v20200330:Service" }, { type: "azure-nextgen:healthcareapis/v20210111:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }

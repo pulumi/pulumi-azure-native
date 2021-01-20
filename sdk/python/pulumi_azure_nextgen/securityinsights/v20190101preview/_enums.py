@@ -28,6 +28,7 @@ class AlertRuleKind(str, Enum):
     FUSION = "Fusion"
     ML_BEHAVIOR_ANALYTICS = "MLBehaviorAnalytics"
     THREAT_INTELLIGENCE = "ThreatIntelligence"
+    ANOMALY = "Anomaly"
 
 
 class CaseSeverity(str, Enum):

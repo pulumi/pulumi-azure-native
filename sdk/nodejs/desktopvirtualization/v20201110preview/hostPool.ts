@@ -96,10 +96,6 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly ssoClientSecretKeyVaultPath!: pulumi.Output<string | undefined>;
     /**
-     * Path to keyvault containing ssoContext secret.
-     */
-    public readonly ssoContext!: pulumi.Output<string | undefined>;
-    /**
      * The type of single sign on Secret Type.
      */
     public readonly ssoSecretType!: pulumi.Output<string | undefined>;
@@ -171,7 +167,6 @@ export class HostPool extends pulumi.CustomResource {
             inputs["ring"] = args ? args.ring : undefined;
             inputs["ssoClientId"] = args ? args.ssoClientId : undefined;
             inputs["ssoClientSecretKeyVaultPath"] = args ? args.ssoClientSecretKeyVaultPath : undefined;
-            inputs["ssoContext"] = args ? args.ssoContext : undefined;
             inputs["ssoSecretType"] = args ? args.ssoSecretType : undefined;
             inputs["ssoadfsAuthority"] = args ? args.ssoadfsAuthority : undefined;
             inputs["startVMOnConnect"] = args ? args.startVMOnConnect : undefined;
@@ -197,7 +192,6 @@ export class HostPool extends pulumi.CustomResource {
             inputs["ring"] = undefined /*out*/;
             inputs["ssoClientId"] = undefined /*out*/;
             inputs["ssoClientSecretKeyVaultPath"] = undefined /*out*/;
-            inputs["ssoContext"] = undefined /*out*/;
             inputs["ssoSecretType"] = undefined /*out*/;
             inputs["ssoadfsAuthority"] = undefined /*out*/;
             inputs["startVMOnConnect"] = undefined /*out*/;
@@ -283,10 +277,6 @@ export interface HostPoolArgs {
      * Path to Azure KeyVault storing the secret used for communication to ADFS.
      */
     readonly ssoClientSecretKeyVaultPath?: pulumi.Input<string>;
-    /**
-     * Path to keyvault containing ssoContext secret.
-     */
-    readonly ssoContext?: pulumi.Input<string>;
     /**
      * The type of single sign on Secret Type.
      */

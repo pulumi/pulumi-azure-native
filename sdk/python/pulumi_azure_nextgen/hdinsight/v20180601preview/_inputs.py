@@ -50,17 +50,21 @@ class ApplicationGetEndpointArgs:
     def __init__(__self__, *,
                  destination_port: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
                  public_port: Optional[pulumi.Input[int]] = None):
         """
         Gets the application SSH endpoint
         :param pulumi.Input[int] destination_port: The destination port to connect to.
         :param pulumi.Input[str] location: The location of the endpoint.
+        :param pulumi.Input[str] private_ip_address: The private ip address of the endpoint.
         :param pulumi.Input[int] public_port: The public port to connect to.
         """
         if destination_port is not None:
             pulumi.set(__self__, "destination_port", destination_port)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
         if public_port is not None:
             pulumi.set(__self__, "public_port", public_port)
 
@@ -87,6 +91,18 @@ class ApplicationGetEndpointArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private ip address of the endpoint.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
 
     @property
     @pulumi.getter(name="publicPort")

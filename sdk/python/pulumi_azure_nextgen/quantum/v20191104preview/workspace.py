@@ -71,6 +71,7 @@ class Workspace(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['endpoint_uri'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
@@ -98,6 +99,14 @@ class Workspace(pulumi.CustomResource):
         __props__ = dict()
 
         return Workspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> pulumi.Output[str]:
+        """
+        The URI of the workspace endpoint.
+        """
+        return pulumi.get(self, "endpoint_uri")
 
     @property
     @pulumi.getter

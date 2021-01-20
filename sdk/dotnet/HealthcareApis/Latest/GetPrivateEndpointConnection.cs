@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// System metadata for this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
@@ -89,6 +95,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

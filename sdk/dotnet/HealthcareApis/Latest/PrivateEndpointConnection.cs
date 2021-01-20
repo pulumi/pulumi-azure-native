@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// Latest API Version: 2020-03-30.
+    /// Latest API Version: 2021-01-11.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:healthcareapis/latest:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// System metadata for this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20210111:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

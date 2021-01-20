@@ -4,13 +4,13 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .action import *
 from .alert_rule import *
-from .alert_rule_action import *
 from .bookmark import *
 from .bookmark_relation import *
 from .data_connector import *
+from .get_action import *
 from .get_alert_rule import *
-from .get_alert_rule_action import *
 from .get_bookmark import *
 from .get_bookmark_relation import *
 from .get_data_connector import *
@@ -43,10 +43,10 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-nextgen:securityinsights/v20190101preview:AlertRule":
+            if typ == "azure-nextgen:securityinsights/v20190101preview:Action":
+                return Action(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:securityinsights/v20190101preview:AlertRule":
                 return AlertRule(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:securityinsights/v20190101preview:AlertRuleAction":
-                return AlertRuleAction(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:securityinsights/v20190101preview:Bookmark":
                 return Bookmark(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:securityinsights/v20190101preview:BookmarkRelation":

@@ -12,7 +12,7 @@ import (
 )
 
 // The description of the service.
-// Latest API Version: 2020-03-30.
+// Latest API Version: 2021-01-11.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,8 @@ type Service struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The common properties of a service.
 	Properties ServicesPropertiesResponseOutput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The resource type.
@@ -62,6 +64,9 @@ func NewService(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20200330:Service"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:healthcareapis/v20210111:Service"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -99,6 +104,8 @@ type serviceState struct {
 	Name *string `pulumi:"name"`
 	// The common properties of a service.
 	Properties *ServicesPropertiesResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
@@ -118,6 +125,8 @@ type ServiceState struct {
 	Name pulumi.StringPtrInput
 	// The common properties of a service.
 	Properties ServicesPropertiesResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The resource type.
