@@ -12,7 +12,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// Latest API Version: 2020-03-30.
+// Latest API Version: 2021-01-11.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -24,6 +24,8 @@ type PrivateEndpointConnection struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// System metadata for this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -50,6 +52,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:healthcareapis/v20210111:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -83,6 +88,8 @@ type privateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// System metadata for this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
@@ -96,6 +103,8 @@ type PrivateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringPtrInput
+	// System metadata for this resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }

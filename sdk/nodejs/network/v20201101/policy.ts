@@ -73,6 +73,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public /*out*/ readonly routingRuleLinks!: pulumi.Output<outputs.network.v20201101.RoutingRuleLinkResponse[]>;
     /**
+     * Describes Security Policy associated with this Web Application Firewall policy.
+     */
+    public /*out*/ readonly securityPolicyLinks!: pulumi.Output<outputs.network.v20201101.SecurityPolicyLinkResponse[]>;
+    /**
      * The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
      */
     public readonly sku!: pulumi.Output<outputs.network.v20201101.SkuResponse | undefined>;
@@ -115,6 +119,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["routingRuleLinks"] = undefined /*out*/;
+            inputs["securityPolicyLinks"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["customRules"] = undefined /*out*/;
@@ -127,6 +132,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["routingRuleLinks"] = undefined /*out*/;
+            inputs["securityPolicyLinks"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

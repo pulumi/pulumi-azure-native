@@ -12,7 +12,7 @@ import (
 )
 
 // SpatialAnchorsAccount Response.
-// Latest API Version: 2020-05-01.
+// Latest API Version: 2021-01-01.
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
 
@@ -22,10 +22,18 @@ type SpatialAnchorsAccount struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The identity associated with this account
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
+	// The kind of account, if supported
+	Kind SkuResponsePtrOutput `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The plan associated with this account
+	Plan IdentityResponsePtrOutput `pulumi:"plan"`
+	// The sku associated with this account
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// System metadata for this account
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -58,6 +66,9 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20200501:SpatialAnchorsAccount"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SpatialAnchorsAccount
@@ -88,10 +99,18 @@ type spatialAnchorsAccountState struct {
 	AccountId *string `pulumi:"accountId"`
 	// The identity associated with this account
 	Identity *IdentityResponse `pulumi:"identity"`
+	// The kind of account, if supported
+	Kind *SkuResponse `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// The plan associated with this account
+	Plan *IdentityResponse `pulumi:"plan"`
+	// The sku associated with this account
+	Sku *SkuResponse `pulumi:"sku"`
+	// System metadata for this account
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -105,10 +124,18 @@ type SpatialAnchorsAccountState struct {
 	AccountId pulumi.StringPtrInput
 	// The identity associated with this account
 	Identity IdentityResponsePtrInput
+	// The kind of account, if supported
+	Kind SkuResponsePtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// The plan associated with this account
+	Plan IdentityResponsePtrInput
+	// The sku associated with this account
+	Sku SkuResponsePtrInput
+	// System metadata for this account
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -124,10 +151,16 @@ type spatialAnchorsAccountArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The identity associated with this account
 	Identity *Identity `pulumi:"identity"`
+	// The kind of account, if supported
+	Kind *Sku `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// The plan associated with this account
+	Plan *Identity `pulumi:"plan"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The sku associated with this account
+	Sku *Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -138,10 +171,16 @@ type SpatialAnchorsAccountArgs struct {
 	AccountName pulumi.StringInput
 	// The identity associated with this account
 	Identity IdentityPtrInput
+	// The kind of account, if supported
+	Kind SkuPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
+	// The plan associated with this account
+	Plan IdentityPtrInput
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
+	// The sku associated with this account
+	Sku SkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

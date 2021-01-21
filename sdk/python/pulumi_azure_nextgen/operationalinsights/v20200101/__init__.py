@@ -4,12 +4,12 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .action import *
 from .alert_rule import *
-from .alert_rule_action import *
 from .bookmark import *
 from .data_connector import *
+from .get_action import *
 from .get_alert_rule import *
-from .get_alert_rule_action import *
 from .get_bookmark import *
 from .get_data_connector import *
 from .get_incident import *
@@ -29,10 +29,10 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-nextgen:operationalinsights/v20200101:AlertRule":
+            if typ == "azure-nextgen:operationalinsights/v20200101:Action":
+                return Action(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/v20200101:AlertRule":
                 return AlertRule(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:operationalinsights/v20200101:AlertRuleAction":
-                return AlertRuleAction(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:operationalinsights/v20200101:Bookmark":
                 return Bookmark(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:operationalinsights/v20200101:DataConnector":

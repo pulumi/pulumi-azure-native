@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.Quantum.V20191104Preview
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
+        /// The URI of the workspace endpoint.
+        /// </summary>
+        [Output("endpointUri")]
+        public Output<string> EndpointUri { get; private set; } = null!;
+
+        /// <summary>
         /// Managed Identity information.
         /// </summary>
         [Output("identity")]

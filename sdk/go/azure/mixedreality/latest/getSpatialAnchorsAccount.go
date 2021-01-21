@@ -33,10 +33,18 @@ type LookupSpatialAnchorsAccountResult struct {
 	Id string `pulumi:"id"`
 	// The identity associated with this account
 	Identity *IdentityResponse `pulumi:"identity"`
+	// The kind of account, if supported
+	Kind *SkuResponse `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// The plan associated with this account
+	Plan *IdentityResponse `pulumi:"plan"`
+	// The sku associated with this account
+	Sku *SkuResponse `pulumi:"sku"`
+	// System metadata for this account
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

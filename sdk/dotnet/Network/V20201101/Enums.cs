@@ -119,6 +119,7 @@ namespace Pulumi.AzureNextGen.Network.V20201101
         public static ManagedRuleExclusionMatchVariable RequestCookieNames { get; } = new ManagedRuleExclusionMatchVariable("RequestCookieNames");
         public static ManagedRuleExclusionMatchVariable QueryStringArgNames { get; } = new ManagedRuleExclusionMatchVariable("QueryStringArgNames");
         public static ManagedRuleExclusionMatchVariable RequestBodyPostArgNames { get; } = new ManagedRuleExclusionMatchVariable("RequestBodyPostArgNames");
+        public static ManagedRuleExclusionMatchVariable RequestBodyJsonArgNames { get; } = new ManagedRuleExclusionMatchVariable("RequestBodyJsonArgNames");
 
         public static bool operator ==(ManagedRuleExclusionMatchVariable left, ManagedRuleExclusionMatchVariable right) => left.Equals(right);
         public static bool operator !=(ManagedRuleExclusionMatchVariable left, ManagedRuleExclusionMatchVariable right) => !left.Equals(right);

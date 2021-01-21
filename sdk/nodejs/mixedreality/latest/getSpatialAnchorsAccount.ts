@@ -51,6 +51,10 @@ export interface GetSpatialAnchorsAccountResult {
      */
     readonly identity?: outputs.mixedreality.latest.IdentityResponse;
     /**
+     * The kind of account, if supported
+     */
+    readonly kind?: outputs.mixedreality.latest.SkuResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -58,6 +62,18 @@ export interface GetSpatialAnchorsAccountResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * The plan associated with this account
+     */
+    readonly plan?: outputs.mixedreality.latest.IdentityResponse;
+    /**
+     * The sku associated with this account
+     */
+    readonly sku?: outputs.mixedreality.latest.SkuResponse;
+    /**
+     * System metadata for this account
+     */
+    readonly systemData: outputs.mixedreality.latest.SystemDataResponse;
     /**
      * Resource tags.
      */

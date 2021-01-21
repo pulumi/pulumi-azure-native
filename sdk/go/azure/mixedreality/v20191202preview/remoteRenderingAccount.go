@@ -49,7 +49,13 @@ func NewRemoteRenderingAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:mixedreality/latest:RemoteRenderingAccount"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:mixedreality/v20210101:RemoteRenderingAccount"),
 		},
 	})
 	opts = append(opts, aliases)

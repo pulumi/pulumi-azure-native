@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
         /// </summary>
         public readonly Outputs.ServicesPropertiesResponse Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
 
             Outputs.ServicesPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

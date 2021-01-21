@@ -5,13 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./action";
 export * from "./alertRule";
-export * from "./alertRuleAction";
 export * from "./bookmark";
 export * from "./bookmarkRelation";
 export * from "./dataConnector";
+export * from "./getAction";
 export * from "./getAlertRule";
-export * from "./getAlertRuleAction";
 export * from "./getBookmark";
 export * from "./getBookmarkRelation";
 export * from "./getDataConnector";
@@ -34,8 +34,8 @@ export * from "./watchlist";
 export * from "../../types/enums/securityinsights/v20190101preview";
 
 // Import resources to register:
+import { Action } from "./action";
 import { AlertRule } from "./alertRule";
-import { AlertRuleAction } from "./alertRuleAction";
 import { Bookmark } from "./bookmark";
 import { BookmarkRelation } from "./bookmarkRelation";
 import { DataConnector } from "./dataConnector";
@@ -50,10 +50,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:securityinsights/v20190101preview:Action":
+                return new Action(name, <any>undefined, { urn })
             case "azure-nextgen:securityinsights/v20190101preview:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
-            case "azure-nextgen:securityinsights/v20190101preview:AlertRuleAction":
-                return new AlertRuleAction(name, <any>undefined, { urn })
             case "azure-nextgen:securityinsights/v20190101preview:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
             case "azure-nextgen:securityinsights/v20190101preview:BookmarkRelation":

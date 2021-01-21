@@ -71,6 +71,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20200330
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20210111:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

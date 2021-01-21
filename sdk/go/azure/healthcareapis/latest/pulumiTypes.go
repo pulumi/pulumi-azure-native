@@ -939,6 +939,274 @@ func (o ServiceAccessPolicyEntryResponseArrayOutput) Index(i pulumi.IntInput) Se
 	}).(ServiceAccessPolicyEntryResponseOutput)
 }
 
+// Azure container registry configuration information
+type ServiceAcrConfigurationInfo struct {
+	// The list of the ACR login servers.
+	LoginServers []string `pulumi:"loginServers"`
+}
+
+// ServiceAcrConfigurationInfoInput is an input type that accepts ServiceAcrConfigurationInfoArgs and ServiceAcrConfigurationInfoOutput values.
+// You can construct a concrete instance of `ServiceAcrConfigurationInfoInput` via:
+//
+//          ServiceAcrConfigurationInfoArgs{...}
+type ServiceAcrConfigurationInfoInput interface {
+	pulumi.Input
+
+	ToServiceAcrConfigurationInfoOutput() ServiceAcrConfigurationInfoOutput
+	ToServiceAcrConfigurationInfoOutputWithContext(context.Context) ServiceAcrConfigurationInfoOutput
+}
+
+// Azure container registry configuration information
+type ServiceAcrConfigurationInfoArgs struct {
+	// The list of the ACR login servers.
+	LoginServers pulumi.StringArrayInput `pulumi:"loginServers"`
+}
+
+func (ServiceAcrConfigurationInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAcrConfigurationInfo)(nil)).Elem()
+}
+
+func (i ServiceAcrConfigurationInfoArgs) ToServiceAcrConfigurationInfoOutput() ServiceAcrConfigurationInfoOutput {
+	return i.ToServiceAcrConfigurationInfoOutputWithContext(context.Background())
+}
+
+func (i ServiceAcrConfigurationInfoArgs) ToServiceAcrConfigurationInfoOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAcrConfigurationInfoOutput)
+}
+
+func (i ServiceAcrConfigurationInfoArgs) ToServiceAcrConfigurationInfoPtrOutput() ServiceAcrConfigurationInfoPtrOutput {
+	return i.ToServiceAcrConfigurationInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAcrConfigurationInfoArgs) ToServiceAcrConfigurationInfoPtrOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAcrConfigurationInfoOutput).ToServiceAcrConfigurationInfoPtrOutputWithContext(ctx)
+}
+
+// ServiceAcrConfigurationInfoPtrInput is an input type that accepts ServiceAcrConfigurationInfoArgs, ServiceAcrConfigurationInfoPtr and ServiceAcrConfigurationInfoPtrOutput values.
+// You can construct a concrete instance of `ServiceAcrConfigurationInfoPtrInput` via:
+//
+//          ServiceAcrConfigurationInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceAcrConfigurationInfoPtrInput interface {
+	pulumi.Input
+
+	ToServiceAcrConfigurationInfoPtrOutput() ServiceAcrConfigurationInfoPtrOutput
+	ToServiceAcrConfigurationInfoPtrOutputWithContext(context.Context) ServiceAcrConfigurationInfoPtrOutput
+}
+
+type serviceAcrConfigurationInfoPtrType ServiceAcrConfigurationInfoArgs
+
+func ServiceAcrConfigurationInfoPtr(v *ServiceAcrConfigurationInfoArgs) ServiceAcrConfigurationInfoPtrInput {
+	return (*serviceAcrConfigurationInfoPtrType)(v)
+}
+
+func (*serviceAcrConfigurationInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAcrConfigurationInfo)(nil)).Elem()
+}
+
+func (i *serviceAcrConfigurationInfoPtrType) ToServiceAcrConfigurationInfoPtrOutput() ServiceAcrConfigurationInfoPtrOutput {
+	return i.ToServiceAcrConfigurationInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAcrConfigurationInfoPtrType) ToServiceAcrConfigurationInfoPtrOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAcrConfigurationInfoPtrOutput)
+}
+
+// Azure container registry configuration information
+type ServiceAcrConfigurationInfoOutput struct{ *pulumi.OutputState }
+
+func (ServiceAcrConfigurationInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAcrConfigurationInfo)(nil)).Elem()
+}
+
+func (o ServiceAcrConfigurationInfoOutput) ToServiceAcrConfigurationInfoOutput() ServiceAcrConfigurationInfoOutput {
+	return o
+}
+
+func (o ServiceAcrConfigurationInfoOutput) ToServiceAcrConfigurationInfoOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoOutput {
+	return o
+}
+
+func (o ServiceAcrConfigurationInfoOutput) ToServiceAcrConfigurationInfoPtrOutput() ServiceAcrConfigurationInfoPtrOutput {
+	return o.ToServiceAcrConfigurationInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAcrConfigurationInfoOutput) ToServiceAcrConfigurationInfoPtrOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoPtrOutput {
+	return o.ApplyT(func(v ServiceAcrConfigurationInfo) *ServiceAcrConfigurationInfo {
+		return &v
+	}).(ServiceAcrConfigurationInfoPtrOutput)
+}
+
+// The list of the ACR login servers.
+func (o ServiceAcrConfigurationInfoOutput) LoginServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceAcrConfigurationInfo) []string { return v.LoginServers }).(pulumi.StringArrayOutput)
+}
+
+type ServiceAcrConfigurationInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAcrConfigurationInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAcrConfigurationInfo)(nil)).Elem()
+}
+
+func (o ServiceAcrConfigurationInfoPtrOutput) ToServiceAcrConfigurationInfoPtrOutput() ServiceAcrConfigurationInfoPtrOutput {
+	return o
+}
+
+func (o ServiceAcrConfigurationInfoPtrOutput) ToServiceAcrConfigurationInfoPtrOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoPtrOutput {
+	return o
+}
+
+func (o ServiceAcrConfigurationInfoPtrOutput) Elem() ServiceAcrConfigurationInfoOutput {
+	return o.ApplyT(func(v *ServiceAcrConfigurationInfo) ServiceAcrConfigurationInfo { return *v }).(ServiceAcrConfigurationInfoOutput)
+}
+
+// The list of the ACR login servers.
+func (o ServiceAcrConfigurationInfoPtrOutput) LoginServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceAcrConfigurationInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LoginServers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Azure container registry configuration information
+type ServiceAcrConfigurationInfoResponse struct {
+	// The list of the ACR login servers.
+	LoginServers []string `pulumi:"loginServers"`
+}
+
+// ServiceAcrConfigurationInfoResponseInput is an input type that accepts ServiceAcrConfigurationInfoResponseArgs and ServiceAcrConfigurationInfoResponseOutput values.
+// You can construct a concrete instance of `ServiceAcrConfigurationInfoResponseInput` via:
+//
+//          ServiceAcrConfigurationInfoResponseArgs{...}
+type ServiceAcrConfigurationInfoResponseInput interface {
+	pulumi.Input
+
+	ToServiceAcrConfigurationInfoResponseOutput() ServiceAcrConfigurationInfoResponseOutput
+	ToServiceAcrConfigurationInfoResponseOutputWithContext(context.Context) ServiceAcrConfigurationInfoResponseOutput
+}
+
+// Azure container registry configuration information
+type ServiceAcrConfigurationInfoResponseArgs struct {
+	// The list of the ACR login servers.
+	LoginServers pulumi.StringArrayInput `pulumi:"loginServers"`
+}
+
+func (ServiceAcrConfigurationInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAcrConfigurationInfoResponse)(nil)).Elem()
+}
+
+func (i ServiceAcrConfigurationInfoResponseArgs) ToServiceAcrConfigurationInfoResponseOutput() ServiceAcrConfigurationInfoResponseOutput {
+	return i.ToServiceAcrConfigurationInfoResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceAcrConfigurationInfoResponseArgs) ToServiceAcrConfigurationInfoResponseOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAcrConfigurationInfoResponseOutput)
+}
+
+func (i ServiceAcrConfigurationInfoResponseArgs) ToServiceAcrConfigurationInfoResponsePtrOutput() ServiceAcrConfigurationInfoResponsePtrOutput {
+	return i.ToServiceAcrConfigurationInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAcrConfigurationInfoResponseArgs) ToServiceAcrConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAcrConfigurationInfoResponseOutput).ToServiceAcrConfigurationInfoResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceAcrConfigurationInfoResponsePtrInput is an input type that accepts ServiceAcrConfigurationInfoResponseArgs, ServiceAcrConfigurationInfoResponsePtr and ServiceAcrConfigurationInfoResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceAcrConfigurationInfoResponsePtrInput` via:
+//
+//          ServiceAcrConfigurationInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceAcrConfigurationInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceAcrConfigurationInfoResponsePtrOutput() ServiceAcrConfigurationInfoResponsePtrOutput
+	ToServiceAcrConfigurationInfoResponsePtrOutputWithContext(context.Context) ServiceAcrConfigurationInfoResponsePtrOutput
+}
+
+type serviceAcrConfigurationInfoResponsePtrType ServiceAcrConfigurationInfoResponseArgs
+
+func ServiceAcrConfigurationInfoResponsePtr(v *ServiceAcrConfigurationInfoResponseArgs) ServiceAcrConfigurationInfoResponsePtrInput {
+	return (*serviceAcrConfigurationInfoResponsePtrType)(v)
+}
+
+func (*serviceAcrConfigurationInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAcrConfigurationInfoResponse)(nil)).Elem()
+}
+
+func (i *serviceAcrConfigurationInfoResponsePtrType) ToServiceAcrConfigurationInfoResponsePtrOutput() ServiceAcrConfigurationInfoResponsePtrOutput {
+	return i.ToServiceAcrConfigurationInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAcrConfigurationInfoResponsePtrType) ToServiceAcrConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAcrConfigurationInfoResponsePtrOutput)
+}
+
+// Azure container registry configuration information
+type ServiceAcrConfigurationInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceAcrConfigurationInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAcrConfigurationInfoResponse)(nil)).Elem()
+}
+
+func (o ServiceAcrConfigurationInfoResponseOutput) ToServiceAcrConfigurationInfoResponseOutput() ServiceAcrConfigurationInfoResponseOutput {
+	return o
+}
+
+func (o ServiceAcrConfigurationInfoResponseOutput) ToServiceAcrConfigurationInfoResponseOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoResponseOutput {
+	return o
+}
+
+func (o ServiceAcrConfigurationInfoResponseOutput) ToServiceAcrConfigurationInfoResponsePtrOutput() ServiceAcrConfigurationInfoResponsePtrOutput {
+	return o.ToServiceAcrConfigurationInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAcrConfigurationInfoResponseOutput) ToServiceAcrConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoResponsePtrOutput {
+	return o.ApplyT(func(v ServiceAcrConfigurationInfoResponse) *ServiceAcrConfigurationInfoResponse {
+		return &v
+	}).(ServiceAcrConfigurationInfoResponsePtrOutput)
+}
+
+// The list of the ACR login servers.
+func (o ServiceAcrConfigurationInfoResponseOutput) LoginServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceAcrConfigurationInfoResponse) []string { return v.LoginServers }).(pulumi.StringArrayOutput)
+}
+
+type ServiceAcrConfigurationInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAcrConfigurationInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAcrConfigurationInfoResponse)(nil)).Elem()
+}
+
+func (o ServiceAcrConfigurationInfoResponsePtrOutput) ToServiceAcrConfigurationInfoResponsePtrOutput() ServiceAcrConfigurationInfoResponsePtrOutput {
+	return o
+}
+
+func (o ServiceAcrConfigurationInfoResponsePtrOutput) ToServiceAcrConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoResponsePtrOutput {
+	return o
+}
+
+func (o ServiceAcrConfigurationInfoResponsePtrOutput) Elem() ServiceAcrConfigurationInfoResponseOutput {
+	return o.ApplyT(func(v *ServiceAcrConfigurationInfoResponse) ServiceAcrConfigurationInfoResponse { return *v }).(ServiceAcrConfigurationInfoResponseOutput)
+}
+
+// The list of the ACR login servers.
+func (o ServiceAcrConfigurationInfoResponsePtrOutput) LoginServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceAcrConfigurationInfoResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LoginServers
+	}).(pulumi.StringArrayOutput)
+}
+
 // Authentication configuration information
 type ServiceAuthenticationConfigurationInfo struct {
 	// The audience url for the service
@@ -2283,6 +2551,8 @@ func (o ServiceExportConfigurationInfoResponsePtrOutput) StorageAccountName() pu
 type ServicesProperties struct {
 	// The access policies of the service instance.
 	AccessPolicies []ServiceAccessPolicyEntry `pulumi:"accessPolicies"`
+	// The azure container registry settings used for convert data operation of the service instance.
+	AcrConfiguration *ServiceAcrConfigurationInfo `pulumi:"acrConfiguration"`
 	// The authentication configuration for the service instance.
 	AuthenticationConfiguration *ServiceAuthenticationConfigurationInfo `pulumi:"authenticationConfiguration"`
 	// The settings for the CORS configuration of the service instance.
@@ -2312,6 +2582,8 @@ type ServicesPropertiesInput interface {
 type ServicesPropertiesArgs struct {
 	// The access policies of the service instance.
 	AccessPolicies ServiceAccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
+	// The azure container registry settings used for convert data operation of the service instance.
+	AcrConfiguration ServiceAcrConfigurationInfoPtrInput `pulumi:"acrConfiguration"`
 	// The authentication configuration for the service instance.
 	AuthenticationConfiguration ServiceAuthenticationConfigurationInfoPtrInput `pulumi:"authenticationConfiguration"`
 	// The settings for the CORS configuration of the service instance.
@@ -2409,6 +2681,11 @@ func (o ServicesPropertiesOutput) AccessPolicies() ServiceAccessPolicyEntryArray
 	return o.ApplyT(func(v ServicesProperties) []ServiceAccessPolicyEntry { return v.AccessPolicies }).(ServiceAccessPolicyEntryArrayOutput)
 }
 
+// The azure container registry settings used for convert data operation of the service instance.
+func (o ServicesPropertiesOutput) AcrConfiguration() ServiceAcrConfigurationInfoPtrOutput {
+	return o.ApplyT(func(v ServicesProperties) *ServiceAcrConfigurationInfo { return v.AcrConfiguration }).(ServiceAcrConfigurationInfoPtrOutput)
+}
+
 // The authentication configuration for the service instance.
 func (o ServicesPropertiesOutput) AuthenticationConfiguration() ServiceAuthenticationConfigurationInfoPtrOutput {
 	return o.ApplyT(func(v ServicesProperties) *ServiceAuthenticationConfigurationInfo {
@@ -2467,6 +2744,16 @@ func (o ServicesPropertiesPtrOutput) AccessPolicies() ServiceAccessPolicyEntryAr
 		}
 		return v.AccessPolicies
 	}).(ServiceAccessPolicyEntryArrayOutput)
+}
+
+// The azure container registry settings used for convert data operation of the service instance.
+func (o ServicesPropertiesPtrOutput) AcrConfiguration() ServiceAcrConfigurationInfoPtrOutput {
+	return o.ApplyT(func(v *ServicesProperties) *ServiceAcrConfigurationInfo {
+		if v == nil {
+			return nil
+		}
+		return v.AcrConfiguration
+	}).(ServiceAcrConfigurationInfoPtrOutput)
 }
 
 // The authentication configuration for the service instance.
@@ -2533,6 +2820,8 @@ func (o ServicesPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutpu
 type ServicesPropertiesResponse struct {
 	// The access policies of the service instance.
 	AccessPolicies []ServiceAccessPolicyEntryResponse `pulumi:"accessPolicies"`
+	// The azure container registry settings used for convert data operation of the service instance.
+	AcrConfiguration *ServiceAcrConfigurationInfoResponse `pulumi:"acrConfiguration"`
 	// The authentication configuration for the service instance.
 	AuthenticationConfiguration *ServiceAuthenticationConfigurationInfoResponse `pulumi:"authenticationConfiguration"`
 	// The settings for the CORS configuration of the service instance.
@@ -2564,6 +2853,8 @@ type ServicesPropertiesResponseInput interface {
 type ServicesPropertiesResponseArgs struct {
 	// The access policies of the service instance.
 	AccessPolicies ServiceAccessPolicyEntryResponseArrayInput `pulumi:"accessPolicies"`
+	// The azure container registry settings used for convert data operation of the service instance.
+	AcrConfiguration ServiceAcrConfigurationInfoResponsePtrInput `pulumi:"acrConfiguration"`
 	// The authentication configuration for the service instance.
 	AuthenticationConfiguration ServiceAuthenticationConfigurationInfoResponsePtrInput `pulumi:"authenticationConfiguration"`
 	// The settings for the CORS configuration of the service instance.
@@ -2663,6 +2954,11 @@ func (o ServicesPropertiesResponseOutput) AccessPolicies() ServiceAccessPolicyEn
 	return o.ApplyT(func(v ServicesPropertiesResponse) []ServiceAccessPolicyEntryResponse { return v.AccessPolicies }).(ServiceAccessPolicyEntryResponseArrayOutput)
 }
 
+// The azure container registry settings used for convert data operation of the service instance.
+func (o ServicesPropertiesResponseOutput) AcrConfiguration() ServiceAcrConfigurationInfoResponsePtrOutput {
+	return o.ApplyT(func(v ServicesPropertiesResponse) *ServiceAcrConfigurationInfoResponse { return v.AcrConfiguration }).(ServiceAcrConfigurationInfoResponsePtrOutput)
+}
+
 // The authentication configuration for the service instance.
 func (o ServicesPropertiesResponseOutput) AuthenticationConfiguration() ServiceAuthenticationConfigurationInfoResponsePtrOutput {
 	return o.ApplyT(func(v ServicesPropertiesResponse) *ServiceAuthenticationConfigurationInfoResponse {
@@ -2732,6 +3028,16 @@ func (o ServicesPropertiesResponsePtrOutput) AccessPolicies() ServiceAccessPolic
 		}
 		return v.AccessPolicies
 	}).(ServiceAccessPolicyEntryResponseArrayOutput)
+}
+
+// The azure container registry settings used for convert data operation of the service instance.
+func (o ServicesPropertiesResponsePtrOutput) AcrConfiguration() ServiceAcrConfigurationInfoResponsePtrOutput {
+	return o.ApplyT(func(v *ServicesPropertiesResponse) *ServiceAcrConfigurationInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AcrConfiguration
+	}).(ServiceAcrConfigurationInfoResponsePtrOutput)
 }
 
 // The authentication configuration for the service instance.
@@ -3110,6 +3416,235 @@ func (o ServicesResourceResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
@@ -3125,6 +3660,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryResponseOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServiceAcrConfigurationInfoOutput{})
+	pulumi.RegisterOutputType(ServiceAcrConfigurationInfoPtrOutput{})
+	pulumi.RegisterOutputType(ServiceAcrConfigurationInfoResponseOutput{})
+	pulumi.RegisterOutputType(ServiceAcrConfigurationInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoResponseOutput{})
@@ -3149,4 +3688,6 @@ func init() {
 	pulumi.RegisterOutputType(ServicesResourceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServicesResourceResponseIdentityOutput{})
 	pulumi.RegisterOutputType(ServicesResourceResponseIdentityPtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

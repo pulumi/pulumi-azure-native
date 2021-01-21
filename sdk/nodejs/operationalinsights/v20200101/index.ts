@@ -5,12 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./action";
 export * from "./alertRule";
-export * from "./alertRuleAction";
 export * from "./bookmark";
 export * from "./dataConnector";
+export * from "./getAction";
 export * from "./getAlertRule";
-export * from "./getAlertRuleAction";
 export * from "./getBookmark";
 export * from "./getDataConnector";
 export * from "./getIncident";
@@ -20,8 +20,8 @@ export * from "./incident";
 export * from "../../types/enums/operationalinsights/v20200101";
 
 // Import resources to register:
+import { Action } from "./action";
 import { AlertRule } from "./alertRule";
-import { AlertRuleAction } from "./alertRuleAction";
 import { Bookmark } from "./bookmark";
 import { DataConnector } from "./dataConnector";
 import { Incident } from "./incident";
@@ -30,10 +30,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:operationalinsights/v20200101:Action":
+                return new Action(name, <any>undefined, { urn })
             case "azure-nextgen:operationalinsights/v20200101:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
-            case "azure-nextgen:operationalinsights/v20200101:AlertRuleAction":
-                return new AlertRuleAction(name, <any>undefined, { urn })
             case "azure-nextgen:operationalinsights/v20200101:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
             case "azure-nextgen:operationalinsights/v20200101:DataConnector":

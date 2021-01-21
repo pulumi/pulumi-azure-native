@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
+        /// The kind of account, if supported
+        /// </summary>
+        public readonly Outputs.SkuResponse? Kind;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -63,6 +67,18 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The plan associated with this account
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Plan;
+        /// <summary>
+        /// The sku associated with this account
+        /// </summary>
+        public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
+        /// System metadata for this account
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -82,9 +98,17 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
 
             Outputs.IdentityResponse? identity,
 
+            Outputs.SkuResponse? kind,
+
             string location,
 
             string name,
+
+            Outputs.IdentityResponse? plan,
+
+            Outputs.SkuResponse? sku,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -94,8 +118,12 @@ namespace Pulumi.AzureNextGen.MixedReality.Latest
             AccountId = accountId;
             Id = id;
             Identity = identity;
+            Kind = kind;
             Location = location;
             Name = name;
+            Plan = plan;
+            Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

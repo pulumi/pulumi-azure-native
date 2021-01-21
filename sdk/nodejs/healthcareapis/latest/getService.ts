@@ -63,6 +63,10 @@ export interface GetServiceResult {
      */
     readonly properties: outputs.healthcareapis.latest.ServicesPropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.healthcareapis.latest.SystemDataResponse;
+    /**
      * The resource tags.
      */
     readonly tags?: {[key: string]: string};

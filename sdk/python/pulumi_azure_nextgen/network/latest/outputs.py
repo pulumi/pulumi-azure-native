@@ -252,6 +252,7 @@ __all__ = [
     'RulesEngineMatchConditionResponse',
     'RulesEngineResponse',
     'RulesEngineRuleResponse',
+    'SecurityPolicyLinkResponse',
     'SecurityRuleResponse',
     'ServiceAssociationLinkResponse',
     'ServiceEndpointPolicyDefinitionResponse',
@@ -19051,6 +19052,32 @@ class RulesEngineRuleResponse(dict):
         If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         """
         return pulumi.get(self, "match_processing_behavior")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecurityPolicyLinkResponse(dict):
+    """
+    Defines the Resource ID for a Security Policy.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Defines the Resource ID for a Security Policy.
+        :param str id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -58,10 +58,6 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.Outputs
         /// </summary>
         public readonly string? RampDownNotificationMessage;
         /// <summary>
-        /// Number of minutes to wait to stop hosts during ramp down period.
-        /// </summary>
-        public readonly int? RampDownNotificationMinutes;
-        /// <summary>
         /// Starting time for ramp down period.
         /// </summary>
         public readonly string? RampDownStartTime;
@@ -70,17 +66,21 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.Outputs
         /// </summary>
         public readonly string? RampDownStopHostsWhen;
         /// <summary>
-        /// Load balancing algorithm for ramp up period.
+        /// Number of minutes to wait to stop hosts during ramp down period.
         /// </summary>
-        public readonly string? RampUpAlgorithm;
+        public readonly int? RampDownWaitTimeMinutes;
         /// <summary>
         /// Capacity threshold for ramp up period.
         /// </summary>
         public readonly int? RampUpCapacityThresholdPct;
         /// <summary>
+        /// Load balancing algorithm for ramp up period.
+        /// </summary>
+        public readonly string? RampUpLoadBalancingAlgorithm;
+        /// <summary>
         /// Minimum host percentage for ramp up period.
         /// </summary>
-        public readonly int? RampUpMinimumHostPct;
+        public readonly int? RampUpMinimumHostsPct;
         /// <summary>
         /// Starting time for ramp up period.
         /// </summary>
@@ -110,17 +110,17 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.Outputs
 
             string? rampDownNotificationMessage,
 
-            int? rampDownNotificationMinutes,
-
             string? rampDownStartTime,
 
             string? rampDownStopHostsWhen,
 
-            string? rampUpAlgorithm,
+            int? rampDownWaitTimeMinutes,
 
             int? rampUpCapacityThresholdPct,
 
-            int? rampUpMinimumHostPct,
+            string? rampUpLoadBalancingAlgorithm,
+
+            int? rampUpMinimumHostsPct,
 
             string? rampUpStartTime)
         {
@@ -135,12 +135,12 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.Outputs
             RampDownLoadBalancingAlgorithm = rampDownLoadBalancingAlgorithm;
             RampDownMinimumHostsPct = rampDownMinimumHostsPct;
             RampDownNotificationMessage = rampDownNotificationMessage;
-            RampDownNotificationMinutes = rampDownNotificationMinutes;
             RampDownStartTime = rampDownStartTime;
             RampDownStopHostsWhen = rampDownStopHostsWhen;
-            RampUpAlgorithm = rampUpAlgorithm;
+            RampDownWaitTimeMinutes = rampDownWaitTimeMinutes;
             RampUpCapacityThresholdPct = rampUpCapacityThresholdPct;
-            RampUpMinimumHostPct = rampUpMinimumHostPct;
+            RampUpLoadBalancingAlgorithm = rampUpLoadBalancingAlgorithm;
+            RampUpMinimumHostsPct = rampUpMinimumHostsPct;
             RampUpStartTime = rampUpStartTime;
         }
     }

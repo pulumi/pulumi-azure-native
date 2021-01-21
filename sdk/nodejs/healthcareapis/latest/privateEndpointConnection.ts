@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * Latest API Version: 2020-03-30.
+ * Latest API Version: 2021-01-11.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -53,6 +53,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * System metadata for this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.healthcareapis.latest.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -86,12 +90,14 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,7 +107,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:healthcareapis/v20200330:PrivateEndpointConnection" }, { type: "azure-nextgen:healthcareapis/v20210111:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

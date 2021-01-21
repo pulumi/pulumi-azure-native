@@ -26,6 +26,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
+        /// The private ip address of the endpoint.
+        /// </summary>
+        public readonly string? PrivateIPAddress;
+        /// <summary>
         /// The protocol of the endpoint.
         /// </summary>
         public readonly string? Protocol;
@@ -38,11 +42,14 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
 
             int? port,
 
+            string? privateIPAddress,
+
             string? protocol)
         {
             Location = location;
             Name = name;
             Port = port;
+            PrivateIPAddress = privateIPAddress;
             Protocol = protocol;
         }
     }

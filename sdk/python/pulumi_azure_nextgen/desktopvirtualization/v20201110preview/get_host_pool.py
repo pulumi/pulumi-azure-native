@@ -20,7 +20,7 @@ class GetHostPoolResult:
     """
     Represents a HostPool definition.
     """
-    def __init__(__self__, application_group_references=None, custom_rdp_property=None, description=None, friendly_name=None, host_pool_type=None, id=None, load_balancer_type=None, location=None, max_session_limit=None, name=None, personal_desktop_assignment_type=None, preferred_app_group_type=None, registration_info=None, ring=None, sso_client_id=None, sso_client_secret_key_vault_path=None, sso_context=None, sso_secret_type=None, ssoadfs_authority=None, start_vm_on_connect=None, tags=None, type=None, validation_environment=None, vm_template=None):
+    def __init__(__self__, application_group_references=None, custom_rdp_property=None, description=None, friendly_name=None, host_pool_type=None, id=None, load_balancer_type=None, location=None, max_session_limit=None, name=None, personal_desktop_assignment_type=None, preferred_app_group_type=None, registration_info=None, ring=None, sso_client_id=None, sso_client_secret_key_vault_path=None, sso_secret_type=None, ssoadfs_authority=None, start_vm_on_connect=None, tags=None, type=None, validation_environment=None, vm_template=None):
         if application_group_references and not isinstance(application_group_references, list):
             raise TypeError("Expected argument 'application_group_references' to be a list")
         pulumi.set(__self__, "application_group_references", application_group_references)
@@ -69,9 +69,6 @@ class GetHostPoolResult:
         if sso_client_secret_key_vault_path and not isinstance(sso_client_secret_key_vault_path, str):
             raise TypeError("Expected argument 'sso_client_secret_key_vault_path' to be a str")
         pulumi.set(__self__, "sso_client_secret_key_vault_path", sso_client_secret_key_vault_path)
-        if sso_context and not isinstance(sso_context, str):
-            raise TypeError("Expected argument 'sso_context' to be a str")
-        pulumi.set(__self__, "sso_context", sso_context)
         if sso_secret_type and not isinstance(sso_secret_type, str):
             raise TypeError("Expected argument 'sso_secret_type' to be a str")
         pulumi.set(__self__, "sso_secret_type", sso_secret_type)
@@ -223,14 +220,6 @@ class GetHostPoolResult:
         return pulumi.get(self, "sso_client_secret_key_vault_path")
 
     @property
-    @pulumi.getter(name="ssoContext")
-    def sso_context(self) -> Optional[str]:
-        """
-        Path to keyvault containing ssoContext secret.
-        """
-        return pulumi.get(self, "sso_context")
-
-    @property
     @pulumi.getter(name="ssoSecretType")
     def sso_secret_type(self) -> Optional[str]:
         """
@@ -309,7 +298,6 @@ class AwaitableGetHostPoolResult(GetHostPoolResult):
             ring=self.ring,
             sso_client_id=self.sso_client_id,
             sso_client_secret_key_vault_path=self.sso_client_secret_key_vault_path,
-            sso_context=self.sso_context,
             sso_secret_type=self.sso_secret_type,
             ssoadfs_authority=self.ssoadfs_authority,
             start_vm_on_connect=self.start_vm_on_connect,
@@ -354,7 +342,6 @@ def get_host_pool(host_pool_name: Optional[str] = None,
         ring=__ret__.ring,
         sso_client_id=__ret__.sso_client_id,
         sso_client_secret_key_vault_path=__ret__.sso_client_secret_key_vault_path,
-        sso_context=__ret__.sso_context,
         sso_secret_type=__ret__.sso_secret_type,
         ssoadfs_authority=__ret__.ssoadfs_authority,
         start_vm_on_connect=__ret__.start_vm_on_connect,

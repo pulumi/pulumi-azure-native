@@ -88,12 +88,6 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.Inputs
         public Input<string>? RampDownNotificationMessage { get; set; }
 
         /// <summary>
-        /// Number of minutes to wait to stop hosts during ramp down period.
-        /// </summary>
-        [Input("rampDownNotificationMinutes")]
-        public Input<int>? RampDownNotificationMinutes { get; set; }
-
-        /// <summary>
         /// Starting time for ramp down period.
         /// </summary>
         [Input("rampDownStartTime")]
@@ -106,10 +100,10 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.Inputs
         public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.StopHostsWhen>? RampDownStopHostsWhen { get; set; }
 
         /// <summary>
-        /// Load balancing algorithm for ramp up period.
+        /// Number of minutes to wait to stop hosts during ramp down period.
         /// </summary>
-        [Input("rampUpAlgorithm")]
-        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.SessionHostLoadBalancingAlgorithm>? RampUpAlgorithm { get; set; }
+        [Input("rampDownWaitTimeMinutes")]
+        public Input<int>? RampDownWaitTimeMinutes { get; set; }
 
         /// <summary>
         /// Capacity threshold for ramp up period.
@@ -118,10 +112,16 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.Inputs
         public Input<int>? RampUpCapacityThresholdPct { get; set; }
 
         /// <summary>
+        /// Load balancing algorithm for ramp up period.
+        /// </summary>
+        [Input("rampUpLoadBalancingAlgorithm")]
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.SessionHostLoadBalancingAlgorithm>? RampUpLoadBalancingAlgorithm { get; set; }
+
+        /// <summary>
         /// Minimum host percentage for ramp up period.
         /// </summary>
-        [Input("rampUpMinimumHostPct")]
-        public Input<int>? RampUpMinimumHostPct { get; set; }
+        [Input("rampUpMinimumHostsPct")]
+        public Input<int>? RampUpMinimumHostsPct { get; set; }
 
         /// <summary>
         /// Starting time for ramp up period.

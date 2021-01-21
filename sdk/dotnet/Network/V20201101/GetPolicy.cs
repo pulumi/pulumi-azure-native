@@ -81,6 +81,10 @@ namespace Pulumi.AzureNextGen.Network.V20201101
         /// </summary>
         public readonly ImmutableArray<Outputs.RoutingRuleLinkResponse> RoutingRuleLinks;
         /// <summary>
+        /// Describes Security Policy associated with this Web Application Firewall policy.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SecurityPolicyLinkResponse> SecurityPolicyLinks;
+        /// <summary>
         /// The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNextGen.Network.V20201101
 
             ImmutableArray<Outputs.RoutingRuleLinkResponse> routingRuleLinks,
 
+            ImmutableArray<Outputs.SecurityPolicyLinkResponse> securityPolicyLinks,
+
             Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNextGen.Network.V20201101
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
             RoutingRuleLinks = routingRuleLinks;
+            SecurityPolicyLinks = securityPolicyLinks;
             Sku = sku;
             Tags = tags;
             Type = type;

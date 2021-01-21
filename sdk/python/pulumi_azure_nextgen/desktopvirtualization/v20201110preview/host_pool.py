@@ -33,7 +33,6 @@ class HostPool(pulumi.CustomResource):
                  ring: Optional[pulumi.Input[int]] = None,
                  sso_client_id: Optional[pulumi.Input[str]] = None,
                  sso_client_secret_key_vault_path: Optional[pulumi.Input[str]] = None,
-                 sso_context: Optional[pulumi.Input[str]] = None,
                  sso_secret_type: Optional[pulumi.Input[Union[str, 'SSOSecretType']]] = None,
                  ssoadfs_authority: Optional[pulumi.Input[str]] = None,
                  start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
@@ -63,7 +62,6 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[int] ring: The ring number of HostPool.
         :param pulumi.Input[str] sso_client_id: ClientId for the registered Relying Party used to issue WVD SSO certificates.
         :param pulumi.Input[str] sso_client_secret_key_vault_path: Path to Azure KeyVault storing the secret used for communication to ADFS.
-        :param pulumi.Input[str] sso_context: Path to keyvault containing ssoContext secret.
         :param pulumi.Input[Union[str, 'SSOSecretType']] sso_secret_type: The type of single sign on Secret Type.
         :param pulumi.Input[str] ssoadfs_authority: URL to customer ADFS server for signing WVD SSO certificates.
         :param pulumi.Input[bool] start_vm_on_connect: The flag to turn on/off StartVMOnConnect feature.
@@ -115,7 +113,6 @@ class HostPool(pulumi.CustomResource):
             __props__['ring'] = ring
             __props__['sso_client_id'] = sso_client_id
             __props__['sso_client_secret_key_vault_path'] = sso_client_secret_key_vault_path
-            __props__['sso_context'] = sso_context
             __props__['sso_secret_type'] = sso_secret_type
             __props__['ssoadfs_authority'] = ssoadfs_authority
             __props__['start_vm_on_connect'] = start_vm_on_connect
@@ -270,14 +267,6 @@ class HostPool(pulumi.CustomResource):
         Path to Azure KeyVault storing the secret used for communication to ADFS.
         """
         return pulumi.get(self, "sso_client_secret_key_vault_path")
-
-    @property
-    @pulumi.getter(name="ssoContext")
-    def sso_context(self) -> pulumi.Output[Optional[str]]:
-        """
-        Path to keyvault containing ssoContext secret.
-        """
-        return pulumi.get(self, "sso_context")
 
     @property
     @pulumi.getter(name="ssoSecretType")

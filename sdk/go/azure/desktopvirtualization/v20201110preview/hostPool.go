@@ -45,8 +45,6 @@ type HostPool struct {
 	SsoClientId pulumi.StringPtrOutput `pulumi:"ssoClientId"`
 	// Path to Azure KeyVault storing the secret used for communication to ADFS.
 	SsoClientSecretKeyVaultPath pulumi.StringPtrOutput `pulumi:"ssoClientSecretKeyVaultPath"`
-	// Path to keyvault containing ssoContext secret.
-	SsoContext pulumi.StringPtrOutput `pulumi:"ssoContext"`
 	// The type of single sign on Secret Type.
 	SsoSecretType pulumi.StringPtrOutput `pulumi:"ssoSecretType"`
 	// URL to customer ADFS server for signing WVD SSO certificates.
@@ -161,8 +159,6 @@ type hostPoolState struct {
 	SsoClientId *string `pulumi:"ssoClientId"`
 	// Path to Azure KeyVault storing the secret used for communication to ADFS.
 	SsoClientSecretKeyVaultPath *string `pulumi:"ssoClientSecretKeyVaultPath"`
-	// Path to keyvault containing ssoContext secret.
-	SsoContext *string `pulumi:"ssoContext"`
 	// The type of single sign on Secret Type.
 	SsoSecretType *string `pulumi:"ssoSecretType"`
 	// URL to customer ADFS server for signing WVD SSO certificates.
@@ -210,8 +206,6 @@ type HostPoolState struct {
 	SsoClientId pulumi.StringPtrInput
 	// Path to Azure KeyVault storing the secret used for communication to ADFS.
 	SsoClientSecretKeyVaultPath pulumi.StringPtrInput
-	// Path to keyvault containing ssoContext secret.
-	SsoContext pulumi.StringPtrInput
 	// The type of single sign on Secret Type.
 	SsoSecretType pulumi.StringPtrInput
 	// URL to customer ADFS server for signing WVD SSO certificates.
@@ -263,8 +257,6 @@ type hostPoolArgs struct {
 	SsoClientId *string `pulumi:"ssoClientId"`
 	// Path to Azure KeyVault storing the secret used for communication to ADFS.
 	SsoClientSecretKeyVaultPath *string `pulumi:"ssoClientSecretKeyVaultPath"`
-	// Path to keyvault containing ssoContext secret.
-	SsoContext *string `pulumi:"ssoContext"`
 	// The type of single sign on Secret Type.
 	SsoSecretType *string `pulumi:"ssoSecretType"`
 	// URL to customer ADFS server for signing WVD SSO certificates.
@@ -311,8 +303,6 @@ type HostPoolArgs struct {
 	SsoClientId pulumi.StringPtrInput
 	// Path to Azure KeyVault storing the secret used for communication to ADFS.
 	SsoClientSecretKeyVaultPath pulumi.StringPtrInput
-	// Path to keyvault containing ssoContext secret.
-	SsoContext pulumi.StringPtrInput
 	// The type of single sign on Secret Type.
 	SsoSecretType pulumi.StringPtrInput
 	// URL to customer ADFS server for signing WVD SSO certificates.

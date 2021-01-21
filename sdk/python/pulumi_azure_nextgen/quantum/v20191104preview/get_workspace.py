@@ -20,7 +20,10 @@ class GetWorkspaceResult:
     """
     The resource proxy definition object for quantum workspace.
     """
-    def __init__(__self__, id=None, identity=None, location=None, name=None, providers=None, provisioning_state=None, storage_account=None, tags=None, type=None, usable=None):
+    def __init__(__self__, endpoint_uri=None, id=None, identity=None, location=None, name=None, providers=None, provisioning_state=None, storage_account=None, tags=None, type=None, usable=None):
+        if endpoint_uri and not isinstance(endpoint_uri, str):
+            raise TypeError("Expected argument 'endpoint_uri' to be a str")
+        pulumi.set(__self__, "endpoint_uri", endpoint_uri)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -51,6 +54,14 @@ class GetWorkspaceResult:
         if usable and not isinstance(usable, str):
             raise TypeError("Expected argument 'usable' to be a str")
         pulumi.set(__self__, "usable", usable)
+
+    @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> str:
+        """
+        The URI of the workspace endpoint.
+        """
+        return pulumi.get(self, "endpoint_uri")
 
     @property
     @pulumi.getter
@@ -139,6 +150,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            endpoint_uri=self.endpoint_uri,
             id=self.id,
             identity=self.identity,
             location=self.location,
@@ -170,6 +182,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:quantum/v20191104preview:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        endpoint_uri=__ret__.endpoint_uri,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
