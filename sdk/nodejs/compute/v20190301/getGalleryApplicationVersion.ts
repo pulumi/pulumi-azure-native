@@ -66,7 +66,7 @@ export interface GetGalleryApplicationVersionResult {
      */
     readonly provisioningState: string;
     /**
-     * The publishing profile of a gallery Image Version.
+     * The publishing profile of a gallery image version.
      */
     readonly publishingProfile: outputs.compute.v20190301.GalleryApplicationVersionPublishingProfileResponse;
     /**

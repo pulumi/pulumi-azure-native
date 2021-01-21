@@ -7809,10 +7809,11 @@ class AzureDatabricksDeltaLakeSourceArgs:
 @pulumi.input_type
 class AzureDatabricksLinkedServiceArgs:
     def __init__(__self__, *,
-                 access_token: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
                  domain: Any,
                  type: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 authentication: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
@@ -7828,14 +7829,16 @@ class AzureDatabricksLinkedServiceArgs:
                  new_cluster_spark_conf: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  new_cluster_spark_env_vars: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  new_cluster_version: Optional[Any] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 workspace_resource_id: Optional[Any] = None):
         """
         Azure Databricks linked service.
-        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
         :param Any domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'AzureDatabricks'.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any authentication: Required to specify MSI, if using Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -7852,12 +7855,16 @@ class AzureDatabricksLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] new_cluster_spark_env_vars: A set of optional, user-specified Spark environment variables key-value pairs.
         :param Any new_cluster_version: If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param Any workspace_resource_id: Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         """
-        pulumi.set(__self__, "access_token", access_token)
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "type", 'AzureDatabricks')
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
@@ -7890,18 +7897,8 @@ class AzureDatabricksLinkedServiceArgs:
             pulumi.set(__self__, "new_cluster_version", new_cluster_version)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-
-    @property
-    @pulumi.getter(name="accessToken")
-    def access_token(self) -> pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]:
-        """
-        Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "access_token")
-
-    @access_token.setter
-    def access_token(self, value: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]):
-        pulumi.set(self, "access_token", value)
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter
@@ -7929,6 +7926,18 @@ class AzureDatabricksLinkedServiceArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "access_token", value)
+
+    @property
     @pulumi.getter
     def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
@@ -7939,6 +7948,18 @@ class AzureDatabricksLinkedServiceArgs:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[Any]:
+        """
+        Required to specify MSI, if using Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[Any]):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter(name="connectVia")
@@ -8131,6 +8152,18 @@ class AzureDatabricksLinkedServiceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[Any]:
+        """
+        Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "workspace_resource_id")
+
+    @workspace_resource_id.setter
+    def workspace_resource_id(self, value: Optional[Any]):
+        pulumi.set(self, "workspace_resource_id", value)
 
 
 @pulumi.input_type

@@ -12,7 +12,6 @@ from ._enums import *
 __all__ = [
     'AccountSkuArgs',
     'IdentityArgs',
-    'NetworkAclsArgs',
     'PrivateEndpointArgs',
     'PrivateLinkServiceConnectionStateArgs',
 ]
@@ -79,30 +78,6 @@ class IdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'Type']]]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class NetworkAclsArgs:
-    def __init__(__self__, *,
-                 default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None):
-        """
-        The Network ACLs
-        :param pulumi.Input[Union[str, 'DefaultAction']] default_action: Gets or sets the default behavior of network ACLs.
-        """
-        if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
-
-    @property
-    @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[Union[str, 'DefaultAction']]]:
-        """
-        Gets or sets the default behavior of network ACLs.
-        """
-        return pulumi.get(self, "default_action")
-
-    @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[Union[str, 'DefaultAction']]]):
-        pulumi.set(self, "default_action", value)
 
 
 @pulumi.input_type

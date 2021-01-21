@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Purview.V20201201Preview.Outputs
+namespace Pulumi.AzureNextGen.AzureStack.Latest.Outputs
 {
 
     [OutputType]
-    public sealed class NetworkAclsResponse
+    public sealed class ProductPropertiesResponseResult
     {
         /// <summary>
-        /// Gets or sets the default behavior of network ACLs.
+        /// The version.
         /// </summary>
-        public readonly string? DefaultAction;
+        public readonly string? Version;
 
         [OutputConstructor]
-        private NetworkAclsResponse(string? defaultAction)
+        private ProductPropertiesResponseResult(string? version)
         {
-            DefaultAction = defaultAction;
+            Version = version;
         }
     }
 }

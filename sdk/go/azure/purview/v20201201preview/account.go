@@ -36,12 +36,12 @@ type Account struct {
 	ManagedResources AccountPropertiesResponseManagedResourcesOutput `pulumi:"managedResources"`
 	// Gets or sets the name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Get the network ACLs.
-	NetworkAcls NetworkAclsResponsePtrOutput `pulumi:"networkAcls"`
 	// Gets the private endpoint connections information.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Gets or sets the state of the provisioning.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Gets or sets the public network access.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// Gets or sets the Sku.
 	Sku AccountSkuResponsePtrOutput `pulumi:"sku"`
 	// Tags on the azure resource.
@@ -106,12 +106,12 @@ type accountState struct {
 	ManagedResources *AccountPropertiesResponseManagedResources `pulumi:"managedResources"`
 	// Gets or sets the name.
 	Name *string `pulumi:"name"`
-	// Get the network ACLs.
-	NetworkAcls *NetworkAclsResponse `pulumi:"networkAcls"`
 	// Gets the private endpoint connections information.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Gets or sets the state of the provisioning.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets the public network access.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Gets or sets the Sku.
 	Sku *AccountSkuResponse `pulumi:"sku"`
 	// Tags on the azure resource.
@@ -142,12 +142,12 @@ type AccountState struct {
 	ManagedResources AccountPropertiesResponseManagedResourcesPtrInput
 	// Gets or sets the name.
 	Name pulumi.StringPtrInput
-	// Get the network ACLs.
-	NetworkAcls NetworkAclsResponsePtrInput
 	// Gets the private endpoint connections information.
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Gets or sets the state of the provisioning.
 	ProvisioningState pulumi.StringPtrInput
+	// Gets or sets the public network access.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// Gets or sets the Sku.
 	Sku AccountSkuResponsePtrInput
 	// Tags on the azure resource.
@@ -167,8 +167,8 @@ type accountArgs struct {
 	Identity *Identity `pulumi:"identity"`
 	// Gets or sets the location.
 	Location *string `pulumi:"location"`
-	// Get the network ACLs.
-	NetworkAcls *NetworkAcls `pulumi:"networkAcls"`
+	// Gets or sets the public network access.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets the Sku.
@@ -185,8 +185,8 @@ type AccountArgs struct {
 	Identity IdentityPtrInput
 	// Gets or sets the location.
 	Location pulumi.StringPtrInput
-	// Get the network ACLs.
-	NetworkAcls NetworkAclsPtrInput
+	// Gets or sets the public network access.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets the Sku.

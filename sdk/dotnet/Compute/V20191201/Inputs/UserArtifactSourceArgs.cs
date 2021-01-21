@@ -16,13 +16,13 @@ namespace Pulumi.AzureNextGen.Compute.V20191201.Inputs
     public sealed class UserArtifactSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Required. The fileName of the artifact.
+        /// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
         /// </summary>
-        [Input("fileName", required: true)]
-        public Input<string> FileName { get; set; } = null!;
+        [Input("defaultConfigurationLink")]
+        public Input<string>? DefaultConfigurationLink { get; set; }
 
         /// <summary>
-        /// Required. The mediaLink of the artifact, must be a readable storage blob.
+        /// Required. The mediaLink of the artifact, must be a readable storage page blob.
         /// </summary>
         [Input("mediaLink", required: true)]
         public Input<string> MediaLink { get; set; } = null!;

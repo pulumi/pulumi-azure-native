@@ -77,10 +77,6 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Get the network ACLs.
-     */
-    public readonly networkAcls!: pulumi.Output<outputs.purview.v20201201preview.NetworkAclsResponse | undefined>;
-    /**
      * Gets the private endpoint connections information.
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.purview.v20201201preview.PrivateEndpointConnectionResponse[]>;
@@ -88,6 +84,10 @@ export class Account extends pulumi.CustomResource {
      * Gets or sets the state of the provisioning.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Gets or sets the public network access.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the Sku.
      */
@@ -120,7 +120,7 @@ export class Account extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["networkAcls"] = args ? args.networkAcls : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -146,9 +146,9 @@ export class Account extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["managedResources"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["networkAcls"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -181,9 +181,9 @@ export interface AccountArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Get the network ACLs.
+     * Gets or sets the public network access.
      */
-    readonly networkAcls?: pulumi.Input<inputs.purview.v20201201preview.NetworkAcls>;
+    readonly publicNetworkAccess?: pulumi.Input<string | enums.purview.v20201201preview.PublicNetworkAccess>;
     /**
      * The resource group name.
      */

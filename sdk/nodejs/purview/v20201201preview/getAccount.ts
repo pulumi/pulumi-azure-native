@@ -80,10 +80,6 @@ export interface GetAccountResult {
      */
     readonly name: string;
     /**
-     * Get the network ACLs.
-     */
-    readonly networkAcls?: outputs.purview.v20201201preview.NetworkAclsResponse;
-    /**
      * Gets the private endpoint connections information.
      */
     readonly privateEndpointConnections: outputs.purview.v20201201preview.PrivateEndpointConnectionResponse[];
@@ -91,6 +87,10 @@ export interface GetAccountResult {
      * Gets or sets the state of the provisioning.
      */
     readonly provisioningState: string;
+    /**
+     * Gets or sets the public network access.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * Gets or sets the Sku.
      */

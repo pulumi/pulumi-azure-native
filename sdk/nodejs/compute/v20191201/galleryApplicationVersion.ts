@@ -48,7 +48,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The publishing profile of a gallery Image Version.
+     * The publishing profile of a gallery image version.
      */
     public readonly publishingProfile!: pulumi.Output<outputs.compute.v20191201.GalleryApplicationVersionPublishingProfileResponse>;
     /**
@@ -146,7 +146,7 @@ export interface GalleryApplicationVersionArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The publishing profile of a gallery Image Version.
+     * The publishing profile of a gallery image version.
      */
     readonly publishingProfile: pulumi.Input<inputs.compute.v20191201.GalleryApplicationVersionPublishingProfile>;
     /**

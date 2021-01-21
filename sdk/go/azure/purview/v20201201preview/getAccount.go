@@ -48,12 +48,12 @@ type LookupAccountResult struct {
 	ManagedResources AccountPropertiesResponseManagedResources `pulumi:"managedResources"`
 	// Gets or sets the name.
 	Name string `pulumi:"name"`
-	// Get the network ACLs.
-	NetworkAcls *NetworkAclsResponse `pulumi:"networkAcls"`
 	// Gets the private endpoint connections information.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Gets or sets the state of the provisioning.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Gets or sets the public network access.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Gets or sets the Sku.
 	Sku *AccountSkuResponse `pulumi:"sku"`
 	// Tags on the azure resource.

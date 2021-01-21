@@ -39,7 +39,7 @@ type LookupGalleryApplicationVersionResult struct {
 	Name string `pulumi:"name"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image version.
 	PublishingProfile GalleryApplicationVersionPublishingProfileResponse `pulumi:"publishingProfile"`
 	// This is the replication status of the gallery Image Version.
 	ReplicationStatus ReplicationStatusResponse `pulumi:"replicationStatus"`

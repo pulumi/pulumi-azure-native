@@ -77,12 +77,6 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Get the network ACLs.
-        /// </summary>
-        [Output("networkAcls")]
-        public Output<Outputs.NetworkAclsResponse?> NetworkAcls { get; private set; } = null!;
-
-        /// <summary>
         /// Gets the private endpoint connections information.
         /// </summary>
         [Output("privateEndpointConnections")]
@@ -93,6 +87,12 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the public network access.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the Sku.
@@ -176,10 +176,10 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Get the network ACLs.
+        /// Gets or sets the public network access.
         /// </summary>
-        [Input("networkAcls")]
-        public Input<Inputs.NetworkAclsArgs>? NetworkAcls { get; set; }
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNextGen.Purview.V20201201Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The resource group name.

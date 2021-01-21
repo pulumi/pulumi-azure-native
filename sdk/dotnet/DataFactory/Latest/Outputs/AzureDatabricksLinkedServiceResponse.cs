@@ -16,11 +16,15 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// <summary>
         /// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> AccessToken;
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? AccessToken;
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
+        /// <summary>
+        /// Required to specify MSI, if using Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Authentication;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -94,12 +98,18 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// Expected value is 'AzureDatabricks'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? WorkspaceResourceId;
 
         [OutputConstructor]
         private AzureDatabricksLinkedServiceResponse(
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> accessToken,
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? accessToken,
 
             ImmutableArray<object> annotations,
+
+            object? authentication,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
@@ -135,10 +145,13 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            object? workspaceResourceId)
         {
             AccessToken = accessToken;
             Annotations = annotations;
+            Authentication = authentication;
             ConnectVia = connectVia;
             Description = description;
             Domain = domain;
@@ -157,6 +170,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
             NewClusterVersion = newClusterVersion;
             Parameters = parameters;
             Type = type;
+            WorkspaceResourceId = workspaceResourceId;
         }
     }
 }

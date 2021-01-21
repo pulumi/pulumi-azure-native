@@ -11,16 +11,10 @@ namespace Pulumi.AzureNextGen.Compute.V20191201.Inputs
 {
 
     /// <summary>
-    /// The publishing profile of a gallery Image Version.
+    /// The publishing profile of a gallery image version.
     /// </summary>
     public sealed class GalleryApplicationVersionPublishingProfileArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-        /// </summary>
-        [Input("contentType")]
-        public Input<string>? ContentType { get; set; }
-
         /// <summary>
         /// Optional. Whether or not this application reports health.
         /// </summary>
@@ -38,6 +32,9 @@ namespace Pulumi.AzureNextGen.Compute.V20191201.Inputs
         /// </summary>
         [Input("excludeFromLatest")]
         public Input<bool>? ExcludeFromLatest { get; set; }
+
+        [Input("manageActions")]
+        public Input<Inputs.UserArtifactManageArgs>? ManageActions { get; set; }
 
         /// <summary>
         /// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.

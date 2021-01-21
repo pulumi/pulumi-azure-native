@@ -16,7 +16,6 @@ __all__ = [
     'AccountSkuResponse',
     'CloudConnectorsResponse',
     'IdentityResponse',
-    'NetworkAclsResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -224,32 +223,6 @@ class IdentityResponse(dict):
         Identity Type
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class NetworkAclsResponse(dict):
-    """
-    The Network ACLs
-    """
-    def __init__(__self__, *,
-                 default_action: Optional[str] = None):
-        """
-        The Network ACLs
-        :param str default_action: Gets or sets the default behavior of network ACLs.
-        """
-        if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
-
-    @property
-    @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[str]:
-        """
-        Gets or sets the default behavior of network ACLs.
-        """
-        return pulumi.get(self, "default_action")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
