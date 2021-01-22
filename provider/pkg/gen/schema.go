@@ -21,6 +21,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -235,6 +236,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	}
 	pythonModuleNames := map[string]string{}
 	golangImportAliases := map[string]string{}
+	golangRenameMap := map[string]map[string]string{}
 
 	var providers []string
 	for prov := range providerMap {
@@ -253,10 +255,11 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 
 		for _, version := range versions {
 			gen := packageGenerator{
-				pkg:        &pkg,
-				metadata:   &metadata,
-				apiVersion: version,
-				examples:   exampleMap,
+				pkg:             &pkg,
+				metadata:        &metadata,
+				apiVersion:      version,
+				examples:        exampleMap,
+				golangRenameMap: golangRenameMap,
 			}
 
 			// Populate C#, Python and Go module mapping.
@@ -265,7 +268,8 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 			csharpNamespaces[strings.ToLower(providerName)] = providerName
 			csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
 			pythonModuleNames[module] = module
-			golangImportAliases[filepath.Join(goBasePath, module)] = strings.ToLower(providerName)
+			modulePath := filepath.Join(goBasePath, module)
+			golangImportAliases[modulePath] = strings.ToLower(providerName)
 
 			// Populate resources and get invokes.
 			items := versionMap[version]
@@ -300,8 +304,9 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	}
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
-		"importBasePath":       goBasePath,
-		"packageImportAliases": golangImportAliases,
+		"importBasePath":             goBasePath,
+		"packageImportAliases":       golangImportAliases,
+		"packageToTypeRenameMapping": golangRenameMap,
 	})
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"dependencies": map[string]string{
@@ -338,6 +343,31 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	return &pkg, &metadata, exampleMap, nil
 }
 
+var goResourceRenameMap map[*regexp.Regexp]string
+
+func getGoResourceRenameMap() map[*regexp.Regexp]string {
+	if goResourceRenameMap != nil {
+		return goResourceRenameMap
+	}
+	goResourceRenameMap = make(map[*regexp.Regexp]string)
+	// network renames for all versions that match the type name
+	pattern := regexp.MustCompile("azure-nextgen:network/.*:ConnectionMonitorOutput$")
+	goResourceRenameMap[pattern] = "ConnectionMonitorOutputDestination"
+	return goResourceRenameMap
+}
+
+func (m *moduleGenerator) populateGolangTypeRenameMap(token string) {
+	for pattern, newName := range getGoResourceRenameMap() {
+		if pattern.MatchString(token) {
+			resourceName := strings.Split(token, ":")[2]
+			if _, ok := m.renameMap[m.module]; !ok {
+				m.renameMap[m.module] = map[string]string{}
+			}
+			m.renameMap[m.module][resourceName] = newName
+		}
+	}
+}
+
 func genMixins(pkg *pschema.PackageSpec) error {
 	// Mixin 'getClientConfig' to read current configuration values.
 	if _, has := pkg.Functions["azure-nextgen:authorization/latest:getClientConfig"]; has {
@@ -350,22 +380,22 @@ func genMixins(pkg *pschema.PackageSpec) error {
 			Properties: map[string]schema.PropertySpec{
 				"clientId": {
 					Description: "Azure Client ID (Application Object ID).",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 				"objectId": {
 					Description: "Azure Object ID of the current user or service principal.",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 				"subscriptionId": {
 					Description: "Azure Subscription ID",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 				"tenantId": {
 					Description: "Azure Tenant ID",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 			},
-			Type: "object",
+			Type:     "object",
 			Required: []string{"clientId", "objectId", "subscriptionId", "tenantId"},
 		},
 	}
@@ -380,7 +410,7 @@ func genMixins(pkg *pschema.PackageSpec) error {
 			Properties: map[string]schema.PropertySpec{
 				"endpoint": {
 					Description: "Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 			},
 			Type: "object",
@@ -390,10 +420,10 @@ func genMixins(pkg *pschema.PackageSpec) error {
 			Properties: map[string]schema.PropertySpec{
 				"token": {
 					Description: "OAuth token for Azure Management API and SDK authentication.",
-					TypeSpec: schema.TypeSpec{Type: "string"},
+					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 			},
-			Type: "object",
+			Type:     "object",
 			Required: []string{"token"},
 		},
 	}
@@ -417,10 +447,11 @@ const (
 )
 
 type packageGenerator struct {
-	pkg        *pschema.PackageSpec
-	metadata   *resources.AzureAPIMetadata
-	examples   map[string][]resources.AzureAPIExample
-	apiVersion string
+	pkg             *pschema.PackageSpec
+	metadata        *resources.AzureAPIMetadata
+	examples        map[string][]resources.AzureAPIExample
+	golangRenameMap map[string]map[string]string
+	apiVersion      string
 }
 
 func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) {
@@ -438,6 +469,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		resourceName:  typeName,
 		resourceToken: resourceTok,
 		visitedTypes:  make(map[string]bool),
+		renameMap:     g.golangRenameMap,
 	}
 
 	parameters := resource.Swagger.MergeParameters(path.Put.Parameters, path.Parameters)
@@ -694,6 +726,7 @@ type moduleGenerator struct {
 	resourceName  string
 	resourceToken string
 	visitedTypes  map[string]bool
+	renameMap     map[string]map[string]string
 }
 
 func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {
@@ -1226,7 +1259,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 		if _, ok := m.visitedTypes[tok]; !ok {
 			m.visitedTypes[tok] = true
-
+			m.populateGolangTypeRenameMap(tok)
 			props, err := m.genProperties(resolvedSchema, isOutput, true /* isType */)
 			if err != nil {
 				return nil, err
