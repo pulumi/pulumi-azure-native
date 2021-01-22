@@ -990,18 +990,15 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
     """
     def __init__(__self__, *,
                  move_state: str,
-                 target_id: str,
                  errors: Optional['outputs.MoveResourceErrorResponse'] = None,
                  job_status: Optional['outputs.JobStatusResponse'] = None):
         """
         Defines the move resource status.
         :param str move_state: Defines the MoveResource states.
-        :param str target_id: Gets the Target ARM Id of the resource.
         :param 'MoveResourceErrorResponseArgs' errors: An error response from the azure resource mover service.
         :param 'JobStatusResponseArgs' job_status: Defines the job status.
         """
         pulumi.set(__self__, "move_state", move_state)
-        pulumi.set(__self__, "target_id", target_id)
         if errors is not None:
             pulumi.set(__self__, "errors", errors)
         if job_status is not None:
@@ -1014,14 +1011,6 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
         Defines the MoveResource states.
         """
         return pulumi.get(self, "move_state")
-
-    @property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> str:
-        """
-        Gets the Target ARM Id of the resource.
-        """
-        return pulumi.get(self, "target_id")
 
     @property
     @pulumi.getter
@@ -1455,7 +1444,7 @@ class PublicIPAddressResourceSettingsResponse(dict):
                  resource_type: str,
                  target_resource_name: str,
                  domain_name_label: Optional[str] = None,
-                 f_qdn: Optional[str] = None,
+                 fqdn: Optional[str] = None,
                  public_ip_allocation_method: Optional[str] = None,
                  sku: Optional[str] = None,
                  zones: Optional[str] = None):
@@ -1465,7 +1454,7 @@ class PublicIPAddressResourceSettingsResponse(dict):
                Expected value is 'Microsoft.Network/publicIPAddresses'.
         :param str target_resource_name: Gets or sets the target Resource name.
         :param str domain_name_label: Gets or sets the domain name label.
-        :param str f_qdn: Gets or sets the fully qualified domain name.
+        :param str fqdn: Gets or sets the fully qualified domain name.
         :param str public_ip_allocation_method: Gets or sets public IP allocation method.
         :param str sku: Gets or sets public IP sku.
         :param str zones: Gets or sets public IP zones.
@@ -1474,8 +1463,8 @@ class PublicIPAddressResourceSettingsResponse(dict):
         pulumi.set(__self__, "target_resource_name", target_resource_name)
         if domain_name_label is not None:
             pulumi.set(__self__, "domain_name_label", domain_name_label)
-        if f_qdn is not None:
-            pulumi.set(__self__, "f_qdn", f_qdn)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
         if public_ip_allocation_method is not None:
             pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
         if sku is not None:
@@ -1509,12 +1498,12 @@ class PublicIPAddressResourceSettingsResponse(dict):
         return pulumi.get(self, "domain_name_label")
 
     @property
-    @pulumi.getter(name="fQDN")
-    def f_qdn(self) -> Optional[str]:
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
         """
         Gets or sets the fully qualified domain name.
         """
-        return pulumi.get(self, "f_qdn")
+        return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter(name="publicIpAllocationMethod")

@@ -1097,7 +1097,7 @@ class PublicIPAddressResourceSettingsArgs:
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
                  domain_name_label: Optional[pulumi.Input[str]] = None,
-                 f_qdn: Optional[pulumi.Input[str]] = None,
+                 fqdn: Optional[pulumi.Input[str]] = None,
                  public_ip_allocation_method: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[str]] = None):
@@ -1107,7 +1107,7 @@ class PublicIPAddressResourceSettingsArgs:
                Expected value is 'Microsoft.Network/publicIPAddresses'.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[str] domain_name_label: Gets or sets the domain name label.
-        :param pulumi.Input[str] f_qdn: Gets or sets the fully qualified domain name.
+        :param pulumi.Input[str] fqdn: Gets or sets the fully qualified domain name.
         :param pulumi.Input[str] public_ip_allocation_method: Gets or sets public IP allocation method.
         :param pulumi.Input[str] sku: Gets or sets public IP sku.
         :param pulumi.Input[str] zones: Gets or sets public IP zones.
@@ -1116,8 +1116,8 @@ class PublicIPAddressResourceSettingsArgs:
         pulumi.set(__self__, "target_resource_name", target_resource_name)
         if domain_name_label is not None:
             pulumi.set(__self__, "domain_name_label", domain_name_label)
-        if f_qdn is not None:
-            pulumi.set(__self__, "f_qdn", f_qdn)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
         if public_ip_allocation_method is not None:
             pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
         if sku is not None:
@@ -1163,16 +1163,16 @@ class PublicIPAddressResourceSettingsArgs:
         pulumi.set(self, "domain_name_label", value)
 
     @property
-    @pulumi.getter(name="fQDN")
-    def f_qdn(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
         """
         Gets or sets the fully qualified domain name.
         """
-        return pulumi.get(self, "f_qdn")
+        return pulumi.get(self, "fqdn")
 
-    @f_qdn.setter
-    def f_qdn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "f_qdn", value)
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
 
     @property
     @pulumi.getter(name="publicIpAllocationMethod")

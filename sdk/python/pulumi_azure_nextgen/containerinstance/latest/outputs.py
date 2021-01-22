@@ -30,6 +30,7 @@ __all__ = [
     'EventResponse',
     'GitRepoVolumeResponse',
     'GpuResourceResponse',
+    'HttpHeadersResponse',
     'ImageRegistryCredentialResponse',
     'InitContainerDefinitionResponse',
     'InitContainerPropertiesDefinitionResponseInstanceView',
@@ -315,15 +316,19 @@ class ContainerHttpGetResponse(dict):
     """
     def __init__(__self__, *,
                  port: int,
+                 http_headers: Optional['outputs.HttpHeadersResponse'] = None,
                  path: Optional[str] = None,
                  scheme: Optional[str] = None):
         """
         The container Http Get settings, for liveness or readiness probe
         :param int port: The port number to probe.
+        :param 'HttpHeadersResponseArgs' http_headers: The HTTP headers.
         :param str path: The path to probe.
         :param str scheme: The scheme.
         """
         pulumi.set(__self__, "port", port)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
         if path is not None:
             pulumi.set(__self__, "path", path)
         if scheme is not None:
@@ -336,6 +341,14 @@ class ContainerHttpGetResponse(dict):
         The port number to probe.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional['outputs.HttpHeadersResponse']:
+        """
+        The HTTP headers.
+        """
+        return pulumi.get(self, "http_headers")
 
     @property
     @pulumi.getter
@@ -1054,6 +1067,44 @@ class GpuResourceResponse(dict):
         The SKU of the GPU resource.
         """
         return pulumi.get(self, "sku")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class HttpHeadersResponse(dict):
+    """
+    The HTTP headers.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        The HTTP headers.
+        :param str name: The header name.
+        :param str value: The header value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The header name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The header value.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

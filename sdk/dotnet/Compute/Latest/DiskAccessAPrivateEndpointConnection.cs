@@ -17,7 +17,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     public partial class DiskAccessAPrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource name
+        /// private endpoint connection name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// private endpoint connection type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

@@ -147,6 +147,7 @@ __all__ = [
     'CustomActivityResponse',
     'CustomDataSourceLinkedServiceResponse',
     'CustomDatasetResponse',
+    'CustomEventsTriggerResponse',
     'DWCopyCommandDefaultValueResponse',
     'DWCopyCommandSettingsResponse',
     'DataFlowReferenceResponse',
@@ -16277,6 +16278,126 @@ class CustomDatasetResponse(dict):
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CustomEventsTriggerResponse(dict):
+    """
+    Trigger that runs every time a custom event is received.
+    """
+    def __init__(__self__, *,
+                 events: Sequence[Any],
+                 runtime_state: str,
+                 scope: str,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 pipelines: Optional[Sequence['outputs.TriggerPipelineReferenceResponse']] = None,
+                 subject_begins_with: Optional[str] = None,
+                 subject_ends_with: Optional[str] = None):
+        """
+        Trigger that runs every time a custom event is received.
+        :param Sequence[Any] events: The list of event types that cause this trigger to fire.
+        :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
+        :param str scope: The ARM resource ID of the Azure Event Grid Topic.
+        :param str type: Trigger type.
+               Expected value is 'MultiplePipelineTrigger'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the trigger.
+        :param str description: Trigger description.
+        :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
+        :param str subject_begins_with: The event subject must begin with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
+        :param str subject_ends_with: The event subject must end with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
+        """
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "runtime_state", runtime_state)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if pipelines is not None:
+            pulumi.set(__self__, "pipelines", pipelines)
+        if subject_begins_with is not None:
+            pulumi.set(__self__, "subject_begins_with", subject_begins_with)
+        if subject_ends_with is not None:
+            pulumi.set(__self__, "subject_ends_with", subject_ends_with)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Sequence[Any]:
+        """
+        The list of event types that cause this trigger to fire.
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter(name="runtimeState")
+    def runtime_state(self) -> str:
+        """
+        Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
+        """
+        return pulumi.get(self, "runtime_state")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        """
+        The ARM resource ID of the Azure Event Grid Topic.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Trigger type.
+        Expected value is 'MultiplePipelineTrigger'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the trigger.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Trigger description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def pipelines(self) -> Optional[Sequence['outputs.TriggerPipelineReferenceResponse']]:
+        """
+        Pipelines that need to be started.
+        """
+        return pulumi.get(self, "pipelines")
+
+    @property
+    @pulumi.getter(name="subjectBeginsWith")
+    def subject_begins_with(self) -> Optional[str]:
+        """
+        The event subject must begin with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
+        """
+        return pulumi.get(self, "subject_begins_with")
+
+    @property
+    @pulumi.getter(name="subjectEndsWith")
+    def subject_ends_with(self) -> Optional[str]:
+        """
+        The event subject must end with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
+        """
+        return pulumi.get(self, "subject_ends_with")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

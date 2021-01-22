@@ -65,7 +65,7 @@ export class DataExport extends pulumi.CustomResource {
     /**
      * An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
      */
-    public readonly tableNames!: pulumi.Output<string[] | undefined>;
+    public readonly tableNames!: pulumi.Output<string[]>;
     /**
      * Resource type.
      */
@@ -89,6 +89,9 @@ export class DataExport extends pulumi.CustomResource {
             }
             if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceId'");
+            }
+            if ((!args || args.tableNames === undefined) && !(opts && opts.urn)) {
+                throw new Error("Missing required property 'tableNames'");
             }
             if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
@@ -168,7 +171,7 @@ export interface DataExportArgs {
     /**
      * An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
      */
-    readonly tableNames?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly tableNames: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Log Analytics workspace name.
      */

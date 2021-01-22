@@ -24,8 +24,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
         /// <summary>
         /// Gets or sets the fully qualified domain name.
         /// </summary>
-        [Input("fQDN")]
-        public Input<string>? FQDN { get; set; }
+        [Input("fqdn")]
+        public Input<string>? Fqdn { get; set; }
 
         /// <summary>
         /// Gets or sets public IP allocation method.

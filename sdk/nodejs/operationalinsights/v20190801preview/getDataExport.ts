@@ -74,7 +74,7 @@ export interface GetDataExportResult {
     /**
      * An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
      */
-    readonly tableNames?: string[];
+    readonly tableNames: string[];
     /**
      * Resource type.
      */

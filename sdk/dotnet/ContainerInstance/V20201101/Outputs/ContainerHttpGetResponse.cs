@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20201101.Outputs
     public sealed class ContainerHttpGetResponse
     {
         /// <summary>
+        /// The HTTP headers.
+        /// </summary>
+        public readonly Outputs.HttpHeadersResponse? HttpHeaders;
+        /// <summary>
         /// The path to probe.
         /// </summary>
         public readonly string? Path;
@@ -28,12 +32,15 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20201101.Outputs
 
         [OutputConstructor]
         private ContainerHttpGetResponse(
+            Outputs.HttpHeadersResponse? httpHeaders,
+
             string? path,
 
             int port,
 
             string? scheme)
         {
+            HttpHeaders = httpHeaders;
             Path = path;
             Port = port;
             Scheme = scheme;

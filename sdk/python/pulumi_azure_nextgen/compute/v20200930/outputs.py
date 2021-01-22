@@ -1267,11 +1267,11 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
-        :param str id: Resource Id
-        :param str name: Resource name
+        :param str id: private endpoint connection Id
+        :param str name: private endpoint connection name
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param str type: Resource type
+        :param str type: private endpoint connection type
         :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "id", id)
@@ -1286,7 +1286,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        private endpoint connection Id
         """
         return pulumi.get(self, "id")
 
@@ -1294,7 +1294,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        private endpoint connection name
         """
         return pulumi.get(self, "name")
 
@@ -1318,7 +1318,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        private endpoint connection type
         """
         return pulumi.get(self, "type")
 

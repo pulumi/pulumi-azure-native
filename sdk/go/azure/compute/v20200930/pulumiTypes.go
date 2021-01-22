@@ -7925,9 +7925,9 @@ func (o OSDiskImageEncryptionResponsePtrOutput) DiskEncryptionSetId() pulumi.Str
 
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
-	// Resource Id
+	// private endpoint connection Id
 	Id string `pulumi:"id"`
-	// Resource name
+	// private endpoint connection name
 	Name string `pulumi:"name"`
 	// The resource of private end point.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -7935,7 +7935,7 @@ type PrivateEndpointConnectionResponse struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource type
+	// private endpoint connection type
 	Type string `pulumi:"type"`
 }
 
@@ -7952,9 +7952,9 @@ type PrivateEndpointConnectionResponseInput interface {
 
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseArgs struct {
-	// Resource Id
+	// private endpoint connection Id
 	Id pulumi.StringInput `pulumi:"id"`
-	// Resource name
+	// private endpoint connection name
 	Name pulumi.StringInput `pulumi:"name"`
 	// The resource of private end point.
 	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
@@ -7962,7 +7962,7 @@ type PrivateEndpointConnectionResponseArgs struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Resource type
+	// private endpoint connection type
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8018,12 +8018,12 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Resource Id
+// private endpoint connection Id
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name
+// private endpoint connection name
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8045,7 +8045,7 @@ func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.Stri
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Resource type
+// private endpoint connection type
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }

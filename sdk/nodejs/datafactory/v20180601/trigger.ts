@@ -46,7 +46,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * Properties of the trigger.
      */
-    public readonly properties!: pulumi.Output<outputs.datafactory.v20180601.BlobEventsTriggerResponse | outputs.datafactory.v20180601.BlobTriggerResponse | outputs.datafactory.v20180601.ChainingTriggerResponse | outputs.datafactory.v20180601.MultiplePipelineTriggerResponse | outputs.datafactory.v20180601.RerunTumblingWindowTriggerResponse | outputs.datafactory.v20180601.ScheduleTriggerResponse | outputs.datafactory.v20180601.TumblingWindowTriggerResponse>;
+    public readonly properties!: pulumi.Output<outputs.datafactory.v20180601.BlobEventsTriggerResponse | outputs.datafactory.v20180601.BlobTriggerResponse | outputs.datafactory.v20180601.ChainingTriggerResponse | outputs.datafactory.v20180601.CustomEventsTriggerResponse | outputs.datafactory.v20180601.MultiplePipelineTriggerResponse | outputs.datafactory.v20180601.RerunTumblingWindowTriggerResponse | outputs.datafactory.v20180601.ScheduleTriggerResponse | outputs.datafactory.v20180601.TumblingWindowTriggerResponse>;
     /**
      * The resource type.
      */
@@ -111,7 +111,7 @@ export interface TriggerArgs {
     /**
      * Properties of the trigger.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.BlobEventsTrigger | inputs.datafactory.v20180601.BlobTrigger | inputs.datafactory.v20180601.ChainingTrigger | inputs.datafactory.v20180601.MultiplePipelineTrigger | inputs.datafactory.v20180601.RerunTumblingWindowTrigger | inputs.datafactory.v20180601.ScheduleTrigger | inputs.datafactory.v20180601.TumblingWindowTrigger>;
+    readonly properties: pulumi.Input<inputs.datafactory.v20180601.BlobEventsTrigger | inputs.datafactory.v20180601.BlobTrigger | inputs.datafactory.v20180601.ChainingTrigger | inputs.datafactory.v20180601.CustomEventsTrigger | inputs.datafactory.v20180601.MultiplePipelineTrigger | inputs.datafactory.v20180601.RerunTumblingWindowTrigger | inputs.datafactory.v20180601.ScheduleTrigger | inputs.datafactory.v20180601.TumblingWindowTrigger>;
     /**
      * The resource group name.
      */

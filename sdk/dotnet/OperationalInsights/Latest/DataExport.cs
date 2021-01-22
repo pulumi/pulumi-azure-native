@@ -169,7 +169,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
-        [Input("tableNames")]
+        [Input("tableNames", required: true)]
         private InputList<string>? _tableNames;
 
         /// <summary>

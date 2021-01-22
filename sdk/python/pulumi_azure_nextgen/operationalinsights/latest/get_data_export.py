@@ -117,7 +117,7 @@ class GetDataExportResult:
 
     @property
     @pulumi.getter(name="tableNames")
-    def table_names(self) -> Optional[Sequence[str]]:
+    def table_names(self) -> Sequence[str]:
         """
         An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
         """
