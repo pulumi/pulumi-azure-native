@@ -37,7 +37,7 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
     }
 
     /**
-     * Resource name
+     * private endpoint connection name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -53,7 +53,7 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Resource type
+     * private endpoint connection type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

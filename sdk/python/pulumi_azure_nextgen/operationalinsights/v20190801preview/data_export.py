@@ -75,6 +75,8 @@ class DataExport(pulumi.CustomResource):
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
+            if table_names is None and not opts.urn:
+                raise TypeError("Missing required property 'table_names'")
             __props__['table_names'] = table_names
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
@@ -165,7 +167,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableNames")
-    def table_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def table_names(self) -> pulumi.Output[Sequence[str]]:
         """
         An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
         """

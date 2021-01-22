@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20201101.Inputs
     public sealed class ContainerHttpGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The HTTP headers.
+        /// </summary>
+        [Input("httpHeaders")]
+        public Input<Inputs.HttpHeadersArgs>? HttpHeaders { get; set; }
+
+        /// <summary>
         /// The path to probe.
         /// </summary>
         [Input("path")]

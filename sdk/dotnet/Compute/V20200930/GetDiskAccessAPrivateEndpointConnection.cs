@@ -46,11 +46,11 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
     public sealed class GetDiskAccessAPrivateEndpointConnectionResult
     {
         /// <summary>
-        /// Resource Id
+        /// private endpoint connection Id
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name
+        /// private endpoint connection name
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource type
+        /// private endpoint connection type
         /// </summary>
         public readonly string Type;
 

@@ -52,6 +52,9 @@ func NewDataExport(ctx *pulumi.Context,
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
+	if args.TableNames == nil {
+		return nil, errors.New("invalid value for required argument 'TableNames'")
+	}
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}

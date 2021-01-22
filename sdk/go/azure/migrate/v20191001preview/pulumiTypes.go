@@ -3970,8 +3970,6 @@ type MoveResourcePropertiesResponseMoveStatus struct {
 	JobStatus *JobStatusResponse `pulumi:"jobStatus"`
 	// Defines the MoveResource states.
 	MoveState string `pulumi:"moveState"`
-	// Gets the Target ARM Id of the resource.
-	TargetId string `pulumi:"targetId"`
 }
 
 // MoveResourcePropertiesResponseMoveStatusInput is an input type that accepts MoveResourcePropertiesResponseMoveStatusArgs and MoveResourcePropertiesResponseMoveStatusOutput values.
@@ -3993,8 +3991,6 @@ type MoveResourcePropertiesResponseMoveStatusArgs struct {
 	JobStatus JobStatusResponsePtrInput `pulumi:"jobStatus"`
 	// Defines the MoveResource states.
 	MoveState pulumi.StringInput `pulumi:"moveState"`
-	// Gets the Target ARM Id of the resource.
-	TargetId pulumi.StringInput `pulumi:"targetId"`
 }
 
 func (MoveResourcePropertiesResponseMoveStatusArgs) ElementType() reflect.Type {
@@ -4090,11 +4086,6 @@ func (o MoveResourcePropertiesResponseMoveStatusOutput) MoveState() pulumi.Strin
 	return o.ApplyT(func(v MoveResourcePropertiesResponseMoveStatus) string { return v.MoveState }).(pulumi.StringOutput)
 }
 
-// Gets the Target ARM Id of the resource.
-func (o MoveResourcePropertiesResponseMoveStatusOutput) TargetId() pulumi.StringOutput {
-	return o.ApplyT(func(v MoveResourcePropertiesResponseMoveStatus) string { return v.TargetId }).(pulumi.StringOutput)
-}
-
 type MoveResourcePropertiesResponseMoveStatusPtrOutput struct{ *pulumi.OutputState }
 
 func (MoveResourcePropertiesResponseMoveStatusPtrOutput) ElementType() reflect.Type {
@@ -4140,16 +4131,6 @@ func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) MoveState() pulumi.St
 			return nil
 		}
 		return &v.MoveState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets the Target ARM Id of the resource.
-func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MoveResourcePropertiesResponseMoveStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5514,7 +5495,7 @@ type PublicIPAddressResourceSettings struct {
 	// Gets or sets the domain name label.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
 	// Gets or sets the fully qualified domain name.
-	FQDN *string `pulumi:"fQDN"`
+	Fqdn *string `pulumi:"fqdn"`
 	// Gets or sets public IP allocation method.
 	PublicIpAllocationMethod *string `pulumi:"publicIpAllocationMethod"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -5544,7 +5525,7 @@ type PublicIPAddressResourceSettingsArgs struct {
 	// Gets or sets the domain name label.
 	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
 	// Gets or sets the fully qualified domain name.
-	FQDN pulumi.StringPtrInput `pulumi:"fQDN"`
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
 	// Gets or sets public IP allocation method.
 	PublicIpAllocationMethod pulumi.StringPtrInput `pulumi:"publicIpAllocationMethod"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -5591,8 +5572,8 @@ func (o PublicIPAddressResourceSettingsOutput) DomainNameLabel() pulumi.StringPt
 }
 
 // Gets or sets the fully qualified domain name.
-func (o PublicIPAddressResourceSettingsOutput) FQDN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PublicIPAddressResourceSettings) *string { return v.FQDN }).(pulumi.StringPtrOutput)
+func (o PublicIPAddressResourceSettingsOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicIPAddressResourceSettings) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets public IP allocation method.
@@ -5626,7 +5607,7 @@ type PublicIPAddressResourceSettingsResponse struct {
 	// Gets or sets the domain name label.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
 	// Gets or sets the fully qualified domain name.
-	FQDN *string `pulumi:"fQDN"`
+	Fqdn *string `pulumi:"fqdn"`
 	// Gets or sets public IP allocation method.
 	PublicIpAllocationMethod *string `pulumi:"publicIpAllocationMethod"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -5656,7 +5637,7 @@ type PublicIPAddressResourceSettingsResponseArgs struct {
 	// Gets or sets the domain name label.
 	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
 	// Gets or sets the fully qualified domain name.
-	FQDN pulumi.StringPtrInput `pulumi:"fQDN"`
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
 	// Gets or sets public IP allocation method.
 	PublicIpAllocationMethod pulumi.StringPtrInput `pulumi:"publicIpAllocationMethod"`
 	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -5703,8 +5684,8 @@ func (o PublicIPAddressResourceSettingsResponseOutput) DomainNameLabel() pulumi.
 }
 
 // Gets or sets the fully qualified domain name.
-func (o PublicIPAddressResourceSettingsResponseOutput) FQDN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) *string { return v.FQDN }).(pulumi.StringPtrOutput)
+func (o PublicIPAddressResourceSettingsResponseOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets public IP allocation method.

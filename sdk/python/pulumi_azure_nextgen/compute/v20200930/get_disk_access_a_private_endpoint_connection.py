@@ -44,7 +44,7 @@ class GetDiskAccessAPrivateEndpointConnectionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        private endpoint connection Id
         """
         return pulumi.get(self, "id")
 
@@ -52,7 +52,7 @@ class GetDiskAccessAPrivateEndpointConnectionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        private endpoint connection name
         """
         return pulumi.get(self, "name")
 
@@ -84,7 +84,7 @@ class GetDiskAccessAPrivateEndpointConnectionResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        private endpoint connection type
         """
         return pulumi.get(self, "type")
 

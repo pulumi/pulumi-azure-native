@@ -27,9 +27,9 @@ type LookupDiskAccessAPrivateEndpointConnectionArgs struct {
 
 // The Private Endpoint Connection resource.
 type LookupDiskAccessAPrivateEndpointConnectionResult struct {
-	// Resource Id
+	// private endpoint connection Id
 	Id string `pulumi:"id"`
-	// Resource name
+	// private endpoint connection name
 	Name string `pulumi:"name"`
 	// The resource of private end point.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -37,6 +37,6 @@ type LookupDiskAccessAPrivateEndpointConnectionResult struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource type
+	// private endpoint connection type
 	Type string `pulumi:"type"`
 }

@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         /// <summary>
         /// Gets or sets the fully qualified domain name.
         /// </summary>
-        public readonly string? FQDN;
+        public readonly string? Fqdn;
         /// <summary>
         /// Gets or sets public IP allocation method.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         private PublicIPAddressResourceSettingsResponse(
             string? domainNameLabel,
 
-            string? fQDN,
+            string? fqdn,
 
             string? publicIpAllocationMethod,
 
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
             string? zones)
         {
             DomainNameLabel = domainNameLabel;
-            FQDN = fQDN;
+            Fqdn = fqdn;
             PublicIpAllocationMethod = publicIpAllocationMethod;
             ResourceType = resourceType;
             Sku = sku;

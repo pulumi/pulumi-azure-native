@@ -24,6 +24,7 @@ __all__ = [
     'EnvironmentVariableArgs',
     'GitRepoVolumeArgs',
     'GpuResourceArgs',
+    'HttpHeadersArgs',
     'ImageRegistryCredentialArgs',
     'InitContainerDefinitionArgs',
     'IpAddressArgs',
@@ -370,15 +371,19 @@ class ContainerGroupNetworkProfileArgs:
 class ContainerHttpGetArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
+                 http_headers: Optional[pulumi.Input['HttpHeadersArgs']] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  scheme: Optional[pulumi.Input[Union[str, 'Scheme']]] = None):
         """
         The container Http Get settings, for liveness or readiness probe
         :param pulumi.Input[int] port: The port number to probe.
+        :param pulumi.Input['HttpHeadersArgs'] http_headers: The HTTP headers.
         :param pulumi.Input[str] path: The path to probe.
         :param pulumi.Input[Union[str, 'Scheme']] scheme: The scheme.
         """
         pulumi.set(__self__, "port", port)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
         if path is not None:
             pulumi.set(__self__, "path", path)
         if scheme is not None:
@@ -395,6 +400,18 @@ class ContainerHttpGetArgs:
     @port.setter
     def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[pulumi.Input['HttpHeadersArgs']]:
+        """
+        The HTTP headers.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @http_headers.setter
+    def http_headers(self, value: Optional[pulumi.Input['HttpHeadersArgs']]):
+        pulumi.set(self, "http_headers", value)
 
     @property
     @pulumi.getter
@@ -834,6 +851,46 @@ class GpuResourceArgs:
     @sku.setter
     def sku(self, value: pulumi.Input[Union[str, 'GpuSku']]):
         pulumi.set(self, "sku", value)
+
+
+@pulumi.input_type
+class HttpHeadersArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The HTTP headers.
+        :param pulumi.Input[str] name: The header name.
+        :param pulumi.Input[str] value: The header value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The header name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The header value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

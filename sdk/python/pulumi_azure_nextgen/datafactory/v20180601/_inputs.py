@@ -145,6 +145,7 @@ __all__ = [
     'CustomActivityReferenceObjectArgs',
     'CustomDataSourceLinkedServiceArgs',
     'CustomDatasetArgs',
+    'CustomEventsTriggerArgs',
     'DWCopyCommandDefaultValueArgs',
     'DWCopyCommandSettingsArgs',
     'DataFlowFolderArgs',
@@ -19961,6 +19962,141 @@ class CustomDatasetArgs:
     @structure.setter
     def structure(self, value: Optional[Any]):
         pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class CustomEventsTriggerArgs:
+    def __init__(__self__, *,
+                 events: pulumi.Input[Sequence[Any]],
+                 scope: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]] = None,
+                 subject_begins_with: Optional[pulumi.Input[str]] = None,
+                 subject_ends_with: Optional[pulumi.Input[str]] = None):
+        """
+        Trigger that runs every time a custom event is received.
+        :param pulumi.Input[Sequence[Any]] events: The list of event types that cause this trigger to fire.
+        :param pulumi.Input[str] scope: The ARM resource ID of the Azure Event Grid Topic.
+        :param pulumi.Input[str] type: Trigger type.
+               Expected value is 'MultiplePipelineTrigger'.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the trigger.
+        :param pulumi.Input[str] description: Trigger description.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
+        :param pulumi.Input[str] subject_begins_with: The event subject must begin with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
+        :param pulumi.Input[str] subject_ends_with: The event subject must end with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
+        """
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if pipelines is not None:
+            pulumi.set(__self__, "pipelines", pipelines)
+        if subject_begins_with is not None:
+            pulumi.set(__self__, "subject_begins_with", subject_begins_with)
+        if subject_ends_with is not None:
+            pulumi.set(__self__, "subject_ends_with", subject_ends_with)
+
+    @property
+    @pulumi.getter
+    def events(self) -> pulumi.Input[Sequence[Any]]:
+        """
+        The list of event types that cause this trigger to fire.
+        """
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: pulumi.Input[Sequence[Any]]):
+        pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The ARM resource ID of the Azure Event Grid Topic.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Trigger type.
+        Expected value is 'MultiplePipelineTrigger'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the trigger.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Trigger description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]:
+        """
+        Pipelines that need to be started.
+        """
+        return pulumi.get(self, "pipelines")
+
+    @pipelines.setter
+    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]):
+        pulumi.set(self, "pipelines", value)
+
+    @property
+    @pulumi.getter(name="subjectBeginsWith")
+    def subject_begins_with(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event subject must begin with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
+        """
+        return pulumi.get(self, "subject_begins_with")
+
+    @subject_begins_with.setter
+    def subject_begins_with(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subject_begins_with", value)
+
+    @property
+    @pulumi.getter(name="subjectEndsWith")
+    def subject_ends_with(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event subject must end with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.
+        """
+        return pulumi.get(self, "subject_ends_with")
+
+    @subject_ends_with.setter
+    def subject_ends_with(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subject_ends_with", value)
 
 
 @pulumi.input_type

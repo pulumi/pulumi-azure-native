@@ -40,11 +40,11 @@ export interface GetDiskAccessAPrivateEndpointConnectionArgs {
  */
 export interface GetDiskAccessAPrivateEndpointConnectionResult {
     /**
-     * Resource Id
+     * private endpoint connection Id
      */
     readonly id: string;
     /**
-     * Resource name
+     * private endpoint connection name
      */
     readonly name: string;
     /**
@@ -60,7 +60,7 @@ export interface GetDiskAccessAPrivateEndpointConnectionResult {
      */
     readonly provisioningState: string;
     /**
-     * Resource type
+     * private endpoint connection type
      */
     readonly type: string;
 }

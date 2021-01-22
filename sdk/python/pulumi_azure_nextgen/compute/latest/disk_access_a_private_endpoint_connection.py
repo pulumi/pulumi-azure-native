@@ -99,7 +99,7 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        private endpoint connection name
         """
         return pulumi.get(self, "name")
 
@@ -131,7 +131,7 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        private endpoint connection type
         """
         return pulumi.get(self, "type")
 

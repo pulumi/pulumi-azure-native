@@ -16,7 +16,7 @@ import (
 type DiskAccessAPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Resource name
+	// private endpoint connection name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource of private end point.
 	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
@@ -24,7 +24,7 @@ type DiskAccessAPrivateEndpointConnection struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource type
+	// private endpoint connection type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -75,7 +75,7 @@ func GetDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiskAccessAPrivateEndpointConnection resources.
 type diskAccessAPrivateEndpointConnectionState struct {
-	// Resource name
+	// private endpoint connection name
 	Name *string `pulumi:"name"`
 	// The resource of private end point.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -83,12 +83,12 @@ type diskAccessAPrivateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource type
+	// private endpoint connection type
 	Type *string `pulumi:"type"`
 }
 
 type DiskAccessAPrivateEndpointConnectionState struct {
-	// Resource name
+	// private endpoint connection name
 	Name pulumi.StringPtrInput
 	// The resource of private end point.
 	PrivateEndpoint PrivateEndpointResponsePtrInput
@@ -96,7 +96,7 @@ type DiskAccessAPrivateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringPtrInput
-	// Resource type
+	// private endpoint connection type
 	Type pulumi.StringPtrInput
 }
 
