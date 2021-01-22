@@ -1136,8 +1136,23 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 			return fmt.Errorf("cannot create already existing subresource '%s'", id)
 		}
 		return nil
-	case http.StatusOK == resp.StatusCode || http.StatusNoContent == resp.StatusCode:
+	case http.StatusNoContent == resp.StatusCode:
 		return fmt.Errorf("cannot create already existing resource '%s'", id)
+	case http.StatusOK == resp.StatusCode:
+		// Usually, 200 means that the resource already exists and we shouldn't try to create it.
+		// However, unfortunately, some APIs return 200 with an empty body for non-existing resources.
+		// Our strategy here is to try to parse the response body and see if it's a valid non-empty JSON.
+		// If it is, we assume the resource exists.
+		var outputs map[string]interface{}
+		err = autorest.Respond(
+			resp,
+			k.client.ByInspecting(),
+			autorest.ByUnmarshallingJSON(&outputs),
+			autorest.ByClosing())
+		if err == nil && len(outputs) > 0 {
+			return fmt.Errorf("cannot create already existing resource '%s'", id)
+		}
+		return nil
 	case http.StatusNotFound == resp.StatusCode:
 		return nil
 	default:
