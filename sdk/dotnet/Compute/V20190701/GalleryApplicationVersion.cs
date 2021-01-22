@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The publishing profile of a gallery Image Version.
+        /// The publishing profile of a gallery image version.
         /// </summary>
         [Output("publishingProfile")]
         public Output<Outputs.GalleryApplicationVersionPublishingProfileResponse> PublishingProfile { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The publishing profile of a gallery Image Version.
+        /// The publishing profile of a gallery image version.
         /// </summary>
         [Input("publishingProfile", required: true)]
         public Input<Inputs.GalleryApplicationVersionPublishingProfileArgs> PublishingProfile { get; set; } = null!;

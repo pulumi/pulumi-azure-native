@@ -74,7 +74,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The publishing profile of a gallery Image Version.
+        /// The publishing profile of a gallery image version.
         /// </summary>
         public readonly Outputs.GalleryApplicationVersionPublishingProfileResponse PublishingProfile;
         /// <summary>

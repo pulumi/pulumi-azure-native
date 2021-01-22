@@ -21,7 +21,7 @@ type GalleryApplicationVersion struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image version.
 	PublishingProfile GalleryApplicationVersionPublishingProfileResponseOutput `pulumi:"publishingProfile"`
 	// This is the replication status of the gallery Image Version.
 	ReplicationStatus ReplicationStatusResponseOutput `pulumi:"replicationStatus"`
@@ -99,7 +99,7 @@ type galleryApplicationVersionState struct {
 	Name *string `pulumi:"name"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image version.
 	PublishingProfile *GalleryApplicationVersionPublishingProfileResponse `pulumi:"publishingProfile"`
 	// This is the replication status of the gallery Image Version.
 	ReplicationStatus *ReplicationStatusResponse `pulumi:"replicationStatus"`
@@ -116,7 +116,7 @@ type GalleryApplicationVersionState struct {
 	Name pulumi.StringPtrInput
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringPtrInput
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image version.
 	PublishingProfile GalleryApplicationVersionPublishingProfileResponsePtrInput
 	// This is the replication status of the gallery Image Version.
 	ReplicationStatus ReplicationStatusResponsePtrInput
@@ -139,7 +139,7 @@ type galleryApplicationVersionArgs struct {
 	GalleryName string `pulumi:"galleryName"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image version.
 	PublishingProfile GalleryApplicationVersionPublishingProfile `pulumi:"publishingProfile"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -157,7 +157,7 @@ type GalleryApplicationVersionArgs struct {
 	GalleryName pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image version.
 	PublishingProfile GalleryApplicationVersionPublishingProfileInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput

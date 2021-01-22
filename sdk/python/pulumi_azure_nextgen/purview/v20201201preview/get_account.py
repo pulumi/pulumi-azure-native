@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     Account resource
     """
-    def __init__(__self__, cloud_connectors=None, created_at=None, created_by=None, created_by_object_id=None, endpoints=None, friendly_name=None, id=None, identity=None, location=None, managed_resources=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, cloud_connectors=None, created_at=None, created_by=None, created_by_object_id=None, endpoints=None, friendly_name=None, id=None, identity=None, location=None, managed_resources=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, tags=None, type=None):
         if cloud_connectors and not isinstance(cloud_connectors, dict):
             raise TypeError("Expected argument 'cloud_connectors' to be a dict")
         pulumi.set(__self__, "cloud_connectors", cloud_connectors)
@@ -54,15 +54,15 @@ class GetAccountResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if network_acls and not isinstance(network_acls, dict):
-            raise TypeError("Expected argument 'network_acls' to be a dict")
-        pulumi.set(__self__, "network_acls", network_acls)
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -163,14 +163,6 @@ class GetAccountResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional['outputs.NetworkAclsResponse']:
-        """
-        Get the network ACLs.
-        """
-        return pulumi.get(self, "network_acls")
-
-    @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
@@ -185,6 +177,14 @@ class GetAccountResult:
         Gets or sets the state of the provisioning.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Gets or sets the public network access.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter
@@ -228,9 +228,9 @@ class AwaitableGetAccountResult(GetAccountResult):
             location=self.location,
             managed_resources=self.managed_resources,
             name=self.name,
-            network_acls=self.network_acls,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -266,9 +266,9 @@ def get_account(account_name: Optional[str] = None,
         location=__ret__.location,
         managed_resources=__ret__.managed_resources,
         name=__ret__.name,
-        network_acls=__ret__.network_acls,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type)

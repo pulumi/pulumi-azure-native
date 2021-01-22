@@ -80,6 +80,7 @@ __all__ = [
     'TargetRegionResponse',
     'TerminateNotificationProfileResponse',
     'UpgradePolicyResponse',
+    'UserArtifactManageResponse',
     'UserArtifactSourceResponse',
     'VaultCertificateResponse',
     'VaultSecretGroupResponse',
@@ -1064,23 +1065,22 @@ class EncryptionSettingsElementResponse(dict):
 @pulumi.output_type
 class GalleryApplicationVersionPublishingProfileResponse(dict):
     """
-    The publishing profile of a gallery Image Version.
+    The publishing profile of a gallery image version.
     """
     def __init__(__self__, *,
                  published_date: str,
                  source: 'outputs.UserArtifactSourceResponse',
-                 content_type: Optional[str] = None,
                  enable_health_check: Optional[bool] = None,
                  end_of_life_date: Optional[str] = None,
                  exclude_from_latest: Optional[bool] = None,
+                 manage_actions: Optional['outputs.UserArtifactManageResponse'] = None,
                  replica_count: Optional[int] = None,
                  storage_account_type: Optional[str] = None,
                  target_regions: Optional[Sequence['outputs.TargetRegionResponse']] = None):
         """
-        The publishing profile of a gallery Image Version.
+        The publishing profile of a gallery image version.
         :param str published_date: The timestamp for when the gallery Image Version is published.
         :param 'UserArtifactSourceResponseArgs' source: The source image from which the Image Version is going to be created.
-        :param str content_type: Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
         :param bool enable_health_check: Optional. Whether or not this application reports health.
         :param str end_of_life_date: The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
         :param bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
@@ -1090,14 +1090,14 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
         """
         pulumi.set(__self__, "published_date", published_date)
         pulumi.set(__self__, "source", source)
-        if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
         if enable_health_check is not None:
             pulumi.set(__self__, "enable_health_check", enable_health_check)
         if end_of_life_date is not None:
             pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
             pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+        if manage_actions is not None:
+            pulumi.set(__self__, "manage_actions", manage_actions)
         if replica_count is not None:
             pulumi.set(__self__, "replica_count", replica_count)
         if storage_account_type is not None:
@@ -1122,14 +1122,6 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
         return pulumi.get(self, "source")
 
     @property
-    @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[str]:
-        """
-        Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-        """
-        return pulumi.get(self, "content_type")
-
-    @property
     @pulumi.getter(name="enableHealthCheck")
     def enable_health_check(self) -> Optional[bool]:
         """
@@ -1152,6 +1144,11 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
         If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         """
         return pulumi.get(self, "exclude_from_latest")
+
+    @property
+    @pulumi.getter(name="manageActions")
+    def manage_actions(self) -> Optional['outputs.UserArtifactManageResponse']:
+        return pulumi.get(self, "manage_actions")
 
     @property
     @pulumi.getter(name="replicaCount")
@@ -3463,36 +3460,81 @@ class UpgradePolicyResponse(dict):
 
 
 @pulumi.output_type
+class UserArtifactManageResponse(dict):
+    def __init__(__self__, *,
+                 install: str,
+                 remove: str,
+                 update: Optional[str] = None):
+        """
+        :param str install: Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+        :param str remove: Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+        :param str update: Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+        """
+        pulumi.set(__self__, "install", install)
+        pulumi.set(__self__, "remove", remove)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def install(self) -> str:
+        """
+        Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+        """
+        return pulumi.get(self, "install")
+
+    @property
+    @pulumi.getter
+    def remove(self) -> str:
+        """
+        Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+        """
+        return pulumi.get(self, "remove")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+        """
+        return pulumi.get(self, "update")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class UserArtifactSourceResponse(dict):
     """
     The source image from which the Image Version is going to be created.
     """
     def __init__(__self__, *,
-                 file_name: str,
-                 media_link: str):
+                 media_link: str,
+                 default_configuration_link: Optional[str] = None):
         """
         The source image from which the Image Version is going to be created.
-        :param str file_name: Required. The fileName of the artifact.
-        :param str media_link: Required. The mediaLink of the artifact, must be a readable storage blob.
+        :param str media_link: Required. The mediaLink of the artifact, must be a readable storage page blob.
+        :param str default_configuration_link: Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
         """
-        pulumi.set(__self__, "file_name", file_name)
         pulumi.set(__self__, "media_link", media_link)
-
-    @property
-    @pulumi.getter(name="fileName")
-    def file_name(self) -> str:
-        """
-        Required. The fileName of the artifact.
-        """
-        return pulumi.get(self, "file_name")
+        if default_configuration_link is not None:
+            pulumi.set(__self__, "default_configuration_link", default_configuration_link)
 
     @property
     @pulumi.getter(name="mediaLink")
     def media_link(self) -> str:
         """
-        Required. The mediaLink of the artifact, must be a readable storage blob.
+        Required. The mediaLink of the artifact, must be a readable storage page blob.
         """
         return pulumi.get(self, "media_link")
+
+    @property
+    @pulumi.getter(name="defaultConfigurationLink")
+    def default_configuration_link(self) -> Optional[str]:
+        """
+        Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+        """
+        return pulumi.get(self, "default_configuration_link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

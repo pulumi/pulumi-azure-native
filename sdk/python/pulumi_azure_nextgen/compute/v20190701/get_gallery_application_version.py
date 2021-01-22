@@ -82,7 +82,7 @@ class GetGalleryApplicationVersionResult:
     @pulumi.getter(name="publishingProfile")
     def publishing_profile(self) -> 'outputs.GalleryApplicationVersionPublishingProfileResponse':
         """
-        The publishing profile of a gallery Image Version.
+        The publishing profile of a gallery image version.
         """
         return pulumi.get(self, "publishing_profile")
 

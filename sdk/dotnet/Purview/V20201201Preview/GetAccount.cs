@@ -85,10 +85,6 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Get the network ACLs.
-        /// </summary>
-        public readonly Outputs.NetworkAclsResponse? NetworkAcls;
-        /// <summary>
         /// Gets the private endpoint connections information.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
@@ -96,6 +92,10 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         /// Gets or sets the state of the provisioning.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Gets or sets the public network access.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Gets or sets the Sku.
         /// </summary>
@@ -133,11 +133,11 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
 
             string name,
 
-            Outputs.NetworkAclsResponse? networkAcls,
-
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             Outputs.AccountSkuResponse? sku,
 
@@ -156,9 +156,9 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
             Location = location;
             ManagedResources = managedResources;
             Name = name;
-            NetworkAcls = networkAcls;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             Tags = tags;
             Type = type;

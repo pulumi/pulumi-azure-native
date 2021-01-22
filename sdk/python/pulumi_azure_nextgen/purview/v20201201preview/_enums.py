@@ -5,19 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'DefaultAction',
     'Name',
+    'PublicNetworkAccess',
     'Status',
     'Type',
 ]
-
-
-class DefaultAction(str, Enum):
-    """
-    Gets or sets the default behavior of network ACLs.
-    """
-    ALLOW = "Allow"
-    DENY = "Deny"
 
 
 class Name(str, Enum):
@@ -25,6 +17,15 @@ class Name(str, Enum):
     Gets or sets the sku name.
     """
     STANDARD = "Standard"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Gets or sets the public network access.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class Status(str, Enum):

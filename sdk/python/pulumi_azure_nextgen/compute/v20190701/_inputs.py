@@ -70,6 +70,7 @@ __all__ = [
     'TargetRegionArgs',
     'TerminateNotificationProfileArgs',
     'UpgradePolicyArgs',
+    'UserArtifactManageArgs',
     'UserArtifactSourceArgs',
     'VaultCertificateArgs',
     'VaultSecretGroupArgs',
@@ -970,17 +971,16 @@ class EncryptionSettingsElementArgs:
 class GalleryApplicationVersionPublishingProfileArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['UserArtifactSourceArgs'],
-                 content_type: Optional[pulumi.Input[str]] = None,
                  enable_health_check: Optional[pulumi.Input[bool]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
+                 manage_actions: Optional[pulumi.Input['UserArtifactManageArgs']] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
                  storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]] = None):
         """
-        The publishing profile of a gallery Image Version.
+        The publishing profile of a gallery image version.
         :param pulumi.Input['UserArtifactSourceArgs'] source: The source image from which the Image Version is going to be created.
-        :param pulumi.Input[str] content_type: Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
         :param pulumi.Input[bool] enable_health_check: Optional. Whether or not this application reports health.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
@@ -989,14 +989,14 @@ class GalleryApplicationVersionPublishingProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "source", source)
-        if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
         if enable_health_check is not None:
             pulumi.set(__self__, "enable_health_check", enable_health_check)
         if end_of_life_date is not None:
             pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
             pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+        if manage_actions is not None:
+            pulumi.set(__self__, "manage_actions", manage_actions)
         if replica_count is not None:
             pulumi.set(__self__, "replica_count", replica_count)
         if storage_account_type is not None:
@@ -1015,18 +1015,6 @@ class GalleryApplicationVersionPublishingProfileArgs:
     @source.setter
     def source(self, value: pulumi.Input['UserArtifactSourceArgs']):
         pulumi.set(self, "source", value)
-
-    @property
-    @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-        """
-        return pulumi.get(self, "content_type")
-
-    @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "content_type", value)
 
     @property
     @pulumi.getter(name="enableHealthCheck")
@@ -1063,6 +1051,15 @@ class GalleryApplicationVersionPublishingProfileArgs:
     @exclude_from_latest.setter
     def exclude_from_latest(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "exclude_from_latest", value)
+
+    @property
+    @pulumi.getter(name="manageActions")
+    def manage_actions(self) -> Optional[pulumi.Input['UserArtifactManageArgs']]:
+        return pulumi.get(self, "manage_actions")
+
+    @manage_actions.setter
+    def manage_actions(self, value: Optional[pulumi.Input['UserArtifactManageArgs']]):
+        pulumi.set(self, "manage_actions", value)
 
     @property
     @pulumi.getter(name="replicaCount")
@@ -3385,41 +3382,95 @@ class UpgradePolicyArgs:
 
 
 @pulumi.input_type
-class UserArtifactSourceArgs:
+class UserArtifactManageArgs:
     def __init__(__self__, *,
-                 file_name: pulumi.Input[str],
-                 media_link: pulumi.Input[str]):
+                 install: pulumi.Input[str],
+                 remove: pulumi.Input[str],
+                 update: Optional[pulumi.Input[str]] = None):
         """
-        The source image from which the Image Version is going to be created.
-        :param pulumi.Input[str] file_name: Required. The fileName of the artifact.
-        :param pulumi.Input[str] media_link: Required. The mediaLink of the artifact, must be a readable storage blob.
+        :param pulumi.Input[str] install: Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+        :param pulumi.Input[str] remove: Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+        :param pulumi.Input[str] update: Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
         """
-        pulumi.set(__self__, "file_name", file_name)
-        pulumi.set(__self__, "media_link", media_link)
+        pulumi.set(__self__, "install", install)
+        pulumi.set(__self__, "remove", remove)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
 
     @property
-    @pulumi.getter(name="fileName")
-    def file_name(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def install(self) -> pulumi.Input[str]:
         """
-        Required. The fileName of the artifact.
+        Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
         """
-        return pulumi.get(self, "file_name")
+        return pulumi.get(self, "install")
 
-    @file_name.setter
-    def file_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "file_name", value)
+    @install.setter
+    def install(self, value: pulumi.Input[str]):
+        pulumi.set(self, "install", value)
+
+    @property
+    @pulumi.getter
+    def remove(self) -> pulumi.Input[str]:
+        """
+        Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+        """
+        return pulumi.get(self, "remove")
+
+    @remove.setter
+    def remove(self, value: pulumi.Input[str]):
+        pulumi.set(self, "remove", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
+
+
+@pulumi.input_type
+class UserArtifactSourceArgs:
+    def __init__(__self__, *,
+                 media_link: pulumi.Input[str],
+                 default_configuration_link: Optional[pulumi.Input[str]] = None):
+        """
+        The source image from which the Image Version is going to be created.
+        :param pulumi.Input[str] media_link: Required. The mediaLink of the artifact, must be a readable storage page blob.
+        :param pulumi.Input[str] default_configuration_link: Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+        """
+        pulumi.set(__self__, "media_link", media_link)
+        if default_configuration_link is not None:
+            pulumi.set(__self__, "default_configuration_link", default_configuration_link)
 
     @property
     @pulumi.getter(name="mediaLink")
     def media_link(self) -> pulumi.Input[str]:
         """
-        Required. The mediaLink of the artifact, must be a readable storage blob.
+        Required. The mediaLink of the artifact, must be a readable storage page blob.
         """
         return pulumi.get(self, "media_link")
 
     @media_link.setter
     def media_link(self, value: pulumi.Input[str]):
         pulumi.set(self, "media_link", value)
+
+    @property
+    @pulumi.getter(name="defaultConfigurationLink")
+    def default_configuration_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+        """
+        return pulumi.get(self, "default_configuration_link")
+
+    @default_configuration_link.setter
+    def default_configuration_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_configuration_link", value)
 
 
 @pulumi.input_type

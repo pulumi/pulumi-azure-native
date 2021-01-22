@@ -8,37 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.Purview.V20201201Preview
 {
     /// <summary>
-    /// Gets or sets the default behavior of network ACLs.
-    /// </summary>
-    [EnumType]
-    public readonly struct DefaultAction : IEquatable<DefaultAction>
-    {
-        private readonly string _value;
-
-        private DefaultAction(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DefaultAction Allow { get; } = new DefaultAction("Allow");
-        public static DefaultAction Deny { get; } = new DefaultAction("Deny");
-
-        public static bool operator ==(DefaultAction left, DefaultAction right) => left.Equals(right);
-        public static bool operator !=(DefaultAction left, DefaultAction right) => !left.Equals(right);
-
-        public static explicit operator string(DefaultAction value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DefaultAction other && Equals(other);
-        public bool Equals(DefaultAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Gets or sets the sku name.
     /// </summary>
     [EnumType]
@@ -61,6 +30,38 @@ namespace Pulumi.AzureNextGen.Purview.V20201201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Name other && Equals(other);
         public bool Equals(Name other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the public network access.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess NotSpecified { get; } = new PublicNetworkAccess("NotSpecified");
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

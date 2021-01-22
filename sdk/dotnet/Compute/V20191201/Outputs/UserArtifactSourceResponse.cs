@@ -14,21 +14,21 @@ namespace Pulumi.AzureNextGen.Compute.V20191201.Outputs
     public sealed class UserArtifactSourceResponse
     {
         /// <summary>
-        /// Required. The fileName of the artifact.
+        /// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
         /// </summary>
-        public readonly string FileName;
+        public readonly string? DefaultConfigurationLink;
         /// <summary>
-        /// Required. The mediaLink of the artifact, must be a readable storage blob.
+        /// Required. The mediaLink of the artifact, must be a readable storage page blob.
         /// </summary>
         public readonly string MediaLink;
 
         [OutputConstructor]
         private UserArtifactSourceResponse(
-            string fileName,
+            string? defaultConfigurationLink,
 
             string mediaLink)
         {
-            FileName = fileName;
+            DefaultConfigurationLink = defaultConfigurationLink;
             MediaLink = mediaLink;
         }
     }

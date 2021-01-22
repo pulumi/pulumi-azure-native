@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./customerSubscription";
 export * from "./getCustomerSubscription";
+export * from "./getProduct";
+export * from "./getProducts";
 export * from "./getRegistration";
 export * from "./getRegistrationActivationKey";
 export * from "./listProductDetails";

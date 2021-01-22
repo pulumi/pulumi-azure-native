@@ -18,8 +18,8 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// <summary>
         /// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
         /// </summary>
-        [Input("accessToken", required: true)]
-        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> AccessToken { get; set; } = null!;
+        [Input("accessToken")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? AccessToken { get; set; }
 
         [Input("annotations")]
         private InputList<object>? _annotations;
@@ -32,6 +32,12 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
             get => _annotations ?? (_annotations = new InputList<object>());
             set => _annotations = value;
         }
+
+        /// <summary>
+        /// Required to specify MSI, if using Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("authentication")]
+        public Input<object>? Authentication { get; set; }
 
         /// <summary>
         /// The integration runtime reference.
@@ -165,6 +171,12 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("workspaceResourceId")]
+        public Input<object>? WorkspaceResourceId { get; set; }
 
         public AzureDatabricksLinkedServiceArgs()
         {

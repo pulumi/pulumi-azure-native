@@ -37,7 +37,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] gallery_application_version_name: The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
         :param pulumi.Input[str] gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']] publishing_profile: The publishing profile of a gallery Image Version.
+        :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']] publishing_profile: The publishing profile of a gallery image version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -135,7 +135,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     @pulumi.getter(name="publishingProfile")
     def publishing_profile(self) -> pulumi.Output['outputs.GalleryApplicationVersionPublishingProfileResponse']:
         """
-        The publishing profile of a gallery Image Version.
+        The publishing profile of a gallery image version.
         """
         return pulumi.get(self, "publishing_profile")
 

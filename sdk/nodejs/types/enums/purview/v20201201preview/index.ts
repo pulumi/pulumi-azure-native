@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const DefaultAction = {
-    Allow: "Allow",
-    Deny: "Deny",
-} as const;
-
-/**
- * Gets or sets the default behavior of network ACLs.
- */
-export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
-
 export const Name = {
     Standard: "Standard",
 } as const;
@@ -20,6 +10,17 @@ export const Name = {
  * Gets or sets the sku name.
  */
 export type Name = (typeof Name)[keyof typeof Name];
+
+export const PublicNetworkAccess = {
+    NotSpecified: "NotSpecified",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Gets or sets the public network access.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const Status = {
     Unknown: "Unknown",
