@@ -44,6 +44,15 @@ func NewSqlPoolTransparentDataEncryption(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolTransparentDataEncryption"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlPoolTransparentDataEncryption
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption", name, args, &resource, opts...)
 	if err != nil {

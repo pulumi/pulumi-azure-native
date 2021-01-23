@@ -76,6 +76,15 @@ func NewBigDataPool(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse/latest:BigDataPool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20201201:BigDataPool"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BigDataPool
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:BigDataPool", name, args, &resource, opts...)
 	if err != nil {

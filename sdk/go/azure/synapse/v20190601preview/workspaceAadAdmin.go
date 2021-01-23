@@ -42,6 +42,15 @@ func NewWorkspaceAadAdmin(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse/latest:WorkspaceAadAdmin"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20201201:WorkspaceAadAdmin"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WorkspaceAadAdmin
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin", name, args, &resource, opts...)
 	if err != nil {

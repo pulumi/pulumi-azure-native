@@ -41,6 +41,15 @@ func NewKey(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse/latest:Key"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20201201:Key"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Key
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:Key", name, args, &resource, opts...)
 	if err != nil {

@@ -75,6 +75,15 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse/latest:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20201201:Workspace"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Workspace
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:Workspace", name, args, &resource, opts...)
 	if err != nil {

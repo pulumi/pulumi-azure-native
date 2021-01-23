@@ -44,6 +44,15 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse/latest:IntegrationRuntime"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20201201:IntegrationRuntime"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IntegrationRuntime
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:IntegrationRuntime", name, args, &resource, opts...)
 	if err != nil {
