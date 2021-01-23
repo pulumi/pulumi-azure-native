@@ -61,6 +61,15 @@ func NewSqlPoolWorkloadGroup(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolWorkloadGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlPoolWorkloadGroup
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup", name, args, &resource, opts...)
 	if err != nil {

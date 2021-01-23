@@ -58,6 +58,15 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolWorkloadClassifier"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlPoolWorkloadClassifier
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier", name, args, &resource, opts...)
 	if err != nil {

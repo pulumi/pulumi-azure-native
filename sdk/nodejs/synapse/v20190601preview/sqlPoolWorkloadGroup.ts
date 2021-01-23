@@ -127,6 +127,8 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/latest:SqlPoolWorkloadGroup" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPoolWorkloadGroup.__pulumiType, name, inputs, opts);
     }
 }
