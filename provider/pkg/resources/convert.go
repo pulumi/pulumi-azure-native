@@ -22,6 +22,10 @@ type SdkShapeConverter struct {
 type convertPropValues func(props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{}
 
 func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value interface{}, convertMap convertPropValues) interface{} {
+	if value == nil {
+		return nil
+	}
+
 	switch reflect.TypeOf(value).Kind() {
 	case reflect.Map:
 		// For union types, iterate through types and find the first one that matches the shape.
@@ -66,7 +70,7 @@ func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value inter
 			return value
 		}
 
-		var result []interface{}
+		result := make([]interface{}, 0)
 		s := reflect.ValueOf(value)
 		for i := 0; i < s.Len(); i++ {
 			result = append(result, k.convertPropValue(prop.Items, s.Index(i).Interface(), convertMap))
