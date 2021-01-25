@@ -11,7 +11,9 @@ from ._enums import *
 
 __all__ = [
     'AvailabilitySetResourceSettingsArgs',
+    'DiskEncryptionSetResourceSettingsArgs',
     'IdentityArgs',
+    'KeyVaultResourceSettingsArgs',
     'LBBackendAddressPoolResourceSettingsArgs',
     'LBFrontendIPConfigurationResourceSettingsArgs',
     'LoadBalancerBackendAddressPoolReferenceArgs',
@@ -110,6 +112,46 @@ class AvailabilitySetResourceSettingsArgs:
 
 
 @pulumi.input_type
+class DiskEncryptionSetResourceSettingsArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[str],
+                 target_resource_name: pulumi.Input[str]):
+        """
+        Defines the disk encryption set resource settings.
+        :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Compute/diskEncryptionSets'.
+        :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Compute/diskEncryptionSets')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Compute/diskEncryptionSets'.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @target_resource_name.setter
+    def target_resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_resource_name", value)
+
+
+@pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -163,6 +205,46 @@ class IdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class KeyVaultResourceSettingsArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[str],
+                 target_resource_name: pulumi.Input[str]):
+        """
+        Defines the key vault resource settings.
+        :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.KeyVault/vaults'.
+        :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.KeyVault/vaults')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.KeyVault/vaults'.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @target_resource_name.setter
+    def target_resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_resource_name", value)
 
 
 @pulumi.input_type
@@ -549,13 +631,13 @@ class MoveResourcePropertiesArgs:
                  source_id: pulumi.Input[str],
                  depends_on_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['MoveResourceDependencyOverrideArgs']]]] = None,
                  existing_target_id: Optional[pulumi.Input[str]] = None,
-                 resource_settings: Optional[pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']]] = None):
+                 resource_settings: Optional[pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'DiskEncryptionSetResourceSettingsArgs', 'KeyVaultResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']]] = None):
         """
         Defines the move resource properties.
         :param pulumi.Input[str] source_id: Gets or sets the Source ARM Id of the resource.
         :param pulumi.Input[Sequence[pulumi.Input['MoveResourceDependencyOverrideArgs']]] depends_on_overrides: Gets or sets the move resource dependencies overrides.
         :param pulumi.Input[str] existing_target_id: Gets or sets the existing target ARM Id of the resource.
-        :param pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']] resource_settings: Gets or sets the resource settings.
+        :param pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'DiskEncryptionSetResourceSettingsArgs', 'KeyVaultResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']] resource_settings: Gets or sets the resource settings.
         """
         pulumi.set(__self__, "source_id", source_id)
         if depends_on_overrides is not None:
@@ -603,14 +685,14 @@ class MoveResourcePropertiesArgs:
 
     @property
     @pulumi.getter(name="resourceSettings")
-    def resource_settings(self) -> Optional[pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']]]:
+    def resource_settings(self) -> Optional[pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'DiskEncryptionSetResourceSettingsArgs', 'KeyVaultResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']]]:
         """
         Gets or sets the resource settings.
         """
         return pulumi.get(self, "resource_settings")
 
     @resource_settings.setter
-    def resource_settings(self, value: Optional[pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']]]):
+    def resource_settings(self, value: Optional[pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'DiskEncryptionSetResourceSettingsArgs', 'KeyVaultResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']]]):
         pulumi.set(self, "resource_settings", value)
 
 

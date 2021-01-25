@@ -41,7 +41,7 @@ export interface GetGraphQueryResult {
     /**
      * This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
      */
-    readonly eTag?: string;
+    readonly etag?: string;
     /**
      * Azure resource Id
      */

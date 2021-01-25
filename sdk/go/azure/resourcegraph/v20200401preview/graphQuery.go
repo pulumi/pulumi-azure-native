@@ -18,7 +18,7 @@ type GraphQuery struct {
 	// The description of a graph query.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// This will be used to handle Optimistic Concurrency.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The location of the resource
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
@@ -84,7 +84,7 @@ type graphQueryState struct {
 	// The description of a graph query.
 	Description *string `pulumi:"description"`
 	// This will be used to handle Optimistic Concurrency.
-	ETag *string `pulumi:"eTag"`
+	Etag *string `pulumi:"etag"`
 	// The location of the resource
 	Location *string `pulumi:"location"`
 	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
@@ -107,7 +107,7 @@ type GraphQueryState struct {
 	// The description of a graph query.
 	Description pulumi.StringPtrInput
 	// This will be used to handle Optimistic Concurrency.
-	ETag pulumi.StringPtrInput
+	Etag pulumi.StringPtrInput
 	// The location of the resource
 	Location pulumi.StringPtrInput
 	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
@@ -134,7 +134,7 @@ type graphQueryArgs struct {
 	// The description of a graph query.
 	Description *string `pulumi:"description"`
 	// This will be used to handle Optimistic Concurrency.
-	ETag *string `pulumi:"eTag"`
+	Etag *string `pulumi:"etag"`
 	// KQL query that will be graph.
 	Query string `pulumi:"query"`
 	// The name of the resource group.
@@ -150,7 +150,7 @@ type GraphQueryArgs struct {
 	// The description of a graph query.
 	Description pulumi.StringPtrInput
 	// This will be used to handle Optimistic Concurrency.
-	ETag pulumi.StringPtrInput
+	Etag pulumi.StringPtrInput
 	// KQL query that will be graph.
 	Query pulumi.StringInput
 	// The name of the resource group.

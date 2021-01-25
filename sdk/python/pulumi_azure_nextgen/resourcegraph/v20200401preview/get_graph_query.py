@@ -20,13 +20,13 @@ class GetGraphQueryResult:
     """
     Graph Query entity definition.
     """
-    def __init__(__self__, description=None, e_tag=None, id=None, location=None, name=None, query=None, result_kind=None, system_data=None, tags=None, time_modified=None, type=None):
+    def __init__(__self__, description=None, etag=None, id=None, location=None, name=None, query=None, result_kind=None, system_data=None, tags=None, time_modified=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        pulumi.set(__self__, "e_tag", e_tag)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -64,12 +64,12 @@ class GetGraphQueryResult:
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
         """
         This will be used to handle Optimistic Concurrency.
         """
-        return pulumi.get(self, "e_tag")
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -151,7 +151,7 @@ class AwaitableGetGraphQueryResult(GetGraphQueryResult):
             yield self
         return GetGraphQueryResult(
             description=self.description,
-            e_tag=self.e_tag,
+            etag=self.etag,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -183,7 +183,7 @@ def get_graph_query(resource_group_name: Optional[str] = None,
 
     return AwaitableGetGraphQueryResult(
         description=__ret__.description,
-        e_tag=__ret__.e_tag,
+        etag=__ret__.etag,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
         /// <summary>
         /// This will be used to handle Optimistic Concurrency.
         /// </summary>
-        public readonly string? ETag;
+        public readonly string? Etag;
         /// <summary>
         /// Azure resource Id
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
         private GetGraphQueryResult(
             string? description,
 
-            string? eTag,
+            string? etag,
 
             string id,
 
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
             string type)
         {
             Description = description;
-            ETag = eTag;
+            Etag = etag;
             Id = id;
             Location = location;
             Name = name;

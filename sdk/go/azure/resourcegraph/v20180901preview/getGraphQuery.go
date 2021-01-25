@@ -28,7 +28,7 @@ type LookupGraphQueryResult struct {
 	// The description of a graph query.
 	Description *string `pulumi:"description"`
 	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
-	ETag *string `pulumi:"eTag"`
+	Etag *string `pulumi:"etag"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
 	// The location of the resource

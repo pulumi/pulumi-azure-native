@@ -24,8 +24,8 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20180901Preview
         /// <summary>
         /// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         /// </summary>
-        [Output("eTag")]
-        public Output<string?> ETag { get; private set; } = null!;
+        [Output("etag")]
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource
@@ -127,8 +127,8 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20180901Preview
         /// <summary>
         /// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         /// </summary>
-        [Input("eTag")]
-        public Input<string>? ETag { get; set; }
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
 
         /// <summary>
         /// The location of the resource

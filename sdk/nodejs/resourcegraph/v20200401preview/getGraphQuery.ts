@@ -41,7 +41,7 @@ export interface GetGraphQueryResult {
     /**
      * This will be used to handle Optimistic Concurrency.
      */
-    readonly eTag?: string;
+    readonly etag?: string;
     /**
      * Azure resource Id
      */
