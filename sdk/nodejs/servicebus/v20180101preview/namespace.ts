@@ -40,13 +40,13 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * Enumerates the possible value of keySource for Encryption
+     * Properties of BYOK Encryption description
      */
-    public readonly keySource!: pulumi.Output<string | undefined>;
+    public readonly encryption!: pulumi.Output<outputs.servicebus.v20180101preview.EncryptionResponse | undefined>;
     /**
-     * Properties of KeyVault
+     * Properties of BYOK Identity description
      */
-    public readonly keyVaultProperties!: pulumi.Output<outputs.servicebus.v20180101preview.KeyVaultPropertiesResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.servicebus.v20180101preview.IdentityResponse | undefined>;
     /**
      * The Geo-location where the resource lives
      */
@@ -59,10 +59,6 @@ export class Namespace extends pulumi.CustomResource {
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * ObjectId from the KeyVault
-     */
-    public readonly principalId!: pulumi.Output<string | undefined>;
     /**
      * Provisioning state of the namespace.
      */
@@ -80,13 +76,9 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * TenantId from the KeyVault
-     */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
-    /**
      * Resource type
      */
-    public readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
     /**
      * The time the namespace was updated.
      */
@@ -115,36 +107,32 @@ export class Namespace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["keySource"] = (args ? args.keySource : undefined) || "Microsoft.KeyVault";
-            inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["principalId"] = args ? args.principalId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["type"] = (args ? args.type : undefined) || "SystemAssigned";
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["createdAt"] = undefined /*out*/;
             inputs["metricId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceBusEndpoint"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         } else {
             inputs["createdAt"] = undefined /*out*/;
-            inputs["keySource"] = undefined /*out*/;
-            inputs["keyVaultProperties"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["metricId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["principalId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceBusEndpoint"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
             inputs["zoneRedundant"] = undefined /*out*/;
@@ -167,13 +155,13 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceArgs {
     /**
-     * Enumerates the possible value of keySource for Encryption
+     * Properties of BYOK Encryption description
      */
-    readonly keySource?: pulumi.Input<enums.servicebus.v20180101preview.KeySource>;
+    readonly encryption?: pulumi.Input<inputs.servicebus.v20180101preview.Encryption>;
     /**
-     * Properties of KeyVault
+     * Properties of BYOK Identity description
      */
-    readonly keyVaultProperties?: pulumi.Input<inputs.servicebus.v20180101preview.KeyVaultProperties>;
+    readonly identity?: pulumi.Input<inputs.servicebus.v20180101preview.Identity>;
     /**
      * The Geo-location where the resource lives
      */
@@ -182,10 +170,6 @@ export interface NamespaceArgs {
      * The namespace name.
      */
     readonly namespaceName: pulumi.Input<string>;
-    /**
-     * ObjectId from the KeyVault
-     */
-    readonly principalId?: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -198,14 +182,6 @@ export interface NamespaceArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * TenantId from the KeyVault
-     */
-    readonly tenantId?: pulumi.Input<string>;
-    /**
-     * Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-     */
-    readonly type?: pulumi.Input<enums.servicebus.v20180101preview.IdentityType>;
     /**
      * Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
      */

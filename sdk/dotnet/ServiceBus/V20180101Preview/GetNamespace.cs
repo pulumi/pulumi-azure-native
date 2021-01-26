@@ -44,17 +44,17 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        public readonly Outputs.EncryptionResponse? Encryption;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Enumerates the possible value of keySource for Encryption
+        /// Properties of BYOK Identity description
         /// </summary>
-        public readonly string? KeySource;
-        /// <summary>
-        /// Properties of KeyVault
-        /// </summary>
-        public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The Geo-location where the resource lives
         /// </summary>
@@ -67,10 +67,6 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// Resource name
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// ObjectId from the KeyVault
-        /// </summary>
-        public readonly string? PrincipalId;
         /// <summary>
         /// Provisioning state of the namespace.
         /// </summary>
@@ -88,10 +84,6 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// TenantId from the KeyVault
-        /// </summary>
-        public readonly string? TenantId;
-        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -108,19 +100,17 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         private GetNamespaceResult(
             string createdAt,
 
+            Outputs.EncryptionResponse? encryption,
+
             string id,
 
-            string? keySource,
-
-            Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
+            Outputs.IdentityResponse? identity,
 
             string location,
 
             string metricId,
 
             string name,
-
-            string? principalId,
 
             string provisioningState,
 
@@ -130,8 +120,6 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            string? tenantId,
-
             string type,
 
             string updatedAt,
@@ -139,18 +127,16 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
             bool? zoneRedundant)
         {
             CreatedAt = createdAt;
+            Encryption = encryption;
             Id = id;
-            KeySource = keySource;
-            KeyVaultProperties = keyVaultProperties;
+            Identity = identity;
             Location = location;
             MetricId = metricId;
             Name = name;
-            PrincipalId = principalId;
             ProvisioningState = provisioningState;
             ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
             Tags = tags;
-            TenantId = tenantId;
             Type = type;
             UpdatedAt = updatedAt;
             ZoneRedundant = zoneRedundant;

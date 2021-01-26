@@ -29,16 +29,16 @@ type LookupNamespaceResult struct {
 	ClusterArmId *string `pulumi:"clusterArmId"`
 	// The time the Namespace was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// Properties of BYOK Encryption description
+	Encryption *EncryptionResponse `pulumi:"encryption"`
 	// Resource ID.
 	Id string `pulumi:"id"`
+	// Properties of BYOK Identity description
+	Identity *IdentityResponse `pulumi:"identity"`
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
 	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
-	// Enumerates the possible value of keySource for Encryption
-	KeySource *string `pulumi:"keySource"`
-	// Properties of KeyVault
-	KeyVaultProperties []KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
@@ -47,8 +47,6 @@ type LookupNamespaceResult struct {
 	MetricId string `pulumi:"metricId"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// ObjectId from the KeyVault
-	PrincipalId *string `pulumi:"principalId"`
 	// Provisioning state of the Namespace.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
@@ -57,8 +55,6 @@ type LookupNamespaceResult struct {
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// TenantId from the KeyVault
-	TenantId *string `pulumi:"tenantId"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The time the Namespace was updated.
