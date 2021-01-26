@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801.Inputs
         /// The type of kek encryption key
         /// </summary>
         [Input("kekType")]
-        public Input<string>? KekType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ImportExport.V20200801.EncryptionKekType>? KekType { get; set; }
 
         /// <summary>
         /// Specifies the url for kek encryption key. 

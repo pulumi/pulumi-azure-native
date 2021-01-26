@@ -35,6 +35,8 @@ type LookupJobResult struct {
 	Name string `pulumi:"name"`
 	// Specifies the job properties
 	Properties JobDetailsResponse `pulumi:"properties"`
+	// SystemData of ImportExport Jobs.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Specifies the tags that are assigned to the job.
 	Tags interface{} `pulumi:"tags"`
 	// Specifies the type of the job resource.

@@ -29,6 +29,8 @@ class ConditionalOperator(str, Enum):
     """
     Evaluation operation for rule - 'GreaterThan' or 'LessThan.
     """
+    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
+    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
     GREATER_THAN = "GreaterThan"
     LESS_THAN = "LessThan"
     EQUAL = "Equal"

@@ -45,13 +45,25 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The display name of the alert rule
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
      */
     public readonly evaluationFrequency!: pulumi.Output<string>;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     */
+    public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -64,6 +76,10 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+     */
+    public readonly overrideQueryTimeRange!: pulumi.Output<string | undefined>;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
@@ -129,10 +145,12 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["actions"] = args ? args.actions : undefined;
             inputs["criteria"] = args ? args.criteria : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["muteActionsDuration"] = args ? args.muteActionsDuration : undefined;
+            inputs["overrideQueryTimeRange"] = args ? args.overrideQueryTimeRange : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["ruleName"] = args ? args.ruleName : undefined;
             inputs["scopes"] = args ? args.scopes : undefined;
@@ -140,17 +158,23 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceTypes"] = args ? args.targetResourceTypes : undefined;
             inputs["windowSize"] = args ? args.windowSize : undefined;
+            inputs["etag"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["actions"] = undefined /*out*/;
             inputs["criteria"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["evaluationFrequency"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["muteActionsDuration"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["overrideQueryTimeRange"] = undefined /*out*/;
             inputs["scopes"] = undefined /*out*/;
             inputs["severity"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -185,6 +209,10 @@ export interface ScheduledQueryRuleArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
+     * The display name of the alert rule
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
     readonly enabled: pulumi.Input<boolean>;
@@ -200,6 +228,10 @@ export interface ScheduledQueryRuleArgs {
      * Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
      */
     readonly muteActionsDuration?: pulumi.Input<string>;
+    /**
+     * If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+     */
+    readonly overrideQueryTimeRange?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

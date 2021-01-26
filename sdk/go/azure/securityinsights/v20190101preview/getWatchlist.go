@@ -67,10 +67,14 @@ type LookupWatchlistResult struct {
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist
 	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
+	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+	UploadStatus *string `pulumi:"uploadStatus"`
 	// The alias of the watchlist
 	WatchlistAlias *string `pulumi:"watchlistAlias"`
 	// The id (a Guid) of the watchlist
 	WatchlistId *string `pulumi:"watchlistId"`
+	// The number of Watchlist Items in the Watchlist
+	WatchlistItemsCount *int `pulumi:"watchlistItemsCount"`
 	// The type of the watchlist
 	WatchlistType *string `pulumi:"watchlistType"`
 }

@@ -31,16 +31,34 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The display name of the alert rule
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         /// </summary>
         [Output("evaluationFrequency")]
         public Output<string> EvaluationFrequency { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -59,6 +77,12 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+        /// </summary>
+        [Output("overrideQueryTimeRange")]
+        public Output<string?> OverrideQueryTimeRange { get; private set; } = null!;
 
         /// <summary>
         /// The list of resource id's that this scheduled query rule is scoped to.
@@ -167,6 +191,12 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The display name of the alert rule
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
         [Input("enabled", required: true)]
@@ -189,6 +219,12 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// </summary>
         [Input("muteActionsDuration")]
         public Input<string>? MuteActionsDuration { get; set; }
+
+        /// <summary>
+        /// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+        /// </summary>
+        [Input("overrideQueryTimeRange")]
+        public Input<string>? OverrideQueryTimeRange { get; set; }
 
         /// <summary>
         /// The name of the resource group.

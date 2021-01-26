@@ -25,12 +25,11 @@ class Route(pulumi.CustomResource):
                  forwarding_protocol: Optional[pulumi.Input[Union[str, 'ForwardingProtocol']]] = None,
                  https_redirect: Optional[pulumi.Input[Union[str, 'HttpsRedirect']]] = None,
                  link_to_default_domain: Optional[pulumi.Input[Union[str, 'LinkToDefaultDomain']]] = None,
-                 optimization_type: Optional[pulumi.Input[Union[str, 'OptimizationType']]] = None,
                  origin_group: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  origin_path: Optional[pulumi.Input[str]] = None,
                  patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
-                 query_string_caching_behavior: Optional[pulumi.Input['QueryStringCachingBehavior']] = None,
+                 query_string_caching_behavior: Optional[pulumi.Input['AfdQueryStringCachingBehavior']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
                  rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
@@ -51,12 +50,11 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ForwardingProtocol']] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
         :param pulumi.Input[Union[str, 'HttpsRedirect']] https_redirect: Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
         :param pulumi.Input[Union[str, 'LinkToDefaultDomain']] link_to_default_domain: whether this route will be linked to the default endpoint domain.
-        :param pulumi.Input[Union[str, 'OptimizationType']] optimization_type: Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] origin_group: A reference to the origin group.
         :param pulumi.Input[str] origin_path: A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_match: The route patterns of the rule.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
-        :param pulumi.Input['QueryStringCachingBehavior'] query_string_caching_behavior: Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        :param pulumi.Input['AfdQueryStringCachingBehavior'] query_string_caching_behavior: Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] route_name: Name of the routing rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] rule_sets: rule sets referenced by this endpoint.
@@ -88,7 +86,6 @@ class Route(pulumi.CustomResource):
             __props__['forwarding_protocol'] = forwarding_protocol
             __props__['https_redirect'] = https_redirect
             __props__['link_to_default_domain'] = link_to_default_domain
-            __props__['optimization_type'] = optimization_type
             if origin_group is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_group'")
             __props__['origin_group'] = origin_group
@@ -199,14 +196,6 @@ class Route(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="optimizationType")
-    def optimization_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-        """
-        return pulumi.get(self, "optimization_type")
-
-    @property
     @pulumi.getter(name="originGroup")
     def origin_group(self) -> pulumi.Output['outputs.ResourceReferenceResponse']:
         """
@@ -242,7 +231,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="queryStringCachingBehavior")
     def query_string_caching_behavior(self) -> pulumi.Output[Optional[str]]:
         """
-        Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         """
         return pulumi.get(self, "query_string_caching_behavior")
 

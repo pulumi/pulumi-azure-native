@@ -294,12 +294,12 @@ class DriveStatusArgs:
 @pulumi.input_type
 class EncryptionKeyDetailsArgs:
     def __init__(__self__, *,
-                 kek_type: Optional[pulumi.Input[str]] = None,
+                 kek_type: Optional[pulumi.Input[Union[str, 'EncryptionKekType']]] = None,
                  kek_url: Optional[pulumi.Input[str]] = None,
                  kek_vault_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Specifies the encryption key properties
-        :param pulumi.Input[str] kek_type: The type of kek encryption key
+        :param pulumi.Input[Union[str, 'EncryptionKekType']] kek_type: The type of kek encryption key
         :param pulumi.Input[str] kek_url: Specifies the url for kek encryption key. 
         :param pulumi.Input[str] kek_vault_resource_id: Specifies the keyvault resource id for kek encryption key. 
         """
@@ -314,14 +314,14 @@ class EncryptionKeyDetailsArgs:
 
     @property
     @pulumi.getter(name="kekType")
-    def kek_type(self) -> Optional[pulumi.Input[str]]:
+    def kek_type(self) -> Optional[pulumi.Input[Union[str, 'EncryptionKekType']]]:
         """
         The type of kek encryption key
         """
         return pulumi.get(self, "kek_type")
 
     @kek_type.setter
-    def kek_type(self, value: Optional[pulumi.Input[str]]):
+    def kek_type(self, value: Optional[pulumi.Input[Union[str, 'EncryptionKekType']]]):
         pulumi.set(self, "kek_type", value)
 
     @property
@@ -955,107 +955,65 @@ class ReturnShippingArgs:
 @pulumi.input_type
 class ShippingInformationArgs:
     def __init__(__self__, *,
-                 city: pulumi.Input[str],
-                 country_or_region: pulumi.Input[str],
-                 postal_code: pulumi.Input[str],
-                 recipient_name: pulumi.Input[str],
-                 state_or_province: pulumi.Input[str],
-                 street_address1: pulumi.Input[str],
+                 city: Optional[pulumi.Input[str]] = None,
+                 country_or_region: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
+                 postal_code: Optional[pulumi.Input[str]] = None,
+                 recipient_name: Optional[pulumi.Input[str]] = None,
+                 state_or_province: Optional[pulumi.Input[str]] = None,
+                 street_address1: Optional[pulumi.Input[str]] = None,
                  street_address2: Optional[pulumi.Input[str]] = None):
         """
         Contains information about the Microsoft datacenter to which the drives should be shipped.
         :param pulumi.Input[str] city: The city name to use when returning the drives.
         :param pulumi.Input[str] country_or_region: The country or region to use when returning the drives. 
+        :param pulumi.Input[str] phone: Phone number of the recipient of the returned drives.
         :param pulumi.Input[str] postal_code: The postal code to use when returning the drives.
         :param pulumi.Input[str] recipient_name: The name of the recipient who will receive the hard drives when they are returned. 
         :param pulumi.Input[str] state_or_province: The state or province to use when returning the drives.
         :param pulumi.Input[str] street_address1: The first line of the street address to use when returning the drives. 
-        :param pulumi.Input[str] phone: Phone number of the recipient of the returned drives.
         :param pulumi.Input[str] street_address2: The second line of the street address to use when returning the drives. 
         """
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country_or_region", country_or_region)
-        pulumi.set(__self__, "postal_code", postal_code)
-        pulumi.set(__self__, "recipient_name", recipient_name)
-        pulumi.set(__self__, "state_or_province", state_or_province)
-        pulumi.set(__self__, "street_address1", street_address1)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if country_or_region is not None:
+            pulumi.set(__self__, "country_or_region", country_or_region)
         if phone is not None:
             pulumi.set(__self__, "phone", phone)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if recipient_name is not None:
+            pulumi.set(__self__, "recipient_name", recipient_name)
+        if state_or_province is not None:
+            pulumi.set(__self__, "state_or_province", state_or_province)
+        if street_address1 is not None:
+            pulumi.set(__self__, "street_address1", street_address1)
         if street_address2 is not None:
             pulumi.set(__self__, "street_address2", street_address2)
 
     @property
     @pulumi.getter
-    def city(self) -> pulumi.Input[str]:
+    def city(self) -> Optional[pulumi.Input[str]]:
         """
         The city name to use when returning the drives.
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: pulumi.Input[str]):
+    def city(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "city", value)
 
     @property
     @pulumi.getter(name="countryOrRegion")
-    def country_or_region(self) -> pulumi.Input[str]:
+    def country_or_region(self) -> Optional[pulumi.Input[str]]:
         """
         The country or region to use when returning the drives. 
         """
         return pulumi.get(self, "country_or_region")
 
     @country_or_region.setter
-    def country_or_region(self, value: pulumi.Input[str]):
+    def country_or_region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "country_or_region", value)
-
-    @property
-    @pulumi.getter(name="postalCode")
-    def postal_code(self) -> pulumi.Input[str]:
-        """
-        The postal code to use when returning the drives.
-        """
-        return pulumi.get(self, "postal_code")
-
-    @postal_code.setter
-    def postal_code(self, value: pulumi.Input[str]):
-        pulumi.set(self, "postal_code", value)
-
-    @property
-    @pulumi.getter(name="recipientName")
-    def recipient_name(self) -> pulumi.Input[str]:
-        """
-        The name of the recipient who will receive the hard drives when they are returned. 
-        """
-        return pulumi.get(self, "recipient_name")
-
-    @recipient_name.setter
-    def recipient_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "recipient_name", value)
-
-    @property
-    @pulumi.getter(name="stateOrProvince")
-    def state_or_province(self) -> pulumi.Input[str]:
-        """
-        The state or province to use when returning the drives.
-        """
-        return pulumi.get(self, "state_or_province")
-
-    @state_or_province.setter
-    def state_or_province(self, value: pulumi.Input[str]):
-        pulumi.set(self, "state_or_province", value)
-
-    @property
-    @pulumi.getter(name="streetAddress1")
-    def street_address1(self) -> pulumi.Input[str]:
-        """
-        The first line of the street address to use when returning the drives. 
-        """
-        return pulumi.get(self, "street_address1")
-
-    @street_address1.setter
-    def street_address1(self, value: pulumi.Input[str]):
-        pulumi.set(self, "street_address1", value)
 
     @property
     @pulumi.getter
@@ -1068,6 +1026,54 @@ class ShippingInformationArgs:
     @phone.setter
     def phone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "phone", value)
+
+    @property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The postal code to use when returning the drives.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @postal_code.setter
+    def postal_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "postal_code", value)
+
+    @property
+    @pulumi.getter(name="recipientName")
+    def recipient_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the recipient who will receive the hard drives when they are returned. 
+        """
+        return pulumi.get(self, "recipient_name")
+
+    @recipient_name.setter
+    def recipient_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recipient_name", value)
+
+    @property
+    @pulumi.getter(name="stateOrProvince")
+    def state_or_province(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state or province to use when returning the drives.
+        """
+        return pulumi.get(self, "state_or_province")
+
+    @state_or_province.setter
+    def state_or_province(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state_or_province", value)
+
+    @property
+    @pulumi.getter(name="streetAddress1")
+    def street_address1(self) -> Optional[pulumi.Input[str]]:
+        """
+        The first line of the street address to use when returning the drives. 
+        """
+        return pulumi.get(self, "street_address1")
+
+    @street_address1.setter
+    def street_address1(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "street_address1", value)
 
     @property
     @pulumi.getter(name="streetAddress2")

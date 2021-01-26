@@ -18,14 +18,14 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Inputs
         /// <summary>
         /// The city name to use when returning the drives.
         /// </summary>
-        [Input("city", required: true)]
-        public Input<string> City { get; set; } = null!;
+        [Input("city")]
+        public Input<string>? City { get; set; }
 
         /// <summary>
         /// The country or region to use when returning the drives. 
         /// </summary>
-        [Input("countryOrRegion", required: true)]
-        public Input<string> CountryOrRegion { get; set; } = null!;
+        [Input("countryOrRegion")]
+        public Input<string>? CountryOrRegion { get; set; }
 
         /// <summary>
         /// Phone number of the recipient of the returned drives.
@@ -36,26 +36,26 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Inputs
         /// <summary>
         /// The postal code to use when returning the drives.
         /// </summary>
-        [Input("postalCode", required: true)]
-        public Input<string> PostalCode { get; set; } = null!;
+        [Input("postalCode")]
+        public Input<string>? PostalCode { get; set; }
 
         /// <summary>
         /// The name of the recipient who will receive the hard drives when they are returned. 
         /// </summary>
-        [Input("recipientName", required: true)]
-        public Input<string> RecipientName { get; set; } = null!;
+        [Input("recipientName")]
+        public Input<string>? RecipientName { get; set; }
 
         /// <summary>
         /// The state or province to use when returning the drives.
         /// </summary>
-        [Input("stateOrProvince", required: true)]
-        public Input<string> StateOrProvince { get; set; } = null!;
+        [Input("stateOrProvince")]
+        public Input<string>? StateOrProvince { get; set; }
 
         /// <summary>
         /// The first line of the street address to use when returning the drives. 
         /// </summary>
-        [Input("streetAddress1", required: true)]
-        public Input<string> StreetAddress1 { get; set; } = null!;
+        [Input("streetAddress1")]
+        public Input<string>? StreetAddress1 { get; set; }
 
         /// <summary>
         /// The second line of the street address to use when returning the drives. 

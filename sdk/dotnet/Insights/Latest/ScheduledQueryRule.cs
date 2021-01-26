@@ -29,10 +29,28 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The display name of the alert rule
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         /// </summary>
         [Output("enabled")]
         public Output<string?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
         /// Last time the rule was updated in IS08601 format.
@@ -143,6 +161,12 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The display name of the alert rule
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false

@@ -27,12 +27,16 @@ type LookupJobArgs struct {
 type LookupJobResult struct {
 	// Specifies the resource identifier of the job.
 	Id string `pulumi:"id"`
+	// Specifies the job identity details
+	Identity *IdentityDetailsResponse `pulumi:"identity"`
 	// Specifies the Azure location where the job is created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the job.
 	Name string `pulumi:"name"`
 	// Specifies the job properties
 	Properties JobDetailsResponse `pulumi:"properties"`
+	// SystemData of ImportExport Jobs.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Specifies the tags that are assigned to the job.
 	Tags interface{} `pulumi:"tags"`
 	// Specifies the type of the job resource.

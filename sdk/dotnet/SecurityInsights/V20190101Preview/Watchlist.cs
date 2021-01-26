@@ -124,6 +124,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Output<Outputs.UserInfoResponse?> UpdatedBy { get; private set; } = null!;
 
         /// <summary>
+        /// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        /// </summary>
+        [Output("uploadStatus")]
+        public Output<string?> UploadStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The alias of the watchlist
         /// </summary>
         [Output("watchlistAlias")]
@@ -134,6 +140,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         [Output("watchlistId")]
         public Output<string?> WatchlistId { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of Watchlist Items in the Watchlist
+        /// </summary>
+        [Output("watchlistItemsCount")]
+        public Output<int?> WatchlistItemsCount { get; private set; } = null!;
 
         /// <summary>
         /// The type of the watchlist
@@ -301,6 +313,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public Input<Inputs.UserInfoArgs>? UpdatedBy { get; set; }
 
         /// <summary>
+        /// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        /// </summary>
+        [Input("uploadStatus")]
+        public Input<string>? UploadStatus { get; set; }
+
+        /// <summary>
         /// The alias of the watchlist
         /// </summary>
         [Input("watchlistAlias", required: true)]
@@ -311,6 +329,12 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         [Input("watchlistId")]
         public Input<string>? WatchlistId { get; set; }
+
+        /// <summary>
+        /// The number of Watchlist Items in the Watchlist
+        /// </summary>
+        [Input("watchlistItemsCount")]
+        public Input<int>? WatchlistItemsCount { get; set; }
 
         /// <summary>
         /// The type of the watchlist

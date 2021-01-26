@@ -36,8 +36,10 @@ class Watchlist(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  updated: Optional[pulumi.Input[str]] = None,
                  updated_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
+                 upload_status: Optional[pulumi.Input[str]] = None,
                  watchlist_alias: Optional[pulumi.Input[str]] = None,
                  watchlist_id: Optional[pulumi.Input[str]] = None,
+                 watchlist_items_count: Optional[pulumi.Input[int]] = None,
                  watchlist_type: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -66,8 +68,10 @@ class Watchlist(pulumi.CustomResource):
         :param pulumi.Input[str] tenant_id: The tenantId where the watchlist belongs to
         :param pulumi.Input[str] updated: The last time the watchlist was updated
         :param pulumi.Input[pulumi.InputType['UserInfoArgs']] updated_by: Describes a user that updated the watchlist
+        :param pulumi.Input[str] upload_status: The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
         :param pulumi.Input[str] watchlist_alias: The alias of the watchlist
         :param pulumi.Input[str] watchlist_id: The id (a Guid) of the watchlist
+        :param pulumi.Input[int] watchlist_items_count: The number of Watchlist Items in the Watchlist
         :param pulumi.Input[str] watchlist_type: The type of the watchlist
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -116,10 +120,12 @@ class Watchlist(pulumi.CustomResource):
             __props__['tenant_id'] = tenant_id
             __props__['updated'] = updated
             __props__['updated_by'] = updated_by
+            __props__['upload_status'] = upload_status
             if watchlist_alias is None and not opts.urn:
                 raise TypeError("Missing required property 'watchlist_alias'")
             __props__['watchlist_alias'] = watchlist_alias
             __props__['watchlist_id'] = watchlist_id
+            __props__['watchlist_items_count'] = watchlist_items_count
             __props__['watchlist_type'] = watchlist_type
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
@@ -295,6 +301,14 @@ class Watchlist(pulumi.CustomResource):
         return pulumi.get(self, "updated_by")
 
     @property
+    @pulumi.getter(name="uploadStatus")
+    def upload_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        """
+        return pulumi.get(self, "upload_status")
+
+    @property
     @pulumi.getter(name="watchlistAlias")
     def watchlist_alias(self) -> pulumi.Output[Optional[str]]:
         """
@@ -309,6 +323,14 @@ class Watchlist(pulumi.CustomResource):
         The id (a Guid) of the watchlist
         """
         return pulumi.get(self, "watchlist_id")
+
+    @property
+    @pulumi.getter(name="watchlistItemsCount")
+    def watchlist_items_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of Watchlist Items in the Watchlist
+        """
+        return pulumi.get(self, "watchlist_items_count")
 
     @property
     @pulumi.getter(name="watchlistType")

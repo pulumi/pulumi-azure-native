@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview.Inputs
     public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        /// Sku Name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

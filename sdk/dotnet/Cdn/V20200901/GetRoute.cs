@@ -85,10 +85,6 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-        /// </summary>
-        public readonly string? OptimizationType;
-        /// <summary>
         /// A reference to the origin group.
         /// </summary>
         public readonly Outputs.ResourceReferenceResponse OriginGroup;
@@ -105,7 +101,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        /// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         /// </summary>
         public readonly string? QueryStringCachingBehavior;
         /// <summary>
@@ -145,8 +141,6 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
             string name,
 
-            string? optimizationType,
-
             Outputs.ResourceReferenceResponse originGroup,
 
             string? originPath,
@@ -174,7 +168,6 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
             Id = id;
             LinkToDefaultDomain = linkToDefaultDomain;
             Name = name;
-            OptimizationType = optimizationType;
             OriginGroup = originGroup;
             OriginPath = originPath;
             PatternsToMatch = patternsToMatch;

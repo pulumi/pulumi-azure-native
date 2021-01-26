@@ -20,6 +20,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[Union[pulumi.InputType['AlertingActionArgs'], pulumi.InputType['LogToMetricActionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[Union[str, 'Enabled']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AlertingActionArgs'], pulumi.InputType['LogToMetricActionArgs']]] action: Action needs to be taken on rule execution.
         :param pulumi.Input[str] description: The description of the Log Search rule.
+        :param pulumi.Input[str] display_name: The display name of the alert rule
         :param pulumi.Input[Union[str, 'Enabled']] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -67,6 +69,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'action'")
             __props__['action'] = action
             __props__['description'] = description
+            __props__['display_name'] = display_name
             __props__['enabled'] = enabled
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
@@ -82,6 +85,8 @@ class ScheduledQueryRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['tags'] = tags
+            __props__['etag'] = None
+            __props__['kind'] = None
             __props__['last_updated_time'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
@@ -129,12 +134,36 @@ class ScheduledQueryRule(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the alert rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[str]]:
         """
         The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[str]:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")

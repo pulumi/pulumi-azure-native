@@ -30,8 +30,6 @@ type Route struct {
 	LinkToDefaultDomain pulumi.StringPtrOutput `pulumi:"linkToDefaultDomain"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-	OptimizationType pulumi.StringPtrOutput `pulumi:"optimizationType"`
 	// A reference to the origin group.
 	OriginGroup ResourceReferenceResponseOutput `pulumi:"originGroup"`
 	// A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
@@ -40,7 +38,7 @@ type Route struct {
 	PatternsToMatch pulumi.StringArrayOutput `pulumi:"patternsToMatch"`
 	// Provisioning status
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
 	QueryStringCachingBehavior pulumi.StringPtrOutput `pulumi:"queryStringCachingBehavior"`
 	// rule sets referenced by this endpoint.
 	RuleSets ResourceReferenceResponseArrayOutput `pulumi:"ruleSets"`
@@ -117,8 +115,6 @@ type routeState struct {
 	LinkToDefaultDomain *string `pulumi:"linkToDefaultDomain"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-	OptimizationType *string `pulumi:"optimizationType"`
 	// A reference to the origin group.
 	OriginGroup *ResourceReferenceResponse `pulumi:"originGroup"`
 	// A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
@@ -127,7 +123,7 @@ type routeState struct {
 	PatternsToMatch []string `pulumi:"patternsToMatch"`
 	// Provisioning status
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// rule sets referenced by this endpoint.
 	RuleSets []ResourceReferenceResponse `pulumi:"ruleSets"`
@@ -155,8 +151,6 @@ type RouteState struct {
 	LinkToDefaultDomain pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-	OptimizationType pulumi.StringPtrInput
 	// A reference to the origin group.
 	OriginGroup ResourceReferenceResponsePtrInput
 	// A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
@@ -165,7 +159,7 @@ type RouteState struct {
 	PatternsToMatch pulumi.StringArrayInput
 	// Provisioning status
 	ProvisioningState pulumi.StringPtrInput
-	// Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
 	QueryStringCachingBehavior pulumi.StringPtrInput
 	// rule sets referenced by this endpoint.
 	RuleSets ResourceReferenceResponseArrayInput
@@ -196,8 +190,6 @@ type routeArgs struct {
 	HttpsRedirect *string `pulumi:"httpsRedirect"`
 	// whether this route will be linked to the default endpoint domain.
 	LinkToDefaultDomain *string `pulumi:"linkToDefaultDomain"`
-	// Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-	OptimizationType *string `pulumi:"optimizationType"`
 	// A reference to the origin group.
 	OriginGroup ResourceReference `pulumi:"originGroup"`
 	// A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
@@ -206,7 +198,7 @@ type routeArgs struct {
 	PatternsToMatch []string `pulumi:"patternsToMatch"`
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
-	// Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -234,8 +226,6 @@ type RouteArgs struct {
 	HttpsRedirect pulumi.StringPtrInput
 	// whether this route will be linked to the default endpoint domain.
 	LinkToDefaultDomain pulumi.StringPtrInput
-	// Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-	OptimizationType pulumi.StringPtrInput
 	// A reference to the origin group.
 	OriginGroup ResourceReferenceInput
 	// A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
@@ -244,8 +234,8 @@ type RouteArgs struct {
 	PatternsToMatch pulumi.StringArrayInput
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
-	// Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior QueryStringCachingBehavior
+	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+	QueryStringCachingBehavior AfdQueryStringCachingBehavior
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the routing rule.

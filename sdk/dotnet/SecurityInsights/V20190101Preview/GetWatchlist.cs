@@ -128,6 +128,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         public readonly Outputs.UserInfoResponse? UpdatedBy;
         /// <summary>
+        /// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        /// </summary>
+        public readonly string? UploadStatus;
+        /// <summary>
         /// The alias of the watchlist
         /// </summary>
         public readonly string? WatchlistAlias;
@@ -135,6 +139,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// The id (a Guid) of the watchlist
         /// </summary>
         public readonly string? WatchlistId;
+        /// <summary>
+        /// The number of Watchlist Items in the Watchlist
+        /// </summary>
+        public readonly int? WatchlistItemsCount;
         /// <summary>
         /// The type of the watchlist
         /// </summary>
@@ -180,9 +188,13 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
             Outputs.UserInfoResponse? updatedBy,
 
+            string? uploadStatus,
+
             string? watchlistAlias,
 
             string? watchlistId,
+
+            int? watchlistItemsCount,
 
             string? watchlistType)
         {
@@ -205,8 +217,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
             Type = type;
             Updated = updated;
             UpdatedBy = updatedBy;
+            UploadStatus = uploadStatus;
             WatchlistAlias = watchlistAlias;
             WatchlistId = watchlistId;
+            WatchlistItemsCount = watchlistItemsCount;
             WatchlistType = watchlistType;
         }
     }

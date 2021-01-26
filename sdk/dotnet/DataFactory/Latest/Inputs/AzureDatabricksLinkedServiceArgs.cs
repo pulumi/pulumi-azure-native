@@ -166,6 +166,12 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         }
 
         /// <summary>
+        /// The policy id for limiting the ability to configure clusters based on a user defined set of rules. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("policyId")]
+        public Input<object>? PolicyId { get; set; }
+
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureDatabricks'.
         /// </summary>

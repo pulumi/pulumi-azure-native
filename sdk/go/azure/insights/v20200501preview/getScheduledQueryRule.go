@@ -30,18 +30,26 @@ type LookupScheduledQueryRuleResult struct {
 	Criteria ScheduledQueryRuleCriteriaResponse `pulumi:"criteria"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
+	// The display name of the alert rule
+	DisplayName *string `pulumi:"displayName"`
 	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
 	Enabled bool `pulumi:"enabled"`
+	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+	Etag string `pulumi:"etag"`
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency string `pulumi:"evaluationFrequency"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
 	MuteActionsDuration *string `pulumi:"muteActionsDuration"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+	OverrideQueryTimeRange *string `pulumi:"overrideQueryTimeRange"`
 	// The list of resource id's that this scheduled query rule is scoped to.
 	Scopes []string `pulumi:"scopes"`
 	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest

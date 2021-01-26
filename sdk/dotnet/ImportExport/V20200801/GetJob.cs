@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
         /// </summary>
         public readonly Outputs.JobDetailsResponse Properties;
         /// <summary>
+        /// SystemData of ImportExport Jobs.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Specifies the tags that are assigned to the job.
         /// </summary>
         public readonly object? Tags;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
 
             Outputs.JobDetailsResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             object? tags,
 
             string type)
@@ -89,6 +95,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

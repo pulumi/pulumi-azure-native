@@ -62,12 +62,6 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-        /// </summary>
-        [Output("optimizationType")]
-        public Output<string?> OptimizationType { get; private set; } = null!;
-
-        /// <summary>
         /// A reference to the origin group.
         /// </summary>
         [Output("originGroup")]
@@ -92,7 +86,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        /// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         /// </summary>
         [Output("queryStringCachingBehavior")]
         public Output<string?> QueryStringCachingBehavior { get; private set; } = null!;
@@ -225,12 +219,6 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         public InputUnion<string, Pulumi.AzureNextGen.Cdn.Latest.LinkToDefaultDomain>? LinkToDefaultDomain { get; set; }
 
         /// <summary>
-        /// Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-        /// </summary>
-        [Input("optimizationType")]
-        public InputUnion<string, Pulumi.AzureNextGen.Cdn.Latest.OptimizationType>? OptimizationType { get; set; }
-
-        /// <summary>
         /// A reference to the origin group.
         /// </summary>
         [Input("originGroup", required: true)]
@@ -261,10 +249,10 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        /// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         /// </summary>
         [Input("queryStringCachingBehavior")]
-        public Input<Pulumi.AzureNextGen.Cdn.Latest.QueryStringCachingBehavior>? QueryStringCachingBehavior { get; set; }
+        public Input<Pulumi.AzureNextGen.Cdn.Latest.AfdQueryStringCachingBehavior>? QueryStringCachingBehavior { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

@@ -134,6 +134,38 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
     }
 
     /// <summary>
+    /// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+    /// </summary>
+    [EnumType]
+    public readonly struct AfdQueryStringCachingBehavior : IEquatable<AfdQueryStringCachingBehavior>
+    {
+        private readonly string _value;
+
+        private AfdQueryStringCachingBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AfdQueryStringCachingBehavior IgnoreQueryString { get; } = new AfdQueryStringCachingBehavior("IgnoreQueryString");
+        public static AfdQueryStringCachingBehavior UseQueryString { get; } = new AfdQueryStringCachingBehavior("UseQueryString");
+        public static AfdQueryStringCachingBehavior NotSet { get; } = new AfdQueryStringCachingBehavior("NotSet");
+
+        public static bool operator ==(AfdQueryStringCachingBehavior left, AfdQueryStringCachingBehavior right) => left.Equals(right);
+        public static bool operator !=(AfdQueryStringCachingBehavior left, AfdQueryStringCachingBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(AfdQueryStringCachingBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AfdQueryStringCachingBehavior other && Equals(other);
+        public bool Equals(AfdQueryStringCachingBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Algorithm to use for URL signing
     /// </summary>
     [EnumType]
@@ -791,7 +823,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
     }
 
     /// <summary>
-    /// Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
+    /// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
     /// </summary>
     [EnumType]
     public readonly struct OptimizationType : IEquatable<OptimizationType>
@@ -1023,7 +1055,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
     }
 
     /// <summary>
-    /// Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+    /// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
     /// </summary>
     [EnumType]
     public readonly struct QueryStringCachingBehavior : IEquatable<QueryStringCachingBehavior>

@@ -63,7 +63,9 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['identity'] = None
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:importexport/latest:Job"), pulumi.Alias(type_="azure-nextgen:importexport/v20200801:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -93,6 +95,14 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityDetailsResponse']]:
+        """
+        Specifies the job identity details
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Azure location where the job is created.
@@ -114,6 +124,14 @@ class Job(pulumi.CustomResource):
         Specifies the job properties
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        SystemData of ImportExport Jobs.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

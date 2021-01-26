@@ -3936,19 +3936,19 @@ func (o ReturnShippingResponsePtrOutput) CarrierName() pulumi.StringPtrOutput {
 // Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformation struct {
 	// The city name to use when returning the drives.
-	City string `pulumi:"city"`
+	City *string `pulumi:"city"`
 	// The country or region to use when returning the drives.
-	CountryOrRegion string `pulumi:"countryOrRegion"`
+	CountryOrRegion *string `pulumi:"countryOrRegion"`
 	// Phone number of the recipient of the returned drives.
 	Phone *string `pulumi:"phone"`
 	// The postal code to use when returning the drives.
-	PostalCode string `pulumi:"postalCode"`
+	PostalCode *string `pulumi:"postalCode"`
 	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName string `pulumi:"recipientName"`
+	RecipientName *string `pulumi:"recipientName"`
 	// The state or province to use when returning the drives.
-	StateOrProvince string `pulumi:"stateOrProvince"`
+	StateOrProvince *string `pulumi:"stateOrProvince"`
 	// The first line of the street address to use when returning the drives.
-	StreetAddress1 string `pulumi:"streetAddress1"`
+	StreetAddress1 *string `pulumi:"streetAddress1"`
 	// The second line of the street address to use when returning the drives.
 	StreetAddress2 *string `pulumi:"streetAddress2"`
 }
@@ -3967,19 +3967,19 @@ type ShippingInformationInput interface {
 // Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformationArgs struct {
 	// The city name to use when returning the drives.
-	City pulumi.StringInput `pulumi:"city"`
+	City pulumi.StringPtrInput `pulumi:"city"`
 	// The country or region to use when returning the drives.
-	CountryOrRegion pulumi.StringInput `pulumi:"countryOrRegion"`
+	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
 	// Phone number of the recipient of the returned drives.
 	Phone pulumi.StringPtrInput `pulumi:"phone"`
 	// The postal code to use when returning the drives.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
+	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
 	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName pulumi.StringInput `pulumi:"recipientName"`
+	RecipientName pulumi.StringPtrInput `pulumi:"recipientName"`
 	// The state or province to use when returning the drives.
-	StateOrProvince pulumi.StringInput `pulumi:"stateOrProvince"`
+	StateOrProvince pulumi.StringPtrInput `pulumi:"stateOrProvince"`
 	// The first line of the street address to use when returning the drives.
-	StreetAddress1 pulumi.StringInput `pulumi:"streetAddress1"`
+	StreetAddress1 pulumi.StringPtrInput `pulumi:"streetAddress1"`
 	// The second line of the street address to use when returning the drives.
 	StreetAddress2 pulumi.StringPtrInput `pulumi:"streetAddress2"`
 }
@@ -4063,13 +4063,13 @@ func (o ShippingInformationOutput) ToShippingInformationPtrOutputWithContext(ctx
 }
 
 // The city name to use when returning the drives.
-func (o ShippingInformationOutput) City() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformation) string { return v.City }).(pulumi.StringOutput)
+func (o ShippingInformationOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformation) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
 // The country or region to use when returning the drives.
-func (o ShippingInformationOutput) CountryOrRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformation) string { return v.CountryOrRegion }).(pulumi.StringOutput)
+func (o ShippingInformationOutput) CountryOrRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformation) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
 }
 
 // Phone number of the recipient of the returned drives.
@@ -4078,23 +4078,23 @@ func (o ShippingInformationOutput) Phone() pulumi.StringPtrOutput {
 }
 
 // The postal code to use when returning the drives.
-func (o ShippingInformationOutput) PostalCode() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformation) string { return v.PostalCode }).(pulumi.StringOutput)
+func (o ShippingInformationOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformation) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
 // The name of the recipient who will receive the hard drives when they are returned.
-func (o ShippingInformationOutput) RecipientName() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformation) string { return v.RecipientName }).(pulumi.StringOutput)
+func (o ShippingInformationOutput) RecipientName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformation) *string { return v.RecipientName }).(pulumi.StringPtrOutput)
 }
 
 // The state or province to use when returning the drives.
-func (o ShippingInformationOutput) StateOrProvince() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformation) string { return v.StateOrProvince }).(pulumi.StringOutput)
+func (o ShippingInformationOutput) StateOrProvince() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformation) *string { return v.StateOrProvince }).(pulumi.StringPtrOutput)
 }
 
 // The first line of the street address to use when returning the drives.
-func (o ShippingInformationOutput) StreetAddress1() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformation) string { return v.StreetAddress1 }).(pulumi.StringOutput)
+func (o ShippingInformationOutput) StreetAddress1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformation) *string { return v.StreetAddress1 }).(pulumi.StringPtrOutput)
 }
 
 // The second line of the street address to use when returning the drives.
@@ -4126,7 +4126,7 @@ func (o ShippingInformationPtrOutput) City() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.City
+		return v.City
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4136,7 +4136,7 @@ func (o ShippingInformationPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.CountryOrRegion
+		return v.CountryOrRegion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4156,7 +4156,7 @@ func (o ShippingInformationPtrOutput) PostalCode() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.PostalCode
+		return v.PostalCode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4166,7 +4166,7 @@ func (o ShippingInformationPtrOutput) RecipientName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.RecipientName
+		return v.RecipientName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4176,7 +4176,7 @@ func (o ShippingInformationPtrOutput) StateOrProvince() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.StateOrProvince
+		return v.StateOrProvince
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4186,7 +4186,7 @@ func (o ShippingInformationPtrOutput) StreetAddress1() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.StreetAddress1
+		return v.StreetAddress1
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4205,19 +4205,19 @@ type ShippingInformationResponse struct {
 	// Additional shipping information for customer, specific to datacenter to which customer should send their disks.
 	AdditionalInformation string `pulumi:"additionalInformation"`
 	// The city name to use when returning the drives.
-	City string `pulumi:"city"`
+	City *string `pulumi:"city"`
 	// The country or region to use when returning the drives.
-	CountryOrRegion string `pulumi:"countryOrRegion"`
+	CountryOrRegion *string `pulumi:"countryOrRegion"`
 	// Phone number of the recipient of the returned drives.
 	Phone *string `pulumi:"phone"`
 	// The postal code to use when returning the drives.
-	PostalCode string `pulumi:"postalCode"`
+	PostalCode *string `pulumi:"postalCode"`
 	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName string `pulumi:"recipientName"`
+	RecipientName *string `pulumi:"recipientName"`
 	// The state or province to use when returning the drives.
-	StateOrProvince string `pulumi:"stateOrProvince"`
+	StateOrProvince *string `pulumi:"stateOrProvince"`
 	// The first line of the street address to use when returning the drives.
-	StreetAddress1 string `pulumi:"streetAddress1"`
+	StreetAddress1 *string `pulumi:"streetAddress1"`
 	// The second line of the street address to use when returning the drives.
 	StreetAddress2 *string `pulumi:"streetAddress2"`
 }
@@ -4238,19 +4238,19 @@ type ShippingInformationResponseArgs struct {
 	// Additional shipping information for customer, specific to datacenter to which customer should send their disks.
 	AdditionalInformation pulumi.StringInput `pulumi:"additionalInformation"`
 	// The city name to use when returning the drives.
-	City pulumi.StringInput `pulumi:"city"`
+	City pulumi.StringPtrInput `pulumi:"city"`
 	// The country or region to use when returning the drives.
-	CountryOrRegion pulumi.StringInput `pulumi:"countryOrRegion"`
+	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
 	// Phone number of the recipient of the returned drives.
 	Phone pulumi.StringPtrInput `pulumi:"phone"`
 	// The postal code to use when returning the drives.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
+	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
 	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName pulumi.StringInput `pulumi:"recipientName"`
+	RecipientName pulumi.StringPtrInput `pulumi:"recipientName"`
 	// The state or province to use when returning the drives.
-	StateOrProvince pulumi.StringInput `pulumi:"stateOrProvince"`
+	StateOrProvince pulumi.StringPtrInput `pulumi:"stateOrProvince"`
 	// The first line of the street address to use when returning the drives.
-	StreetAddress1 pulumi.StringInput `pulumi:"streetAddress1"`
+	StreetAddress1 pulumi.StringPtrInput `pulumi:"streetAddress1"`
 	// The second line of the street address to use when returning the drives.
 	StreetAddress2 pulumi.StringPtrInput `pulumi:"streetAddress2"`
 }
@@ -4339,13 +4339,13 @@ func (o ShippingInformationResponseOutput) AdditionalInformation() pulumi.String
 }
 
 // The city name to use when returning the drives.
-func (o ShippingInformationResponseOutput) City() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformationResponse) string { return v.City }).(pulumi.StringOutput)
+func (o ShippingInformationResponseOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
 // The country or region to use when returning the drives.
-func (o ShippingInformationResponseOutput) CountryOrRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformationResponse) string { return v.CountryOrRegion }).(pulumi.StringOutput)
+func (o ShippingInformationResponseOutput) CountryOrRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
 }
 
 // Phone number of the recipient of the returned drives.
@@ -4354,23 +4354,23 @@ func (o ShippingInformationResponseOutput) Phone() pulumi.StringPtrOutput {
 }
 
 // The postal code to use when returning the drives.
-func (o ShippingInformationResponseOutput) PostalCode() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformationResponse) string { return v.PostalCode }).(pulumi.StringOutput)
+func (o ShippingInformationResponseOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
 // The name of the recipient who will receive the hard drives when they are returned.
-func (o ShippingInformationResponseOutput) RecipientName() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformationResponse) string { return v.RecipientName }).(pulumi.StringOutput)
+func (o ShippingInformationResponseOutput) RecipientName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.RecipientName }).(pulumi.StringPtrOutput)
 }
 
 // The state or province to use when returning the drives.
-func (o ShippingInformationResponseOutput) StateOrProvince() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformationResponse) string { return v.StateOrProvince }).(pulumi.StringOutput)
+func (o ShippingInformationResponseOutput) StateOrProvince() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.StateOrProvince }).(pulumi.StringPtrOutput)
 }
 
 // The first line of the street address to use when returning the drives.
-func (o ShippingInformationResponseOutput) StreetAddress1() pulumi.StringOutput {
-	return o.ApplyT(func(v ShippingInformationResponse) string { return v.StreetAddress1 }).(pulumi.StringOutput)
+func (o ShippingInformationResponseOutput) StreetAddress1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.StreetAddress1 }).(pulumi.StringPtrOutput)
 }
 
 // The second line of the street address to use when returning the drives.
@@ -4412,7 +4412,7 @@ func (o ShippingInformationResponsePtrOutput) City() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.City
+		return v.City
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4422,7 +4422,7 @@ func (o ShippingInformationResponsePtrOutput) CountryOrRegion() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return &v.CountryOrRegion
+		return v.CountryOrRegion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4442,7 +4442,7 @@ func (o ShippingInformationResponsePtrOutput) PostalCode() pulumi.StringPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return &v.PostalCode
+		return v.PostalCode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4452,7 +4452,7 @@ func (o ShippingInformationResponsePtrOutput) RecipientName() pulumi.StringPtrOu
 		if v == nil {
 			return nil
 		}
-		return &v.RecipientName
+		return v.RecipientName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4462,7 +4462,7 @@ func (o ShippingInformationResponsePtrOutput) StateOrProvince() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return &v.StateOrProvince
+		return v.StateOrProvince
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4472,7 +4472,7 @@ func (o ShippingInformationResponsePtrOutput) StreetAddress1() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return &v.StreetAddress1
+		return v.StreetAddress1
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4483,6 +4483,235 @@ func (o ShippingInformationResponsePtrOutput) StreetAddress2() pulumi.StringPtrO
 			return nil
 		}
 		return v.StreetAddress2
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4527,4 +4756,6 @@ func init() {
 	pulumi.RegisterOutputType(ShippingInformationPtrOutput{})
 	pulumi.RegisterOutputType(ShippingInformationResponseOutput{})
 	pulumi.RegisterOutputType(ShippingInformationResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'DriveState',
+    'EncryptionKekType',
 ]
 
 
@@ -20,3 +21,11 @@ class DriveState(str, Enum):
     COMPLETED = "Completed"
     COMPLETED_MORE_INFO = "CompletedMoreInfo"
     SHIPPED_BACK = "ShippedBack"
+
+
+class EncryptionKekType(str, Enum):
+    """
+    The type of kek encryption key
+    """
+    MICROSOFT_MANAGED = "MicrosoftManaged"
+    CUSTOMER_MANAGED = "CustomerManaged"

@@ -7831,6 +7831,7 @@ class AzureDatabricksLinkedServiceArgs:
                  new_cluster_spark_env_vars: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  new_cluster_version: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 policy_id: Optional[Any] = None,
                  workspace_resource_id: Optional[Any] = None):
         """
         Azure Databricks linked service.
@@ -7856,6 +7857,7 @@ class AzureDatabricksLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, Any]] new_cluster_spark_env_vars: A set of optional, user-specified Spark environment variables key-value pairs.
         :param Any new_cluster_version: If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param Any policy_id: The policy id for limiting the ability to configure clusters based on a user defined set of rules. Type: string (or Expression with resultType string).
         :param Any workspace_resource_id: Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "domain", domain)
@@ -7898,6 +7900,8 @@ class AzureDatabricksLinkedServiceArgs:
             pulumi.set(__self__, "new_cluster_version", new_cluster_version)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
         if workspace_resource_id is not None:
             pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
@@ -8153,6 +8157,18 @@ class AzureDatabricksLinkedServiceArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[Any]:
+        """
+        The policy id for limiting the ability to configure clusters based on a user defined set of rules. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[Any]):
+        pulumi.set(self, "policy_id", value)
 
     @property
     @pulumi.getter(name="workspaceResourceId")
@@ -19490,6 +19506,7 @@ class CustomActivityArgs:
                  command: Any,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 auto_user_specification: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  extended_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -19506,6 +19523,7 @@ class CustomActivityArgs:
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
                Expected value is 'Execution'.
+        :param Any auto_user_specification: Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Mapping[str, Any]] extended_properties: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
@@ -19520,6 +19538,8 @@ class CustomActivityArgs:
         pulumi.set(__self__, "command", command)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
+        if auto_user_specification is not None:
+            pulumi.set(__self__, "auto_user_specification", auto_user_specification)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -19577,6 +19597,18 @@ class CustomActivityArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="autoUserSpecification")
+    def auto_user_specification(self) -> Optional[Any]:
+        """
+        Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
+        """
+        return pulumi.get(self, "auto_user_specification")
+
+    @auto_user_specification.setter
+    def auto_user_specification(self, value: Optional[Any]):
+        pulumi.set(self, "auto_user_specification", value)
 
     @property
     @pulumi.getter(name="dependsOn")

@@ -26,4 +26,5 @@ from . import (
     v20200401preview,
     v20200701preview,
     v20200901,
+    v20201001preview,
 )

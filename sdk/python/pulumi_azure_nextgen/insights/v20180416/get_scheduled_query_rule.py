@@ -20,19 +20,28 @@ class GetScheduledQueryRuleResult:
     """
     The Log Search Rule resource.
     """
-    def __init__(__self__, action=None, description=None, enabled=None, id=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
+    def __init__(__self__, action=None, description=None, display_name=None, enabled=None, etag=None, id=None, kind=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
         pulumi.set(__self__, "action", action)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
         if enabled and not isinstance(enabled, str):
             raise TypeError("Expected argument 'enabled' to be a str")
         pulumi.set(__self__, "enabled", enabled)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -75,6 +84,14 @@ class GetScheduledQueryRuleResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the alert rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
     @pulumi.getter
     def enabled(self) -> Optional[str]:
         """
@@ -84,11 +101,27 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
+    def etag(self) -> str:
+        """
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         Azure resource Id
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -163,8 +196,11 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
         return GetScheduledQueryRuleResult(
             action=self.action,
             description=self.description,
+            display_name=self.display_name,
             enabled=self.enabled,
+            etag=self.etag,
             id=self.id,
+            kind=self.kind,
             last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
@@ -196,8 +232,11 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
     return AwaitableGetScheduledQueryRuleResult(
         action=__ret__.action,
         description=__ret__.description,
+        display_name=__ret__.display_name,
         enabled=__ret__.enabled,
+        etag=__ret__.etag,
         id=__ret__.id,
+        kind=__ret__.kind,
         last_updated_time=__ret__.last_updated_time,
         location=__ret__.location,
         name=__ret__.name,

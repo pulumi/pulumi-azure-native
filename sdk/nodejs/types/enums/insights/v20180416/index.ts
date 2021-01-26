@@ -16,6 +16,8 @@ export const AlertSeverity = {
 export type AlertSeverity = (typeof AlertSeverity)[keyof typeof AlertSeverity];
 
 export const ConditionalOperator = {
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    LessThanOrEqual: "LessThanOrEqual",
     GreaterThan: "GreaterThan",
     LessThan: "LessThan",
     Equal: "Equal",

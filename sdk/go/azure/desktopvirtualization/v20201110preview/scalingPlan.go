@@ -55,6 +55,12 @@ func NewScalingPlan(ctx *pulumi.Context,
 	if args.ScalingPlanName == nil {
 		return nil, errors.New("invalid value for required argument 'ScalingPlanName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:ScalingPlan"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ScalingPlan
 	err := ctx.RegisterResource("azure-nextgen:desktopvirtualization/v20201110preview:ScalingPlan", name, args, &resource, opts...)
 	if err != nil {

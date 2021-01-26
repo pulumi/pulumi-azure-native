@@ -6447,6 +6447,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
                  new_cluster_spark_env_vars: Optional[Mapping[str, Any]] = None,
                  new_cluster_version: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 policy_id: Optional[Any] = None,
                  workspace_resource_id: Optional[Any] = None):
         """
         Azure Databricks linked service.
@@ -6472,6 +6473,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
         :param Mapping[str, Any] new_cluster_spark_env_vars: A set of optional, user-specified Spark environment variables key-value pairs.
         :param Any new_cluster_version: If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Any policy_id: The policy id for limiting the ability to configure clusters based on a user defined set of rules. Type: string (or Expression with resultType string).
         :param Any workspace_resource_id: Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "domain", domain)
@@ -6514,6 +6516,8 @@ class AzureDatabricksLinkedServiceResponse(dict):
             pulumi.set(__self__, "new_cluster_version", new_cluster_version)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
         if workspace_resource_id is not None:
             pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
@@ -6685,6 +6689,14 @@ class AzureDatabricksLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[Any]:
+        """
+        The policy id for limiting the ability to configure clusters based on a user defined set of rules. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "policy_id")
 
     @property
     @pulumi.getter(name="workspaceResourceId")
@@ -15938,6 +15950,7 @@ class CustomActivityResponse(dict):
                  command: Any,
                  name: str,
                  type: str,
+                 auto_user_specification: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  extended_properties: Optional[Mapping[str, Any]] = None,
@@ -15954,6 +15967,7 @@ class CustomActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Execution'.
+        :param Any auto_user_specification: Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
         :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Mapping[str, Any] extended_properties: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
@@ -15968,6 +15982,8 @@ class CustomActivityResponse(dict):
         pulumi.set(__self__, "command", command)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
+        if auto_user_specification is not None:
+            pulumi.set(__self__, "auto_user_specification", auto_user_specification)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -16013,6 +16029,14 @@ class CustomActivityResponse(dict):
         Expected value is 'Execution'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="autoUserSpecification")
+    def auto_user_specification(self) -> Optional[Any]:
+        """
+        Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
+        """
+        return pulumi.get(self, "auto_user_specification")
 
     @property
     @pulumi.getter(name="dependsOn")

@@ -187,6 +187,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ConditionalOperator GreaterThanOrEqual { get; } = new ConditionalOperator("GreaterThanOrEqual");
+        public static ConditionalOperator LessThanOrEqual { get; } = new ConditionalOperator("LessThanOrEqual");
         public static ConditionalOperator GreaterThan { get; } = new ConditionalOperator("GreaterThan");
         public static ConditionalOperator LessThan { get; } = new ConditionalOperator("LessThan");
         public static ConditionalOperator Equal { get; } = new ConditionalOperator("Equal");

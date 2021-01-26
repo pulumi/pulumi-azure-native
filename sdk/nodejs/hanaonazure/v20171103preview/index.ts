@@ -6,16 +6,13 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./getHanaInstance";
-export * from "./getSapMonitor";
 export * from "./hanaInstance";
-export * from "./sapMonitor";
 
 // Export enums:
 export * from "../../types/enums/hanaonazure/v20171103preview";
 
 // Import resources to register:
 import { HanaInstance } from "./hanaInstance";
-import { SapMonitor } from "./sapMonitor";
 
 const _module = {
     version: utilities.getVersion(),
@@ -23,8 +20,6 @@ const _module = {
         switch (type) {
             case "azure-nextgen:hanaonazure/v20171103preview:HanaInstance":
                 return new HanaInstance(name, <any>undefined, { urn })
-            case "azure-nextgen:hanaonazure/v20171103preview:SapMonitor":
-                return new SapMonitor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

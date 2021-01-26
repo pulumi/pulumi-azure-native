@@ -21,10 +21,12 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionArgs']]]]] = None,
                  criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_duration: Optional[pulumi.Input[str]] = None,
+                 override_query_time_range: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -42,10 +44,12 @@ class ScheduledQueryRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']] criteria: The rule criteria that defines the conditions of the scheduled query rule.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
+        :param pulumi.Input[str] display_name: The display name of the alert rule
         :param pulumi.Input[bool] enabled: The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+        :param pulumi.Input[str] override_query_time_range: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
@@ -76,6 +80,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'criteria'")
             __props__['criteria'] = criteria
             __props__['description'] = description
+            __props__['display_name'] = display_name
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
@@ -86,6 +91,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['mute_actions_duration'] = mute_actions_duration
+            __props__['override_query_time_range'] = override_query_time_range
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -103,6 +109,8 @@ class ScheduledQueryRule(pulumi.CustomResource):
             if window_size is None and not opts.urn:
                 raise TypeError("Missing required property 'window_size'")
             __props__['window_size'] = window_size
+            __props__['etag'] = None
+            __props__['kind'] = None
             __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/latest:ScheduledQueryRule"), pulumi.Alias(type_="azure-nextgen:insights/v20180416:ScheduledQueryRule")])
@@ -153,6 +161,14 @@ class ScheduledQueryRule(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the alert rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
         """
@@ -161,12 +177,28 @@ class ScheduledQueryRule(pulumi.CustomResource):
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        """
+        return pulumi.get(self, "etag")
+
+    @property
     @pulumi.getter(name="evaluationFrequency")
     def evaluation_frequency(self) -> pulumi.Output[str]:
         """
         How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         """
         return pulumi.get(self, "evaluation_frequency")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[str]:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -191,6 +223,14 @@ class ScheduledQueryRule(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="overrideQueryTimeRange")
+    def override_query_time_range(self) -> pulumi.Output[Optional[str]]:
+        """
+        If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+        """
+        return pulumi.get(self, "override_query_time_range")
 
     @property
     @pulumi.getter

@@ -65,6 +65,7 @@ class Job(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['identity'] = None
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:importexport/latest:Job"), pulumi.Alias(type_="azure-nextgen:importexport/v20161101:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -123,6 +124,14 @@ class Job(pulumi.CustomResource):
         Specifies the job properties
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        SystemData of ImportExport Jobs.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

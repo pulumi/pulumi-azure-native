@@ -489,11 +489,8 @@ class CustomerCertificateParametersResponse(dict):
                  secret_source: 'outputs.ResourceReferenceResponse',
                  type: str,
                  certificate_authority: Optional[str] = None,
-                 expiration_date: Optional[str] = None,
                  secret_version: Optional[str] = None,
-                 subject: Optional[str] = None,
                  subject_alternative_names: Optional[Sequence[str]] = None,
-                 thumbprint: Optional[str] = None,
                  use_latest_version: Optional[bool] = None):
         """
         Customer Certificate used for https
@@ -501,27 +498,18 @@ class CustomerCertificateParametersResponse(dict):
         :param str type: The type of the Secret to create.
                Expected value is 'CustomerCertificate'.
         :param str certificate_authority: Certificate issuing authority.
-        :param str expiration_date: Certificate expiration date.
         :param str secret_version: Version of the secret to be used
-        :param str subject: Subject name in the certificate.
         :param Sequence[str] subject_alternative_names: The list of SANs.
-        :param str thumbprint: Certificate thumbprint.
         :param bool use_latest_version: Whether to use the latest version for the certificate
         """
         pulumi.set(__self__, "secret_source", secret_source)
         pulumi.set(__self__, "type", 'CustomerCertificate')
         if certificate_authority is not None:
             pulumi.set(__self__, "certificate_authority", certificate_authority)
-        if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
         if secret_version is not None:
             pulumi.set(__self__, "secret_version", secret_version)
-        if subject is not None:
-            pulumi.set(__self__, "subject", subject)
         if subject_alternative_names is not None:
             pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
         if use_latest_version is not None:
             pulumi.set(__self__, "use_latest_version", use_latest_version)
 
@@ -551,14 +539,6 @@ class CustomerCertificateParametersResponse(dict):
         return pulumi.get(self, "certificate_authority")
 
     @property
-    @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[str]:
-        """
-        Certificate expiration date.
-        """
-        return pulumi.get(self, "expiration_date")
-
-    @property
     @pulumi.getter(name="secretVersion")
     def secret_version(self) -> Optional[str]:
         """
@@ -567,28 +547,12 @@ class CustomerCertificateParametersResponse(dict):
         return pulumi.get(self, "secret_version")
 
     @property
-    @pulumi.getter
-    def subject(self) -> Optional[str]:
-        """
-        Subject name in the certificate.
-        """
-        return pulumi.get(self, "subject")
-
-    @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[Sequence[str]]:
         """
         The list of SANs.
         """
         return pulumi.get(self, "subject_alternative_names")
-
-    @property
-    @pulumi.getter
-    def thumbprint(self) -> Optional[str]:
-        """
-        Certificate thumbprint.
-        """
-        return pulumi.get(self, "thumbprint")
 
     @property
     @pulumi.getter(name="useLatestVersion")
@@ -2131,25 +2095,13 @@ class ManagedCertificateParametersResponse(dict):
     Managed Certificate used for https
     """
     def __init__(__self__, *,
-                 type: str,
-                 expiration_date: Optional[str] = None,
-                 subject: Optional[str] = None,
-                 thumbprint: Optional[str] = None):
+                 type: str):
         """
         Managed Certificate used for https
         :param str type: The type of the Secret to create.
                Expected value is 'ManagedCertificate'.
-        :param str expiration_date: Certificate expiration date.
-        :param str subject: Subject name in the certificate.
-        :param str thumbprint: Certificate thumbprint.
         """
         pulumi.set(__self__, "type", 'ManagedCertificate')
-        if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
-        if subject is not None:
-            pulumi.set(__self__, "subject", subject)
-        if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
 
     @property
     @pulumi.getter
@@ -2159,30 +2111,6 @@ class ManagedCertificateParametersResponse(dict):
         Expected value is 'ManagedCertificate'.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[str]:
-        """
-        Certificate expiration date.
-        """
-        return pulumi.get(self, "expiration_date")
-
-    @property
-    @pulumi.getter
-    def subject(self) -> Optional[str]:
-        """
-        Subject name in the certificate.
-        """
-        return pulumi.get(self, "subject")
-
-    @property
-    @pulumi.getter
-    def thumbprint(self) -> Optional[str]:
-        """
-        Certificate thumbprint.
-        """
-        return pulumi.get(self, "thumbprint")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

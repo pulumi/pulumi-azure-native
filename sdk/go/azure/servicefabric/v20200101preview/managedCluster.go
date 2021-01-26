@@ -15,6 +15,8 @@ import (
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 
+	// client certificates for the cluster.
+	AddonFeatures pulumi.StringArrayOutput `pulumi:"addonFeatures"`
 	// vm admin user password.
 	AdminPassword pulumi.StringPtrOutput `pulumi:"adminPassword"`
 	// vm admin user name.
@@ -32,25 +34,7 @@ type ManagedCluster struct {
 	// A service generated unique identifier for the cluster resource.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// The current state of the cluster.
-	//
-	//   - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
-	//   - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
-	//   - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
-	//   - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
-	//   - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
-	//   - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
-	//   - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
-	//   - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
-	//   - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
-	//   - Ready - Indicates that the cluster is in a stable state.
 	ClusterState pulumi.StringOutput `pulumi:"clusterState"`
-	// Describes the policy used when upgrading the cluster.
-	ClusterUpgradeDescription ClusterUpgradePolicyResponsePtrOutput `pulumi:"clusterUpgradeDescription"`
-	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
-	//
-	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-	ClusterUpgradeMode pulumi.StringPtrOutput `pulumi:"clusterUpgradeMode"`
 	// The cluster dns name.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Azure resource etag.
@@ -127,6 +111,8 @@ func GetManagedCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedCluster resources.
 type managedClusterState struct {
+	// client certificates for the cluster.
+	AddonFeatures []string `pulumi:"addonFeatures"`
 	// vm admin user password.
 	AdminPassword *string `pulumi:"adminPassword"`
 	// vm admin user name.
@@ -144,25 +130,7 @@ type managedClusterState struct {
 	// A service generated unique identifier for the cluster resource.
 	ClusterId *string `pulumi:"clusterId"`
 	// The current state of the cluster.
-	//
-	//   - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
-	//   - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
-	//   - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
-	//   - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
-	//   - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
-	//   - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
-	//   - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
-	//   - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
-	//   - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
-	//   - Ready - Indicates that the cluster is in a stable state.
 	ClusterState *string `pulumi:"clusterState"`
-	// Describes the policy used when upgrading the cluster.
-	ClusterUpgradeDescription *ClusterUpgradePolicyResponse `pulumi:"clusterUpgradeDescription"`
-	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
-	//
-	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-	ClusterUpgradeMode *string `pulumi:"clusterUpgradeMode"`
 	// The cluster dns name.
 	DnsName *string `pulumi:"dnsName"`
 	// Azure resource etag.
@@ -190,6 +158,8 @@ type managedClusterState struct {
 }
 
 type ManagedClusterState struct {
+	// client certificates for the cluster.
+	AddonFeatures pulumi.StringArrayInput
 	// vm admin user password.
 	AdminPassword pulumi.StringPtrInput
 	// vm admin user name.
@@ -207,25 +177,7 @@ type ManagedClusterState struct {
 	// A service generated unique identifier for the cluster resource.
 	ClusterId pulumi.StringPtrInput
 	// The current state of the cluster.
-	//
-	//   - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
-	//   - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
-	//   - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
-	//   - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
-	//   - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
-	//   - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
-	//   - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
-	//   - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
-	//   - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
-	//   - Ready - Indicates that the cluster is in a stable state.
 	ClusterState pulumi.StringPtrInput
-	// Describes the policy used when upgrading the cluster.
-	ClusterUpgradeDescription ClusterUpgradePolicyResponsePtrInput
-	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
-	//
-	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-	ClusterUpgradeMode pulumi.StringPtrInput
 	// The cluster dns name.
 	DnsName pulumi.StringPtrInput
 	// Azure resource etag.
@@ -257,6 +209,8 @@ func (ManagedClusterState) ElementType() reflect.Type {
 }
 
 type managedClusterArgs struct {
+	// client certificates for the cluster.
+	AddonFeatures []string `pulumi:"addonFeatures"`
 	// vm admin user password.
 	AdminPassword *string `pulumi:"adminPassword"`
 	// vm admin user name.
@@ -271,13 +225,6 @@ type managedClusterArgs struct {
 	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
 	// The name of the cluster resource.
 	ClusterName string `pulumi:"clusterName"`
-	// Describes the policy used when upgrading the cluster.
-	ClusterUpgradeDescription *ClusterUpgradePolicy `pulumi:"clusterUpgradeDescription"`
-	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
-	//
-	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-	ClusterUpgradeMode *string `pulumi:"clusterUpgradeMode"`
 	// The cluster dns name.
 	DnsName string `pulumi:"dnsName"`
 	// The list of custom fabric settings to configure the cluster.
@@ -298,6 +245,8 @@ type managedClusterArgs struct {
 
 // The set of arguments for constructing a ManagedCluster resource.
 type ManagedClusterArgs struct {
+	// client certificates for the cluster.
+	AddonFeatures pulumi.StringArrayInput
 	// vm admin user password.
 	AdminPassword pulumi.StringPtrInput
 	// vm admin user name.
@@ -312,13 +261,6 @@ type ManagedClusterArgs struct {
 	ClusterCodeVersion pulumi.StringPtrInput
 	// The name of the cluster resource.
 	ClusterName pulumi.StringInput
-	// Describes the policy used when upgrading the cluster.
-	ClusterUpgradeDescription ClusterUpgradePolicyPtrInput
-	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
-	//
-	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-	ClusterUpgradeMode pulumi.StringPtrInput
 	// The cluster dns name.
 	DnsName pulumi.StringInput
 	// The list of custom fabric settings to configure the cluster.

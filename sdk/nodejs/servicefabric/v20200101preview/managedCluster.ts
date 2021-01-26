@@ -36,6 +36,10 @@ export class ManagedCluster extends pulumi.CustomResource {
     }
 
     /**
+     * client certificates for the cluster.
+     */
+    public readonly addonFeatures!: pulumi.Output<string[] | undefined>;
+    /**
      * vm admin user password.
      */
     public readonly adminPassword!: pulumi.Output<string | undefined>;
@@ -69,30 +73,8 @@ export class ManagedCluster extends pulumi.CustomResource {
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
     /**
      * The current state of the cluster.
-     *
-     *   - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
-     *   - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
-     *   - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
-     *   - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
-     *   - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
-     *   - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
-     *   - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
-     *   - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
-     *   - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
-     *   - Ready - Indicates that the cluster is in a stable state.
      */
     public /*out*/ readonly clusterState!: pulumi.Output<string>;
-    /**
-     * Describes the policy used when upgrading the cluster.
-     */
-    public readonly clusterUpgradeDescription!: pulumi.Output<outputs.servicefabric.v20200101preview.ClusterUpgradePolicyResponse | undefined>;
-    /**
-     * The upgrade mode of the cluster when new Service Fabric runtime version is available.
-     *
-     *   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-     *   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-     */
-    public readonly clusterUpgradeMode!: pulumi.Output<string | undefined>;
     /**
      * The cluster dns name.
      */
@@ -167,6 +149,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["addonFeatures"] = args ? args.addonFeatures : undefined;
             inputs["adminPassword"] = args ? args.adminPassword : undefined;
             inputs["adminUserName"] = args ? args.adminUserName : undefined;
             inputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
@@ -174,8 +157,6 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["clients"] = args ? args.clients : undefined;
             inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["clusterUpgradeDescription"] = args ? args.clusterUpgradeDescription : undefined;
-            inputs["clusterUpgradeMode"] = args ? args.clusterUpgradeMode : undefined;
             inputs["dnsName"] = args ? args.dnsName : undefined;
             inputs["fabricSettings"] = args ? args.fabricSettings : undefined;
             inputs["httpGatewayConnectionPort"] = (args ? args.httpGatewayConnectionPort : undefined) || 19080;
@@ -193,6 +174,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["addonFeatures"] = undefined /*out*/;
             inputs["adminPassword"] = undefined /*out*/;
             inputs["adminUserName"] = undefined /*out*/;
             inputs["azureActiveDirectory"] = undefined /*out*/;
@@ -202,8 +184,6 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["clusterCodeVersion"] = undefined /*out*/;
             inputs["clusterId"] = undefined /*out*/;
             inputs["clusterState"] = undefined /*out*/;
-            inputs["clusterUpgradeDescription"] = undefined /*out*/;
-            inputs["clusterUpgradeMode"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["fabricSettings"] = undefined /*out*/;
@@ -233,6 +213,10 @@ export class ManagedCluster extends pulumi.CustomResource {
  */
 export interface ManagedClusterArgs {
     /**
+     * client certificates for the cluster.
+     */
+    readonly addonFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * vm admin user password.
      */
     readonly adminPassword?: pulumi.Input<string>;
@@ -260,17 +244,6 @@ export interface ManagedClusterArgs {
      * The name of the cluster resource.
      */
     readonly clusterName: pulumi.Input<string>;
-    /**
-     * Describes the policy used when upgrading the cluster.
-     */
-    readonly clusterUpgradeDescription?: pulumi.Input<inputs.servicefabric.v20200101preview.ClusterUpgradePolicy>;
-    /**
-     * The upgrade mode of the cluster when new Service Fabric runtime version is available.
-     *
-     *   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-     *   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-     */
-    readonly clusterUpgradeMode?: pulumi.Input<string>;
     /**
      * The cluster dns name.
      */

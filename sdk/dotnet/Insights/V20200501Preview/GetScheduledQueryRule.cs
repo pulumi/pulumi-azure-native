@@ -49,9 +49,17 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The display name of the alert rule
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         /// </summary>
@@ -60,6 +68,10 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        public readonly string Kind;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -72,6 +84,10 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+        /// </summary>
+        public readonly string? OverrideQueryTimeRange;
         /// <summary>
         /// The list of resource id's that this scheduled query rule is scoped to.
         /// </summary>
@@ -105,17 +121,25 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
 
             string? description,
 
+            string? displayName,
+
             bool enabled,
+
+            string etag,
 
             string evaluationFrequency,
 
             string id,
+
+            string kind,
 
             string location,
 
             string? muteActionsDuration,
 
             string name,
+
+            string? overrideQueryTimeRange,
 
             ImmutableArray<string> scopes,
 
@@ -132,12 +156,16 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview
             Actions = actions;
             Criteria = criteria;
             Description = description;
+            DisplayName = displayName;
             Enabled = enabled;
+            Etag = etag;
             EvaluationFrequency = evaluationFrequency;
             Id = id;
+            Kind = kind;
             Location = location;
             MuteActionsDuration = muteActionsDuration;
             Name = name;
+            OverrideQueryTimeRange = overrideQueryTimeRange;
             Scopes = scopes;
             Severity = severity;
             Tags = tags;

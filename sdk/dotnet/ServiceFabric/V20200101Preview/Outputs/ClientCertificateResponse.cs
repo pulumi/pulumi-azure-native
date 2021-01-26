@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview.Outputs
         /// </summary>
         public readonly bool IsAdmin;
         /// <summary>
-        /// Issuer thumbprint for the certificate. Its only use CommonName is used.
+        /// Issuer thumbprint for the certificate. Only used together with CommonName.
         /// </summary>
         public readonly string? IssuerThumbprint;
         /// <summary>

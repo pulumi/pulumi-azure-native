@@ -108,6 +108,10 @@ export class Watchlist extends pulumi.CustomResource {
      */
     public readonly updatedBy!: pulumi.Output<outputs.securityinsights.v20190101preview.UserInfoResponse | undefined>;
     /**
+     * The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+     */
+    public readonly uploadStatus!: pulumi.Output<string | undefined>;
+    /**
      * The alias of the watchlist
      */
     public readonly watchlistAlias!: pulumi.Output<string | undefined>;
@@ -115,6 +119,10 @@ export class Watchlist extends pulumi.CustomResource {
      * The id (a Guid) of the watchlist
      */
     public readonly watchlistId!: pulumi.Output<string | undefined>;
+    /**
+     * The number of Watchlist Items in the Watchlist
+     */
+    public readonly watchlistItemsCount!: pulumi.Output<number | undefined>;
     /**
      * The type of the watchlist
      */
@@ -169,8 +177,10 @@ export class Watchlist extends pulumi.CustomResource {
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["updated"] = args ? args.updated : undefined;
             inputs["updatedBy"] = args ? args.updatedBy : undefined;
+            inputs["uploadStatus"] = args ? args.uploadStatus : undefined;
             inputs["watchlistAlias"] = args ? args.watchlistAlias : undefined;
             inputs["watchlistId"] = args ? args.watchlistId : undefined;
+            inputs["watchlistItemsCount"] = args ? args.watchlistItemsCount : undefined;
             inputs["watchlistType"] = args ? args.watchlistType : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
@@ -194,8 +204,10 @@ export class Watchlist extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["updated"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
+            inputs["uploadStatus"] = undefined /*out*/;
             inputs["watchlistAlias"] = undefined /*out*/;
             inputs["watchlistId"] = undefined /*out*/;
+            inputs["watchlistItemsCount"] = undefined /*out*/;
             inputs["watchlistType"] = undefined /*out*/;
         }
         if (!opts) {
@@ -286,6 +298,10 @@ export interface WatchlistArgs {
      */
     readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfo>;
     /**
+     * The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+     */
+    readonly uploadStatus?: pulumi.Input<string>;
+    /**
      * The alias of the watchlist
      */
     readonly watchlistAlias: pulumi.Input<string>;
@@ -293,6 +309,10 @@ export interface WatchlistArgs {
      * The id (a Guid) of the watchlist
      */
     readonly watchlistId?: pulumi.Input<string>;
+    /**
+     * The number of Watchlist Items in the Watchlist
+     */
+    readonly watchlistItemsCount?: pulumi.Input<number>;
     /**
      * The type of the watchlist
      */

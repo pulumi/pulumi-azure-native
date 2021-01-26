@@ -45,9 +45,11 @@ func (e AlertSeverity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 type ConditionalOperator pulumi.String
 
 const (
-	ConditionalOperatorGreaterThan = ConditionalOperator("GreaterThan")
-	ConditionalOperatorLessThan    = ConditionalOperator("LessThan")
-	ConditionalOperatorEqual       = ConditionalOperator("Equal")
+	ConditionalOperatorGreaterThanOrEqual = ConditionalOperator("GreaterThanOrEqual")
+	ConditionalOperatorLessThanOrEqual    = ConditionalOperator("LessThanOrEqual")
+	ConditionalOperatorGreaterThan        = ConditionalOperator("GreaterThan")
+	ConditionalOperatorLessThan           = ConditionalOperator("LessThan")
+	ConditionalOperatorEqual              = ConditionalOperator("Equal")
 )
 
 func (ConditionalOperator) ElementType() reflect.Type {

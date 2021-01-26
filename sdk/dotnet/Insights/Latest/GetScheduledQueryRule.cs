@@ -48,13 +48,25 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The display name of the alert rule
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         /// </summary>
         public readonly string? Enabled;
         /// <summary>
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        public readonly string Kind;
         /// <summary>
         /// Last time the rule was updated in IS08601 format.
         /// </summary>
@@ -94,9 +106,15 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 
             string? description,
 
+            string? displayName,
+
             string? enabled,
 
+            string etag,
+
             string id,
+
+            string kind,
 
             string lastUpdatedTime,
 
@@ -116,8 +134,11 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         {
             Action = action;
             Description = description;
+            DisplayName = displayName;
             Enabled = enabled;
+            Etag = etag;
             Id = id;
+            Kind = kind;
             LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;

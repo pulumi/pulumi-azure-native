@@ -18,8 +18,8 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Inputs
         /// <summary>
         /// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
         /// </summary>
-        [Input("blobListblobPath")]
-        public Input<string>? BlobListblobPath { get; set; }
+        [Input("blobListBlobPath")]
+        public Input<string>? BlobListBlobPath { get; set; }
 
         [Input("blobPath")]
         private InputList<string>? _blobPath;

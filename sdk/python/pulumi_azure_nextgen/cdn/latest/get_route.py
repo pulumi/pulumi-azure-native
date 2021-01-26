@@ -20,7 +20,7 @@ class GetRouteResult:
     """
     Friendly Routes name mapping to the any Routes or secret related information.
     """
-    def __init__(__self__, compression_settings=None, custom_domains=None, deployment_status=None, enabled_state=None, forwarding_protocol=None, https_redirect=None, id=None, link_to_default_domain=None, name=None, optimization_type=None, origin_group=None, origin_path=None, patterns_to_match=None, provisioning_state=None, query_string_caching_behavior=None, rule_sets=None, supported_protocols=None, system_data=None, type=None):
+    def __init__(__self__, compression_settings=None, custom_domains=None, deployment_status=None, enabled_state=None, forwarding_protocol=None, https_redirect=None, id=None, link_to_default_domain=None, name=None, origin_group=None, origin_path=None, patterns_to_match=None, provisioning_state=None, query_string_caching_behavior=None, rule_sets=None, supported_protocols=None, system_data=None, type=None):
         if compression_settings and not isinstance(compression_settings, list):
             raise TypeError("Expected argument 'compression_settings' to be a list")
         pulumi.set(__self__, "compression_settings", compression_settings)
@@ -48,9 +48,6 @@ class GetRouteResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if optimization_type and not isinstance(optimization_type, str):
-            raise TypeError("Expected argument 'optimization_type' to be a str")
-        pulumi.set(__self__, "optimization_type", optimization_type)
         if origin_group and not isinstance(origin_group, dict):
             raise TypeError("Expected argument 'origin_group' to be a dict")
         pulumi.set(__self__, "origin_group", origin_group)
@@ -149,14 +146,6 @@ class GetRouteResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="optimizationType")
-    def optimization_type(self) -> Optional[str]:
-        """
-        Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-        """
-        return pulumi.get(self, "optimization_type")
-
-    @property
     @pulumi.getter(name="originGroup")
     def origin_group(self) -> 'outputs.ResourceReferenceResponse':
         """
@@ -192,7 +181,7 @@ class GetRouteResult:
     @pulumi.getter(name="queryStringCachingBehavior")
     def query_string_caching_behavior(self) -> Optional[str]:
         """
-        Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         """
         return pulumi.get(self, "query_string_caching_behavior")
 
@@ -244,7 +233,6 @@ class AwaitableGetRouteResult(GetRouteResult):
             id=self.id,
             link_to_default_domain=self.link_to_default_domain,
             name=self.name,
-            optimization_type=self.optimization_type,
             origin_group=self.origin_group,
             origin_path=self.origin_path,
             patterns_to_match=self.patterns_to_match,
@@ -290,7 +278,6 @@ def get_route(endpoint_name: Optional[str] = None,
         id=__ret__.id,
         link_to_default_domain=__ret__.link_to_default_domain,
         name=__ret__.name,
-        optimization_type=__ret__.optimization_type,
         origin_group=__ret__.origin_group,
         origin_path=__ret__.origin_path,
         patterns_to_match=__ret__.patterns_to_match,

@@ -85,6 +85,8 @@ class ScalingPlan(pulumi.CustomResource):
             __props__['time_zone'] = time_zone
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210114preview:ScalingPlan")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScalingPlan, __self__).__init__(
             'azure-nextgen:desktopvirtualization/v20201110preview:ScalingPlan',
             resource_name,
