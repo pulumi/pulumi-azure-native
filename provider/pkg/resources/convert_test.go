@@ -272,6 +272,46 @@ func TestSdkPropertiesToRequestBody(t *testing.T) {
 	assert.Equal(t, sampleAPIPackage, data)
 }
 
+func TestSdkPropertiesToRequestBodyEmptyCollections(t *testing.T) {
+	var emptyCollectionData = map[string]interface{}{
+		"more": map[string]interface{}{
+			"items":    make([]interface{}, 0),
+			"itemsMap": make(map[string]interface{}),
+		},
+	}
+	var expectedBody = map[string]interface{}{
+		"properties": map[string]interface{}{
+			"more": map[string]interface{}{
+				"items":    make([]interface{}, 0),
+				"itemsMap": make(map[string]interface{}),
+			},
+		},
+	}
+	bodyProperties := resourceMap.Resources["r1"].PutParameters[0].Body.Properties
+	actualBody := c.SdkPropertiesToRequestBody(bodyProperties, emptyCollectionData)
+	assert.Equal(t, expectedBody, actualBody)
+}
+
+func TestSdkPropertiesToRequestBodyNilCollections(t *testing.T) {
+	var nilCollectionData = map[string]interface{}{
+		"more": map[string]interface{}{
+			"items":    nil,
+			"itemsMap": nil,
+		},
+	}
+	var expectedBody = map[string]interface{}{
+		"properties": map[string]interface{}{
+			"more": map[string]interface{}{
+				"items":    nil,
+				"itemsMap": nil,
+			},
+		},
+	}
+	bodyProperties := resourceMap.Resources["r1"].PutParameters[0].Body.Properties
+	actualBody := c.SdkPropertiesToRequestBody(bodyProperties, nilCollectionData)
+	assert.Equal(t, expectedBody, actualBody)
+}
+
 type resourceIDCase struct {
 	id   string
 	path string
