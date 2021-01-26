@@ -2,17 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AlertRuleKind = {
-    Scheduled: "Scheduled",
-    MicrosoftSecurityIncidentCreation: "MicrosoftSecurityIncidentCreation",
-    Fusion: "Fusion",
-} as const;
-
-/**
- * The alert rule kind
- */
-export type AlertRuleKind = (typeof AlertRuleKind)[keyof typeof AlertRuleKind];
-
 export const BillingType = {
     Cluster: "Cluster",
     Workspaces: "Workspaces",
@@ -23,34 +12,6 @@ export const BillingType = {
  */
 export type BillingType = (typeof BillingType)[keyof typeof BillingType];
 
-export const CaseSeverity = {
-    /**
-     * Critical severity
-     */
-    Critical: "Critical",
-    /**
-     * High severity
-     */
-    High: "High",
-    /**
-     * Medium severity
-     */
-    Medium: "Medium",
-    /**
-     * Low severity
-     */
-    Low: "Low",
-    /**
-     * Informational severity
-     */
-    Informational: "Informational",
-} as const;
-
-/**
- * The severity of the incident
- */
-export type CaseSeverity = (typeof CaseSeverity)[keyof typeof CaseSeverity];
-
 export const ClusterSkuNameEnum = {
     CapacityReservation: "CapacityReservation",
 } as const;
@@ -59,22 +20,6 @@ export const ClusterSkuNameEnum = {
  * The name of the SKU.
  */
 export type ClusterSkuNameEnum = (typeof ClusterSkuNameEnum)[keyof typeof ClusterSkuNameEnum];
-
-export const DataConnectorKind = {
-    AzureActiveDirectory: "AzureActiveDirectory",
-    AzureSecurityCenter: "AzureSecurityCenter",
-    MicrosoftCloudAppSecurity: "MicrosoftCloudAppSecurity",
-    ThreatIntelligence: "ThreatIntelligence",
-    Office365: "Office365",
-    AmazonWebServicesCloudTrail: "AmazonWebServicesCloudTrail",
-    AzureAdvancedThreatProtection: "AzureAdvancedThreatProtection",
-    MicrosoftDefenderAdvancedThreatProtection: "MicrosoftDefenderAdvancedThreatProtection",
-} as const;
-
-/**
- * The data connector kind
- */
-export type DataConnectorKind = (typeof DataConnectorKind)[keyof typeof DataConnectorKind];
 
 export const DataSourceKind = {
     WindowsEvent: "WindowsEvent",
@@ -127,98 +72,6 @@ export const IdentityType = {
  * The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
-
-export const IncidentClassification = {
-    /**
-     * Incident classification was undetermined
-     */
-    Undetermined: "Undetermined",
-    /**
-     * Incident was true positive
-     */
-    TruePositive: "TruePositive",
-    /**
-     * Incident was benign positive
-     */
-    BenignPositive: "BenignPositive",
-    /**
-     * Incident was false positive
-     */
-    FalsePositive: "FalsePositive",
-} as const;
-
-/**
- * The reason the incident was closed
- */
-export type IncidentClassification = (typeof IncidentClassification)[keyof typeof IncidentClassification];
-
-export const IncidentClassificationReason = {
-    /**
-     * Classification reason was suspicious activity
-     */
-    SuspiciousActivity: "SuspiciousActivity",
-    /**
-     * Classification reason was suspicious but expected
-     */
-    SuspiciousButExpected: "SuspiciousButExpected",
-    /**
-     * Classification reason was incorrect alert logic
-     */
-    IncorrectAlertLogic: "IncorrectAlertLogic",
-    /**
-     * Classification reason was inaccurate data
-     */
-    InaccurateData: "InaccurateData",
-} as const;
-
-/**
- * The classification reason the incident was closed with
- */
-export type IncidentClassificationReason = (typeof IncidentClassificationReason)[keyof typeof IncidentClassificationReason];
-
-export const IncidentSeverity = {
-    /**
-     * High severity
-     */
-    High: "High",
-    /**
-     * Medium severity
-     */
-    Medium: "Medium",
-    /**
-     * Low severity
-     */
-    Low: "Low",
-    /**
-     * Informational severity
-     */
-    Informational: "Informational",
-} as const;
-
-/**
- * The severity of the incident
- */
-export type IncidentSeverity = (typeof IncidentSeverity)[keyof typeof IncidentSeverity];
-
-export const IncidentStatus = {
-    /**
-     * An active incident which isn't being handled currently
-     */
-    New: "New",
-    /**
-     * An active incident which is being handled
-     */
-    Active: "Active",
-    /**
-     * A non-active incident
-     */
-    Closed: "Closed",
-} as const;
-
-/**
- * The status of the incident
- */
-export type IncidentStatus = (typeof IncidentStatus)[keyof typeof IncidentStatus];
 
 export const LinkedServiceEntityStatus = {
     Succeeded: "Succeeded",

@@ -8,8 +8,12 @@ import * as utilities from "../../utilities";
 export * from "./connector";
 export * from "./getConnector";
 export * from "./getReport";
+export * from "./getReportByBillingAccount";
+export * from "./getReportByDepartment";
 export * from "./getReportByResourceGroupName";
 export * from "./report";
+export * from "./reportByBillingAccount";
+export * from "./reportByDepartment";
 export * from "./reportByResourceGroupName";
 
 // Export enums:
@@ -18,6 +22,8 @@ export * from "../../types/enums/costmanagement/v20180801preview";
 // Import resources to register:
 import { Connector } from "./connector";
 import { Report } from "./report";
+import { ReportByBillingAccount } from "./reportByBillingAccount";
+import { ReportByDepartment } from "./reportByDepartment";
 import { ReportByResourceGroupName } from "./reportByResourceGroupName";
 
 const _module = {
@@ -28,6 +34,10 @@ const _module = {
                 return new Connector(name, <any>undefined, { urn })
             case "azure-nextgen:costmanagement/v20180801preview:Report":
                 return new Report(name, <any>undefined, { urn })
+            case "azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount":
+                return new ReportByBillingAccount(name, <any>undefined, { urn })
+            case "azure-nextgen:costmanagement/v20180801preview:ReportByDepartment":
+                return new ReportByDepartment(name, <any>undefined, { urn })
             case "azure-nextgen:costmanagement/v20180801preview:ReportByResourceGroupName":
                 return new ReportByResourceGroupName(name, <any>undefined, { urn })
             default:

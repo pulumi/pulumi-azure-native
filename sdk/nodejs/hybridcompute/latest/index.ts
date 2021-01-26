@@ -5,18 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./getGuestConfigurationHCRPAssignment";
 export * from "./getMachine";
 export * from "./getMachineExtension";
-export * from "./guestConfigurationHCRPAssignment";
 export * from "./machine";
 export * from "./machineExtension";
 
-// Export enums:
-export * from "../../types/enums/hybridcompute/latest";
-
 // Import resources to register:
-import { GuestConfigurationHCRPAssignment } from "./guestConfigurationHCRPAssignment";
 import { Machine } from "./machine";
 import { MachineExtension } from "./machineExtension";
 
@@ -24,8 +18,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:hybridcompute/latest:GuestConfigurationHCRPAssignment":
-                return new GuestConfigurationHCRPAssignment(name, <any>undefined, { urn })
             case "azure-nextgen:hybridcompute/latest:Machine":
                 return new Machine(name, <any>undefined, { urn })
             case "azure-nextgen:hybridcompute/latest:MachineExtension":

@@ -6,7 +6,6 @@ import * as latest from "./latest";
 import * as v20150101 from "./v20150101";
 import * as v20150701 from "./v20150701";
 import * as v20151001preview from "./v20151001preview";
-import * as v20151101 from "./v20151101";
 import * as v20160401 from "./v20160401";
 import * as v20160901 from "./v20160901";
 import * as v20161201 from "./v20161201";
@@ -30,7 +29,6 @@ export {
     v20150101,
     v20150701,
     v20151001preview,
-    v20151101,
     v20160401,
     v20160901,
     v20161201,

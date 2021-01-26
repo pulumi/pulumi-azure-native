@@ -18,7 +18,6 @@ import * as azureactivedirectory from "./azureactivedirectory";
 import * as azurestack from "./azurestack";
 import * as batch from "./batch";
 import * as batchai from "./batchai";
-import * as billing from "./billing";
 import * as blockchain from "./blockchain";
 import * as blueprint from "./blueprint";
 import * as botservice from "./botservice";
@@ -64,6 +63,7 @@ import * as edgeorder from "./edgeorder";
 import * as enterpriseknowledgegraph from "./enterpriseknowledgegraph";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
+import * as guestconfiguration from "./guestconfiguration";
 import * as hanaonazure from "./hanaonazure";
 import * as hdinsight from "./hdinsight";
 import * as healthbot from "./healthbot";
@@ -87,7 +87,6 @@ import * as machinelearningservices from "./machinelearningservices";
 import * as maintenance from "./maintenance";
 import * as managednetwork from "./managednetwork";
 import * as managedservices from "./managedservices";
-import * as management from "./management";
 import * as marketplace from "./marketplace";
 import * as media from "./media";
 import * as migrate from "./migrate";
@@ -152,7 +151,6 @@ export {
     azurestack,
     batch,
     batchai,
-    billing,
     blockchain,
     blueprint,
     botservice,
@@ -198,6 +196,7 @@ export {
     enterpriseknowledgegraph,
     eventgrid,
     eventhub,
+    guestconfiguration,
     hanaonazure,
     hdinsight,
     healthbot,
@@ -221,7 +220,6 @@ export {
     maintenance,
     managednetwork,
     managedservices,
-    management,
     marketplace,
     media,
     migrate,

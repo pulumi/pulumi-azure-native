@@ -48,9 +48,17 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Value that indicates whether Trusted Service Access is Enabled or not.
+     */
+    public readonly trustedServiceAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * List VirtualNetwork Rules
+     */
+    public readonly virtualNetworkRules!: pulumi.Output<outputs.eventhub.v20180101preview.NWRuleSetVirtualNetworkRulesResponse[] | undefined>;
 
     /**
      * Create a NamespaceNetworkRuleSet resource with the given unique name, arguments, and options.
@@ -72,13 +80,17 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             inputs["ipRules"] = args ? args.ipRules : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["trustedServiceAccessEnabled"] = args ? args.trustedServiceAccessEnabled : undefined;
+            inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["defaultAction"] = undefined /*out*/;
             inputs["ipRules"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["trustedServiceAccessEnabled"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualNetworkRules"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -106,11 +118,19 @@ export interface NamespaceNetworkRuleSetArgs {
      */
     readonly ipRules?: pulumi.Input<pulumi.Input<inputs.eventhub.v20180101preview.NWRuleSetIpRules>[]>;
     /**
-     * The namespace name
+     * The Namespace name
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * Name of the resource group within the azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Value that indicates whether Trusted Service Access is Enabled or not.
+     */
+    readonly trustedServiceAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * List VirtualNetwork Rules
+     */
+    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.eventhub.v20180101preview.NWRuleSetVirtualNetworkRules>[]>;
 }

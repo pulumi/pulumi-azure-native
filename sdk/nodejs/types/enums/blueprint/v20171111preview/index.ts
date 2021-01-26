@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ArtifactKind = {
+    Template: "template",
+    RoleAssignment: "roleAssignment",
+    PolicyAssignment: "policyAssignment",
+} as const;
+
+/**
+ * Specifies the kind of Blueprint artifact.
+ */
+export type ArtifactKind = (typeof ArtifactKind)[keyof typeof ArtifactKind];
+
 export const AssignmentLockMode = {
     None: "None",
     AllResources: "AllResources",
@@ -11,6 +22,16 @@ export const AssignmentLockMode = {
  * Lock mode.
  */
 export type AssignmentLockMode = (typeof AssignmentLockMode)[keyof typeof AssignmentLockMode];
+
+export const BlueprintTargetScope = {
+    Subscription: "subscription",
+    ManagementGroup: "managementGroup",
+} as const;
+
+/**
+ * The scope where this Blueprint can be applied.
+ */
+export type BlueprintTargetScope = (typeof BlueprintTargetScope)[keyof typeof BlueprintTargetScope];
 
 export const ManagedServiceIdentityType = {
     None: "None",
@@ -22,3 +43,18 @@ export const ManagedServiceIdentityType = {
  * Type of the Managed Service Identity.
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
+export const TemplateParameterType = {
+    String: "string",
+    Array: "array",
+    Bool: "bool",
+    Int: "int",
+    Object: "object",
+    SecureObject: "secureObject",
+    SecureString: "secureString",
+} as const;
+
+/**
+ * Allowed data types for Azure Resource Manager template parameters.
+ */
+export type TemplateParameterType = (typeof TemplateParameterType)[keyof typeof TemplateParameterType];

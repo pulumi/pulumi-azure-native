@@ -5,47 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./deploymentAtManagementGroupScope";
-export * from "./getDeploymentAtManagementGroupScope";
 export * from "./getEntity";
 export * from "./getHierarchySetting";
 export * from "./getManagementGroup";
 export * from "./getManagementGroupSubscription";
-export * from "./getPolicyDefinitionAtManagementGroup";
-export * from "./getPolicySetDefinitionAtManagementGroup";
 export * from "./hierarchySetting";
 export * from "./managementGroup";
 export * from "./managementGroupSubscription";
-export * from "./policyDefinitionAtManagementGroup";
-export * from "./policySetDefinitionAtManagementGroup";
-
-// Export enums:
-export * from "../../types/enums/management/latest";
 
 // Import resources to register:
-import { DeploymentAtManagementGroupScope } from "./deploymentAtManagementGroupScope";
 import { HierarchySetting } from "./hierarchySetting";
 import { ManagementGroup } from "./managementGroup";
 import { ManagementGroupSubscription } from "./managementGroupSubscription";
-import { PolicyDefinitionAtManagementGroup } from "./policyDefinitionAtManagementGroup";
-import { PolicySetDefinitionAtManagementGroup } from "./policySetDefinitionAtManagementGroup";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-nextgen:management/latest:DeploymentAtManagementGroupScope":
-                return new DeploymentAtManagementGroupScope(name, <any>undefined, { urn })
             case "azure-nextgen:management/latest:HierarchySetting":
                 return new HierarchySetting(name, <any>undefined, { urn })
             case "azure-nextgen:management/latest:ManagementGroup":
                 return new ManagementGroup(name, <any>undefined, { urn })
             case "azure-nextgen:management/latest:ManagementGroupSubscription":
                 return new ManagementGroupSubscription(name, <any>undefined, { urn })
-            case "azure-nextgen:management/latest:PolicyDefinitionAtManagementGroup":
-                return new PolicyDefinitionAtManagementGroup(name, <any>undefined, { urn })
-            case "azure-nextgen:management/latest:PolicySetDefinitionAtManagementGroup":
-                return new PolicySetDefinitionAtManagementGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -6,8 +6,10 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./account";
+export * from "./configurationProfileAssignment";
 export * from "./configurationProfilePreference";
 export * from "./getAccount";
+export * from "./getConfigurationProfileAssignment";
 export * from "./getConfigurationProfilePreference";
 
 // Export enums:
@@ -15,6 +17,7 @@ export * from "../../types/enums/automanage/v20200630preview";
 
 // Import resources to register:
 import { Account } from "./account";
+import { ConfigurationProfileAssignment } from "./configurationProfileAssignment";
 import { ConfigurationProfilePreference } from "./configurationProfilePreference";
 
 const _module = {
@@ -23,6 +26,8 @@ const _module = {
         switch (type) {
             case "azure-nextgen:automanage/v20200630preview:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure-nextgen:automanage/v20200630preview:ConfigurationProfileAssignment":
+                return new ConfigurationProfileAssignment(name, <any>undefined, { urn })
             case "azure-nextgen:automanage/v20200630preview:ConfigurationProfilePreference":
                 return new ConfigurationProfilePreference(name, <any>undefined, { urn })
             default:

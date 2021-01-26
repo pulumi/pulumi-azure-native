@@ -5,21 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./artifact";
 export * from "./assignment";
+export * from "./blueprint";
+export * from "./getArtifact";
 export * from "./getAssignment";
+export * from "./getBlueprint";
+export * from "./getPublishedBlueprint";
+export * from "./publishedBlueprint";
 
 // Export enums:
 export * from "../../types/enums/blueprint/v20171111preview";
 
 // Import resources to register:
+import { Artifact } from "./artifact";
 import { Assignment } from "./assignment";
+import { Blueprint } from "./blueprint";
+import { PublishedBlueprint } from "./publishedBlueprint";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:blueprint/v20171111preview:Artifact":
+                return new Artifact(name, <any>undefined, { urn })
             case "azure-nextgen:blueprint/v20171111preview:Assignment":
                 return new Assignment(name, <any>undefined, { urn })
+            case "azure-nextgen:blueprint/v20171111preview:Blueprint":
+                return new Blueprint(name, <any>undefined, { urn })
+            case "azure-nextgen:blueprint/v20171111preview:PublishedBlueprint":
+                return new PublishedBlueprint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

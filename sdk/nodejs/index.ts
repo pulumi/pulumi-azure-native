@@ -78,6 +78,7 @@ import * as engagementfabric from "./engagementfabric";
 import * as enterpriseknowledgegraph from "./enterpriseknowledgegraph";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
+import * as guestconfiguration from "./guestconfiguration";
 import * as hanaonazure from "./hanaonazure";
 import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
 import * as hdinsight from "./hdinsight";
@@ -235,6 +236,7 @@ export {
     enterpriseknowledgegraph,
     eventgrid,
     eventhub,
+    guestconfiguration,
     hanaonazure,
     hardwaresecuritymodules,
     hdinsight,
