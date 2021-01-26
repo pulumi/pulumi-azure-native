@@ -39,7 +39,6 @@ func calculateDetailedDiff(resource *resources.AzureAPIResource,
 					replaceKeys.Add(name)
 				}
 			}
-
 		}
 	}
 
