@@ -107,17 +107,33 @@ var wellKnownProviderNames = map[string]string{
 	"dbformariadb":    "DBforMariaDB",
 	"dbformysql":      "DBforMySQL",
 	"dbforpostgresql": "DBforPostgreSQL",
+	"powerbidedicated":"PowerBIDedicated",
 	"visualstudio":    "VisualStudio",
 }
 
-// ResourceProvider returns a provider name given resource's PUT path.
-func ResourceProvider(path string) string {
+// ResourceProvider returns a provider name given Open API spec file and resource's API URI.
+func ResourceProvider(filePath, apiUri string) string {
+	// We extract the provider name from two sources:
+	// - from the folder name of the Open API spec
+	// - from the URI of the API endpoint (we take the last provider in the URI)
+	fileProvider := resourceProvider(filePath, "")
+	apiProvider := resourceProvider(apiUri, "Resources")
+	// We proceed with the endpoint if both provider values match. This way, we avoid flukes and
+	// declarations outside of the current API provider.
+	if strings.ToLower(fileProvider) != strings.ToLower(apiProvider) {
+		return ""
+	}
+	return fileProvider
+}
+
+func resourceProvider(path, defaultValue string) string {
 	parts := strings.Split(path, "/")
 	if len(parts) < 3 {
 		return ""
 	}
 
-	for _, part := range parts {
+	for i := len(parts) - 2; i >= 0; i-- {
+		part := parts[i]
 		if strings.HasPrefix(part, "Microsoft.") {
 			name := strings.TrimPrefix(part, "Microsoft.")
 			if knownName, ok := wellKnownProviderNames[strings.ToLower(name)]; ok {
@@ -134,8 +150,7 @@ func ResourceProvider(path string) string {
 		}
 	}
 
-	// This could cause some undesired resources in the Resources namespace, but it looks okay for now.
-	return "Resources"
+	return defaultValue
 }
 
 var verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "List", "", "list", "", "CheckEntityExists", "")
