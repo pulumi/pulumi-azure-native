@@ -48,9 +48,17 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        public readonly Outputs.EncryptionResponse? Encryption;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Properties of BYOK Identity description
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
@@ -59,14 +67,6 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// Value that indicates whether Kafka is enabled for eventhub namespace.
         /// </summary>
         public readonly bool? KafkaEnabled;
-        /// <summary>
-        /// Enumerates the possible value of keySource for Encryption
-        /// </summary>
-        public readonly string? KeySource;
-        /// <summary>
-        /// Properties of KeyVault
-        /// </summary>
-        public readonly ImmutableArray<Outputs.KeyVaultPropertiesResponse> KeyVaultProperties;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -84,10 +84,6 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// ObjectId from the KeyVault
-        /// </summary>
-        public readonly string? PrincipalId;
-        /// <summary>
         /// Provisioning state of the Namespace.
         /// </summary>
         public readonly string ProvisioningState;
@@ -103,10 +99,6 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// TenantId from the KeyVault
-        /// </summary>
-        public readonly string? TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -126,15 +118,15 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 
             string createdAt,
 
+            Outputs.EncryptionResponse? encryption,
+
             string id,
+
+            Outputs.IdentityResponse? identity,
 
             bool? isAutoInflateEnabled,
 
             bool? kafkaEnabled,
-
-            string? keySource,
-
-            ImmutableArray<Outputs.KeyVaultPropertiesResponse> keyVaultProperties,
 
             string? location,
 
@@ -144,8 +136,6 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 
             string name,
 
-            string? principalId,
-
             string provisioningState,
 
             string serviceBusEndpoint,
@@ -153,8 +143,6 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
             Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
-
-            string? tenantId,
 
             string type,
 
@@ -164,21 +152,19 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         {
             ClusterArmId = clusterArmId;
             CreatedAt = createdAt;
+            Encryption = encryption;
             Id = id;
+            Identity = identity;
             IsAutoInflateEnabled = isAutoInflateEnabled;
             KafkaEnabled = kafkaEnabled;
-            KeySource = keySource;
-            KeyVaultProperties = keyVaultProperties;
             Location = location;
             MaximumThroughputUnits = maximumThroughputUnits;
             MetricId = metricId;
             Name = name;
-            PrincipalId = principalId;
             ProvisioningState = provisioningState;
             ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
             Tags = tags;
-            TenantId = tenantId;
             Type = type;
             UpdatedAt = updatedAt;
             ZoneRedundant = zoneRedundant;

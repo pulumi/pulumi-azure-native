@@ -39,17 +39,17 @@ export interface GetNamespaceResult {
      */
     readonly createdAt: string;
     /**
+     * Properties of BYOK Encryption description
+     */
+    readonly encryption?: outputs.servicebus.v20180101preview.EncryptionResponse;
+    /**
      * Resource Id
      */
     readonly id: string;
     /**
-     * Enumerates the possible value of keySource for Encryption
+     * Properties of BYOK Identity description
      */
-    readonly keySource?: string;
-    /**
-     * Properties of KeyVault
-     */
-    readonly keyVaultProperties?: outputs.servicebus.v20180101preview.KeyVaultPropertiesResponse;
+    readonly identity?: outputs.servicebus.v20180101preview.IdentityResponse;
     /**
      * The Geo-location where the resource lives
      */
@@ -62,10 +62,6 @@ export interface GetNamespaceResult {
      * Resource name
      */
     readonly name: string;
-    /**
-     * ObjectId from the KeyVault
-     */
-    readonly principalId?: string;
     /**
      * Provisioning state of the namespace.
      */
@@ -82,10 +78,6 @@ export interface GetNamespaceResult {
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * TenantId from the KeyVault
-     */
-    readonly tenantId?: string;
     /**
      * Resource type
      */

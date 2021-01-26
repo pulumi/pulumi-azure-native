@@ -22,16 +22,16 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Enumerates the possible value of keySource for Encryption
+        /// Properties of BYOK Encryption description
         /// </summary>
-        [Output("keySource")]
-        public Output<string?> KeySource { get; private set; } = null!;
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of KeyVault
+        /// Properties of BYOK Identity description
         /// </summary>
-        [Output("keyVaultProperties")]
-        public Output<Outputs.KeyVaultPropertiesResponse?> KeyVaultProperties { get; private set; } = null!;
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Geo-location where the resource lives
@@ -50,12 +50,6 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// ObjectId from the KeyVault
-        /// </summary>
-        [Output("principalId")]
-        public Output<string?> PrincipalId { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the namespace.
@@ -80,12 +74,6 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// TenantId from the KeyVault
-        /// </summary>
-        [Output("tenantId")]
-        public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -158,16 +146,16 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
     public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enumerates the possible value of keySource for Encryption
+        /// Properties of BYOK Encryption description
         /// </summary>
-        [Input("keySource")]
-        public Input<Pulumi.AzureNextGen.ServiceBus.V20180101Preview.KeySource>? KeySource { get; set; }
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// Properties of KeyVault
+        /// Properties of BYOK Identity description
         /// </summary>
-        [Input("keyVaultProperties")]
-        public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Geo-location where the resource lives
@@ -180,12 +168,6 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
-
-        /// <summary>
-        /// ObjectId from the KeyVault
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
@@ -212,18 +194,6 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         }
 
         /// <summary>
-        /// TenantId from the KeyVault
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-        /// </summary>
-        [Input("type")]
-        public Input<Pulumi.AzureNextGen.ServiceBus.V20180101Preview.IdentityType>? Type { get; set; }
-
-        /// <summary>
         /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         /// </summary>
         [Input("zoneRedundant")]
@@ -231,8 +201,6 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 
         public NamespaceArgs()
         {
-            KeySource = Pulumi.AzureNextGen.ServiceBus.V20180101Preview.KeySource.Microsoft_KeyVault;
-            Type = Pulumi.AzureNextGen.ServiceBus.V20180101Preview.IdentityType.SystemAssigned;
         }
     }
 }

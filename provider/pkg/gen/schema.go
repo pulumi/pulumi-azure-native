@@ -900,7 +900,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		// If the type is marked as a dictionary, ignore the extension and proceed with modeling this property explicitly.
 		// We can't flatten dictionaries in a type-safe manner.
 		isDict := resolvedProperty.AdditionalProperties != nil
-		if flatten, ok := resolvedProperty.Extensions.GetBool(extensionClientFlatten); ok && flatten && !isDict {
+		if flatten, ok := property.Extensions.GetBool(extensionClientFlatten); ok && flatten && !isDict {
 			bag, err := m.genProperties(resolvedProperty, isOutput, isType)
 			if err != nil {
 				return nil, err

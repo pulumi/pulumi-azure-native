@@ -1270,6 +1270,656 @@ func (o CorrelationFilterResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties to configure Encryption
+type Encryption struct {
+	// Enumerates the possible value of keySource for Encryption
+	KeySource *string `pulumi:"keySource"`
+	// Properties of KeyVault
+	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
+}
+
+// EncryptionInput is an input type that accepts EncryptionArgs and EncryptionOutput values.
+// You can construct a concrete instance of `EncryptionInput` via:
+//
+//          EncryptionArgs{...}
+type EncryptionInput interface {
+	pulumi.Input
+
+	ToEncryptionOutput() EncryptionOutput
+	ToEncryptionOutputWithContext(context.Context) EncryptionOutput
+}
+
+// Properties to configure Encryption
+type EncryptionArgs struct {
+	// Enumerates the possible value of keySource for Encryption
+	KeySource KeySource `pulumi:"keySource"`
+	// Properties of KeyVault
+	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
+}
+
+func (EncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Encryption)(nil)).Elem()
+}
+
+func (i EncryptionArgs) ToEncryptionOutput() EncryptionOutput {
+	return i.ToEncryptionOutputWithContext(context.Background())
+}
+
+func (i EncryptionArgs) ToEncryptionOutputWithContext(ctx context.Context) EncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionOutput)
+}
+
+func (i EncryptionArgs) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return i.ToEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionArgs) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionOutput).ToEncryptionPtrOutputWithContext(ctx)
+}
+
+// EncryptionPtrInput is an input type that accepts EncryptionArgs, EncryptionPtr and EncryptionPtrOutput values.
+// You can construct a concrete instance of `EncryptionPtrInput` via:
+//
+//          EncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPtrOutput() EncryptionPtrOutput
+	ToEncryptionPtrOutputWithContext(context.Context) EncryptionPtrOutput
+}
+
+type encryptionPtrType EncryptionArgs
+
+func EncryptionPtr(v *EncryptionArgs) EncryptionPtrInput {
+	return (*encryptionPtrType)(v)
+}
+
+func (*encryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Encryption)(nil)).Elem()
+}
+
+func (i *encryptionPtrType) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return i.ToEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPtrType) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPtrOutput)
+}
+
+// Properties to configure Encryption
+type EncryptionOutput struct{ *pulumi.OutputState }
+
+func (EncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Encryption)(nil)).Elem()
+}
+
+func (o EncryptionOutput) ToEncryptionOutput() EncryptionOutput {
+	return o
+}
+
+func (o EncryptionOutput) ToEncryptionOutputWithContext(ctx context.Context) EncryptionOutput {
+	return o
+}
+
+func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return o.ToEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return o.ApplyT(func(v Encryption) *Encryption {
+		return &v
+	}).(EncryptionPtrOutput)
+}
+
+// Enumerates the possible value of keySource for Encryption
+func (o EncryptionOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Encryption) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+}
+
+// Properties of KeyVault
+func (o EncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v Encryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
+}
+
+type EncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Encryption)(nil)).Elem()
+}
+
+func (o EncryptionPtrOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
+	return o
+}
+
+func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
+	return o
+}
+
+func (o EncryptionPtrOutput) Elem() EncryptionOutput {
+	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
+}
+
+// Enumerates the possible value of keySource for Encryption
+func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Encryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeySource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of KeyVault
+func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v *Encryption) *KeyVaultProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesPtrOutput)
+}
+
+// Properties to configure Encryption
+type EncryptionResponse struct {
+	// Enumerates the possible value of keySource for Encryption
+	KeySource *string `pulumi:"keySource"`
+	// Properties of KeyVault
+	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+}
+
+// EncryptionResponseInput is an input type that accepts EncryptionResponseArgs and EncryptionResponseOutput values.
+// You can construct a concrete instance of `EncryptionResponseInput` via:
+//
+//          EncryptionResponseArgs{...}
+type EncryptionResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionResponseOutput() EncryptionResponseOutput
+	ToEncryptionResponseOutputWithContext(context.Context) EncryptionResponseOutput
+}
+
+// Properties to configure Encryption
+type EncryptionResponseArgs struct {
+	// Enumerates the possible value of keySource for Encryption
+	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
+	// Properties of KeyVault
+	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
+}
+
+func (EncryptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionResponse)(nil)).Elem()
+}
+
+func (i EncryptionResponseArgs) ToEncryptionResponseOutput() EncryptionResponseOutput {
+	return i.ToEncryptionResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionResponseArgs) ToEncryptionResponseOutputWithContext(ctx context.Context) EncryptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionResponseOutput)
+}
+
+func (i EncryptionResponseArgs) ToEncryptionResponsePtrOutput() EncryptionResponsePtrOutput {
+	return i.ToEncryptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionResponseArgs) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionResponseOutput).ToEncryptionResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionResponsePtrInput is an input type that accepts EncryptionResponseArgs, EncryptionResponsePtr and EncryptionResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionResponsePtrInput` via:
+//
+//          EncryptionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionResponsePtrOutput() EncryptionResponsePtrOutput
+	ToEncryptionResponsePtrOutputWithContext(context.Context) EncryptionResponsePtrOutput
+}
+
+type encryptionResponsePtrType EncryptionResponseArgs
+
+func EncryptionResponsePtr(v *EncryptionResponseArgs) EncryptionResponsePtrInput {
+	return (*encryptionResponsePtrType)(v)
+}
+
+func (*encryptionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionResponse)(nil)).Elem()
+}
+
+func (i *encryptionResponsePtrType) ToEncryptionResponsePtrOutput() EncryptionResponsePtrOutput {
+	return i.ToEncryptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionResponsePtrType) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionResponsePtrOutput)
+}
+
+// Properties to configure Encryption
+type EncryptionResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionResponse)(nil)).Elem()
+}
+
+func (o EncryptionResponseOutput) ToEncryptionResponseOutput() EncryptionResponseOutput {
+	return o
+}
+
+func (o EncryptionResponseOutput) ToEncryptionResponseOutputWithContext(ctx context.Context) EncryptionResponseOutput {
+	return o
+}
+
+func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutput() EncryptionResponsePtrOutput {
+	return o.ToEncryptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionResponse) *EncryptionResponse {
+		return &v
+	}).(EncryptionResponsePtrOutput)
+}
+
+// Enumerates the possible value of keySource for Encryption
+func (o EncryptionResponseOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+}
+
+// Properties of KeyVault
+func (o EncryptionResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+type EncryptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionResponse)(nil)).Elem()
+}
+
+func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutput() EncryptionResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
+}
+
+// Enumerates the possible value of keySource for Encryption
+func (o EncryptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeySource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of KeyVault
+func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionResponse) *KeyVaultPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type Identity struct {
+	// ObjectId from the KeyVault
+	PrincipalId *string `pulumi:"principalId"`
+	// TenantId from the KeyVault
+	TenantId *string `pulumi:"tenantId"`
+	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+	Type *string `pulumi:"type"`
+}
+
+// IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
+// You can construct a concrete instance of `IdentityInput` via:
+//
+//          IdentityArgs{...}
+type IdentityInput interface {
+	pulumi.Input
+
+	ToIdentityOutput() IdentityOutput
+	ToIdentityOutputWithContext(context.Context) IdentityOutput
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityArgs struct {
+	// ObjectId from the KeyVault
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// TenantId from the KeyVault
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+	Type IdentityType `pulumi:"type"`
+}
+
+func (IdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (i IdentityArgs) ToIdentityOutput() IdentityOutput {
+	return i.ToIdentityOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput)
+}
+
+func (i IdentityArgs) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput).ToIdentityPtrOutputWithContext(ctx)
+}
+
+// IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
+// You can construct a concrete instance of `IdentityPtrInput` via:
+//
+//          IdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityPtrInput interface {
+	pulumi.Input
+
+	ToIdentityPtrOutput() IdentityPtrOutput
+	ToIdentityPtrOutputWithContext(context.Context) IdentityPtrOutput
+}
+
+type identityPtrType IdentityArgs
+
+func IdentityPtr(v *IdentityArgs) IdentityPtrInput {
+	return (*identityPtrType)(v)
+}
+
+func (*identityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (i *identityPtrType) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityOutput struct{ *pulumi.OutputState }
+
+func (IdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (o IdentityOutput) ToIdentityOutput() IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o.ApplyT(func(v Identity) *Identity {
+		return &v
+	}).(IdentityPtrOutput)
+}
+
+// ObjectId from the KeyVault
+func (o IdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// TenantId from the KeyVault
+func (o IdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type IdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) Elem() IdentityOutput {
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+}
+
+// ObjectId from the KeyVault
+func (o IdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// TenantId from the KeyVault
+func (o IdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityResponse struct {
+	// ObjectId from the KeyVault
+	PrincipalId *string `pulumi:"principalId"`
+	// TenantId from the KeyVault
+	TenantId *string `pulumi:"tenantId"`
+	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+	Type *string `pulumi:"type"`
+}
+
+// IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
+// You can construct a concrete instance of `IdentityResponseInput` via:
+//
+//          IdentityResponseArgs{...}
+type IdentityResponseInput interface {
+	pulumi.Input
+
+	ToIdentityResponseOutput() IdentityResponseOutput
+	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityResponseArgs struct {
+	// ObjectId from the KeyVault
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// TenantId from the KeyVault
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponse)(nil)).Elem()
+}
+
+func (i IdentityResponseArgs) ToIdentityResponseOutput() IdentityResponseOutput {
+	return i.ToIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityResponseArgs) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseOutput)
+}
+
+func (i IdentityResponseArgs) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return i.ToIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IdentityResponseArgs) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseOutput).ToIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// IdentityResponsePtrInput is an input type that accepts IdentityResponseArgs, IdentityResponsePtr and IdentityResponsePtrOutput values.
+// You can construct a concrete instance of `IdentityResponsePtrInput` via:
+//
+//          IdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToIdentityResponsePtrOutput() IdentityResponsePtrOutput
+	ToIdentityResponsePtrOutputWithContext(context.Context) IdentityResponsePtrOutput
+}
+
+type identityResponsePtrType IdentityResponseArgs
+
+func IdentityResponsePtr(v *IdentityResponseArgs) IdentityResponsePtrInput {
+	return (*identityResponsePtrType)(v)
+}
+
+func (*identityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
+}
+
+func (i *identityResponsePtrType) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return i.ToIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutput() IdentityResponseOutput {
+	return o
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
+	return o
+}
+
+func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return o.ToIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+		return &v
+	}).(IdentityResponsePtrOutput)
+}
+
+// ObjectId from the KeyVault
+func (o IdentityResponseOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// TenantId from the KeyVault
+func (o IdentityResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+}
+
+// ObjectId from the KeyVault
+func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// TenantId from the KeyVault
+func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Properties to configure keyVault Properties
 type KeyVaultProperties struct {
 	// Name of the Key from KeyVault
@@ -3459,6 +4109,14 @@ func init() {
 	pulumi.RegisterOutputType(CorrelationFilterPtrOutput{})
 	pulumi.RegisterOutputType(CorrelationFilterResponseOutput{})
 	pulumi.RegisterOutputType(CorrelationFilterResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionOutput{})
+	pulumi.RegisterOutputType(EncryptionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentityOutput{})
+	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityResponseOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})

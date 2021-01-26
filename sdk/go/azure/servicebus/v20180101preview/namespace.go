@@ -17,18 +17,16 @@ type Namespace struct {
 
 	// The time the namespace was created
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Enumerates the possible value of keySource for Encryption
-	KeySource pulumi.StringPtrOutput `pulumi:"keySource"`
-	// Properties of KeyVault
-	KeyVaultProperties KeyVaultPropertiesResponsePtrOutput `pulumi:"keyVaultProperties"`
+	// Properties of BYOK Encryption description
+	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The Geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Identifier for Azure Insights metrics
 	MetricId pulumi.StringOutput `pulumi:"metricId"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// ObjectId from the KeyVault
-	PrincipalId pulumi.StringPtrOutput `pulumi:"principalId"`
 	// Provisioning state of the namespace.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
@@ -37,8 +35,6 @@ type Namespace struct {
 	Sku SBSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// TenantId from the KeyVault
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The time the namespace was updated.
@@ -62,12 +58,6 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.KeySource == nil {
-		args.KeySource = KeySource("Microsoft.KeyVault")
-	}
-	if args.Type == nil {
-		args.Type = IdentityType("SystemAssigned")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -108,18 +98,16 @@ func GetNamespace(ctx *pulumi.Context,
 type namespaceState struct {
 	// The time the namespace was created
 	CreatedAt *string `pulumi:"createdAt"`
-	// Enumerates the possible value of keySource for Encryption
-	KeySource *string `pulumi:"keySource"`
-	// Properties of KeyVault
-	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// Properties of BYOK Encryption description
+	Encryption *EncryptionResponse `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity *IdentityResponse `pulumi:"identity"`
 	// The Geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Identifier for Azure Insights metrics
 	MetricId *string `pulumi:"metricId"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// ObjectId from the KeyVault
-	PrincipalId *string `pulumi:"principalId"`
 	// Provisioning state of the namespace.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
@@ -128,8 +116,6 @@ type namespaceState struct {
 	Sku *SBSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// TenantId from the KeyVault
-	TenantId *string `pulumi:"tenantId"`
 	// Resource type
 	Type *string `pulumi:"type"`
 	// The time the namespace was updated.
@@ -141,18 +127,16 @@ type namespaceState struct {
 type NamespaceState struct {
 	// The time the namespace was created
 	CreatedAt pulumi.StringPtrInput
-	// Enumerates the possible value of keySource for Encryption
-	KeySource pulumi.StringPtrInput
-	// Properties of KeyVault
-	KeyVaultProperties KeyVaultPropertiesResponsePtrInput
+	// Properties of BYOK Encryption description
+	Encryption EncryptionResponsePtrInput
+	// Properties of BYOK Identity description
+	Identity IdentityResponsePtrInput
 	// The Geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Identifier for Azure Insights metrics
 	MetricId pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// ObjectId from the KeyVault
-	PrincipalId pulumi.StringPtrInput
 	// Provisioning state of the namespace.
 	ProvisioningState pulumi.StringPtrInput
 	// Endpoint you can use to perform Service Bus operations.
@@ -161,8 +145,6 @@ type NamespaceState struct {
 	Sku SBSkuResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
-	// TenantId from the KeyVault
-	TenantId pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 	// The time the namespace was updated.
@@ -176,52 +158,40 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// Enumerates the possible value of keySource for Encryption
-	KeySource *string `pulumi:"keySource"`
-	// Properties of KeyVault
-	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
+	// Properties of BYOK Encryption description
+	Encryption *Encryption `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity *Identity `pulumi:"identity"`
 	// The Geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The namespace name.
 	NamespaceName string `pulumi:"namespaceName"`
-	// ObjectId from the KeyVault
-	PrincipalId *string `pulumi:"principalId"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Properties of SKU
 	Sku *SBSku `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// TenantId from the KeyVault
-	TenantId *string `pulumi:"tenantId"`
-	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type *string `pulumi:"type"`
 	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Enumerates the possible value of keySource for Encryption
-	KeySource KeySource
-	// Properties of KeyVault
-	KeyVaultProperties KeyVaultPropertiesPtrInput
+	// Properties of BYOK Encryption description
+	Encryption EncryptionPtrInput
+	// Properties of BYOK Identity description
+	Identity IdentityPtrInput
 	// The Geo-location where the resource lives
 	Location pulumi.StringInput
 	// The namespace name.
 	NamespaceName pulumi.StringInput
-	// ObjectId from the KeyVault
-	PrincipalId pulumi.StringPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Properties of SKU
 	Sku SBSkuPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
-	// TenantId from the KeyVault
-	TenantId pulumi.StringPtrInput
-	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type IdentityType
 	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
 	ZoneRedundant pulumi.BoolPtrInput
 }

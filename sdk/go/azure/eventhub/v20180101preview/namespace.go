@@ -19,14 +19,14 @@ type Namespace struct {
 	ClusterArmId pulumi.StringPtrOutput `pulumi:"clusterArmId"`
 	// The time the Namespace was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Properties of BYOK Encryption description
+	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled pulumi.BoolPtrOutput `pulumi:"isAutoInflateEnabled"`
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
 	KafkaEnabled pulumi.BoolPtrOutput `pulumi:"kafkaEnabled"`
-	// Enumerates the possible value of keySource for Encryption
-	KeySource pulumi.StringPtrOutput `pulumi:"keySource"`
-	// Properties of KeyVault
-	KeyVaultProperties KeyVaultPropertiesResponseArrayOutput `pulumi:"keyVaultProperties"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
@@ -35,8 +35,6 @@ type Namespace struct {
 	MetricId pulumi.StringOutput `pulumi:"metricId"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// ObjectId from the KeyVault
-	PrincipalId pulumi.StringPtrOutput `pulumi:"principalId"`
 	// Provisioning state of the Namespace.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
@@ -45,8 +43,6 @@ type Namespace struct {
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// TenantId from the KeyVault
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The time the Namespace was updated.
@@ -70,12 +66,6 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.KeySource == nil {
-		args.KeySource = KeySource("Microsoft.KeyVault")
-	}
-	if args.Type == nil {
-		args.Type = IdentityType("SystemAssigned")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -118,14 +108,14 @@ type namespaceState struct {
 	ClusterArmId *string `pulumi:"clusterArmId"`
 	// The time the Namespace was created.
 	CreatedAt *string `pulumi:"createdAt"`
+	// Properties of BYOK Encryption description
+	Encryption *EncryptionResponse `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity *IdentityResponse `pulumi:"identity"`
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
 	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
-	// Enumerates the possible value of keySource for Encryption
-	KeySource *string `pulumi:"keySource"`
-	// Properties of KeyVault
-	KeyVaultProperties []KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
@@ -134,8 +124,6 @@ type namespaceState struct {
 	MetricId *string `pulumi:"metricId"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// ObjectId from the KeyVault
-	PrincipalId *string `pulumi:"principalId"`
 	// Provisioning state of the Namespace.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
@@ -144,8 +132,6 @@ type namespaceState struct {
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// TenantId from the KeyVault
-	TenantId *string `pulumi:"tenantId"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 	// The time the Namespace was updated.
@@ -159,14 +145,14 @@ type NamespaceState struct {
 	ClusterArmId pulumi.StringPtrInput
 	// The time the Namespace was created.
 	CreatedAt pulumi.StringPtrInput
+	// Properties of BYOK Encryption description
+	Encryption EncryptionResponsePtrInput
+	// Properties of BYOK Identity description
+	Identity IdentityResponsePtrInput
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled pulumi.BoolPtrInput
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
 	KafkaEnabled pulumi.BoolPtrInput
-	// Enumerates the possible value of keySource for Encryption
-	KeySource pulumi.StringPtrInput
-	// Properties of KeyVault
-	KeyVaultProperties KeyVaultPropertiesResponseArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
@@ -175,8 +161,6 @@ type NamespaceState struct {
 	MetricId pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// ObjectId from the KeyVault
-	PrincipalId pulumi.StringPtrInput
 	// Provisioning state of the Namespace.
 	ProvisioningState pulumi.StringPtrInput
 	// Endpoint you can use to perform Service Bus operations.
@@ -185,8 +169,6 @@ type NamespaceState struct {
 	Sku SkuResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// TenantId from the KeyVault
-	TenantId pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 	// The time the Namespace was updated.
@@ -202,32 +184,26 @@ func (NamespaceState) ElementType() reflect.Type {
 type namespaceArgs struct {
 	// Cluster ARM ID of the Namespace.
 	ClusterArmId *string `pulumi:"clusterArmId"`
+	// Properties of BYOK Encryption description
+	Encryption *Encryption `pulumi:"encryption"`
+	// Properties of BYOK Identity description
+	Identity *Identity `pulumi:"identity"`
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
 	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
-	// Enumerates the possible value of keySource for Encryption
-	KeySource *string `pulumi:"keySource"`
-	// Properties of KeyVault
-	KeyVaultProperties []KeyVaultProperties `pulumi:"keyVaultProperties"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
 	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// ObjectId from the KeyVault
-	PrincipalId *string `pulumi:"principalId"`
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Properties of sku resource
 	Sku *Sku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// TenantId from the KeyVault
-	TenantId *string `pulumi:"tenantId"`
-	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type *string `pulumi:"type"`
 	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
@@ -236,32 +212,26 @@ type namespaceArgs struct {
 type NamespaceArgs struct {
 	// Cluster ARM ID of the Namespace.
 	ClusterArmId pulumi.StringPtrInput
+	// Properties of BYOK Encryption description
+	Encryption EncryptionPtrInput
+	// Properties of BYOK Identity description
+	Identity IdentityPtrInput
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled pulumi.BoolPtrInput
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
 	KafkaEnabled pulumi.BoolPtrInput
-	// Enumerates the possible value of keySource for Encryption
-	KeySource KeySource
-	// Properties of KeyVault
-	KeyVaultProperties KeyVaultPropertiesArrayInput
 	// Resource location.
 	Location pulumi.StringInput
 	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
 	MaximumThroughputUnits pulumi.IntPtrInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
-	// ObjectId from the KeyVault
-	PrincipalId pulumi.StringPtrInput
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Properties of sku resource
 	Sku SkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// TenantId from the KeyVault
-	TenantId pulumi.StringPtrInput
-	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type IdentityType
 	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
 	ZoneRedundant pulumi.BoolPtrInput
 }

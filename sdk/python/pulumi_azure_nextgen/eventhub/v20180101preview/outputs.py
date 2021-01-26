@@ -15,6 +15,8 @@ __all__ = [
     'ClusterSkuResponse',
     'ConnectionStateResponse',
     'DestinationResponse',
+    'EncryptionResponse',
+    'IdentityResponse',
     'KeyVaultPropertiesResponse',
     'NWRuleSetIpRulesResponse',
     'NWRuleSetVirtualNetworkRulesResponse',
@@ -241,6 +243,98 @@ class DestinationResponse(dict):
         Resource id of the storage account to be used to create the blobs
         """
         return pulumi.get(self, "storage_account_resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncryptionResponse(dict):
+    """
+    Properties to configure Encryption
+    """
+    def __init__(__self__, *,
+                 key_source: Optional[str] = None,
+                 key_vault_properties: Optional[Sequence['outputs.KeyVaultPropertiesResponse']] = None):
+        """
+        Properties to configure Encryption
+        :param str key_source: Enumerates the possible value of keySource for Encryption
+        :param Sequence['KeyVaultPropertiesResponseArgs'] key_vault_properties: Properties of KeyVault
+        """
+        if key_source is None:
+            key_source = 'Microsoft.KeyVault'
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[str]:
+        """
+        Enumerates the possible value of keySource for Encryption
+        """
+        return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[Sequence['outputs.KeyVaultPropertiesResponse']]:
+        """
+        Properties of KeyVault
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Properties to configure Identity for Bring your Own Keys
+    """
+    def __init__(__self__, *,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Properties to configure Identity for Bring your Own Keys
+        :param str principal_id: ObjectId from the KeyVault
+        :param str tenant_id: TenantId from the KeyVault
+        :param str type: Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+        """
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is None:
+            type = 'SystemAssigned'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        ObjectId from the KeyVault
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        TenantId from the KeyVault
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

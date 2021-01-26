@@ -27,20 +27,18 @@ type LookupNamespaceArgs struct {
 type LookupNamespaceResult struct {
 	// The time the namespace was created
 	CreatedAt string `pulumi:"createdAt"`
+	// Properties of BYOK Encryption description
+	Encryption *EncryptionResponse `pulumi:"encryption"`
 	// Resource Id
 	Id string `pulumi:"id"`
-	// Enumerates the possible value of keySource for Encryption
-	KeySource *string `pulumi:"keySource"`
-	// Properties of KeyVault
-	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// Properties of BYOK Identity description
+	Identity *IdentityResponse `pulumi:"identity"`
 	// The Geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Identifier for Azure Insights metrics
 	MetricId string `pulumi:"metricId"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// ObjectId from the KeyVault
-	PrincipalId *string `pulumi:"principalId"`
 	// Provisioning state of the namespace.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Endpoint you can use to perform Service Bus operations.
@@ -49,8 +47,6 @@ type LookupNamespaceResult struct {
 	Sku *SBSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// TenantId from the KeyVault
-	TenantId *string `pulumi:"tenantId"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// The time the namespace was updated.
