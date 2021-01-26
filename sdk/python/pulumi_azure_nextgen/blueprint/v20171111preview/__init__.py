@@ -4,8 +4,14 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .artifact import *
 from .assignment import *
+from .blueprint import *
+from .get_artifact import *
 from .get_assignment import *
+from .get_blueprint import *
+from .get_published_blueprint import *
+from .published_blueprint import *
 from ._inputs import *
 from . import outputs
 
@@ -21,8 +27,14 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-nextgen:blueprint/v20171111preview:Assignment":
+            if typ == "azure-nextgen:blueprint/v20171111preview:Artifact":
+                return Artifact(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:blueprint/v20171111preview:Assignment":
                 return Assignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:blueprint/v20171111preview:Blueprint":
+                return Blueprint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:blueprint/v20171111preview:PublishedBlueprint":
+                return PublishedBlueprint(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

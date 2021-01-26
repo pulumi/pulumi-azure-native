@@ -77,6 +77,7 @@ from . import (
     enterpriseknowledgegraph,
     eventgrid,
     eventhub,
+    guestconfiguration,
     hanaonazure,
     hardwaresecuritymodules,
     hdinsight,

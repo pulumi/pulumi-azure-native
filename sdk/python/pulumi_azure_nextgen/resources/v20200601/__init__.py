@@ -5,10 +5,12 @@
 # Export this package's modules as members:
 from ._enums import *
 from .deployment import *
+from .deployment_at_management_group_scope import *
 from .deployment_at_scope import *
 from .deployment_at_subscription_scope import *
 from .deployment_at_tenant_scope import *
 from .get_deployment import *
+from .get_deployment_at_management_group_scope import *
 from .get_deployment_at_scope import *
 from .get_deployment_at_subscription_scope import *
 from .get_deployment_at_tenant_scope import *
@@ -35,6 +37,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-nextgen:resources/v20200601:Deployment":
                 return Deployment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:resources/v20200601:DeploymentAtManagementGroupScope":
+                return DeploymentAtManagementGroupScope(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:resources/v20200601:DeploymentAtScope":
                 return DeploymentAtScope(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:resources/v20200601:DeploymentAtSubscriptionScope":

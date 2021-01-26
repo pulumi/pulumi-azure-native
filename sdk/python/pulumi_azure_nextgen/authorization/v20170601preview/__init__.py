@@ -6,8 +6,10 @@
 from ._enums import *
 from .get_policy_assignment import *
 from .get_policy_set_definition import *
+from .get_policy_set_definition_at_management_group import *
 from .policy_assignment import *
 from .policy_set_definition import *
+from .policy_set_definition_at_management_group import *
 from ._inputs import *
 from . import outputs
 
@@ -27,6 +29,8 @@ def _register_module():
                 return PolicyAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:authorization/v20170601preview:PolicySetDefinition":
                 return PolicySetDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup":
+                return PolicySetDefinitionAtManagementGroup(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

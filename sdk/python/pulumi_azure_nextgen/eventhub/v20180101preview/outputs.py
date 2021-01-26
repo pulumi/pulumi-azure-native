@@ -17,8 +17,10 @@ __all__ = [
     'DestinationResponse',
     'KeyVaultPropertiesResponse',
     'NWRuleSetIpRulesResponse',
+    'NWRuleSetVirtualNetworkRulesResponse',
     'PrivateEndpointResponse',
     'SkuResponse',
+    'SubnetResponse',
 ]
 
 @pulumi.output_type
@@ -333,6 +335,44 @@ class NWRuleSetIpRulesResponse(dict):
 
 
 @pulumi.output_type
+class NWRuleSetVirtualNetworkRulesResponse(dict):
+    """
+    The response from the List namespace operation.
+    """
+    def __init__(__self__, *,
+                 ignore_missing_vnet_service_endpoint: Optional[bool] = None,
+                 subnet: Optional['outputs.SubnetResponse'] = None):
+        """
+        The response from the List namespace operation.
+        :param bool ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing Vnet Service Endpoint
+        :param 'SubnetResponseArgs' subnet: Subnet properties
+        """
+        if ignore_missing_vnet_service_endpoint is not None:
+            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
+    def ignore_missing_vnet_service_endpoint(self) -> Optional[bool]:
+        """
+        Value that indicates whether to ignore missing Vnet Service Endpoint
+        """
+        return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetResponse']:
+        """
+        Subnet properties
+        """
+        return pulumi.get(self, "subnet")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     PrivateEndpoint information.
@@ -402,6 +442,32 @@ class SkuResponse(dict):
         The billing tier of this particular SKU.
         """
         return pulumi.get(self, "tier")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SubnetResponse(dict):
+    """
+    Properties supplied for Subnet
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Properties supplied for Subnet
+        :param str id: Resource ID of Virtual Network Subnet
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID of Virtual Network Subnet
+        """
+        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

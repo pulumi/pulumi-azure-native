@@ -5,8 +5,10 @@
 # Export this package's modules as members:
 from ._enums import *
 from .account import *
+from .configuration_profile_assignment import *
 from .configuration_profile_preference import *
 from .get_account import *
+from .get_configuration_profile_assignment import *
 from .get_configuration_profile_preference import *
 from ._inputs import *
 from . import outputs
@@ -25,6 +27,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-nextgen:automanage/v20200630preview:Account":
                 return Account(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:automanage/v20200630preview:ConfigurationProfileAssignment":
+                return ConfigurationProfileAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:automanage/v20200630preview:ConfigurationProfilePreference":
                 return ConfigurationProfilePreference(name, pulumi.ResourceOptions(urn=urn))
             else:

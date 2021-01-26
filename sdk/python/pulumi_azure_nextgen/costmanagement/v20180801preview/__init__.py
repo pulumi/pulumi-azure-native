@@ -7,8 +7,12 @@ from ._enums import *
 from .connector import *
 from .get_connector import *
 from .get_report import *
+from .get_report_by_billing_account import *
+from .get_report_by_department import *
 from .get_report_by_resource_group_name import *
 from .report import *
+from .report_by_billing_account import *
+from .report_by_department import *
 from .report_by_resource_group_name import *
 from ._inputs import *
 from . import outputs
@@ -29,6 +33,10 @@ def _register_module():
                 return Connector(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:costmanagement/v20180801preview:Report":
                 return Report(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount":
+                return ReportByBillingAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:costmanagement/v20180801preview:ReportByDepartment":
+                return ReportByDepartment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:costmanagement/v20180801preview:ReportByResourceGroupName":
                 return ReportByResourceGroupName(name, pulumi.ResourceOptions(urn=urn))
             else:
