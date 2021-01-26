@@ -17,9 +17,9 @@ func LookupNamespaceNetworkRuleSet(ctx *pulumi.Context, args *LookupNamespaceNet
 }
 
 type LookupNamespaceNetworkRuleSetArgs struct {
-	// The namespace name
+	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
+	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -33,6 +33,10 @@ type LookupNamespaceNetworkRuleSetResult struct {
 	IpRules []NWRuleSetIpRulesResponse `pulumi:"ipRules"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled *bool `pulumi:"trustedServiceAccessEnabled"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// List VirtualNetwork Rules
+	VirtualNetworkRules []NWRuleSetVirtualNetworkRulesResponse `pulumi:"virtualNetworkRules"`
 }
