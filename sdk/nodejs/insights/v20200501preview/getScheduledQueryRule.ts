@@ -44,9 +44,17 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly description?: string;
     /**
+     * The display name of the alert rule
+     */
+    readonly displayName?: string;
+    /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
     readonly enabled: boolean;
+    /**
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     */
+    readonly etag: string;
     /**
      * How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
      */
@@ -55,6 +63,10 @@ export interface GetScheduledQueryRuleResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     */
+    readonly kind: string;
     /**
      * The geo-location where the resource lives
      */
@@ -67,6 +79,10 @@ export interface GetScheduledQueryRuleResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+     */
+    readonly overrideQueryTimeRange?: string;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */

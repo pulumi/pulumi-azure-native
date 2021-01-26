@@ -121,6 +121,10 @@ export interface GetWatchlistResult {
      */
     readonly updatedBy?: outputs.securityinsights.v20190101preview.UserInfoResponse;
     /**
+     * The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+     */
+    readonly uploadStatus?: string;
+    /**
      * The alias of the watchlist
      */
     readonly watchlistAlias?: string;
@@ -128,6 +132,10 @@ export interface GetWatchlistResult {
      * The id (a Guid) of the watchlist
      */
     readonly watchlistId?: string;
+    /**
+     * The number of Watchlist Items in the Watchlist
+     */
+    readonly watchlistItemsCount?: number;
     /**
      * The type of the watchlist
      */

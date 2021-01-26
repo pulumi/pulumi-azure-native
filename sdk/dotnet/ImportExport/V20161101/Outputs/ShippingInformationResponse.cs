@@ -14,13 +14,17 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Outputs
     public sealed class ShippingInformationResponse
     {
         /// <summary>
+        /// Additional shipping information for customer, specific to datacenter to which customer should send their disks.
+        /// </summary>
+        public readonly string AdditionalInformation;
+        /// <summary>
         /// The city name to use when returning the drives.
         /// </summary>
-        public readonly string City;
+        public readonly string? City;
         /// <summary>
         /// The country or region to use when returning the drives. 
         /// </summary>
-        public readonly string CountryOrRegion;
+        public readonly string? CountryOrRegion;
         /// <summary>
         /// Phone number of the recipient of the returned drives.
         /// </summary>
@@ -28,19 +32,19 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Outputs
         /// <summary>
         /// The postal code to use when returning the drives.
         /// </summary>
-        public readonly string PostalCode;
+        public readonly string? PostalCode;
         /// <summary>
         /// The name of the recipient who will receive the hard drives when they are returned. 
         /// </summary>
-        public readonly string RecipientName;
+        public readonly string? RecipientName;
         /// <summary>
         /// The state or province to use when returning the drives.
         /// </summary>
-        public readonly string StateOrProvince;
+        public readonly string? StateOrProvince;
         /// <summary>
         /// The first line of the street address to use when returning the drives. 
         /// </summary>
-        public readonly string StreetAddress1;
+        public readonly string? StreetAddress1;
         /// <summary>
         /// The second line of the street address to use when returning the drives. 
         /// </summary>
@@ -48,22 +52,25 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Outputs
 
         [OutputConstructor]
         private ShippingInformationResponse(
-            string city,
+            string additionalInformation,
 
-            string countryOrRegion,
+            string? city,
+
+            string? countryOrRegion,
 
             string? phone,
 
-            string postalCode,
+            string? postalCode,
 
-            string recipientName,
+            string? recipientName,
 
-            string stateOrProvince,
+            string? stateOrProvince,
 
-            string streetAddress1,
+            string? streetAddress1,
 
             string? streetAddress2)
         {
+            AdditionalInformation = additionalInformation;
             City = city;
             CountryOrRegion = countryOrRegion;
             Phone = phone;

@@ -18,6 +18,7 @@ class ManagedCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 addon_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
                  admin_user_name: Optional[pulumi.Input[str]] = None,
                  azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
@@ -25,8 +26,6 @@ class ManagedCluster(pulumi.CustomResource):
                  clients: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_upgrade_description: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
-                 cluster_upgrade_mode: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
                  http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
@@ -43,6 +42,7 @@ class ManagedCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addon_features: client certificates for the cluster.
         :param pulumi.Input[str] admin_password: vm admin user password.
         :param pulumi.Input[str] admin_user_name: vm admin user name.
         :param pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']] azure_active_directory: Azure active directory.
@@ -50,11 +50,6 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]] clients: client certificates for the cluster.
         :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']] cluster_upgrade_description: Describes the policy used when upgrading the cluster.
-        :param pulumi.Input[str] cluster_upgrade_mode: The upgrade mode of the cluster when new Service Fabric runtime version is available.
-               
-                 - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-                 - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         :param pulumi.Input[str] dns_name: The cluster dns name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
         :param pulumi.Input[int] http_gateway_connection_port: The port used for http connections to the cluster.
@@ -81,6 +76,7 @@ class ManagedCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['addon_features'] = addon_features
             __props__['admin_password'] = admin_password
             if admin_user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_user_name'")
@@ -94,8 +90,6 @@ class ManagedCluster(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            __props__['cluster_upgrade_description'] = cluster_upgrade_description
-            __props__['cluster_upgrade_mode'] = cluster_upgrade_mode
             if dns_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_name'")
             __props__['dns_name'] = dns_name
@@ -143,6 +137,14 @@ class ManagedCluster(pulumi.CustomResource):
         __props__ = dict()
 
         return ManagedCluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="addonFeatures")
+    def addon_features(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        client certificates for the cluster.
+        """
+        return pulumi.get(self, "addon_features")
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -213,38 +215,8 @@ class ManagedCluster(pulumi.CustomResource):
     def cluster_state(self) -> pulumi.Output[str]:
         """
         The current state of the cluster.
-
-          - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
-          - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
-          - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
-          - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
-          - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
-          - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
-          - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
-          - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
-          - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
-          - Ready - Indicates that the cluster is in a stable state.
         """
         return pulumi.get(self, "cluster_state")
-
-    @property
-    @pulumi.getter(name="clusterUpgradeDescription")
-    def cluster_upgrade_description(self) -> pulumi.Output[Optional['outputs.ClusterUpgradePolicyResponse']]:
-        """
-        Describes the policy used when upgrading the cluster.
-        """
-        return pulumi.get(self, "cluster_upgrade_description")
-
-    @property
-    @pulumi.getter(name="clusterUpgradeMode")
-    def cluster_upgrade_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        The upgrade mode of the cluster when new Service Fabric runtime version is available.
-
-          - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-          - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-        """
-        return pulumi.get(self, "cluster_upgrade_mode")
 
     @property
     @pulumi.getter(name="dnsName")

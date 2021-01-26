@@ -65,6 +65,8 @@ export const ConditionOperator = {
 export type ConditionOperator = (typeof ConditionOperator)[keyof typeof ConditionOperator];
 
 export const ConditionalOperator = {
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    LessThanOrEqual: "LessThanOrEqual",
     GreaterThan: "GreaterThan",
     LessThan: "LessThan",
     Equal: "Equal",

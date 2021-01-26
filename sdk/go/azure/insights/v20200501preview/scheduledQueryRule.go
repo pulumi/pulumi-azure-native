@@ -20,16 +20,24 @@ type ScheduledQueryRule struct {
 	Criteria ScheduledQueryRuleCriteriaResponseOutput `pulumi:"criteria"`
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the alert rule
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+	Etag pulumi.StringOutput `pulumi:"etag"`
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency pulumi.StringOutput `pulumi:"evaluationFrequency"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
 	MuteActionsDuration pulumi.StringPtrOutput `pulumi:"muteActionsDuration"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+	OverrideQueryTimeRange pulumi.StringPtrOutput `pulumi:"overrideQueryTimeRange"`
 	// The list of resource id's that this scheduled query rule is scoped to.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
@@ -114,16 +122,24 @@ type scheduledQueryRuleState struct {
 	Criteria *ScheduledQueryRuleCriteriaResponse `pulumi:"criteria"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
+	// The display name of the alert rule
+	DisplayName *string `pulumi:"displayName"`
 	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
 	Enabled *bool `pulumi:"enabled"`
+	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+	Etag *string `pulumi:"etag"`
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
 	MuteActionsDuration *string `pulumi:"muteActionsDuration"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+	OverrideQueryTimeRange *string `pulumi:"overrideQueryTimeRange"`
 	// The list of resource id's that this scheduled query rule is scoped to.
 	Scopes []string `pulumi:"scopes"`
 	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
@@ -144,16 +160,24 @@ type ScheduledQueryRuleState struct {
 	Criteria ScheduledQueryRuleCriteriaResponsePtrInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
+	// The display name of the alert rule
+	DisplayName pulumi.StringPtrInput
 	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
 	Enabled pulumi.BoolPtrInput
+	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+	Etag pulumi.StringPtrInput
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency pulumi.StringPtrInput
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
 	MuteActionsDuration pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+	OverrideQueryTimeRange pulumi.StringPtrInput
 	// The list of resource id's that this scheduled query rule is scoped to.
 	Scopes pulumi.StringArrayInput
 	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
@@ -178,6 +202,8 @@ type scheduledQueryRuleArgs struct {
 	Criteria ScheduledQueryRuleCriteria `pulumi:"criteria"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
+	// The display name of the alert rule
+	DisplayName *string `pulumi:"displayName"`
 	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
 	Enabled bool `pulumi:"enabled"`
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
@@ -186,6 +212,8 @@ type scheduledQueryRuleArgs struct {
 	Location string `pulumi:"location"`
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
 	MuteActionsDuration *string `pulumi:"muteActionsDuration"`
+	// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+	OverrideQueryTimeRange *string `pulumi:"overrideQueryTimeRange"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the rule.
@@ -209,6 +237,8 @@ type ScheduledQueryRuleArgs struct {
 	Criteria ScheduledQueryRuleCriteriaInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
+	// The display name of the alert rule
+	DisplayName pulumi.StringPtrInput
 	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
 	Enabled pulumi.BoolInput
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
@@ -217,6 +247,8 @@ type ScheduledQueryRuleArgs struct {
 	Location pulumi.StringInput
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
 	MuteActionsDuration pulumi.StringPtrInput
+	// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+	OverrideQueryTimeRange pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the rule.

@@ -10,7 +10,9 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'DeliveryPackageInformationArgs',
     'DriveStatusArgs',
+    'EncryptionKeyDetailsArgs',
     'ExportArgs',
     'JobDetailsArgs',
     'PackageInfomationArgs',
@@ -18,6 +20,76 @@ __all__ = [
     'ReturnShippingArgs',
     'ShippingInformationArgs',
 ]
+
+@pulumi.input_type
+class DeliveryPackageInformationArgs:
+    def __init__(__self__, *,
+                 carrier_name: pulumi.Input[str],
+                 tracking_number: pulumi.Input[str],
+                 drive_count: Optional[pulumi.Input[float]] = None,
+                 ship_date: Optional[pulumi.Input[str]] = None):
+        """
+        Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+        :param pulumi.Input[str] carrier_name: The name of the carrier that is used to ship the import or export drives.
+        :param pulumi.Input[str] tracking_number: The tracking number of the package.
+        :param pulumi.Input[float] drive_count: The number of drives included in the package.
+        :param pulumi.Input[str] ship_date: The date when the package is shipped.
+        """
+        pulumi.set(__self__, "carrier_name", carrier_name)
+        pulumi.set(__self__, "tracking_number", tracking_number)
+        if drive_count is not None:
+            pulumi.set(__self__, "drive_count", drive_count)
+        if ship_date is not None:
+            pulumi.set(__self__, "ship_date", ship_date)
+
+    @property
+    @pulumi.getter(name="carrierName")
+    def carrier_name(self) -> pulumi.Input[str]:
+        """
+        The name of the carrier that is used to ship the import or export drives.
+        """
+        return pulumi.get(self, "carrier_name")
+
+    @carrier_name.setter
+    def carrier_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "carrier_name", value)
+
+    @property
+    @pulumi.getter(name="trackingNumber")
+    def tracking_number(self) -> pulumi.Input[str]:
+        """
+        The tracking number of the package.
+        """
+        return pulumi.get(self, "tracking_number")
+
+    @tracking_number.setter
+    def tracking_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tracking_number", value)
+
+    @property
+    @pulumi.getter(name="driveCount")
+    def drive_count(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of drives included in the package.
+        """
+        return pulumi.get(self, "drive_count")
+
+    @drive_count.setter
+    def drive_count(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "drive_count", value)
+
+    @property
+    @pulumi.getter(name="shipDate")
+    def ship_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date when the package is shipped.
+        """
+        return pulumi.get(self, "ship_date")
+
+    @ship_date.setter
+    def ship_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ship_date", value)
+
 
 @pulumi.input_type
 class DriveStatusArgs:
@@ -31,7 +103,7 @@ class DriveStatusArgs:
                  manifest_file: Optional[pulumi.Input[str]] = None,
                  manifest_hash: Optional[pulumi.Input[str]] = None,
                  manifest_uri: Optional[pulumi.Input[str]] = None,
-                 percent_complete: Optional[pulumi.Input[int]] = None,
+                 percent_complete: Optional[pulumi.Input[float]] = None,
                  state: Optional[pulumi.Input[Union[str, 'DriveState']]] = None,
                  verbose_log_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -45,7 +117,7 @@ class DriveStatusArgs:
         :param pulumi.Input[str] manifest_file: The relative path of the manifest file on the drive. 
         :param pulumi.Input[str] manifest_hash: The Base16-encoded MD5 hash of the manifest file on the drive.
         :param pulumi.Input[str] manifest_uri: A URI that points to the blob containing the drive manifest file. 
-        :param pulumi.Input[int] percent_complete: Percentage completed for the drive. 
+        :param pulumi.Input[float] percent_complete: Percentage completed for the drive. 
         :param pulumi.Input[Union[str, 'DriveState']] state: The drive's current state. 
         :param pulumi.Input[str] verbose_log_uri: A URI that points to the blob containing the verbose log for the data transfer operation. 
         """
@@ -184,14 +256,14 @@ class DriveStatusArgs:
 
     @property
     @pulumi.getter(name="percentComplete")
-    def percent_complete(self) -> Optional[pulumi.Input[int]]:
+    def percent_complete(self) -> Optional[pulumi.Input[float]]:
         """
         Percentage completed for the drive. 
         """
         return pulumi.get(self, "percent_complete")
 
     @percent_complete.setter
-    def percent_complete(self, value: Optional[pulumi.Input[int]]):
+    def percent_complete(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "percent_complete", value)
 
     @property
@@ -220,35 +292,93 @@ class DriveStatusArgs:
 
 
 @pulumi.input_type
+class EncryptionKeyDetailsArgs:
+    def __init__(__self__, *,
+                 kek_type: Optional[pulumi.Input[Union[str, 'EncryptionKekType']]] = None,
+                 kek_url: Optional[pulumi.Input[str]] = None,
+                 kek_vault_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies the encryption key properties
+        :param pulumi.Input[Union[str, 'EncryptionKekType']] kek_type: The type of kek encryption key
+        :param pulumi.Input[str] kek_url: Specifies the url for kek encryption key. 
+        :param pulumi.Input[str] kek_vault_resource_id: Specifies the keyvault resource id for kek encryption key. 
+        """
+        if kek_type is None:
+            kek_type = 'MicrosoftManaged'
+        if kek_type is not None:
+            pulumi.set(__self__, "kek_type", kek_type)
+        if kek_url is not None:
+            pulumi.set(__self__, "kek_url", kek_url)
+        if kek_vault_resource_id is not None:
+            pulumi.set(__self__, "kek_vault_resource_id", kek_vault_resource_id)
+
+    @property
+    @pulumi.getter(name="kekType")
+    def kek_type(self) -> Optional[pulumi.Input[Union[str, 'EncryptionKekType']]]:
+        """
+        The type of kek encryption key
+        """
+        return pulumi.get(self, "kek_type")
+
+    @kek_type.setter
+    def kek_type(self, value: Optional[pulumi.Input[Union[str, 'EncryptionKekType']]]):
+        pulumi.set(self, "kek_type", value)
+
+    @property
+    @pulumi.getter(name="kekUrl")
+    def kek_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the url for kek encryption key. 
+        """
+        return pulumi.get(self, "kek_url")
+
+    @kek_url.setter
+    def kek_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kek_url", value)
+
+    @property
+    @pulumi.getter(name="kekVaultResourceID")
+    def kek_vault_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the keyvault resource id for kek encryption key. 
+        """
+        return pulumi.get(self, "kek_vault_resource_id")
+
+    @kek_vault_resource_id.setter
+    def kek_vault_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kek_vault_resource_id", value)
+
+
+@pulumi.input_type
 class ExportArgs:
     def __init__(__self__, *,
-                 blob_listblob_path: Optional[pulumi.Input[str]] = None,
+                 blob_list_blob_path: Optional[pulumi.Input[str]] = None,
                  blob_path: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  blob_path_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
-        :param pulumi.Input[str] blob_listblob_path: The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
+        :param pulumi.Input[str] blob_list_blob_path: The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_path: A collection of blob-path strings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_path_prefix: A collection of blob-prefix strings.
         """
-        if blob_listblob_path is not None:
-            pulumi.set(__self__, "blob_listblob_path", blob_listblob_path)
+        if blob_list_blob_path is not None:
+            pulumi.set(__self__, "blob_list_blob_path", blob_list_blob_path)
         if blob_path is not None:
             pulumi.set(__self__, "blob_path", blob_path)
         if blob_path_prefix is not None:
             pulumi.set(__self__, "blob_path_prefix", blob_path_prefix)
 
     @property
-    @pulumi.getter(name="blobListblobPath")
-    def blob_listblob_path(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="blobListBlobPath")
+    def blob_list_blob_path(self) -> Optional[pulumi.Input[str]]:
         """
         The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
         """
-        return pulumi.get(self, "blob_listblob_path")
+        return pulumi.get(self, "blob_list_blob_path")
 
-    @blob_listblob_path.setter
-    def blob_listblob_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "blob_listblob_path", value)
+    @blob_list_blob_path.setter
+    def blob_list_blob_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_list_blob_path", value)
 
     @property
     @pulumi.getter(name="blobPath")
@@ -280,9 +410,10 @@ class JobDetailsArgs:
     def __init__(__self__, *,
                  backup_drive_manifest: Optional[pulumi.Input[bool]] = None,
                  cancel_requested: Optional[pulumi.Input[bool]] = None,
-                 delivery_package: Optional[pulumi.Input['PackageInfomationArgs']] = None,
+                 delivery_package: Optional[pulumi.Input['DeliveryPackageInformationArgs']] = None,
                  diagnostics_path: Optional[pulumi.Input[str]] = None,
                  drive_list: Optional[pulumi.Input[Sequence[pulumi.Input['DriveStatusArgs']]]] = None,
+                 encryption_key: Optional[pulumi.Input['EncryptionKeyDetailsArgs']] = None,
                  export: Optional[pulumi.Input['ExportArgs']] = None,
                  incomplete_blob_list_uri: Optional[pulumi.Input[str]] = None,
                  job_type: Optional[pulumi.Input[str]] = None,
@@ -299,9 +430,10 @@ class JobDetailsArgs:
         Specifies the job properties
         :param pulumi.Input[bool] backup_drive_manifest: Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
         :param pulumi.Input[bool] cancel_requested: Indicates whether a request has been submitted to cancel the job.
-        :param pulumi.Input['PackageInfomationArgs'] delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center. 
+        :param pulumi.Input['DeliveryPackageInformationArgs'] delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center. 
         :param pulumi.Input[str] diagnostics_path: The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
         :param pulumi.Input[Sequence[pulumi.Input['DriveStatusArgs']]] drive_list: List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
+        :param pulumi.Input['EncryptionKeyDetailsArgs'] encryption_key: Contains information about the encryption key.
         :param pulumi.Input['ExportArgs'] export: A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
         :param pulumi.Input[str] incomplete_blob_list_uri: A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
         :param pulumi.Input[str] job_type: The type of job
@@ -325,6 +457,8 @@ class JobDetailsArgs:
             pulumi.set(__self__, "diagnostics_path", diagnostics_path)
         if drive_list is not None:
             pulumi.set(__self__, "drive_list", drive_list)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
         if export is not None:
             pulumi.set(__self__, "export", export)
         if incomplete_blob_list_uri is not None:
@@ -376,14 +510,14 @@ class JobDetailsArgs:
 
     @property
     @pulumi.getter(name="deliveryPackage")
-    def delivery_package(self) -> Optional[pulumi.Input['PackageInfomationArgs']]:
+    def delivery_package(self) -> Optional[pulumi.Input['DeliveryPackageInformationArgs']]:
         """
         Contains information about the package being shipped by the customer to the Microsoft data center. 
         """
         return pulumi.get(self, "delivery_package")
 
     @delivery_package.setter
-    def delivery_package(self, value: Optional[pulumi.Input['PackageInfomationArgs']]):
+    def delivery_package(self, value: Optional[pulumi.Input['DeliveryPackageInformationArgs']]):
         pulumi.set(self, "delivery_package", value)
 
     @property
@@ -409,6 +543,18 @@ class JobDetailsArgs:
     @drive_list.setter
     def drive_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DriveStatusArgs']]]]):
         pulumi.set(self, "drive_list", value)
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional[pulumi.Input['EncryptionKeyDetailsArgs']]:
+        """
+        Contains information about the encryption key.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @encryption_key.setter
+    def encryption_key(self, value: Optional[pulumi.Input['EncryptionKeyDetailsArgs']]):
+        pulumi.set(self, "encryption_key", value)
 
     @property
     @pulumi.getter
@@ -809,107 +955,65 @@ class ReturnShippingArgs:
 @pulumi.input_type
 class ShippingInformationArgs:
     def __init__(__self__, *,
-                 city: pulumi.Input[str],
-                 country_or_region: pulumi.Input[str],
-                 postal_code: pulumi.Input[str],
-                 recipient_name: pulumi.Input[str],
-                 state_or_province: pulumi.Input[str],
-                 street_address1: pulumi.Input[str],
+                 city: Optional[pulumi.Input[str]] = None,
+                 country_or_region: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
+                 postal_code: Optional[pulumi.Input[str]] = None,
+                 recipient_name: Optional[pulumi.Input[str]] = None,
+                 state_or_province: Optional[pulumi.Input[str]] = None,
+                 street_address1: Optional[pulumi.Input[str]] = None,
                  street_address2: Optional[pulumi.Input[str]] = None):
         """
         Contains information about the Microsoft datacenter to which the drives should be shipped.
         :param pulumi.Input[str] city: The city name to use when returning the drives.
         :param pulumi.Input[str] country_or_region: The country or region to use when returning the drives. 
+        :param pulumi.Input[str] phone: Phone number of the recipient of the returned drives.
         :param pulumi.Input[str] postal_code: The postal code to use when returning the drives.
         :param pulumi.Input[str] recipient_name: The name of the recipient who will receive the hard drives when they are returned. 
         :param pulumi.Input[str] state_or_province: The state or province to use when returning the drives.
         :param pulumi.Input[str] street_address1: The first line of the street address to use when returning the drives. 
-        :param pulumi.Input[str] phone: Phone number of the recipient of the returned drives.
         :param pulumi.Input[str] street_address2: The second line of the street address to use when returning the drives. 
         """
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country_or_region", country_or_region)
-        pulumi.set(__self__, "postal_code", postal_code)
-        pulumi.set(__self__, "recipient_name", recipient_name)
-        pulumi.set(__self__, "state_or_province", state_or_province)
-        pulumi.set(__self__, "street_address1", street_address1)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if country_or_region is not None:
+            pulumi.set(__self__, "country_or_region", country_or_region)
         if phone is not None:
             pulumi.set(__self__, "phone", phone)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if recipient_name is not None:
+            pulumi.set(__self__, "recipient_name", recipient_name)
+        if state_or_province is not None:
+            pulumi.set(__self__, "state_or_province", state_or_province)
+        if street_address1 is not None:
+            pulumi.set(__self__, "street_address1", street_address1)
         if street_address2 is not None:
             pulumi.set(__self__, "street_address2", street_address2)
 
     @property
     @pulumi.getter
-    def city(self) -> pulumi.Input[str]:
+    def city(self) -> Optional[pulumi.Input[str]]:
         """
         The city name to use when returning the drives.
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: pulumi.Input[str]):
+    def city(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "city", value)
 
     @property
     @pulumi.getter(name="countryOrRegion")
-    def country_or_region(self) -> pulumi.Input[str]:
+    def country_or_region(self) -> Optional[pulumi.Input[str]]:
         """
         The country or region to use when returning the drives. 
         """
         return pulumi.get(self, "country_or_region")
 
     @country_or_region.setter
-    def country_or_region(self, value: pulumi.Input[str]):
+    def country_or_region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "country_or_region", value)
-
-    @property
-    @pulumi.getter(name="postalCode")
-    def postal_code(self) -> pulumi.Input[str]:
-        """
-        The postal code to use when returning the drives.
-        """
-        return pulumi.get(self, "postal_code")
-
-    @postal_code.setter
-    def postal_code(self, value: pulumi.Input[str]):
-        pulumi.set(self, "postal_code", value)
-
-    @property
-    @pulumi.getter(name="recipientName")
-    def recipient_name(self) -> pulumi.Input[str]:
-        """
-        The name of the recipient who will receive the hard drives when they are returned. 
-        """
-        return pulumi.get(self, "recipient_name")
-
-    @recipient_name.setter
-    def recipient_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "recipient_name", value)
-
-    @property
-    @pulumi.getter(name="stateOrProvince")
-    def state_or_province(self) -> pulumi.Input[str]:
-        """
-        The state or province to use when returning the drives.
-        """
-        return pulumi.get(self, "state_or_province")
-
-    @state_or_province.setter
-    def state_or_province(self, value: pulumi.Input[str]):
-        pulumi.set(self, "state_or_province", value)
-
-    @property
-    @pulumi.getter(name="streetAddress1")
-    def street_address1(self) -> pulumi.Input[str]:
-        """
-        The first line of the street address to use when returning the drives. 
-        """
-        return pulumi.get(self, "street_address1")
-
-    @street_address1.setter
-    def street_address1(self, value: pulumi.Input[str]):
-        pulumi.set(self, "street_address1", value)
 
     @property
     @pulumi.getter
@@ -922,6 +1026,54 @@ class ShippingInformationArgs:
     @phone.setter
     def phone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "phone", value)
+
+    @property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The postal code to use when returning the drives.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @postal_code.setter
+    def postal_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "postal_code", value)
+
+    @property
+    @pulumi.getter(name="recipientName")
+    def recipient_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the recipient who will receive the hard drives when they are returned. 
+        """
+        return pulumi.get(self, "recipient_name")
+
+    @recipient_name.setter
+    def recipient_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recipient_name", value)
+
+    @property
+    @pulumi.getter(name="stateOrProvince")
+    def state_or_province(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state or province to use when returning the drives.
+        """
+        return pulumi.get(self, "state_or_province")
+
+    @state_or_province.setter
+    def state_or_province(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state_or_province", value)
+
+    @property
+    @pulumi.getter(name="streetAddress1")
+    def street_address1(self) -> Optional[pulumi.Input[str]]:
+        """
+        The first line of the street address to use when returning the drives. 
+        """
+        return pulumi.get(self, "street_address1")
+
+    @street_address1.setter
+    def street_address1(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "street_address1", value)
 
     @property
     @pulumi.getter(name="streetAddress2")

@@ -1708,18 +1708,12 @@ func (o CustomRuleResponseArrayOutput) Index(i pulumi.IntInput) CustomRuleRespon
 type CustomerCertificateParameters struct {
 	// Certificate issuing authority.
 	CertificateAuthority *string `pulumi:"certificateAuthority"`
-	// Certificate expiration date.
-	ExpirationDate *string `pulumi:"expirationDate"`
 	// Resource reference to the KV secret
 	SecretSource ResourceReference `pulumi:"secretSource"`
 	// Version of the secret to be used
 	SecretVersion *string `pulumi:"secretVersion"`
-	// Subject name in the certificate.
-	Subject *string `pulumi:"subject"`
 	// The list of SANs.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// Certificate thumbprint.
-	Thumbprint *string `pulumi:"thumbprint"`
 	// The type of the Secret to create.
 	// Expected value is 'CustomerCertificate'.
 	Type string `pulumi:"type"`
@@ -1742,18 +1736,12 @@ type CustomerCertificateParametersInput interface {
 type CustomerCertificateParametersArgs struct {
 	// Certificate issuing authority.
 	CertificateAuthority pulumi.StringPtrInput `pulumi:"certificateAuthority"`
-	// Certificate expiration date.
-	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
 	// Resource reference to the KV secret
 	SecretSource ResourceReferenceInput `pulumi:"secretSource"`
 	// Version of the secret to be used
 	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
-	// Subject name in the certificate.
-	Subject pulumi.StringPtrInput `pulumi:"subject"`
 	// The list of SANs.
 	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
-	// Certificate thumbprint.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// The type of the Secret to create.
 	// Expected value is 'CustomerCertificate'.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1793,11 +1781,6 @@ func (o CustomerCertificateParametersOutput) CertificateAuthority() pulumi.Strin
 	return o.ApplyT(func(v CustomerCertificateParameters) *string { return v.CertificateAuthority }).(pulumi.StringPtrOutput)
 }
 
-// Certificate expiration date.
-func (o CustomerCertificateParametersOutput) ExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomerCertificateParameters) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
-}
-
 // Resource reference to the KV secret
 func (o CustomerCertificateParametersOutput) SecretSource() ResourceReferenceOutput {
 	return o.ApplyT(func(v CustomerCertificateParameters) ResourceReference { return v.SecretSource }).(ResourceReferenceOutput)
@@ -1808,19 +1791,9 @@ func (o CustomerCertificateParametersOutput) SecretVersion() pulumi.StringPtrOut
 	return o.ApplyT(func(v CustomerCertificateParameters) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
 }
 
-// Subject name in the certificate.
-func (o CustomerCertificateParametersOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomerCertificateParameters) *string { return v.Subject }).(pulumi.StringPtrOutput)
-}
-
 // The list of SANs.
 func (o CustomerCertificateParametersOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CustomerCertificateParameters) []string { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
-}
-
-// Certificate thumbprint.
-func (o CustomerCertificateParametersOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomerCertificateParameters) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 // The type of the Secret to create.
@@ -1838,18 +1811,12 @@ func (o CustomerCertificateParametersOutput) UseLatestVersion() pulumi.BoolPtrOu
 type CustomerCertificateParametersResponse struct {
 	// Certificate issuing authority.
 	CertificateAuthority *string `pulumi:"certificateAuthority"`
-	// Certificate expiration date.
-	ExpirationDate *string `pulumi:"expirationDate"`
 	// Resource reference to the KV secret
 	SecretSource ResourceReferenceResponse `pulumi:"secretSource"`
 	// Version of the secret to be used
 	SecretVersion *string `pulumi:"secretVersion"`
-	// Subject name in the certificate.
-	Subject *string `pulumi:"subject"`
 	// The list of SANs.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
-	// Certificate thumbprint.
-	Thumbprint *string `pulumi:"thumbprint"`
 	// The type of the Secret to create.
 	// Expected value is 'CustomerCertificate'.
 	Type string `pulumi:"type"`
@@ -1872,18 +1839,12 @@ type CustomerCertificateParametersResponseInput interface {
 type CustomerCertificateParametersResponseArgs struct {
 	// Certificate issuing authority.
 	CertificateAuthority pulumi.StringPtrInput `pulumi:"certificateAuthority"`
-	// Certificate expiration date.
-	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
 	// Resource reference to the KV secret
 	SecretSource ResourceReferenceResponseInput `pulumi:"secretSource"`
 	// Version of the secret to be used
 	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
-	// Subject name in the certificate.
-	Subject pulumi.StringPtrInput `pulumi:"subject"`
 	// The list of SANs.
 	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
-	// Certificate thumbprint.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// The type of the Secret to create.
 	// Expected value is 'CustomerCertificate'.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1923,11 +1884,6 @@ func (o CustomerCertificateParametersResponseOutput) CertificateAuthority() pulu
 	return o.ApplyT(func(v CustomerCertificateParametersResponse) *string { return v.CertificateAuthority }).(pulumi.StringPtrOutput)
 }
 
-// Certificate expiration date.
-func (o CustomerCertificateParametersResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomerCertificateParametersResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
-}
-
 // Resource reference to the KV secret
 func (o CustomerCertificateParametersResponseOutput) SecretSource() ResourceReferenceResponseOutput {
 	return o.ApplyT(func(v CustomerCertificateParametersResponse) ResourceReferenceResponse { return v.SecretSource }).(ResourceReferenceResponseOutput)
@@ -1938,19 +1894,9 @@ func (o CustomerCertificateParametersResponseOutput) SecretVersion() pulumi.Stri
 	return o.ApplyT(func(v CustomerCertificateParametersResponse) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
 }
 
-// Subject name in the certificate.
-func (o CustomerCertificateParametersResponseOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomerCertificateParametersResponse) *string { return v.Subject }).(pulumi.StringPtrOutput)
-}
-
 // The list of SANs.
 func (o CustomerCertificateParametersResponseOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CustomerCertificateParametersResponse) []string { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
-}
-
-// Certificate thumbprint.
-func (o CustomerCertificateParametersResponseOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomerCertificateParametersResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 // The type of the Secret to create.
@@ -7947,12 +7893,6 @@ func (o LoadBalancingSettingsParametersResponsePtrOutput) SuccessfulSamplesRequi
 
 // Managed Certificate used for https
 type ManagedCertificateParameters struct {
-	// Certificate expiration date.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// Subject name in the certificate.
-	Subject *string `pulumi:"subject"`
-	// Certificate thumbprint.
-	Thumbprint *string `pulumi:"thumbprint"`
 	// The type of the Secret to create.
 	// Expected value is 'ManagedCertificate'.
 	Type string `pulumi:"type"`
@@ -7971,12 +7911,6 @@ type ManagedCertificateParametersInput interface {
 
 // Managed Certificate used for https
 type ManagedCertificateParametersArgs struct {
-	// Certificate expiration date.
-	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
-	// Subject name in the certificate.
-	Subject pulumi.StringPtrInput `pulumi:"subject"`
-	// Certificate thumbprint.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// The type of the Secret to create.
 	// Expected value is 'ManagedCertificate'.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -8009,21 +7943,6 @@ func (o ManagedCertificateParametersOutput) ToManagedCertificateParametersOutput
 	return o
 }
 
-// Certificate expiration date.
-func (o ManagedCertificateParametersOutput) ExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedCertificateParameters) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
-}
-
-// Subject name in the certificate.
-func (o ManagedCertificateParametersOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedCertificateParameters) *string { return v.Subject }).(pulumi.StringPtrOutput)
-}
-
-// Certificate thumbprint.
-func (o ManagedCertificateParametersOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedCertificateParameters) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
 // The type of the Secret to create.
 // Expected value is 'ManagedCertificate'.
 func (o ManagedCertificateParametersOutput) Type() pulumi.StringOutput {
@@ -8032,12 +7951,6 @@ func (o ManagedCertificateParametersOutput) Type() pulumi.StringOutput {
 
 // Managed Certificate used for https
 type ManagedCertificateParametersResponse struct {
-	// Certificate expiration date.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// Subject name in the certificate.
-	Subject *string `pulumi:"subject"`
-	// Certificate thumbprint.
-	Thumbprint *string `pulumi:"thumbprint"`
 	// The type of the Secret to create.
 	// Expected value is 'ManagedCertificate'.
 	Type string `pulumi:"type"`
@@ -8056,12 +7969,6 @@ type ManagedCertificateParametersResponseInput interface {
 
 // Managed Certificate used for https
 type ManagedCertificateParametersResponseArgs struct {
-	// Certificate expiration date.
-	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
-	// Subject name in the certificate.
-	Subject pulumi.StringPtrInput `pulumi:"subject"`
-	// Certificate thumbprint.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// The type of the Secret to create.
 	// Expected value is 'ManagedCertificate'.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -8092,21 +7999,6 @@ func (o ManagedCertificateParametersResponseOutput) ToManagedCertificateParamete
 
 func (o ManagedCertificateParametersResponseOutput) ToManagedCertificateParametersResponseOutputWithContext(ctx context.Context) ManagedCertificateParametersResponseOutput {
 	return o
-}
-
-// Certificate expiration date.
-func (o ManagedCertificateParametersResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedCertificateParametersResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
-}
-
-// Subject name in the certificate.
-func (o ManagedCertificateParametersResponseOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedCertificateParametersResponse) *string { return v.Subject }).(pulumi.StringPtrOutput)
-}
-
-// Certificate thumbprint.
-func (o ManagedCertificateParametersResponseOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedCertificateParametersResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 // The type of the Secret to create.

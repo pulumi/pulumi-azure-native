@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the job identity details
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityDetailsResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Azure location where the job is created.
         /// </summary>
         [Output("location")]
@@ -32,6 +38,12 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101
         /// </summary>
         [Output("properties")]
         public Output<Outputs.JobDetailsResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// SystemData of ImportExport Jobs.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the tags that are assigned to the job.

@@ -10,17 +10,10 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
-    'ApplicationDeltaHealthPolicyArgs',
-    'ApplicationHealthPolicyArgs',
     'AzureActiveDirectoryArgs',
     'ClientCertificateArgs',
-    'ClusterHealthPolicyArgs',
-    'ClusterUpgradeDeltaHealthPolicyArgs',
-    'ClusterUpgradePolicyArgs',
     'EndpointRangeDescriptionArgs',
     'LoadBalancingRuleArgs',
-    'ServiceTypeDeltaHealthPolicyArgs',
-    'ServiceTypeHealthPolicyArgs',
     'SettingsParameterDescriptionArgs',
     'SettingsSectionDescriptionArgs',
     'SkuArgs',
@@ -29,88 +22,6 @@ __all__ = [
     'VaultCertificateArgs',
     'VaultSecretGroupArgs',
 ]
-
-@pulumi.input_type
-class ApplicationDeltaHealthPolicyArgs:
-    def __init__(__self__, *,
-                 default_service_type_delta_health_policy: Optional[pulumi.Input['ServiceTypeDeltaHealthPolicyArgs']] = None,
-                 service_type_delta_health_policies: Optional[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeDeltaHealthPolicyArgs']]]] = None):
-        """
-        Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-
-        :param pulumi.Input['ServiceTypeDeltaHealthPolicyArgs'] default_service_type_delta_health_policy: The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
-        :param pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeDeltaHealthPolicyArgs']]] service_type_delta_health_policies: The map with service type delta health policy per service type name. The map is empty by default.
-        """
-        if default_service_type_delta_health_policy is not None:
-            pulumi.set(__self__, "default_service_type_delta_health_policy", default_service_type_delta_health_policy)
-        if service_type_delta_health_policies is not None:
-            pulumi.set(__self__, "service_type_delta_health_policies", service_type_delta_health_policies)
-
-    @property
-    @pulumi.getter(name="defaultServiceTypeDeltaHealthPolicy")
-    def default_service_type_delta_health_policy(self) -> Optional[pulumi.Input['ServiceTypeDeltaHealthPolicyArgs']]:
-        """
-        The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
-        """
-        return pulumi.get(self, "default_service_type_delta_health_policy")
-
-    @default_service_type_delta_health_policy.setter
-    def default_service_type_delta_health_policy(self, value: Optional[pulumi.Input['ServiceTypeDeltaHealthPolicyArgs']]):
-        pulumi.set(self, "default_service_type_delta_health_policy", value)
-
-    @property
-    @pulumi.getter(name="serviceTypeDeltaHealthPolicies")
-    def service_type_delta_health_policies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeDeltaHealthPolicyArgs']]]]:
-        """
-        The map with service type delta health policy per service type name. The map is empty by default.
-        """
-        return pulumi.get(self, "service_type_delta_health_policies")
-
-    @service_type_delta_health_policies.setter
-    def service_type_delta_health_policies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeDeltaHealthPolicyArgs']]]]):
-        pulumi.set(self, "service_type_delta_health_policies", value)
-
-
-@pulumi.input_type
-class ApplicationHealthPolicyArgs:
-    def __init__(__self__, *,
-                 default_service_type_health_policy: Optional[pulumi.Input['ServiceTypeHealthPolicyArgs']] = None,
-                 service_type_health_policies: Optional[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]]] = None):
-        """
-        Defines a health policy used to evaluate the health of an application or one of its children entities.
-
-        :param pulumi.Input['ServiceTypeHealthPolicyArgs'] default_service_type_health_policy: The health policy used by default to evaluate the health of a service type.
-        :param pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]] service_type_health_policies: The map with service type health policy per service type name. The map is empty by default.
-        """
-        if default_service_type_health_policy is not None:
-            pulumi.set(__self__, "default_service_type_health_policy", default_service_type_health_policy)
-        if service_type_health_policies is not None:
-            pulumi.set(__self__, "service_type_health_policies", service_type_health_policies)
-
-    @property
-    @pulumi.getter(name="defaultServiceTypeHealthPolicy")
-    def default_service_type_health_policy(self) -> Optional[pulumi.Input['ServiceTypeHealthPolicyArgs']]:
-        """
-        The health policy used by default to evaluate the health of a service type.
-        """
-        return pulumi.get(self, "default_service_type_health_policy")
-
-    @default_service_type_health_policy.setter
-    def default_service_type_health_policy(self, value: Optional[pulumi.Input['ServiceTypeHealthPolicyArgs']]):
-        pulumi.set(self, "default_service_type_health_policy", value)
-
-    @property
-    @pulumi.getter(name="serviceTypeHealthPolicies")
-    def service_type_health_policies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]]]:
-        """
-        The map with service type health policy per service type name. The map is empty by default.
-        """
-        return pulumi.get(self, "service_type_health_policies")
-
-    @service_type_health_policies.setter
-    def service_type_health_policies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ServiceTypeHealthPolicyArgs']]]]):
-        pulumi.set(self, "service_type_health_policies", value)
-
 
 @pulumi.input_type
 class AzureActiveDirectoryArgs:
@@ -179,7 +90,7 @@ class ClientCertificateArgs:
         Client Certificate definition.
         :param pulumi.Input[bool] is_admin: Whether the certificate is admin or not.
         :param pulumi.Input[str] common_name: Certificate Common name.
-        :param pulumi.Input[str] issuer_thumbprint: Issuer thumbprint for the certificate. Its only use CommonName is used.
+        :param pulumi.Input[str] issuer_thumbprint: Issuer thumbprint for the certificate. Only used together with CommonName.
         :param pulumi.Input[str] thumbprint: Certificate Thumbprint.
         """
         pulumi.set(__self__, "is_admin", is_admin)
@@ -218,7 +129,7 @@ class ClientCertificateArgs:
     @pulumi.getter(name="issuerThumbprint")
     def issuer_thumbprint(self) -> Optional[pulumi.Input[str]]:
         """
-        Issuer thumbprint for the certificate. Its only use CommonName is used.
+        Issuer thumbprint for the certificate. Only used together with CommonName.
         """
         return pulumi.get(self, "issuer_thumbprint")
 
@@ -237,317 +148,6 @@ class ClientCertificateArgs:
     @thumbprint.setter
     def thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thumbprint", value)
-
-
-@pulumi.input_type
-class ClusterHealthPolicyArgs:
-    def __init__(__self__, *,
-                 application_health_policies: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationHealthPolicyArgs']]]] = None,
-                 max_percent_unhealthy_applications: Optional[pulumi.Input[int]] = None,
-                 max_percent_unhealthy_nodes: Optional[pulumi.Input[int]] = None):
-        """
-        Defines a health policy used to evaluate the health of the cluster or of a cluster node.
-
-        :param pulumi.Input[Mapping[str, pulumi.Input['ApplicationHealthPolicyArgs']]] application_health_policies: Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-        :param pulumi.Input[int] max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
-               
-               The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-               If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-               This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-               The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-        :param pulumi.Input[int] max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
-               
-               The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-               If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-               The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-               The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-               
-               In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-        """
-        if application_health_policies is not None:
-            pulumi.set(__self__, "application_health_policies", application_health_policies)
-        if max_percent_unhealthy_applications is None:
-            max_percent_unhealthy_applications = 0
-        if max_percent_unhealthy_applications is not None:
-            pulumi.set(__self__, "max_percent_unhealthy_applications", max_percent_unhealthy_applications)
-        if max_percent_unhealthy_nodes is None:
-            max_percent_unhealthy_nodes = 0
-        if max_percent_unhealthy_nodes is not None:
-            pulumi.set(__self__, "max_percent_unhealthy_nodes", max_percent_unhealthy_nodes)
-
-    @property
-    @pulumi.getter(name="applicationHealthPolicies")
-    def application_health_policies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationHealthPolicyArgs']]]]:
-        """
-        Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-        """
-        return pulumi.get(self, "application_health_policies")
-
-    @application_health_policies.setter
-    def application_health_policies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationHealthPolicyArgs']]]]):
-        pulumi.set(self, "application_health_policies", value)
-
-    @property
-    @pulumi.getter(name="maxPercentUnhealthyApplications")
-    def max_percent_unhealthy_applications(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
-
-        The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-        If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-        This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-        The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-        """
-        return pulumi.get(self, "max_percent_unhealthy_applications")
-
-    @max_percent_unhealthy_applications.setter
-    def max_percent_unhealthy_applications(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "max_percent_unhealthy_applications", value)
-
-    @property
-    @pulumi.getter(name="maxPercentUnhealthyNodes")
-    def max_percent_unhealthy_nodes(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
-
-        The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-        If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-        The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-        The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-
-        In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-        """
-        return pulumi.get(self, "max_percent_unhealthy_nodes")
-
-    @max_percent_unhealthy_nodes.setter
-    def max_percent_unhealthy_nodes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "max_percent_unhealthy_nodes", value)
-
-
-@pulumi.input_type
-class ClusterUpgradeDeltaHealthPolicyArgs:
-    def __init__(__self__, *,
-                 max_percent_delta_unhealthy_applications: pulumi.Input[int],
-                 max_percent_delta_unhealthy_nodes: pulumi.Input[int],
-                 max_percent_upgrade_domain_delta_unhealthy_nodes: pulumi.Input[int],
-                 application_delta_health_policies: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationDeltaHealthPolicyArgs']]]] = None):
-        """
-        Describes the delta health policies for the cluster upgrade.
-        :param pulumi.Input[int] max_percent_delta_unhealthy_applications: The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-               The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-               The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-        :param pulumi.Input[int] max_percent_delta_unhealthy_nodes: The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-               The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-               The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-        :param pulumi.Input[int] max_percent_upgrade_domain_delta_unhealthy_nodes: The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-               The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-               The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-        :param pulumi.Input[Mapping[str, pulumi.Input['ApplicationDeltaHealthPolicyArgs']]] application_delta_health_policies: Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-        """
-        pulumi.set(__self__, "max_percent_delta_unhealthy_applications", max_percent_delta_unhealthy_applications)
-        pulumi.set(__self__, "max_percent_delta_unhealthy_nodes", max_percent_delta_unhealthy_nodes)
-        pulumi.set(__self__, "max_percent_upgrade_domain_delta_unhealthy_nodes", max_percent_upgrade_domain_delta_unhealthy_nodes)
-        if application_delta_health_policies is not None:
-            pulumi.set(__self__, "application_delta_health_policies", application_delta_health_policies)
-
-    @property
-    @pulumi.getter(name="maxPercentDeltaUnhealthyApplications")
-    def max_percent_delta_unhealthy_applications(self) -> pulumi.Input[int]:
-        """
-        The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-        The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-        """
-        return pulumi.get(self, "max_percent_delta_unhealthy_applications")
-
-    @max_percent_delta_unhealthy_applications.setter
-    def max_percent_delta_unhealthy_applications(self, value: pulumi.Input[int]):
-        pulumi.set(self, "max_percent_delta_unhealthy_applications", value)
-
-    @property
-    @pulumi.getter(name="maxPercentDeltaUnhealthyNodes")
-    def max_percent_delta_unhealthy_nodes(self) -> pulumi.Input[int]:
-        """
-        The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-        The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-        """
-        return pulumi.get(self, "max_percent_delta_unhealthy_nodes")
-
-    @max_percent_delta_unhealthy_nodes.setter
-    def max_percent_delta_unhealthy_nodes(self, value: pulumi.Input[int]):
-        pulumi.set(self, "max_percent_delta_unhealthy_nodes", value)
-
-    @property
-    @pulumi.getter(name="maxPercentUpgradeDomainDeltaUnhealthyNodes")
-    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> pulumi.Input[int]:
-        """
-        The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-        The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-        The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-        """
-        return pulumi.get(self, "max_percent_upgrade_domain_delta_unhealthy_nodes")
-
-    @max_percent_upgrade_domain_delta_unhealthy_nodes.setter
-    def max_percent_upgrade_domain_delta_unhealthy_nodes(self, value: pulumi.Input[int]):
-        pulumi.set(self, "max_percent_upgrade_domain_delta_unhealthy_nodes", value)
-
-    @property
-    @pulumi.getter(name="applicationDeltaHealthPolicies")
-    def application_delta_health_policies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationDeltaHealthPolicyArgs']]]]:
-        """
-        Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-        """
-        return pulumi.get(self, "application_delta_health_policies")
-
-    @application_delta_health_policies.setter
-    def application_delta_health_policies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationDeltaHealthPolicyArgs']]]]):
-        pulumi.set(self, "application_delta_health_policies", value)
-
-
-@pulumi.input_type
-class ClusterUpgradePolicyArgs:
-    def __init__(__self__, *,
-                 health_check_retry_timeout: pulumi.Input[str],
-                 health_check_stable_duration: pulumi.Input[str],
-                 health_check_wait_duration: pulumi.Input[str],
-                 health_policy: pulumi.Input['ClusterHealthPolicyArgs'],
-                 upgrade_domain_timeout: pulumi.Input[str],
-                 upgrade_replica_set_check_timeout: pulumi.Input[str],
-                 upgrade_timeout: pulumi.Input[str],
-                 delta_health_policy: Optional[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs']] = None,
-                 force_restart: Optional[pulumi.Input[bool]] = None):
-        """
-        Describes the policy used when upgrading the cluster.
-        :param pulumi.Input[str] health_check_retry_timeout: The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        :param pulumi.Input[str] health_check_stable_duration: The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        :param pulumi.Input[str] health_check_wait_duration: The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        :param pulumi.Input['ClusterHealthPolicyArgs'] health_policy: The cluster health policy used when upgrading the cluster.
-        :param pulumi.Input[str] upgrade_domain_timeout: The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        :param pulumi.Input[str] upgrade_replica_set_check_timeout: The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        :param pulumi.Input[str] upgrade_timeout: The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        :param pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs'] delta_health_policy: The cluster delta health policy used when upgrading the cluster.
-        :param pulumi.Input[bool] force_restart: If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-        """
-        pulumi.set(__self__, "health_check_retry_timeout", health_check_retry_timeout)
-        pulumi.set(__self__, "health_check_stable_duration", health_check_stable_duration)
-        pulumi.set(__self__, "health_check_wait_duration", health_check_wait_duration)
-        pulumi.set(__self__, "health_policy", health_policy)
-        pulumi.set(__self__, "upgrade_domain_timeout", upgrade_domain_timeout)
-        pulumi.set(__self__, "upgrade_replica_set_check_timeout", upgrade_replica_set_check_timeout)
-        pulumi.set(__self__, "upgrade_timeout", upgrade_timeout)
-        if delta_health_policy is not None:
-            pulumi.set(__self__, "delta_health_policy", delta_health_policy)
-        if force_restart is not None:
-            pulumi.set(__self__, "force_restart", force_restart)
-
-    @property
-    @pulumi.getter(name="healthCheckRetryTimeout")
-    def health_check_retry_timeout(self) -> pulumi.Input[str]:
-        """
-        The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        """
-        return pulumi.get(self, "health_check_retry_timeout")
-
-    @health_check_retry_timeout.setter
-    def health_check_retry_timeout(self, value: pulumi.Input[str]):
-        pulumi.set(self, "health_check_retry_timeout", value)
-
-    @property
-    @pulumi.getter(name="healthCheckStableDuration")
-    def health_check_stable_duration(self) -> pulumi.Input[str]:
-        """
-        The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        """
-        return pulumi.get(self, "health_check_stable_duration")
-
-    @health_check_stable_duration.setter
-    def health_check_stable_duration(self, value: pulumi.Input[str]):
-        pulumi.set(self, "health_check_stable_duration", value)
-
-    @property
-    @pulumi.getter(name="healthCheckWaitDuration")
-    def health_check_wait_duration(self) -> pulumi.Input[str]:
-        """
-        The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        """
-        return pulumi.get(self, "health_check_wait_duration")
-
-    @health_check_wait_duration.setter
-    def health_check_wait_duration(self, value: pulumi.Input[str]):
-        pulumi.set(self, "health_check_wait_duration", value)
-
-    @property
-    @pulumi.getter(name="healthPolicy")
-    def health_policy(self) -> pulumi.Input['ClusterHealthPolicyArgs']:
-        """
-        The cluster health policy used when upgrading the cluster.
-        """
-        return pulumi.get(self, "health_policy")
-
-    @health_policy.setter
-    def health_policy(self, value: pulumi.Input['ClusterHealthPolicyArgs']):
-        pulumi.set(self, "health_policy", value)
-
-    @property
-    @pulumi.getter(name="upgradeDomainTimeout")
-    def upgrade_domain_timeout(self) -> pulumi.Input[str]:
-        """
-        The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        """
-        return pulumi.get(self, "upgrade_domain_timeout")
-
-    @upgrade_domain_timeout.setter
-    def upgrade_domain_timeout(self, value: pulumi.Input[str]):
-        pulumi.set(self, "upgrade_domain_timeout", value)
-
-    @property
-    @pulumi.getter(name="upgradeReplicaSetCheckTimeout")
-    def upgrade_replica_set_check_timeout(self) -> pulumi.Input[str]:
-        """
-        The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        """
-        return pulumi.get(self, "upgrade_replica_set_check_timeout")
-
-    @upgrade_replica_set_check_timeout.setter
-    def upgrade_replica_set_check_timeout(self, value: pulumi.Input[str]):
-        pulumi.set(self, "upgrade_replica_set_check_timeout", value)
-
-    @property
-    @pulumi.getter(name="upgradeTimeout")
-    def upgrade_timeout(self) -> pulumi.Input[str]:
-        """
-        The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        """
-        return pulumi.get(self, "upgrade_timeout")
-
-    @upgrade_timeout.setter
-    def upgrade_timeout(self, value: pulumi.Input[str]):
-        pulumi.set(self, "upgrade_timeout", value)
-
-    @property
-    @pulumi.getter(name="deltaHealthPolicy")
-    def delta_health_policy(self) -> Optional[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs']]:
-        """
-        The cluster delta health policy used when upgrading the cluster.
-        """
-        return pulumi.get(self, "delta_health_policy")
-
-    @delta_health_policy.setter
-    def delta_health_policy(self, value: Optional[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs']]):
-        pulumi.set(self, "delta_health_policy", value)
-
-    @property
-    @pulumi.getter(name="forceRestart")
-    def force_restart(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-        """
-        return pulumi.get(self, "force_restart")
-
-    @force_restart.setter
-    def force_restart(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "force_restart", value)
 
 
 @pulumi.input_type
@@ -673,64 +273,6 @@ class LoadBalancingRuleArgs:
 
 
 @pulumi.input_type
-class ServiceTypeDeltaHealthPolicyArgs:
-    def __init__(__self__, *,
-                 max_percent_delta_unhealthy_services: Optional[pulumi.Input[int]] = None):
-        """
-        Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
-
-        :param pulumi.Input[int] max_percent_delta_unhealthy_services: The maximum allowed percentage of services health degradation allowed during cluster upgrades.
-               The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
-               The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-        """
-        if max_percent_delta_unhealthy_services is None:
-            max_percent_delta_unhealthy_services = 0
-        if max_percent_delta_unhealthy_services is not None:
-            pulumi.set(__self__, "max_percent_delta_unhealthy_services", max_percent_delta_unhealthy_services)
-
-    @property
-    @pulumi.getter(name="maxPercentDeltaUnhealthyServices")
-    def max_percent_delta_unhealthy_services(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum allowed percentage of services health degradation allowed during cluster upgrades.
-        The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
-        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-        """
-        return pulumi.get(self, "max_percent_delta_unhealthy_services")
-
-    @max_percent_delta_unhealthy_services.setter
-    def max_percent_delta_unhealthy_services(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "max_percent_delta_unhealthy_services", value)
-
-
-@pulumi.input_type
-class ServiceTypeHealthPolicyArgs:
-    def __init__(__self__, *,
-                 max_percent_unhealthy_services: Optional[pulumi.Input[int]] = None):
-        """
-        Represents the health policy used to evaluate the health of services belonging to a service type.
-
-        :param pulumi.Input[int] max_percent_unhealthy_services: The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-        """
-        if max_percent_unhealthy_services is None:
-            max_percent_unhealthy_services = 0
-        if max_percent_unhealthy_services is not None:
-            pulumi.set(__self__, "max_percent_unhealthy_services", max_percent_unhealthy_services)
-
-    @property
-    @pulumi.getter(name="maxPercentUnhealthyServices")
-    def max_percent_unhealthy_services(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum percentage of services allowed to be unhealthy before your application is considered in error.
-        """
-        return pulumi.get(self, "max_percent_unhealthy_services")
-
-    @max_percent_unhealthy_services.setter
-    def max_percent_unhealthy_services(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "max_percent_unhealthy_services", value)
-
-
-@pulumi.input_type
 class SettingsParameterDescriptionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -812,7 +354,7 @@ class SkuArgs:
                  name: pulumi.Input[str]):
         """
         Sku definition
-        :param pulumi.Input[str] name: Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        :param pulumi.Input[str] name: Sku Name.
         """
         pulumi.set(__self__, "name", name)
 
@@ -820,7 +362,7 @@ class SkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        Sku Name.
         """
         return pulumi.get(self, "name")
 

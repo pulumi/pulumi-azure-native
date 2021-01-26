@@ -53,6 +53,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.importexport.latest.JobDetailsResponse>;
     /**
+     * SystemData of ImportExport Jobs.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.importexport.latest.SystemDataResponse>;
+    /**
      * Specifies the tags that are assigned to the job.
      */
     public readonly tags!: pulumi.Output<any | undefined>;
@@ -84,12 +88,14 @@ export class Job extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["identity"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

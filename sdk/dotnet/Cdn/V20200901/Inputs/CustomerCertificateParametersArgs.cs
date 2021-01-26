@@ -22,12 +22,6 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
         public Input<string>? CertificateAuthority { get; set; }
 
         /// <summary>
-        /// Certificate expiration date.
-        /// </summary>
-        [Input("expirationDate")]
-        public Input<string>? ExpirationDate { get; set; }
-
-        /// <summary>
         /// Resource reference to the KV secret
         /// </summary>
         [Input("secretSource", required: true)]
@@ -38,12 +32,6 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
         /// </summary>
         [Input("secretVersion")]
         public Input<string>? SecretVersion { get; set; }
-
-        /// <summary>
-        /// Subject name in the certificate.
-        /// </summary>
-        [Input("subject")]
-        public Input<string>? Subject { get; set; }
 
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;
@@ -56,12 +44,6 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
             get => _subjectAlternativeNames ?? (_subjectAlternativeNames = new InputList<string>());
             set => _subjectAlternativeNames = value;
         }
-
-        /// <summary>
-        /// Certificate thumbprint.
-        /// </summary>
-        [Input("thumbprint")]
-        public Input<string>? Thumbprint { get; set; }
 
         /// <summary>
         /// The type of the Secret to create.

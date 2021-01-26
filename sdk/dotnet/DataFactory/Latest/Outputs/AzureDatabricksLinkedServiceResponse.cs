@@ -94,6 +94,10 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// The policy id for limiting the ability to configure clusters based on a user defined set of rules. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? PolicyId;
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureDatabricks'.
         /// </summary>
@@ -145,6 +149,8 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            object? policyId,
+
             string type,
 
             object? workspaceResourceId)
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Outputs
             NewClusterSparkEnvVars = newClusterSparkEnvVars;
             NewClusterVersion = newClusterVersion;
             Parameters = parameters;
+            PolicyId = policyId;
             Type = type;
             WorkspaceResourceId = workspaceResourceId;
         }

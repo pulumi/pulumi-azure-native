@@ -40,6 +40,12 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
         public Output<Outputs.JobDetailsResponse> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// SystemData of ImportExport Jobs.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the tags that are assigned to the job.
         /// </summary>
         [Output("tags")]

@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
     public sealed class CustomActivityResponse
     {
         /// <summary>
+        /// Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
+        /// </summary>
+        public readonly object? AutoUserSpecification;
+        /// <summary>
         /// Command for custom activity Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object Command;
@@ -69,6 +73,8 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private CustomActivityResponse(
+            object? autoUserSpecification,
+
             object command,
 
             ImmutableArray<Outputs.ActivityDependencyResponse> dependsOn,
@@ -95,6 +101,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Outputs
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
         {
+            AutoUserSpecification = autoUserSpecification;
             Command = command;
             DependsOn = dependsOn;
             Description = description;

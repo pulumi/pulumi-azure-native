@@ -20,7 +20,7 @@ class GetScheduledQueryRuleResult:
     """
     The scheduled query rule resource.
     """
-    def __init__(__self__, actions=None, criteria=None, description=None, enabled=None, evaluation_frequency=None, id=None, location=None, mute_actions_duration=None, name=None, scopes=None, severity=None, tags=None, target_resource_types=None, type=None, window_size=None):
+    def __init__(__self__, actions=None, criteria=None, description=None, display_name=None, enabled=None, etag=None, evaluation_frequency=None, id=None, kind=None, location=None, mute_actions_duration=None, name=None, override_query_time_range=None, scopes=None, severity=None, tags=None, target_resource_types=None, type=None, window_size=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -30,15 +30,24 @@ class GetScheduledQueryRuleResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if evaluation_frequency and not isinstance(evaluation_frequency, str):
             raise TypeError("Expected argument 'evaluation_frequency' to be a str")
         pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -48,6 +57,9 @@ class GetScheduledQueryRuleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if override_query_time_range and not isinstance(override_query_time_range, str):
+            raise TypeError("Expected argument 'override_query_time_range' to be a str")
+        pulumi.set(__self__, "override_query_time_range", override_query_time_range)
         if scopes and not isinstance(scopes, list):
             raise TypeError("Expected argument 'scopes' to be a list")
         pulumi.set(__self__, "scopes", scopes)
@@ -89,12 +101,28 @@ class GetScheduledQueryRuleResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the alert rule
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
     @pulumi.getter
     def enabled(self) -> bool:
         """
         The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="evaluationFrequency")
@@ -111,6 +139,14 @@ class GetScheduledQueryRuleResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -135,6 +171,14 @@ class GetScheduledQueryRuleResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="overrideQueryTimeRange")
+    def override_query_time_range(self) -> Optional[str]:
+        """
+        If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+        """
+        return pulumi.get(self, "override_query_time_range")
 
     @property
     @pulumi.getter
@@ -194,12 +238,16 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
             actions=self.actions,
             criteria=self.criteria,
             description=self.description,
+            display_name=self.display_name,
             enabled=self.enabled,
+            etag=self.etag,
             evaluation_frequency=self.evaluation_frequency,
             id=self.id,
+            kind=self.kind,
             location=self.location,
             mute_actions_duration=self.mute_actions_duration,
             name=self.name,
+            override_query_time_range=self.override_query_time_range,
             scopes=self.scopes,
             severity=self.severity,
             tags=self.tags,
@@ -230,12 +278,16 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
         actions=__ret__.actions,
         criteria=__ret__.criteria,
         description=__ret__.description,
+        display_name=__ret__.display_name,
         enabled=__ret__.enabled,
+        etag=__ret__.etag,
         evaluation_frequency=__ret__.evaluation_frequency,
         id=__ret__.id,
+        kind=__ret__.kind,
         location=__ret__.location,
         mute_actions_duration=__ret__.mute_actions_duration,
         name=__ret__.name,
+        override_query_time_range=__ret__.override_query_time_range,
         scopes=__ret__.scopes,
         severity=__ret__.severity,
         tags=__ret__.tags,

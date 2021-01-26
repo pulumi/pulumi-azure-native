@@ -11,15 +11,79 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DeliveryPackageInformationResponse',
     'DriveBitLockerKeyResponseResult',
     'DriveStatusResponse',
+    'EncryptionKeyDetailsResponse',
     'ExportResponse',
+    'IdentityDetailsResponse',
     'JobDetailsResponse',
     'PackageInfomationResponse',
     'ReturnAddressResponse',
     'ReturnShippingResponse',
     'ShippingInformationResponse',
+    'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class DeliveryPackageInformationResponse(dict):
+    """
+    Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+    """
+    def __init__(__self__, *,
+                 carrier_name: str,
+                 tracking_number: str,
+                 drive_count: Optional[float] = None,
+                 ship_date: Optional[str] = None):
+        """
+        Contains information about the delivery package being shipped by the customer to the Microsoft data center.
+        :param str carrier_name: The name of the carrier that is used to ship the import or export drives.
+        :param str tracking_number: The tracking number of the package.
+        :param float drive_count: The number of drives included in the package.
+        :param str ship_date: The date when the package is shipped.
+        """
+        pulumi.set(__self__, "carrier_name", carrier_name)
+        pulumi.set(__self__, "tracking_number", tracking_number)
+        if drive_count is not None:
+            pulumi.set(__self__, "drive_count", drive_count)
+        if ship_date is not None:
+            pulumi.set(__self__, "ship_date", ship_date)
+
+    @property
+    @pulumi.getter(name="carrierName")
+    def carrier_name(self) -> str:
+        """
+        The name of the carrier that is used to ship the import or export drives.
+        """
+        return pulumi.get(self, "carrier_name")
+
+    @property
+    @pulumi.getter(name="trackingNumber")
+    def tracking_number(self) -> str:
+        """
+        The tracking number of the package.
+        """
+        return pulumi.get(self, "tracking_number")
+
+    @property
+    @pulumi.getter(name="driveCount")
+    def drive_count(self) -> Optional[float]:
+        """
+        The number of drives included in the package.
+        """
+        return pulumi.get(self, "drive_count")
+
+    @property
+    @pulumi.getter(name="shipDate")
+    def ship_date(self) -> Optional[str]:
+        """
+        The date when the package is shipped.
+        """
+        return pulumi.get(self, "ship_date")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class DriveBitLockerKeyResponseResult(dict):
@@ -71,7 +135,7 @@ class DriveStatusResponse(dict):
                  manifest_file: Optional[str] = None,
                  manifest_hash: Optional[str] = None,
                  manifest_uri: Optional[str] = None,
-                 percent_complete: Optional[int] = None,
+                 percent_complete: Optional[float] = None,
                  state: Optional[str] = None,
                  verbose_log_uri: Optional[str] = None):
         """
@@ -85,7 +149,7 @@ class DriveStatusResponse(dict):
         :param str manifest_file: The relative path of the manifest file on the drive. 
         :param str manifest_hash: The Base16-encoded MD5 hash of the manifest file on the drive.
         :param str manifest_uri: A URI that points to the blob containing the drive manifest file. 
-        :param int percent_complete: Percentage completed for the drive. 
+        :param float percent_complete: Percentage completed for the drive. 
         :param str state: The drive's current state. 
         :param str verbose_log_uri: A URI that points to the blob containing the verbose log for the data transfer operation. 
         """
@@ -188,7 +252,7 @@ class DriveStatusResponse(dict):
 
     @property
     @pulumi.getter(name="percentComplete")
-    def percent_complete(self) -> Optional[int]:
+    def percent_complete(self) -> Optional[float]:
         """
         Percentage completed for the drive. 
         """
@@ -215,34 +279,86 @@ class DriveStatusResponse(dict):
 
 
 @pulumi.output_type
+class EncryptionKeyDetailsResponse(dict):
+    """
+    Specifies the encryption key properties
+    """
+    def __init__(__self__, *,
+                 kek_type: Optional[str] = None,
+                 kek_url: Optional[str] = None,
+                 kek_vault_resource_id: Optional[str] = None):
+        """
+        Specifies the encryption key properties
+        :param str kek_type: The type of kek encryption key
+        :param str kek_url: Specifies the url for kek encryption key. 
+        :param str kek_vault_resource_id: Specifies the keyvault resource id for kek encryption key. 
+        """
+        if kek_type is None:
+            kek_type = 'MicrosoftManaged'
+        if kek_type is not None:
+            pulumi.set(__self__, "kek_type", kek_type)
+        if kek_url is not None:
+            pulumi.set(__self__, "kek_url", kek_url)
+        if kek_vault_resource_id is not None:
+            pulumi.set(__self__, "kek_vault_resource_id", kek_vault_resource_id)
+
+    @property
+    @pulumi.getter(name="kekType")
+    def kek_type(self) -> Optional[str]:
+        """
+        The type of kek encryption key
+        """
+        return pulumi.get(self, "kek_type")
+
+    @property
+    @pulumi.getter(name="kekUrl")
+    def kek_url(self) -> Optional[str]:
+        """
+        Specifies the url for kek encryption key. 
+        """
+        return pulumi.get(self, "kek_url")
+
+    @property
+    @pulumi.getter(name="kekVaultResourceID")
+    def kek_vault_resource_id(self) -> Optional[str]:
+        """
+        Specifies the keyvault resource id for kek encryption key. 
+        """
+        return pulumi.get(self, "kek_vault_resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ExportResponse(dict):
     """
     A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
     """
     def __init__(__self__, *,
-                 blob_listblob_path: Optional[str] = None,
+                 blob_list_blob_path: Optional[str] = None,
                  blob_path: Optional[Sequence[str]] = None,
                  blob_path_prefix: Optional[Sequence[str]] = None):
         """
         A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
-        :param str blob_listblob_path: The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
+        :param str blob_list_blob_path: The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
         :param Sequence[str] blob_path: A collection of blob-path strings.
         :param Sequence[str] blob_path_prefix: A collection of blob-prefix strings.
         """
-        if blob_listblob_path is not None:
-            pulumi.set(__self__, "blob_listblob_path", blob_listblob_path)
+        if blob_list_blob_path is not None:
+            pulumi.set(__self__, "blob_list_blob_path", blob_list_blob_path)
         if blob_path is not None:
             pulumi.set(__self__, "blob_path", blob_path)
         if blob_path_prefix is not None:
             pulumi.set(__self__, "blob_path_prefix", blob_path_prefix)
 
     @property
-    @pulumi.getter(name="blobListblobPath")
-    def blob_listblob_path(self) -> Optional[str]:
+    @pulumi.getter(name="blobListBlobPath")
+    def blob_list_blob_path(self) -> Optional[str]:
         """
         The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
         """
-        return pulumi.get(self, "blob_listblob_path")
+        return pulumi.get(self, "blob_list_blob_path")
 
     @property
     @pulumi.getter(name="blobPath")
@@ -265,6 +381,56 @@ class ExportResponse(dict):
 
 
 @pulumi.output_type
+class IdentityDetailsResponse(dict):
+    """
+    Specifies the identity properties. 
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Specifies the identity properties. 
+        :param str principal_id: Specifies the principal id for the identity for the job. 
+        :param str tenant_id: Specifies the tenant id for the identity for the job. 
+        :param str type: The type of identity
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is None:
+            type = 'None'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Specifies the principal id for the identity for the job. 
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Specifies the tenant id for the identity for the job. 
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class JobDetailsResponse(dict):
     """
     Specifies the job properties
@@ -272,9 +438,10 @@ class JobDetailsResponse(dict):
     def __init__(__self__, *,
                  backup_drive_manifest: Optional[bool] = None,
                  cancel_requested: Optional[bool] = None,
-                 delivery_package: Optional['outputs.PackageInfomationResponse'] = None,
+                 delivery_package: Optional['outputs.DeliveryPackageInformationResponse'] = None,
                  diagnostics_path: Optional[str] = None,
                  drive_list: Optional[Sequence['outputs.DriveStatusResponse']] = None,
+                 encryption_key: Optional['outputs.EncryptionKeyDetailsResponse'] = None,
                  export: Optional['outputs.ExportResponse'] = None,
                  incomplete_blob_list_uri: Optional[str] = None,
                  job_type: Optional[str] = None,
@@ -291,9 +458,10 @@ class JobDetailsResponse(dict):
         Specifies the job properties
         :param bool backup_drive_manifest: Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
         :param bool cancel_requested: Indicates whether a request has been submitted to cancel the job.
-        :param 'PackageInfomationResponseArgs' delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center. 
+        :param 'DeliveryPackageInformationResponseArgs' delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center. 
         :param str diagnostics_path: The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
         :param Sequence['DriveStatusResponseArgs'] drive_list: List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
+        :param 'EncryptionKeyDetailsResponseArgs' encryption_key: Contains information about the encryption key.
         :param 'ExportResponseArgs' export: A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
         :param str incomplete_blob_list_uri: A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
         :param str job_type: The type of job
@@ -317,6 +485,8 @@ class JobDetailsResponse(dict):
             pulumi.set(__self__, "diagnostics_path", diagnostics_path)
         if drive_list is not None:
             pulumi.set(__self__, "drive_list", drive_list)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
         if export is not None:
             pulumi.set(__self__, "export", export)
         if incomplete_blob_list_uri is not None:
@@ -360,7 +530,7 @@ class JobDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="deliveryPackage")
-    def delivery_package(self) -> Optional['outputs.PackageInfomationResponse']:
+    def delivery_package(self) -> Optional['outputs.DeliveryPackageInformationResponse']:
         """
         Contains information about the package being shipped by the customer to the Microsoft data center. 
         """
@@ -381,6 +551,14 @@ class JobDetailsResponse(dict):
         List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
         """
         return pulumi.get(self, "drive_list")
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional['outputs.EncryptionKeyDetailsResponse']:
+        """
+        Contains information about the encryption key.
+        """
+        return pulumi.get(self, "encryption_key")
 
     @property
     @pulumi.getter
@@ -697,39 +875,56 @@ class ShippingInformationResponse(dict):
     Contains information about the Microsoft datacenter to which the drives should be shipped.
     """
     def __init__(__self__, *,
-                 city: str,
-                 country_or_region: str,
-                 postal_code: str,
-                 recipient_name: str,
-                 state_or_province: str,
-                 street_address1: str,
+                 additional_information: str,
+                 city: Optional[str] = None,
+                 country_or_region: Optional[str] = None,
                  phone: Optional[str] = None,
+                 postal_code: Optional[str] = None,
+                 recipient_name: Optional[str] = None,
+                 state_or_province: Optional[str] = None,
+                 street_address1: Optional[str] = None,
                  street_address2: Optional[str] = None):
         """
         Contains information about the Microsoft datacenter to which the drives should be shipped.
+        :param str additional_information: Additional shipping information for customer, specific to datacenter to which customer should send their disks.
         :param str city: The city name to use when returning the drives.
         :param str country_or_region: The country or region to use when returning the drives. 
+        :param str phone: Phone number of the recipient of the returned drives.
         :param str postal_code: The postal code to use when returning the drives.
         :param str recipient_name: The name of the recipient who will receive the hard drives when they are returned. 
         :param str state_or_province: The state or province to use when returning the drives.
         :param str street_address1: The first line of the street address to use when returning the drives. 
-        :param str phone: Phone number of the recipient of the returned drives.
         :param str street_address2: The second line of the street address to use when returning the drives. 
         """
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country_or_region", country_or_region)
-        pulumi.set(__self__, "postal_code", postal_code)
-        pulumi.set(__self__, "recipient_name", recipient_name)
-        pulumi.set(__self__, "state_or_province", state_or_province)
-        pulumi.set(__self__, "street_address1", street_address1)
+        pulumi.set(__self__, "additional_information", additional_information)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if country_or_region is not None:
+            pulumi.set(__self__, "country_or_region", country_or_region)
         if phone is not None:
             pulumi.set(__self__, "phone", phone)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if recipient_name is not None:
+            pulumi.set(__self__, "recipient_name", recipient_name)
+        if state_or_province is not None:
+            pulumi.set(__self__, "state_or_province", state_or_province)
+        if street_address1 is not None:
+            pulumi.set(__self__, "street_address1", street_address1)
         if street_address2 is not None:
             pulumi.set(__self__, "street_address2", street_address2)
 
     @property
+    @pulumi.getter(name="additionalInformation")
+    def additional_information(self) -> str:
+        """
+        Additional shipping information for customer, specific to datacenter to which customer should send their disks.
+        """
+        return pulumi.get(self, "additional_information")
+
+    @property
     @pulumi.getter
-    def city(self) -> str:
+    def city(self) -> Optional[str]:
         """
         The city name to use when returning the drives.
         """
@@ -737,43 +932,11 @@ class ShippingInformationResponse(dict):
 
     @property
     @pulumi.getter(name="countryOrRegion")
-    def country_or_region(self) -> str:
+    def country_or_region(self) -> Optional[str]:
         """
         The country or region to use when returning the drives. 
         """
         return pulumi.get(self, "country_or_region")
-
-    @property
-    @pulumi.getter(name="postalCode")
-    def postal_code(self) -> str:
-        """
-        The postal code to use when returning the drives.
-        """
-        return pulumi.get(self, "postal_code")
-
-    @property
-    @pulumi.getter(name="recipientName")
-    def recipient_name(self) -> str:
-        """
-        The name of the recipient who will receive the hard drives when they are returned. 
-        """
-        return pulumi.get(self, "recipient_name")
-
-    @property
-    @pulumi.getter(name="stateOrProvince")
-    def state_or_province(self) -> str:
-        """
-        The state or province to use when returning the drives.
-        """
-        return pulumi.get(self, "state_or_province")
-
-    @property
-    @pulumi.getter(name="streetAddress1")
-    def street_address1(self) -> str:
-        """
-        The first line of the street address to use when returning the drives. 
-        """
-        return pulumi.get(self, "street_address1")
 
     @property
     @pulumi.getter
@@ -784,12 +947,130 @@ class ShippingInformationResponse(dict):
         return pulumi.get(self, "phone")
 
     @property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> Optional[str]:
+        """
+        The postal code to use when returning the drives.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @property
+    @pulumi.getter(name="recipientName")
+    def recipient_name(self) -> Optional[str]:
+        """
+        The name of the recipient who will receive the hard drives when they are returned. 
+        """
+        return pulumi.get(self, "recipient_name")
+
+    @property
+    @pulumi.getter(name="stateOrProvince")
+    def state_or_province(self) -> Optional[str]:
+        """
+        The state or province to use when returning the drives.
+        """
+        return pulumi.get(self, "state_or_province")
+
+    @property
+    @pulumi.getter(name="streetAddress1")
+    def street_address1(self) -> Optional[str]:
+        """
+        The first line of the street address to use when returning the drives. 
+        """
+        return pulumi.get(self, "street_address1")
+
+    @property
     @pulumi.getter(name="streetAddress2")
     def street_address2(self) -> Optional[str]:
         """
         The second line of the street address to use when returning the drives. 
         """
         return pulumi.get(self, "street_address2")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

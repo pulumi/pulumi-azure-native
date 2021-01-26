@@ -15,12 +15,16 @@ import (
 type Job struct {
 	pulumi.CustomResourceState
 
+	// Specifies the job identity details
+	Identity IdentityDetailsResponsePtrOutput `pulumi:"identity"`
 	// Specifies the Azure location where the job is created.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Specifies the name of the job.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the job properties
 	Properties JobDetailsResponseOutput `pulumi:"properties"`
+	// SystemData of ImportExport Jobs.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Specifies the tags that are assigned to the job.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// Specifies the type of the job resource.
@@ -71,12 +75,16 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
+	// Specifies the job identity details
+	Identity *IdentityDetailsResponse `pulumi:"identity"`
 	// Specifies the Azure location where the job is created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the job.
 	Name *string `pulumi:"name"`
 	// Specifies the job properties
 	Properties *JobDetailsResponse `pulumi:"properties"`
+	// SystemData of ImportExport Jobs.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Specifies the tags that are assigned to the job.
 	Tags interface{} `pulumi:"tags"`
 	// Specifies the type of the job resource.
@@ -84,12 +92,16 @@ type jobState struct {
 }
 
 type JobState struct {
+	// Specifies the job identity details
+	Identity IdentityDetailsResponsePtrInput
 	// Specifies the Azure location where the job is created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the job.
 	Name pulumi.StringPtrInput
 	// Specifies the job properties
 	Properties JobDetailsResponsePtrInput
+	// SystemData of ImportExport Jobs.
+	SystemData SystemDataResponsePtrInput
 	// Specifies the tags that are assigned to the job.
 	Tags pulumi.Input
 	// Specifies the type of the job resource.

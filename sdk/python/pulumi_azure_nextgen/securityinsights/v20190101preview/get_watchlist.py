@@ -20,7 +20,7 @@ class GetWatchlistResult:
     """
     Represents a Watchlist in Azure Security Insights.
     """
-    def __init__(__self__, content_type=None, created=None, created_by=None, default_duration=None, description=None, display_name=None, etag=None, id=None, is_deleted=None, labels=None, name=None, number_of_lines_to_skip=None, provider=None, raw_content=None, source=None, tenant_id=None, type=None, updated=None, updated_by=None, watchlist_alias=None, watchlist_id=None, watchlist_type=None):
+    def __init__(__self__, content_type=None, created=None, created_by=None, default_duration=None, description=None, display_name=None, etag=None, id=None, is_deleted=None, labels=None, name=None, number_of_lines_to_skip=None, provider=None, raw_content=None, source=None, tenant_id=None, type=None, updated=None, updated_by=None, upload_status=None, watchlist_alias=None, watchlist_id=None, watchlist_items_count=None, watchlist_type=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
@@ -78,12 +78,18 @@ class GetWatchlistResult:
         if updated_by and not isinstance(updated_by, dict):
             raise TypeError("Expected argument 'updated_by' to be a dict")
         pulumi.set(__self__, "updated_by", updated_by)
+        if upload_status and not isinstance(upload_status, str):
+            raise TypeError("Expected argument 'upload_status' to be a str")
+        pulumi.set(__self__, "upload_status", upload_status)
         if watchlist_alias and not isinstance(watchlist_alias, str):
             raise TypeError("Expected argument 'watchlist_alias' to be a str")
         pulumi.set(__self__, "watchlist_alias", watchlist_alias)
         if watchlist_id and not isinstance(watchlist_id, str):
             raise TypeError("Expected argument 'watchlist_id' to be a str")
         pulumi.set(__self__, "watchlist_id", watchlist_id)
+        if watchlist_items_count and not isinstance(watchlist_items_count, int):
+            raise TypeError("Expected argument 'watchlist_items_count' to be a int")
+        pulumi.set(__self__, "watchlist_items_count", watchlist_items_count)
         if watchlist_type and not isinstance(watchlist_type, str):
             raise TypeError("Expected argument 'watchlist_type' to be a str")
         pulumi.set(__self__, "watchlist_type", watchlist_type)
@@ -241,6 +247,14 @@ class GetWatchlistResult:
         return pulumi.get(self, "updated_by")
 
     @property
+    @pulumi.getter(name="uploadStatus")
+    def upload_status(self) -> Optional[str]:
+        """
+        The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        """
+        return pulumi.get(self, "upload_status")
+
+    @property
     @pulumi.getter(name="watchlistAlias")
     def watchlist_alias(self) -> Optional[str]:
         """
@@ -255,6 +269,14 @@ class GetWatchlistResult:
         The id (a Guid) of the watchlist
         """
         return pulumi.get(self, "watchlist_id")
+
+    @property
+    @pulumi.getter(name="watchlistItemsCount")
+    def watchlist_items_count(self) -> Optional[int]:
+        """
+        The number of Watchlist Items in the Watchlist
+        """
+        return pulumi.get(self, "watchlist_items_count")
 
     @property
     @pulumi.getter(name="watchlistType")
@@ -290,8 +312,10 @@ class AwaitableGetWatchlistResult(GetWatchlistResult):
             type=self.type,
             updated=self.updated,
             updated_by=self.updated_by,
+            upload_status=self.upload_status,
             watchlist_alias=self.watchlist_alias,
             watchlist_id=self.watchlist_id,
+            watchlist_items_count=self.watchlist_items_count,
             watchlist_type=self.watchlist_type)
 
 
@@ -339,6 +363,8 @@ def get_watchlist(operational_insights_resource_provider: Optional[str] = None,
         type=__ret__.type,
         updated=__ret__.updated,
         updated_by=__ret__.updated_by,
+        upload_status=__ret__.upload_status,
         watchlist_alias=__ret__.watchlist_alias,
         watchlist_id=__ret__.watchlist_id,
+        watchlist_items_count=__ret__.watchlist_items_count,
         watchlist_type=__ret__.watchlist_type)

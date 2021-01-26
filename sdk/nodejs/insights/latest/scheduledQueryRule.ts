@@ -45,9 +45,21 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The display name of the alert rule
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
      * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
      */
     public readonly enabled!: pulumi.Output<string | undefined>;
+    /**
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     */
+    public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
      * Last time the rule was updated in IS08601 format.
      */
@@ -108,6 +120,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             }
             inputs["action"] = args ? args.action : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -115,6 +128,8 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["etag"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -122,7 +137,10 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         } else {
             inputs["action"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -157,6 +175,10 @@ export interface ScheduledQueryRuleArgs {
      * The description of the Log Search rule.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The display name of the alert rule
+     */
+    readonly displayName?: pulumi.Input<string>;
     /**
      * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
      */

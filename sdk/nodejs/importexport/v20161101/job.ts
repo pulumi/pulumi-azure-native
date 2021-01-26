@@ -36,6 +36,10 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the job identity details
+     */
+    public /*out*/ readonly identity!: pulumi.Output<outputs.importexport.v20161101.IdentityDetailsResponse | undefined>;
+    /**
      * Specifies the Azure location where the job is created.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -47,6 +51,10 @@ export class Job extends pulumi.CustomResource {
      * Specifies the job properties
      */
     public readonly properties!: pulumi.Output<outputs.importexport.v20161101.JobDetailsResponse>;
+    /**
+     * SystemData of ImportExport Jobs.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.importexport.v20161101.SystemDataResponse>;
     /**
      * Specifies the tags that are assigned to the job.
      */
@@ -77,12 +85,16 @@ export class Job extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["identity"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

@@ -24,7 +24,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Outputs
         /// <summary>
         /// Contains information about the package being shipped by the customer to the Microsoft data center. 
         /// </summary>
-        public readonly Outputs.PackageInfomationResponse? DeliveryPackage;
+        public readonly Outputs.DeliveryPackageInformationResponse? DeliveryPackage;
         /// <summary>
         /// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
         /// </summary>
@@ -33,6 +33,10 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Outputs
         /// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
         /// </summary>
         public readonly ImmutableArray<Outputs.DriveStatusResponse> DriveList;
+        /// <summary>
+        /// Contains information about the encryption key.
+        /// </summary>
+        public readonly Outputs.EncryptionKeyDetailsResponse? EncryptionKey;
         /// <summary>
         /// A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
         /// </summary>
@@ -88,11 +92,13 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Outputs
 
             bool? cancelRequested,
 
-            Outputs.PackageInfomationResponse? deliveryPackage,
+            Outputs.DeliveryPackageInformationResponse? deliveryPackage,
 
             string? diagnosticsPath,
 
             ImmutableArray<Outputs.DriveStatusResponse> driveList,
+
+            Outputs.EncryptionKeyDetailsResponse? encryptionKey,
 
             Outputs.ExportResponse? export,
 
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Outputs
             DeliveryPackage = deliveryPackage;
             DiagnosticsPath = diagnosticsPath;
             DriveList = driveList;
+            EncryptionKey = encryptionKey;
             Export = export;
             IncompleteBlobListUri = incompleteBlobListUri;
             JobType = jobType;

@@ -51,10 +51,14 @@ type Watchlist struct {
 	Updated pulumi.StringPtrOutput `pulumi:"updated"`
 	// Describes a user that updated the watchlist
 	UpdatedBy UserInfoResponsePtrOutput `pulumi:"updatedBy"`
+	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+	UploadStatus pulumi.StringPtrOutput `pulumi:"uploadStatus"`
 	// The alias of the watchlist
 	WatchlistAlias pulumi.StringPtrOutput `pulumi:"watchlistAlias"`
 	// The id (a Guid) of the watchlist
 	WatchlistId pulumi.StringPtrOutput `pulumi:"watchlistId"`
+	// The number of Watchlist Items in the Watchlist
+	WatchlistItemsCount pulumi.IntPtrOutput `pulumi:"watchlistItemsCount"`
 	// The type of the watchlist
 	WatchlistType pulumi.StringPtrOutput `pulumi:"watchlistType"`
 }
@@ -145,10 +149,14 @@ type watchlistState struct {
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist
 	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
+	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+	UploadStatus *string `pulumi:"uploadStatus"`
 	// The alias of the watchlist
 	WatchlistAlias *string `pulumi:"watchlistAlias"`
 	// The id (a Guid) of the watchlist
 	WatchlistId *string `pulumi:"watchlistId"`
+	// The number of Watchlist Items in the Watchlist
+	WatchlistItemsCount *int `pulumi:"watchlistItemsCount"`
 	// The type of the watchlist
 	WatchlistType *string `pulumi:"watchlistType"`
 }
@@ -190,10 +198,14 @@ type WatchlistState struct {
 	Updated pulumi.StringPtrInput
 	// Describes a user that updated the watchlist
 	UpdatedBy UserInfoResponsePtrInput
+	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+	UploadStatus pulumi.StringPtrInput
 	// The alias of the watchlist
 	WatchlistAlias pulumi.StringPtrInput
 	// The id (a Guid) of the watchlist
 	WatchlistId pulumi.StringPtrInput
+	// The number of Watchlist Items in the Watchlist
+	WatchlistItemsCount pulumi.IntPtrInput
 	// The type of the watchlist
 	WatchlistType pulumi.StringPtrInput
 }
@@ -239,10 +251,14 @@ type watchlistArgs struct {
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist
 	UpdatedBy *UserInfo `pulumi:"updatedBy"`
+	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+	UploadStatus *string `pulumi:"uploadStatus"`
 	// The alias of the watchlist
 	WatchlistAlias string `pulumi:"watchlistAlias"`
 	// The id (a Guid) of the watchlist
 	WatchlistId *string `pulumi:"watchlistId"`
+	// The number of Watchlist Items in the Watchlist
+	WatchlistItemsCount *int `pulumi:"watchlistItemsCount"`
 	// The type of the watchlist
 	WatchlistType *string `pulumi:"watchlistType"`
 	// The name of the workspace.
@@ -287,10 +303,14 @@ type WatchlistArgs struct {
 	Updated pulumi.StringPtrInput
 	// Describes a user that updated the watchlist
 	UpdatedBy UserInfoPtrInput
+	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+	UploadStatus pulumi.StringPtrInput
 	// The alias of the watchlist
 	WatchlistAlias pulumi.StringInput
 	// The id (a Guid) of the watchlist
 	WatchlistId pulumi.StringPtrInput
+	// The number of Watchlist Items in the Watchlist
+	WatchlistItemsCount pulumi.IntPtrInput
 	// The type of the watchlist
 	WatchlistType pulumi.StringPtrInput
 	// The name of the workspace.

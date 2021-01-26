@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview.Inputs
         public Input<bool> IsAdmin { get; set; } = null!;
 
         /// <summary>
-        /// Issuer thumbprint for the certificate. Its only use CommonName is used.
+        /// Issuer thumbprint for the certificate. Only used together with CommonName.
         /// </summary>
         [Input("issuerThumbprint")]
         public Input<string>? IssuerThumbprint { get; set; }

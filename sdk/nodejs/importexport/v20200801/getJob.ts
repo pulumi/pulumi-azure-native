@@ -55,6 +55,10 @@ export interface GetJobResult {
      */
     readonly properties: outputs.importexport.v20200801.JobDetailsResponse;
     /**
+     * SystemData of ImportExport Jobs.
+     */
+    readonly systemData: outputs.importexport.v20200801.SystemDataResponse;
+    /**
      * Specifies the tags that are assigned to the job.
      */
     readonly tags?: any;

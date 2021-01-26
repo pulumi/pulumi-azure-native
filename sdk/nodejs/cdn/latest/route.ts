@@ -66,10 +66,6 @@ export class Route extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-     */
-    public readonly optimizationType!: pulumi.Output<string | undefined>;
-    /**
      * A reference to the origin group.
      */
     public readonly originGroup!: pulumi.Output<outputs.cdn.latest.ResourceReferenceResponse>;
@@ -86,7 +82,7 @@ export class Route extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+     * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
      */
     public readonly queryStringCachingBehavior!: pulumi.Output<string | undefined>;
     /**
@@ -138,7 +134,6 @@ export class Route extends pulumi.CustomResource {
             inputs["forwardingProtocol"] = args ? args.forwardingProtocol : undefined;
             inputs["httpsRedirect"] = args ? args.httpsRedirect : undefined;
             inputs["linkToDefaultDomain"] = args ? args.linkToDefaultDomain : undefined;
-            inputs["optimizationType"] = args ? args.optimizationType : undefined;
             inputs["originGroup"] = args ? args.originGroup : undefined;
             inputs["originPath"] = args ? args.originPath : undefined;
             inputs["patternsToMatch"] = args ? args.patternsToMatch : undefined;
@@ -162,7 +157,6 @@ export class Route extends pulumi.CustomResource {
             inputs["httpsRedirect"] = undefined /*out*/;
             inputs["linkToDefaultDomain"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["optimizationType"] = undefined /*out*/;
             inputs["originGroup"] = undefined /*out*/;
             inputs["originPath"] = undefined /*out*/;
             inputs["patternsToMatch"] = undefined /*out*/;
@@ -219,10 +213,6 @@ export interface RouteArgs {
      */
     readonly linkToDefaultDomain?: pulumi.Input<string | enums.cdn.latest.LinkToDefaultDomain>;
     /**
-     * Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-     */
-    readonly optimizationType?: pulumi.Input<string | enums.cdn.latest.OptimizationType>;
-    /**
      * A reference to the origin group.
      */
     readonly originGroup: pulumi.Input<inputs.cdn.latest.ResourceReference>;
@@ -239,9 +229,9 @@ export interface RouteArgs {
      */
     readonly profileName: pulumi.Input<string>;
     /**
-     * Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+     * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
      */
-    readonly queryStringCachingBehavior?: pulumi.Input<enums.cdn.latest.QueryStringCachingBehavior>;
+    readonly queryStringCachingBehavior?: pulumi.Input<enums.cdn.latest.AfdQueryStringCachingBehavior>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

@@ -20,7 +20,10 @@ class GetManagedClusterResult:
     """
     The manged cluster resource
     """
-    def __init__(__self__, admin_password=None, admin_user_name=None, azure_active_directory=None, client_connection_port=None, clients=None, cluster_certificate_thumbprint=None, cluster_code_version=None, cluster_id=None, cluster_state=None, cluster_upgrade_description=None, cluster_upgrade_mode=None, dns_name=None, etag=None, fabric_settings=None, fqdn=None, http_gateway_connection_port=None, id=None, load_balancing_rules=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, addon_features=None, admin_password=None, admin_user_name=None, azure_active_directory=None, client_connection_port=None, clients=None, cluster_certificate_thumbprint=None, cluster_code_version=None, cluster_id=None, cluster_state=None, dns_name=None, etag=None, fabric_settings=None, fqdn=None, http_gateway_connection_port=None, id=None, load_balancing_rules=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+        if addon_features and not isinstance(addon_features, list):
+            raise TypeError("Expected argument 'addon_features' to be a list")
+        pulumi.set(__self__, "addon_features", addon_features)
         if admin_password and not isinstance(admin_password, str):
             raise TypeError("Expected argument 'admin_password' to be a str")
         pulumi.set(__self__, "admin_password", admin_password)
@@ -48,12 +51,6 @@ class GetManagedClusterResult:
         if cluster_state and not isinstance(cluster_state, str):
             raise TypeError("Expected argument 'cluster_state' to be a str")
         pulumi.set(__self__, "cluster_state", cluster_state)
-        if cluster_upgrade_description and not isinstance(cluster_upgrade_description, dict):
-            raise TypeError("Expected argument 'cluster_upgrade_description' to be a dict")
-        pulumi.set(__self__, "cluster_upgrade_description", cluster_upgrade_description)
-        if cluster_upgrade_mode and not isinstance(cluster_upgrade_mode, str):
-            raise TypeError("Expected argument 'cluster_upgrade_mode' to be a str")
-        pulumi.set(__self__, "cluster_upgrade_mode", cluster_upgrade_mode)
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
@@ -93,6 +90,14 @@ class GetManagedClusterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="addonFeatures")
+    def addon_features(self) -> Optional[Sequence[str]]:
+        """
+        client certificates for the cluster.
+        """
+        return pulumi.get(self, "addon_features")
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -163,38 +168,8 @@ class GetManagedClusterResult:
     def cluster_state(self) -> str:
         """
         The current state of the cluster.
-
-          - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
-          - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
-          - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
-          - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
-          - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
-          - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
-          - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
-          - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
-          - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
-          - Ready - Indicates that the cluster is in a stable state.
         """
         return pulumi.get(self, "cluster_state")
-
-    @property
-    @pulumi.getter(name="clusterUpgradeDescription")
-    def cluster_upgrade_description(self) -> Optional['outputs.ClusterUpgradePolicyResponse']:
-        """
-        Describes the policy used when upgrading the cluster.
-        """
-        return pulumi.get(self, "cluster_upgrade_description")
-
-    @property
-    @pulumi.getter(name="clusterUpgradeMode")
-    def cluster_upgrade_mode(self) -> Optional[str]:
-        """
-        The upgrade mode of the cluster when new Service Fabric runtime version is available.
-
-          - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-          - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-        """
-        return pulumi.get(self, "cluster_upgrade_mode")
 
     @property
     @pulumi.getter(name="dnsName")
@@ -307,6 +282,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
         if False:
             yield self
         return GetManagedClusterResult(
+            addon_features=self.addon_features,
             admin_password=self.admin_password,
             admin_user_name=self.admin_user_name,
             azure_active_directory=self.azure_active_directory,
@@ -316,8 +292,6 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             cluster_code_version=self.cluster_code_version,
             cluster_id=self.cluster_id,
             cluster_state=self.cluster_state,
-            cluster_upgrade_description=self.cluster_upgrade_description,
-            cluster_upgrade_mode=self.cluster_upgrade_mode,
             dns_name=self.dns_name,
             etag=self.etag,
             fabric_settings=self.fabric_settings,
@@ -352,6 +326,7 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:servicefabric/v20200101preview:getManagedCluster', __args__, opts=opts, typ=GetManagedClusterResult).value
 
     return AwaitableGetManagedClusterResult(
+        addon_features=__ret__.addon_features,
         admin_password=__ret__.admin_password,
         admin_user_name=__ret__.admin_user_name,
         azure_active_directory=__ret__.azure_active_directory,
@@ -361,8 +336,6 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
         cluster_code_version=__ret__.cluster_code_version,
         cluster_id=__ret__.cluster_id,
         cluster_state=__ret__.cluster_state,
-        cluster_upgrade_description=__ret__.cluster_upgrade_description,
-        cluster_upgrade_mode=__ret__.cluster_upgrade_mode,
         dns_name=__ret__.dns_name,
         etag=__ret__.etag,
         fabric_settings=__ret__.fabric_settings,

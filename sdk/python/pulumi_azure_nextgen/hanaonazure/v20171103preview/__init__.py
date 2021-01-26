@@ -5,9 +5,7 @@
 # Export this package's modules as members:
 from ._enums import *
 from .get_hana_instance import *
-from .get_sap_monitor import *
 from .hana_instance import *
-from .sap_monitor import *
 from ._inputs import *
 from . import outputs
 
@@ -25,8 +23,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-nextgen:hanaonazure/v20171103preview:HanaInstance":
                 return HanaInstance(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:hanaonazure/v20171103preview:SapMonitor":
-                return SapMonitor(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

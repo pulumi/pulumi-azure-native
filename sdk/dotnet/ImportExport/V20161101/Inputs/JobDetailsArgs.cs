@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Inputs
         /// Contains information about the package being shipped by the customer to the Microsoft data center. 
         /// </summary>
         [Input("deliveryPackage")]
-        public Input<Inputs.PackageInfomationArgs>? DeliveryPackage { get; set; }
+        public Input<Inputs.DeliveryPackageInformationArgs>? DeliveryPackage { get; set; }
 
         /// <summary>
         /// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
@@ -50,6 +50,12 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Inputs
             get => _driveList ?? (_driveList = new InputList<Inputs.DriveStatusArgs>());
             set => _driveList = value;
         }
+
+        /// <summary>
+        /// Contains information about the encryption key.
+        /// </summary>
+        [Input("encryptionKey")]
+        public Input<Inputs.EncryptionKeyDetailsArgs>? EncryptionKey { get; set; }
 
         /// <summary>
         /// A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.

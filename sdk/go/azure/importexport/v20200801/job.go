@@ -23,6 +23,8 @@ type Job struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the job properties
 	Properties JobDetailsResponseOutput `pulumi:"properties"`
+	// SystemData of ImportExport Jobs.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Specifies the tags that are assigned to the job.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// Specifies the type of the job resource.
@@ -81,6 +83,8 @@ type jobState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the job properties
 	Properties *JobDetailsResponse `pulumi:"properties"`
+	// SystemData of ImportExport Jobs.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Specifies the tags that are assigned to the job.
 	Tags interface{} `pulumi:"tags"`
 	// Specifies the type of the job resource.
@@ -96,6 +100,8 @@ type JobState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the job properties
 	Properties JobDetailsResponsePtrInput
+	// SystemData of ImportExport Jobs.
+	SystemData SystemDataResponsePtrInput
 	// Specifies the tags that are assigned to the job.
 	Tags pulumi.Input
 	// Specifies the type of the job resource.

@@ -42,4 +42,35 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type of kek encryption key
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionKekType : IEquatable<EncryptionKekType>
+    {
+        private readonly string _value;
+
+        private EncryptionKekType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EncryptionKekType MicrosoftManaged { get; } = new EncryptionKekType("MicrosoftManaged");
+        public static EncryptionKekType CustomerManaged { get; } = new EncryptionKekType("CustomerManaged");
+
+        public static bool operator ==(EncryptionKekType left, EncryptionKekType right) => left.Equals(right);
+        public static bool operator !=(EncryptionKekType left, EncryptionKekType right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionKekType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionKekType other && Equals(other);
+        public bool Equals(EncryptionKekType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

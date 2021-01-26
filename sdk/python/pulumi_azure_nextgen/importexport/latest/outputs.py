@@ -22,6 +22,7 @@ __all__ = [
     'ReturnAddressResponse',
     'ReturnShippingResponse',
     'ShippingInformationResponse',
+    'SystemDataResponse',
 ]
 
 @pulumi.output_type
@@ -875,35 +876,41 @@ class ShippingInformationResponse(dict):
     """
     def __init__(__self__, *,
                  additional_information: str,
-                 city: str,
-                 country_or_region: str,
-                 postal_code: str,
-                 recipient_name: str,
-                 state_or_province: str,
-                 street_address1: str,
+                 city: Optional[str] = None,
+                 country_or_region: Optional[str] = None,
                  phone: Optional[str] = None,
+                 postal_code: Optional[str] = None,
+                 recipient_name: Optional[str] = None,
+                 state_or_province: Optional[str] = None,
+                 street_address1: Optional[str] = None,
                  street_address2: Optional[str] = None):
         """
         Contains information about the Microsoft datacenter to which the drives should be shipped.
         :param str additional_information: Additional shipping information for customer, specific to datacenter to which customer should send their disks.
         :param str city: The city name to use when returning the drives.
         :param str country_or_region: The country or region to use when returning the drives. 
+        :param str phone: Phone number of the recipient of the returned drives.
         :param str postal_code: The postal code to use when returning the drives.
         :param str recipient_name: The name of the recipient who will receive the hard drives when they are returned. 
         :param str state_or_province: The state or province to use when returning the drives.
         :param str street_address1: The first line of the street address to use when returning the drives. 
-        :param str phone: Phone number of the recipient of the returned drives.
         :param str street_address2: The second line of the street address to use when returning the drives. 
         """
         pulumi.set(__self__, "additional_information", additional_information)
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country_or_region", country_or_region)
-        pulumi.set(__self__, "postal_code", postal_code)
-        pulumi.set(__self__, "recipient_name", recipient_name)
-        pulumi.set(__self__, "state_or_province", state_or_province)
-        pulumi.set(__self__, "street_address1", street_address1)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if country_or_region is not None:
+            pulumi.set(__self__, "country_or_region", country_or_region)
         if phone is not None:
             pulumi.set(__self__, "phone", phone)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if recipient_name is not None:
+            pulumi.set(__self__, "recipient_name", recipient_name)
+        if state_or_province is not None:
+            pulumi.set(__self__, "state_or_province", state_or_province)
+        if street_address1 is not None:
+            pulumi.set(__self__, "street_address1", street_address1)
         if street_address2 is not None:
             pulumi.set(__self__, "street_address2", street_address2)
 
@@ -917,7 +924,7 @@ class ShippingInformationResponse(dict):
 
     @property
     @pulumi.getter
-    def city(self) -> str:
+    def city(self) -> Optional[str]:
         """
         The city name to use when returning the drives.
         """
@@ -925,43 +932,11 @@ class ShippingInformationResponse(dict):
 
     @property
     @pulumi.getter(name="countryOrRegion")
-    def country_or_region(self) -> str:
+    def country_or_region(self) -> Optional[str]:
         """
         The country or region to use when returning the drives. 
         """
         return pulumi.get(self, "country_or_region")
-
-    @property
-    @pulumi.getter(name="postalCode")
-    def postal_code(self) -> str:
-        """
-        The postal code to use when returning the drives.
-        """
-        return pulumi.get(self, "postal_code")
-
-    @property
-    @pulumi.getter(name="recipientName")
-    def recipient_name(self) -> str:
-        """
-        The name of the recipient who will receive the hard drives when they are returned. 
-        """
-        return pulumi.get(self, "recipient_name")
-
-    @property
-    @pulumi.getter(name="stateOrProvince")
-    def state_or_province(self) -> str:
-        """
-        The state or province to use when returning the drives.
-        """
-        return pulumi.get(self, "state_or_province")
-
-    @property
-    @pulumi.getter(name="streetAddress1")
-    def street_address1(self) -> str:
-        """
-        The first line of the street address to use when returning the drives. 
-        """
-        return pulumi.get(self, "street_address1")
 
     @property
     @pulumi.getter
@@ -972,12 +947,130 @@ class ShippingInformationResponse(dict):
         return pulumi.get(self, "phone")
 
     @property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> Optional[str]:
+        """
+        The postal code to use when returning the drives.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @property
+    @pulumi.getter(name="recipientName")
+    def recipient_name(self) -> Optional[str]:
+        """
+        The name of the recipient who will receive the hard drives when they are returned. 
+        """
+        return pulumi.get(self, "recipient_name")
+
+    @property
+    @pulumi.getter(name="stateOrProvince")
+    def state_or_province(self) -> Optional[str]:
+        """
+        The state or province to use when returning the drives.
+        """
+        return pulumi.get(self, "state_or_province")
+
+    @property
+    @pulumi.getter(name="streetAddress1")
+    def street_address1(self) -> Optional[str]:
+        """
+        The first line of the street address to use when returning the drives. 
+        """
+        return pulumi.get(self, "street_address1")
+
+    @property
     @pulumi.getter(name="streetAddress2")
     def street_address2(self) -> Optional[str]:
         """
         The second line of the street address to use when returning the drives. 
         """
         return pulumi.get(self, "street_address2")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

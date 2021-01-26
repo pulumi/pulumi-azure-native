@@ -78,10 +78,6 @@ export interface GetRouteResult {
      */
     readonly name: string;
     /**
-     * Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
-     */
-    readonly optimizationType?: string;
-    /**
      * A reference to the origin group.
      */
     readonly originGroup: outputs.cdn.latest.ResourceReferenceResponse;
@@ -98,7 +94,7 @@ export interface GetRouteResult {
      */
     readonly provisioningState: string;
     /**
-     * Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+     * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
      */
     readonly queryStringCachingBehavior?: string;
     /**

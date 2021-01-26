@@ -16,6 +16,12 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
     public sealed class CustomActivityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
+        /// </summary>
+        [Input("autoUserSpecification")]
+        public Input<object>? AutoUserSpecification { get; set; }
+
+        /// <summary>
         /// Command for custom activity Type: string (or Expression with resultType string).
         /// </summary>
         [Input("command", required: true)]

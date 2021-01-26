@@ -20,11 +20,11 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801.Outputs
         /// <summary>
         /// The city name to use when returning the drives.
         /// </summary>
-        public readonly string City;
+        public readonly string? City;
         /// <summary>
         /// The country or region to use when returning the drives. 
         /// </summary>
-        public readonly string CountryOrRegion;
+        public readonly string? CountryOrRegion;
         /// <summary>
         /// Phone number of the recipient of the returned drives.
         /// </summary>
@@ -32,19 +32,19 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801.Outputs
         /// <summary>
         /// The postal code to use when returning the drives.
         /// </summary>
-        public readonly string PostalCode;
+        public readonly string? PostalCode;
         /// <summary>
         /// The name of the recipient who will receive the hard drives when they are returned. 
         /// </summary>
-        public readonly string RecipientName;
+        public readonly string? RecipientName;
         /// <summary>
         /// The state or province to use when returning the drives.
         /// </summary>
-        public readonly string StateOrProvince;
+        public readonly string? StateOrProvince;
         /// <summary>
         /// The first line of the street address to use when returning the drives. 
         /// </summary>
-        public readonly string StreetAddress1;
+        public readonly string? StreetAddress1;
         /// <summary>
         /// The second line of the street address to use when returning the drives. 
         /// </summary>
@@ -54,19 +54,19 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801.Outputs
         private ShippingInformationResponse(
             string additionalInformation,
 
-            string city,
+            string? city,
 
-            string countryOrRegion,
+            string? countryOrRegion,
 
             string? phone,
 
-            string postalCode,
+            string? postalCode,
 
-            string recipientName,
+            string? recipientName,
 
-            string stateOrProvince,
+            string? stateOrProvince,
 
-            string streetAddress1,
+            string? streetAddress1,
 
             string? streetAddress2)
         {

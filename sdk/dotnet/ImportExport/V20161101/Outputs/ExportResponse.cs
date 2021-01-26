@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Outputs
         /// <summary>
         /// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
         /// </summary>
-        public readonly string? BlobListblobPath;
+        public readonly string? BlobListBlobPath;
         /// <summary>
         /// A collection of blob-path strings.
         /// </summary>
@@ -28,13 +28,13 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101.Outputs
 
         [OutputConstructor]
         private ExportResponse(
-            string? blobListblobPath,
+            string? blobListBlobPath,
 
             ImmutableArray<string> blobPath,
 
             ImmutableArray<string> blobPathPrefix)
         {
-            BlobListblobPath = blobListblobPath;
+            BlobListBlobPath = blobListBlobPath;
             BlobPath = blobPath;
             BlobPathPrefix = blobPathPrefix;
         }
