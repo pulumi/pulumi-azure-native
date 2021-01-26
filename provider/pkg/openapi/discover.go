@@ -43,22 +43,16 @@ func AllVersions() AzureProviders {
 		panic(err)
 	}
 
-	var specs []*Spec
+	// Collect all versions for each path in the API across all Swagger files.
+	providers := AzureProviders{}
 	for _, location := range swaggerSpecLocations {
 		swagger, err := NewSpec(location)
 		if err != nil {
 			panic(errors.Wrapf(err, "failed to parse %q", location))
 		}
 
-		specs = append(specs, swagger)
-	}
-
-	providers := AzureProviders{}
-
-	// Collect all versions for each path in the API across all Swagger files.
-	for _, swagger := range specs {
 		for path := range swagger.Paths.Paths {
-			addAPIPath(providers, path, swagger)
+			addAPIPath(providers, location, path, swagger)
 		}
 	}
 
@@ -173,8 +167,8 @@ func swaggerLocations() ([]string, error) {
 
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
-func addAPIPath(providers AzureProviders, path string, swagger *Spec) {
-	prov := resources.ResourceProvider(path)
+func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Spec) {
+	prov := resources.ResourceProvider(fileLocation, path)
 	if prov == "" {
 		return
 	}
@@ -232,9 +226,9 @@ func addAPIPath(providers AzureProviders, path string, swagger *Spec) {
 			typeName := resources.ResourceName(pathItem.Head.ID)
 			if typeName != "" && hasDelete {
 				version.Resources[typeName] = &ResourceSpec{
-					Path:        path,
-					PathItem:    &pathItem,
-					Swagger:     swagger,
+					Path:     path,
+					PathItem: &pathItem,
+					Swagger:  swagger,
 				}
 			}
 		}

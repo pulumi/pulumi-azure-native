@@ -12,7 +12,9 @@ from .get_management_lock_at_subscription_level import *
 from .get_management_lock_by_scope import *
 from .get_policy_assignment import *
 from .get_policy_definition import *
+from .get_policy_definition_at_management_group import *
 from .get_policy_set_definition import *
+from .get_policy_set_definition_at_management_group import *
 from .get_role_assignment import *
 from .get_role_definition import *
 from .management_lock_at_resource_group_level import *
@@ -21,7 +23,9 @@ from .management_lock_at_subscription_level import *
 from .management_lock_by_scope import *
 from .policy_assignment import *
 from .policy_definition import *
+from .policy_definition_at_management_group import *
 from .policy_set_definition import *
+from .policy_set_definition_at_management_group import *
 from .role_assignment import *
 from .role_definition import *
 from ._inputs import *
@@ -51,8 +55,12 @@ def _register_module():
                 return PolicyAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:authorization/latest:PolicyDefinition":
                 return PolicyDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:authorization/latest:PolicyDefinitionAtManagementGroup":
+                return PolicyDefinitionAtManagementGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:authorization/latest:PolicySetDefinition":
                 return PolicySetDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:authorization/latest:PolicySetDefinitionAtManagementGroup":
+                return PolicySetDefinitionAtManagementGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:authorization/latest:RoleAssignment":
                 return RoleAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:authorization/latest:RoleDefinition":

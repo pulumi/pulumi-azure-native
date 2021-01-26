@@ -189,7 +189,6 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20150401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/latest:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20150801:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20180201:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20190801:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200601:Domain"},

@@ -21,11 +21,11 @@ export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs,
 
 export interface GetNamespaceNetworkRuleSetArgs {
     /**
-     * The namespace name
+     * The Namespace name
      */
     readonly namespaceName: string;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * Name of the resource group within the azure subscription.
      */
     readonly resourceGroupName: string;
 }
@@ -51,7 +51,15 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly name: string;
     /**
+     * Value that indicates whether Trusted Service Access is Enabled or not.
+     */
+    readonly trustedServiceAccessEnabled?: boolean;
+    /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * List VirtualNetwork Rules
+     */
+    readonly virtualNetworkRules?: outputs.eventhub.v20180101preview.NWRuleSetVirtualNetworkRulesResponse[];
 }

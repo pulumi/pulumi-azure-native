@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Specifies the kind of Blueprint artifact.
+type ArtifactKind pulumi.String
+
+const (
+	ArtifactKindTemplate         = ArtifactKind("template")
+	ArtifactKindRoleAssignment   = ArtifactKind("roleAssignment")
+	ArtifactKindPolicyAssignment = ArtifactKind("policyAssignment")
+)
+
+func (ArtifactKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ArtifactKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ArtifactKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ArtifactKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ArtifactKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Lock mode.
 type AssignmentLockMode pulumi.String
 
@@ -35,6 +64,34 @@ func (e AssignmentLockMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e AssignmentLockMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The scope where this Blueprint can be applied.
+type BlueprintTargetScope pulumi.String
+
+const (
+	BlueprintTargetScopeSubscription    = BlueprintTargetScope("subscription")
+	BlueprintTargetScopeManagementGroup = BlueprintTargetScope("managementGroup")
+)
+
+func (BlueprintTargetScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e BlueprintTargetScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlueprintTargetScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlueprintTargetScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BlueprintTargetScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -64,5 +121,38 @@ func (e ManagedServiceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ManagedServiceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Allowed data types for Azure Resource Manager template parameters.
+type TemplateParameterType pulumi.String
+
+const (
+	TemplateParameterTypeString       = TemplateParameterType("string")
+	TemplateParameterTypeArray        = TemplateParameterType("array")
+	TemplateParameterTypeBool         = TemplateParameterType("bool")
+	TemplateParameterTypeInt          = TemplateParameterType("int")
+	TemplateParameterTypeObject       = TemplateParameterType("object")
+	TemplateParameterTypeSecureObject = TemplateParameterType("secureObject")
+	TemplateParameterTypeSecureString = TemplateParameterType("secureString")
+)
+
+func (TemplateParameterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e TemplateParameterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateParameterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateParameterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateParameterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

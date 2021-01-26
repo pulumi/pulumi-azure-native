@@ -5,11 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'ActionAfterReboot',
-    'AllowModuleOverwrite',
     'CachingTypes',
     'ComponentNames',
-    'ConfigurationMode',
     'DedicatedHostLicenseTypes',
     'DiffDiskOptions',
     'DiffDiskPlacement',
@@ -27,7 +24,6 @@ __all__ = [
     'IPVersion',
     'InGuestPatchMode',
     'IntervalInMins',
-    'Kind',
     'NetworkAccessPolicy',
     'OperatingSystemStateTypes',
     'OperatingSystemTypes',
@@ -35,7 +31,6 @@ __all__ = [
     'PrivateEndpointServiceConnectionStatus',
     'ProtocolTypes',
     'ProximityPlacementGroupType',
-    'RebootIfNeeded',
     'ResourceIdentityType',
     'SettingNames',
     'SnapshotStorageAccountTypes',
@@ -48,22 +43,6 @@ __all__ = [
     'VirtualMachineScaleSetScaleInRules',
     'VirtualMachineSizeTypes',
 ]
-
-
-class ActionAfterReboot(str, Enum):
-    """
-    Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-    """
-    CONTINUE_CONFIGURATION = "ContinueConfiguration"
-    STOP_CONFIGURATION = "StopConfiguration"
-
-
-class AllowModuleOverwrite(str, Enum):
-    """
-    If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-    """
-    TRUE = "True"
-    FALSE = "False"
 
 
 class CachingTypes(str, Enum):
@@ -80,15 +59,6 @@ class ComponentNames(str, Enum):
     The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
     """
     MICROSOFT_WINDOWS_SHELL_SETUP = "Microsoft-Windows-Shell-Setup"
-
-
-class ConfigurationMode(str, Enum):
-    """
-    Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-    """
-    APPLY_ONLY = "ApplyOnly"
-    APPLY_AND_MONITOR = "ApplyAndMonitor"
-    APPLY_AND_AUTO_CORRECT = "ApplyAndAutoCorrect"
 
 
 class DedicatedHostLicenseTypes(str, Enum):
@@ -239,13 +209,6 @@ class IntervalInMins(str, Enum):
     SIXTY_MINS = "SixtyMins"
 
 
-class Kind(str, Enum):
-    """
-    Kind of the guest configuration. For example:DSC
-    """
-    DSC = "DSC"
-
-
 class NetworkAccessPolicy(str, Enum):
     """
     Policy for accessing the disk via network.
@@ -301,14 +264,6 @@ class ProximityPlacementGroupType(str, Enum):
     """
     STANDARD = "Standard"
     ULTRA = "Ultra"
-
-
-class RebootIfNeeded(str, Enum):
-    """
-    Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-    """
-    TRUE = "True"
-    FALSE = "False"
 
 
 class ResourceIdentityType(str, Enum):

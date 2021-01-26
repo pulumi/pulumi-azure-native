@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
     public sealed class GetNamespaceNetworkRuleSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The namespace name
+        /// The Namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// Name of the resource group within the azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,9 +56,17 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Value that indicates whether Trusted Service Access is Enabled or not.
+        /// </summary>
+        public readonly bool? TrustedServiceAccessEnabled;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// List VirtualNetwork Rules
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NWRuleSetVirtualNetworkRulesResponse> VirtualNetworkRules;
 
         [OutputConstructor]
         private GetNamespaceNetworkRuleSetResult(
@@ -70,13 +78,19 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 
             string name,
 
-            string type)
+            bool? trustedServiceAccessEnabled,
+
+            string type,
+
+            ImmutableArray<Outputs.NWRuleSetVirtualNetworkRulesResponse> virtualNetworkRules)
         {
             DefaultAction = defaultAction;
             Id = id;
             IpRules = ipRules;
             Name = name;
+            TrustedServiceAccessEnabled = trustedServiceAccessEnabled;
             Type = type;
+            VirtualNetworkRules = virtualNetworkRules;
         }
     }
 }

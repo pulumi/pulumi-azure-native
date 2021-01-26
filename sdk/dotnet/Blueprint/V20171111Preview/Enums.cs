@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
 {
     /// <summary>
+    /// Specifies the kind of Blueprint artifact.
+    /// </summary>
+    [EnumType]
+    public readonly struct ArtifactKind : IEquatable<ArtifactKind>
+    {
+        private readonly string _value;
+
+        private ArtifactKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ArtifactKind Template { get; } = new ArtifactKind("template");
+        public static ArtifactKind RoleAssignment { get; } = new ArtifactKind("roleAssignment");
+        public static ArtifactKind PolicyAssignment { get; } = new ArtifactKind("policyAssignment");
+
+        public static bool operator ==(ArtifactKind left, ArtifactKind right) => left.Equals(right);
+        public static bool operator !=(ArtifactKind left, ArtifactKind right) => !left.Equals(right);
+
+        public static explicit operator string(ArtifactKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ArtifactKind other && Equals(other);
+        public bool Equals(ArtifactKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Lock mode.
     /// </summary>
     [EnumType]
@@ -31,6 +63,37 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AssignmentLockMode other && Equals(other);
         public bool Equals(AssignmentLockMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scope where this Blueprint can be applied.
+    /// </summary>
+    [EnumType]
+    public readonly struct BlueprintTargetScope : IEquatable<BlueprintTargetScope>
+    {
+        private readonly string _value;
+
+        private BlueprintTargetScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BlueprintTargetScope Subscription { get; } = new BlueprintTargetScope("subscription");
+        public static BlueprintTargetScope ManagementGroup { get; } = new BlueprintTargetScope("managementGroup");
+
+        public static bool operator ==(BlueprintTargetScope left, BlueprintTargetScope right) => left.Equals(right);
+        public static bool operator !=(BlueprintTargetScope left, BlueprintTargetScope right) => !left.Equals(right);
+
+        public static explicit operator string(BlueprintTargetScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlueprintTargetScope other && Equals(other);
+        public bool Equals(BlueprintTargetScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -63,6 +126,42 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
         public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Allowed data types for Azure Resource Manager template parameters.
+    /// </summary>
+    [EnumType]
+    public readonly struct TemplateParameterType : IEquatable<TemplateParameterType>
+    {
+        private readonly string _value;
+
+        private TemplateParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateParameterType @String { get; } = new TemplateParameterType("string");
+        public static TemplateParameterType Array { get; } = new TemplateParameterType("array");
+        public static TemplateParameterType @Bool { get; } = new TemplateParameterType("bool");
+        public static TemplateParameterType @Int { get; } = new TemplateParameterType("int");
+        public static TemplateParameterType @Object { get; } = new TemplateParameterType("object");
+        public static TemplateParameterType SecureObject { get; } = new TemplateParameterType("secureObject");
+        public static TemplateParameterType SecureString { get; } = new TemplateParameterType("secureString");
+
+        public static bool operator ==(TemplateParameterType left, TemplateParameterType right) => left.Equals(right);
+        public static bool operator !=(TemplateParameterType left, TemplateParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateParameterType other && Equals(other);
+        public bool Equals(TemplateParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

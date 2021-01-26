@@ -8,68 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNextGen.Compute.Latest
 {
     /// <summary>
-    /// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-    /// </summary>
-    [EnumType]
-    public readonly struct ActionAfterReboot : IEquatable<ActionAfterReboot>
-    {
-        private readonly string _value;
-
-        private ActionAfterReboot(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ActionAfterReboot ContinueConfiguration { get; } = new ActionAfterReboot("ContinueConfiguration");
-        public static ActionAfterReboot StopConfiguration { get; } = new ActionAfterReboot("StopConfiguration");
-
-        public static bool operator ==(ActionAfterReboot left, ActionAfterReboot right) => left.Equals(right);
-        public static bool operator !=(ActionAfterReboot left, ActionAfterReboot right) => !left.Equals(right);
-
-        public static explicit operator string(ActionAfterReboot value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ActionAfterReboot other && Equals(other);
-        public bool Equals(ActionAfterReboot other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-    /// </summary>
-    [EnumType]
-    public readonly struct AllowModuleOverwrite : IEquatable<AllowModuleOverwrite>
-    {
-        private readonly string _value;
-
-        private AllowModuleOverwrite(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AllowModuleOverwrite True { get; } = new AllowModuleOverwrite("True");
-        public static AllowModuleOverwrite False { get; } = new AllowModuleOverwrite("False");
-
-        public static bool operator ==(AllowModuleOverwrite left, AllowModuleOverwrite right) => left.Equals(right);
-        public static bool operator !=(AllowModuleOverwrite left, AllowModuleOverwrite right) => !left.Equals(right);
-
-        public static explicit operator string(AllowModuleOverwrite value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AllowModuleOverwrite other && Equals(other);
-        public bool Equals(AllowModuleOverwrite other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None** for Standard storage. **ReadOnly** for Premium storage.
     /// </summary>
     [EnumType]
@@ -124,38 +62,6 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ComponentNames other && Equals(other);
         public bool Equals(ComponentNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConfigurationMode : IEquatable<ConfigurationMode>
-    {
-        private readonly string _value;
-
-        private ConfigurationMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConfigurationMode ApplyOnly { get; } = new ConfigurationMode("ApplyOnly");
-        public static ConfigurationMode ApplyAndMonitor { get; } = new ConfigurationMode("ApplyAndMonitor");
-        public static ConfigurationMode ApplyAndAutoCorrect { get; } = new ConfigurationMode("ApplyAndAutoCorrect");
-
-        public static bool operator ==(ConfigurationMode left, ConfigurationMode right) => left.Equals(right);
-        public static bool operator !=(ConfigurationMode left, ConfigurationMode right) => !left.Equals(right);
-
-        public static explicit operator string(ConfigurationMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConfigurationMode other && Equals(other);
-        public bool Equals(ConfigurationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -751,36 +657,6 @@ namespace Pulumi.AzureNextGen.Compute.Latest
     }
 
     /// <summary>
-    /// Kind of the guest configuration. For example:DSC
-    /// </summary>
-    [EnumType]
-    public readonly struct Kind : IEquatable<Kind>
-    {
-        private readonly string _value;
-
-        private Kind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Kind DSC { get; } = new Kind("DSC");
-
-        public static bool operator ==(Kind left, Kind right) => left.Equals(right);
-        public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
-
-        public static explicit operator string(Kind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Kind other && Equals(other);
-        public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Policy for accessing the disk via network.
     /// </summary>
     [EnumType]
@@ -1006,37 +882,6 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProximityPlacementGroupType other && Equals(other);
         public bool Equals(ProximityPlacementGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-    /// </summary>
-    [EnumType]
-    public readonly struct RebootIfNeeded : IEquatable<RebootIfNeeded>
-    {
-        private readonly string _value;
-
-        private RebootIfNeeded(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RebootIfNeeded True { get; } = new RebootIfNeeded("True");
-        public static RebootIfNeeded False { get; } = new RebootIfNeeded("False");
-
-        public static bool operator ==(RebootIfNeeded left, RebootIfNeeded right) => left.Equals(right);
-        public static bool operator !=(RebootIfNeeded left, RebootIfNeeded right) => !left.Equals(right);
-
-        public static explicit operator string(RebootIfNeeded value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RebootIfNeeded other && Equals(other);
-        public bool Equals(RebootIfNeeded other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

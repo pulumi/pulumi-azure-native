@@ -7,8 +7,10 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./getPolicyAssignment";
 export * from "./getPolicyDefinition";
+export * from "./getPolicyDefinitionAtManagementGroup";
 export * from "./policyAssignment";
 export * from "./policyDefinition";
+export * from "./policyDefinitionAtManagementGroup";
 
 // Export enums:
 export * from "../../types/enums/authorization/v20161201";
@@ -16,6 +18,7 @@ export * from "../../types/enums/authorization/v20161201";
 // Import resources to register:
 import { PolicyAssignment } from "./policyAssignment";
 import { PolicyDefinition } from "./policyDefinition";
+import { PolicyDefinitionAtManagementGroup } from "./policyDefinitionAtManagementGroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -25,6 +28,8 @@ const _module = {
                 return new PolicyAssignment(name, <any>undefined, { urn })
             case "azure-nextgen:authorization/v20161201:PolicyDefinition":
                 return new PolicyDefinition(name, <any>undefined, { urn })
+            case "azure-nextgen:authorization/v20161201:PolicyDefinitionAtManagementGroup":
+                return new PolicyDefinitionAtManagementGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

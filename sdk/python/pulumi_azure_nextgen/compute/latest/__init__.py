@@ -28,7 +28,6 @@ from .get_gallery_application import *
 from .get_gallery_application_version import *
 from .get_gallery_image import *
 from .get_gallery_image_version import *
-from .get_guest_configuration_assignment import *
 from .get_image import *
 from .get_log_analytic_export_request_rate_by_interval import *
 from .get_log_analytic_export_throttled_requests import *
@@ -43,7 +42,6 @@ from .get_virtual_machine_scale_set_extension import *
 from .get_virtual_machine_scale_set_vm import *
 from .get_virtual_machine_scale_set_vm_extension import *
 from .get_virtual_machine_scale_set_vm_run_command import *
-from .guest_configuration_assignment import *
 from .image import *
 from .proximity_placement_group import *
 from .snapshot import *
@@ -95,8 +93,6 @@ def _register_module():
                 return GalleryImage(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:compute/latest:GalleryImageVersion":
                 return GalleryImageVersion(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:compute/latest:GuestConfigurationAssignment":
-                return GuestConfigurationAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:compute/latest:Image":
                 return Image(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:compute/latest:ProximityPlacementGroup":

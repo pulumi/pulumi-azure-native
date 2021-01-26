@@ -3,20 +3,13 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from ._enums import *
-from .deployment_at_management_group_scope import *
-from .get_deployment_at_management_group_scope import *
 from .get_entity import *
 from .get_hierarchy_setting import *
 from .get_management_group import *
 from .get_management_group_subscription import *
-from .get_policy_definition_at_management_group import *
-from .get_policy_set_definition_at_management_group import *
 from .hierarchy_setting import *
 from .management_group import *
 from .management_group_subscription import *
-from .policy_definition_at_management_group import *
-from .policy_set_definition_at_management_group import *
 from ._inputs import *
 from . import outputs
 
@@ -32,18 +25,12 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-nextgen:management/latest:DeploymentAtManagementGroupScope":
-                return DeploymentAtManagementGroupScope(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:management/latest:HierarchySetting":
+            if typ == "azure-nextgen:management/latest:HierarchySetting":
                 return HierarchySetting(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:management/latest:ManagementGroup":
                 return ManagementGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:management/latest:ManagementGroupSubscription":
                 return ManagementGroupSubscription(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:management/latest:PolicyDefinitionAtManagementGroup":
-                return PolicyDefinitionAtManagementGroup(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:management/latest:PolicySetDefinitionAtManagementGroup":
-                return PolicySetDefinitionAtManagementGroup(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

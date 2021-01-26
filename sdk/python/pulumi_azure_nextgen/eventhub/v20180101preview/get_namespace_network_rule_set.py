@@ -20,7 +20,7 @@ class GetNamespaceNetworkRuleSetResult:
     """
     Description of topic resource.
     """
-    def __init__(__self__, default_action=None, id=None, ip_rules=None, name=None, type=None):
+    def __init__(__self__, default_action=None, id=None, ip_rules=None, name=None, trusted_service_access_enabled=None, type=None, virtual_network_rules=None):
         if default_action and not isinstance(default_action, str):
             raise TypeError("Expected argument 'default_action' to be a str")
         pulumi.set(__self__, "default_action", default_action)
@@ -33,9 +33,15 @@ class GetNamespaceNetworkRuleSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if trusted_service_access_enabled and not isinstance(trusted_service_access_enabled, bool):
+            raise TypeError("Expected argument 'trusted_service_access_enabled' to be a bool")
+        pulumi.set(__self__, "trusted_service_access_enabled", trusted_service_access_enabled)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if virtual_network_rules and not isinstance(virtual_network_rules, list):
+            raise TypeError("Expected argument 'virtual_network_rules' to be a list")
+        pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -70,12 +76,28 @@ class GetNamespaceNetworkRuleSetResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="trustedServiceAccessEnabled")
+    def trusted_service_access_enabled(self) -> Optional[bool]:
+        """
+        Value that indicates whether Trusted Service Access is Enabled or not.
+        """
+        return pulumi.get(self, "trusted_service_access_enabled")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
         Resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.NWRuleSetVirtualNetworkRulesResponse']]:
+        """
+        List VirtualNetwork Rules
+        """
+        return pulumi.get(self, "virtual_network_rules")
 
 
 class AwaitableGetNamespaceNetworkRuleSetResult(GetNamespaceNetworkRuleSetResult):
@@ -88,7 +110,9 @@ class AwaitableGetNamespaceNetworkRuleSetResult(GetNamespaceNetworkRuleSetResult
             id=self.id,
             ip_rules=self.ip_rules,
             name=self.name,
-            type=self.type)
+            trusted_service_access_enabled=self.trusted_service_access_enabled,
+            type=self.type,
+            virtual_network_rules=self.virtual_network_rules)
 
 
 def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
@@ -97,8 +121,8 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str namespace_name: The Namespace name
+    :param str resource_group_name: Name of the resource group within the azure subscription.
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
@@ -114,4 +138,6 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
         id=__ret__.id,
         ip_rules=__ret__.ip_rules,
         name=__ret__.name,
-        type=__ret__.type)
+        trusted_service_access_enabled=__ret__.trusted_service_access_enabled,
+        type=__ret__.type,
+        virtual_network_rules=__ret__.virtual_network_rules)

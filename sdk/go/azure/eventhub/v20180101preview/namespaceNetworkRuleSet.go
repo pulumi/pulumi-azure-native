@@ -21,8 +21,12 @@ type NamespaceNetworkRuleSet struct {
 	IpRules NWRuleSetIpRulesResponseArrayOutput `pulumi:"ipRules"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled pulumi.BoolPtrOutput `pulumi:"trustedServiceAccessEnabled"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// List VirtualNetwork Rules
+	VirtualNetworkRules NWRuleSetVirtualNetworkRulesResponseArrayOutput `pulumi:"virtualNetworkRules"`
 }
 
 // NewNamespaceNetworkRuleSet registers a new resource with the given unique name, arguments, and options.
@@ -75,8 +79,12 @@ type namespaceNetworkRuleSetState struct {
 	IpRules []NWRuleSetIpRulesResponse `pulumi:"ipRules"`
 	// Resource name.
 	Name *string `pulumi:"name"`
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled *bool `pulumi:"trustedServiceAccessEnabled"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// List VirtualNetwork Rules
+	VirtualNetworkRules []NWRuleSetVirtualNetworkRulesResponse `pulumi:"virtualNetworkRules"`
 }
 
 type NamespaceNetworkRuleSetState struct {
@@ -86,8 +94,12 @@ type NamespaceNetworkRuleSetState struct {
 	IpRules NWRuleSetIpRulesResponseArrayInput
 	// Resource name.
 	Name pulumi.StringPtrInput
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled pulumi.BoolPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// List VirtualNetwork Rules
+	VirtualNetworkRules NWRuleSetVirtualNetworkRulesResponseArrayInput
 }
 
 func (NamespaceNetworkRuleSetState) ElementType() reflect.Type {
@@ -99,10 +111,14 @@ type namespaceNetworkRuleSetArgs struct {
 	DefaultAction *string `pulumi:"defaultAction"`
 	// List of IpRules
 	IpRules []NWRuleSetIpRules `pulumi:"ipRules"`
-	// The namespace name
+	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
+	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled *bool `pulumi:"trustedServiceAccessEnabled"`
+	// List VirtualNetwork Rules
+	VirtualNetworkRules []NWRuleSetVirtualNetworkRules `pulumi:"virtualNetworkRules"`
 }
 
 // The set of arguments for constructing a NamespaceNetworkRuleSet resource.
@@ -111,10 +127,14 @@ type NamespaceNetworkRuleSetArgs struct {
 	DefaultAction pulumi.StringPtrInput
 	// List of IpRules
 	IpRules NWRuleSetIpRulesArrayInput
-	// The namespace name
+	// The Namespace name
 	NamespaceName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
+	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled pulumi.BoolPtrInput
+	// List VirtualNetwork Rules
+	VirtualNetworkRules NWRuleSetVirtualNetworkRulesArrayInput
 }
 
 func (NamespaceNetworkRuleSetArgs) ElementType() reflect.Type {

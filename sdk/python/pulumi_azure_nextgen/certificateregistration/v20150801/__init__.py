@@ -6,12 +6,8 @@
 from ._enums import *
 from .app_service_certificate_order import *
 from .app_service_certificate_order_certificate import *
-from .certificate_order import *
-from .certificate_order_certificate import *
 from .get_app_service_certificate_order import *
 from .get_app_service_certificate_order_certificate import *
-from .get_certificate_order import *
-from .get_certificate_order_certificate import *
 from ._inputs import *
 from . import outputs
 
@@ -31,10 +27,6 @@ def _register_module():
                 return AppServiceCertificateOrder(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate":
                 return AppServiceCertificateOrderCertificate(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:certificateregistration/v20150801:CertificateOrder":
-                return CertificateOrder(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-nextgen:certificateregistration/v20150801:CertificateOrderCertificate":
-                return CertificateOrderCertificate(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

@@ -13,7 +13,9 @@ export * from "./getManagementLockAtSubscriptionLevel";
 export * from "./getManagementLockByScope";
 export * from "./getPolicyAssignment";
 export * from "./getPolicyDefinition";
+export * from "./getPolicyDefinitionAtManagementGroup";
 export * from "./getPolicySetDefinition";
+export * from "./getPolicySetDefinitionAtManagementGroup";
 export * from "./getRoleAssignment";
 export * from "./getRoleDefinition";
 export * from "./managementLockAtResourceGroupLevel";
@@ -22,7 +24,9 @@ export * from "./managementLockAtSubscriptionLevel";
 export * from "./managementLockByScope";
 export * from "./policyAssignment";
 export * from "./policyDefinition";
+export * from "./policyDefinitionAtManagementGroup";
 export * from "./policySetDefinition";
+export * from "./policySetDefinitionAtManagementGroup";
 export * from "./roleAssignment";
 export * from "./roleDefinition";
 
@@ -36,7 +40,9 @@ import { ManagementLockAtSubscriptionLevel } from "./managementLockAtSubscriptio
 import { ManagementLockByScope } from "./managementLockByScope";
 import { PolicyAssignment } from "./policyAssignment";
 import { PolicyDefinition } from "./policyDefinition";
+import { PolicyDefinitionAtManagementGroup } from "./policyDefinitionAtManagementGroup";
 import { PolicySetDefinition } from "./policySetDefinition";
+import { PolicySetDefinitionAtManagementGroup } from "./policySetDefinitionAtManagementGroup";
 import { RoleAssignment } from "./roleAssignment";
 import { RoleDefinition } from "./roleDefinition";
 
@@ -56,8 +62,12 @@ const _module = {
                 return new PolicyAssignment(name, <any>undefined, { urn })
             case "azure-nextgen:authorization/latest:PolicyDefinition":
                 return new PolicyDefinition(name, <any>undefined, { urn })
+            case "azure-nextgen:authorization/latest:PolicyDefinitionAtManagementGroup":
+                return new PolicyDefinitionAtManagementGroup(name, <any>undefined, { urn })
             case "azure-nextgen:authorization/latest:PolicySetDefinition":
                 return new PolicySetDefinition(name, <any>undefined, { urn })
+            case "azure-nextgen:authorization/latest:PolicySetDefinitionAtManagementGroup":
+                return new PolicySetDefinitionAtManagementGroup(name, <any>undefined, { urn })
             case "azure-nextgen:authorization/latest:RoleAssignment":
                 return new RoleAssignment(name, <any>undefined, { urn })
             case "azure-nextgen:authorization/latest:RoleDefinition":

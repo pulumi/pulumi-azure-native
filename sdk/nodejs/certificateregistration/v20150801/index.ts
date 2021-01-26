@@ -7,12 +7,8 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./appServiceCertificateOrder";
 export * from "./appServiceCertificateOrderCertificate";
-export * from "./certificateOrder";
-export * from "./certificateOrderCertificate";
 export * from "./getAppServiceCertificateOrder";
 export * from "./getAppServiceCertificateOrderCertificate";
-export * from "./getCertificateOrder";
-export * from "./getCertificateOrderCertificate";
 
 // Export enums:
 export * from "../../types/enums/certificateregistration/v20150801";
@@ -20,8 +16,6 @@ export * from "../../types/enums/certificateregistration/v20150801";
 // Import resources to register:
 import { AppServiceCertificateOrder } from "./appServiceCertificateOrder";
 import { AppServiceCertificateOrderCertificate } from "./appServiceCertificateOrderCertificate";
-import { CertificateOrder } from "./certificateOrder";
-import { CertificateOrderCertificate } from "./certificateOrderCertificate";
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,10 +25,6 @@ const _module = {
                 return new AppServiceCertificateOrder(name, <any>undefined, { urn })
             case "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate":
                 return new AppServiceCertificateOrderCertificate(name, <any>undefined, { urn })
-            case "azure-nextgen:certificateregistration/v20150801:CertificateOrder":
-                return new CertificateOrder(name, <any>undefined, { urn })
-            case "azure-nextgen:certificateregistration/v20150801:CertificateOrderCertificate":
-                return new CertificateOrderCertificate(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

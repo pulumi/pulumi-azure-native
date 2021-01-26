@@ -5,9 +5,21 @@
 from enum import Enum
 
 __all__ = [
+    'ArtifactKind',
     'AssignmentLockMode',
+    'BlueprintTargetScope',
     'ManagedServiceIdentityType',
+    'TemplateParameterType',
 ]
+
+
+class ArtifactKind(str, Enum):
+    """
+    Specifies the kind of Blueprint artifact.
+    """
+    TEMPLATE = "template"
+    ROLE_ASSIGNMENT = "roleAssignment"
+    POLICY_ASSIGNMENT = "policyAssignment"
 
 
 class AssignmentLockMode(str, Enum):
@@ -18,6 +30,14 @@ class AssignmentLockMode(str, Enum):
     ALL_RESOURCES = "AllResources"
 
 
+class BlueprintTargetScope(str, Enum):
+    """
+    The scope where this Blueprint can be applied.
+    """
+    SUBSCRIPTION = "subscription"
+    MANAGEMENT_GROUP = "managementGroup"
+
+
 class ManagedServiceIdentityType(str, Enum):
     """
     Type of the Managed Service Identity.
@@ -25,3 +45,16 @@ class ManagedServiceIdentityType(str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
+
+
+class TemplateParameterType(str, Enum):
+    """
+    Allowed data types for Azure Resource Manager template parameters.
+    """
+    STRING = "string"
+    ARRAY = "array"
+    BOOL = "bool"
+    INT = "int"
+    OBJECT = "object"
+    SECURE_OBJECT = "secureObject"
+    SECURE_STRING = "secureString"

@@ -16,8 +16,10 @@ __all__ = [
     'DestinationArgs',
     'KeyVaultPropertiesArgs',
     'NWRuleSetIpRulesArgs',
+    'NWRuleSetVirtualNetworkRulesArgs',
     'PrivateEndpointArgs',
     'SkuArgs',
+    'SubnetArgs',
 ]
 
 @pulumi.input_type
@@ -372,6 +374,46 @@ class NWRuleSetIpRulesArgs:
 
 
 @pulumi.input_type
+class NWRuleSetVirtualNetworkRulesArgs:
+    def __init__(__self__, *,
+                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
+                 subnet: Optional[pulumi.Input['SubnetArgs']] = None):
+        """
+        The response from the List namespace operation.
+        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing Vnet Service Endpoint
+        :param pulumi.Input['SubnetArgs'] subnet: Subnet properties
+        """
+        if ignore_missing_vnet_service_endpoint is not None:
+            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
+    def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Value that indicates whether to ignore missing Vnet Service Endpoint
+        """
+        return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
+
+    @ignore_missing_vnet_service_endpoint.setter
+    def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['SubnetArgs']]:
+        """
+        Subnet properties
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['SubnetArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
@@ -448,5 +490,29 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SubnetArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Properties supplied for Subnet
+        :param pulumi.Input[str] id: Resource ID of Virtual Network Subnet
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of Virtual Network Subnet
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 

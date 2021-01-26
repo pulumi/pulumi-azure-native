@@ -5,31 +5,15 @@
 from enum import Enum
 
 __all__ = [
-    'AlertRuleKind',
     'BillingType',
-    'CaseSeverity',
     'ClusterSkuNameEnum',
-    'DataConnectorKind',
     'DataSourceKind',
     'IdentityType',
-    'IncidentClassification',
-    'IncidentClassificationReason',
-    'IncidentSeverity',
-    'IncidentStatus',
     'LinkedServiceEntityStatus',
     'PublicNetworkAccessType',
     'WorkspaceEntityStatus',
     'WorkspaceSkuNameEnum',
 ]
-
-
-class AlertRuleKind(str, Enum):
-    """
-    The alert rule kind
-    """
-    SCHEDULED = "Scheduled"
-    MICROSOFT_SECURITY_INCIDENT_CREATION = "MicrosoftSecurityIncidentCreation"
-    FUSION = "Fusion"
 
 
 class BillingType(str, Enum):
@@ -40,36 +24,11 @@ class BillingType(str, Enum):
     WORKSPACES = "Workspaces"
 
 
-class CaseSeverity(str, Enum):
-    """
-    The severity of the incident
-    """
-    CRITICAL = "Critical"
-    HIGH = "High"
-    MEDIUM = "Medium"
-    LOW = "Low"
-    INFORMATIONAL = "Informational"
-
-
 class ClusterSkuNameEnum(str, Enum):
     """
     The name of the SKU.
     """
     CAPACITY_RESERVATION = "CapacityReservation"
-
-
-class DataConnectorKind(str, Enum):
-    """
-    The data connector kind
-    """
-    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
-    AZURE_SECURITY_CENTER = "AzureSecurityCenter"
-    MICROSOFT_CLOUD_APP_SECURITY = "MicrosoftCloudAppSecurity"
-    THREAT_INTELLIGENCE = "ThreatIntelligence"
-    OFFICE365 = "Office365"
-    AMAZON_WEB_SERVICES_CLOUD_TRAIL = "AmazonWebServicesCloudTrail"
-    AZURE_ADVANCED_THREAT_PROTECTION = "AzureAdvancedThreatProtection"
-    MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "MicrosoftDefenderAdvancedThreatProtection"
 
 
 class DataSourceKind(str, Enum):
@@ -118,45 +77,6 @@ class IdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     NONE = "None"
-
-
-class IncidentClassification(str, Enum):
-    """
-    The reason the incident was closed
-    """
-    UNDETERMINED = "Undetermined"
-    TRUE_POSITIVE = "TruePositive"
-    BENIGN_POSITIVE = "BenignPositive"
-    FALSE_POSITIVE = "FalsePositive"
-
-
-class IncidentClassificationReason(str, Enum):
-    """
-    The classification reason the incident was closed with
-    """
-    SUSPICIOUS_ACTIVITY = "SuspiciousActivity"
-    SUSPICIOUS_BUT_EXPECTED = "SuspiciousButExpected"
-    INCORRECT_ALERT_LOGIC = "IncorrectAlertLogic"
-    INACCURATE_DATA = "InaccurateData"
-
-
-class IncidentSeverity(str, Enum):
-    """
-    The severity of the incident
-    """
-    HIGH = "High"
-    MEDIUM = "Medium"
-    LOW = "Low"
-    INFORMATIONAL = "Informational"
-
-
-class IncidentStatus(str, Enum):
-    """
-    The status of the incident
-    """
-    NEW = "New"
-    ACTIVE = "Active"
-    CLOSED = "Closed"
 
 
 class LinkedServiceEntityStatus(str, Enum):

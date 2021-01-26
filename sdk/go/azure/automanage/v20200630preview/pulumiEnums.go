@@ -10,6 +10,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A value indicating configuration profile.
+type ConfigurationProfile pulumi.String
+
+const (
+	ConfigurationProfile_Azure_virtual_machine_best_practices_Dev_Test   = ConfigurationProfile("Azure virtual machine best practices – Dev/Test")
+	ConfigurationProfile_Azure_virtual_machine_best_practices_Production = ConfigurationProfile("Azure virtual machine best practices – Production")
+)
+
+func (ConfigurationProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ConfigurationProfile) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigurationProfile) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigurationProfile) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfigurationProfile) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Enables or disables Real Time Protection
 type EnableRealTimeProtection pulumi.String
 

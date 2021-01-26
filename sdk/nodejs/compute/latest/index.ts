@@ -29,7 +29,6 @@ export * from "./getGalleryApplication";
 export * from "./getGalleryApplicationVersion";
 export * from "./getGalleryImage";
 export * from "./getGalleryImageVersion";
-export * from "./getGuestConfigurationAssignment";
 export * from "./getImage";
 export * from "./getLogAnalyticExportRequestRateByInterval";
 export * from "./getLogAnalyticExportThrottledRequests";
@@ -44,7 +43,6 @@ export * from "./getVirtualMachineScaleSetExtension";
 export * from "./getVirtualMachineScaleSetVM";
 export * from "./getVirtualMachineScaleSetVMExtension";
 export * from "./getVirtualMachineScaleSetVMRunCommand";
-export * from "./guestConfigurationAssignment";
 export * from "./image";
 export * from "./proximityPlacementGroup";
 export * from "./snapshot";
@@ -74,7 +72,6 @@ import { GalleryApplication } from "./galleryApplication";
 import { GalleryApplicationVersion } from "./galleryApplicationVersion";
 import { GalleryImage } from "./galleryImage";
 import { GalleryImageVersion } from "./galleryImageVersion";
-import { GuestConfigurationAssignment } from "./guestConfigurationAssignment";
 import { Image } from "./image";
 import { ProximityPlacementGroup } from "./proximityPlacementGroup";
 import { Snapshot } from "./snapshot";
@@ -116,8 +113,6 @@ const _module = {
                 return new GalleryImage(name, <any>undefined, { urn })
             case "azure-nextgen:compute/latest:GalleryImageVersion":
                 return new GalleryImageVersion(name, <any>undefined, { urn })
-            case "azure-nextgen:compute/latest:GuestConfigurationAssignment":
-                return new GuestConfigurationAssignment(name, <any>undefined, { urn })
             case "azure-nextgen:compute/latest:Image":
                 return new Image(name, <any>undefined, { urn })
             case "azure-nextgen:compute/latest:ProximityPlacementGroup":

@@ -6,10 +6,12 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./deployment";
+export * from "./deploymentAtManagementGroupScope";
 export * from "./deploymentAtScope";
 export * from "./deploymentAtSubscriptionScope";
 export * from "./deploymentAtTenantScope";
 export * from "./getDeployment";
+export * from "./getDeploymentAtManagementGroupScope";
 export * from "./getDeploymentAtScope";
 export * from "./getDeploymentAtSubscriptionScope";
 export * from "./getDeploymentAtTenantScope";
@@ -23,6 +25,7 @@ export * from "../../types/enums/resources/v20190701";
 
 // Import resources to register:
 import { Deployment } from "./deployment";
+import { DeploymentAtManagementGroupScope } from "./deploymentAtManagementGroupScope";
 import { DeploymentAtScope } from "./deploymentAtScope";
 import { DeploymentAtSubscriptionScope } from "./deploymentAtSubscriptionScope";
 import { DeploymentAtTenantScope } from "./deploymentAtTenantScope";
@@ -35,6 +38,8 @@ const _module = {
         switch (type) {
             case "azure-nextgen:resources/v20190701:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
+            case "azure-nextgen:resources/v20190701:DeploymentAtManagementGroupScope":
+                return new DeploymentAtManagementGroupScope(name, <any>undefined, { urn })
             case "azure-nextgen:resources/v20190701:DeploymentAtScope":
                 return new DeploymentAtScope(name, <any>undefined, { urn })
             case "azure-nextgen:resources/v20190701:DeploymentAtSubscriptionScope":

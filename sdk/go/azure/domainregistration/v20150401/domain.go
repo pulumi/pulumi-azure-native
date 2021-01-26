@@ -106,9 +106,6 @@ func NewDomain(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:domainregistration/latest:Domain"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:domainregistration/v20150801:Domain"),
-		},
-		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20180201:Domain"),
 		},
 		{
