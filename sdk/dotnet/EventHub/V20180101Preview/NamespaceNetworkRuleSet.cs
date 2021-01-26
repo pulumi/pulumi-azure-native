@@ -34,10 +34,22 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Value that indicates whether Trusted Service Access is Enabled or not.
+        /// </summary>
+        [Output("trustedServiceAccessEnabled")]
+        public Output<bool?> TrustedServiceAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// List VirtualNetwork Rules
+        /// </summary>
+        [Output("virtualNetworkRules")]
+        public Output<ImmutableArray<Outputs.NWRuleSetVirtualNetworkRulesResponse>> VirtualNetworkRules { get; private set; } = null!;
 
 
         /// <summary>
@@ -108,16 +120,34 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         }
 
         /// <summary>
-        /// The namespace name
+        /// The Namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// Name of the resource group within the azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether Trusted Service Access is Enabled or not.
+        /// </summary>
+        [Input("trustedServiceAccessEnabled")]
+        public Input<bool>? TrustedServiceAccessEnabled { get; set; }
+
+        [Input("virtualNetworkRules")]
+        private InputList<Inputs.NWRuleSetVirtualNetworkRulesArgs>? _virtualNetworkRules;
+
+        /// <summary>
+        /// List VirtualNetwork Rules
+        /// </summary>
+        public InputList<Inputs.NWRuleSetVirtualNetworkRulesArgs> VirtualNetworkRules
+        {
+            get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.NWRuleSetVirtualNetworkRulesArgs>());
+            set => _virtualNetworkRules = value;
+        }
 
         public NamespaceNetworkRuleSetArgs()
         {

@@ -14,112 +14,70 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801.Outputs
     public sealed class CertificateDetailsResponse
     {
         /// <summary>
-        /// Resource Id
+        /// Certificate Issuer.
         /// </summary>
-        public readonly string? Id;
+        public readonly string Issuer;
         /// <summary>
-        /// Issuer
+        /// Date Certificate is valid to.
         /// </summary>
-        public readonly string? Issuer;
+        public readonly string NotAfter;
         /// <summary>
-        /// Kind of resource
+        /// Date Certificate is valid from.
         /// </summary>
-        public readonly string? Kind;
+        public readonly string NotBefore;
         /// <summary>
-        /// Resource Location
+        /// Raw certificate data.
         /// </summary>
-        public readonly string Location;
+        public readonly string RawData;
         /// <summary>
-        /// Resource Name
+        /// Certificate Serial Number.
         /// </summary>
-        public readonly string? Name;
+        public readonly string SerialNumber;
         /// <summary>
-        /// Valid to
+        /// Certificate Signature algorithm.
         /// </summary>
-        public readonly string? NotAfter;
+        public readonly string SignatureAlgorithm;
         /// <summary>
-        /// Valid from
+        /// Certificate Subject.
         /// </summary>
-        public readonly string? NotBefore;
+        public readonly string Subject;
         /// <summary>
-        /// Raw certificate data
+        /// Certificate Thumbprint.
         /// </summary>
-        public readonly string? RawData;
+        public readonly string Thumbprint;
         /// <summary>
-        /// Serial Number
+        /// Certificate Version.
         /// </summary>
-        public readonly string? SerialNumber;
-        /// <summary>
-        /// Signature Algorithm
-        /// </summary>
-        public readonly string? SignatureAlgorithm;
-        /// <summary>
-        /// Subject
-        /// </summary>
-        public readonly string? Subject;
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// Thumbprint
-        /// </summary>
-        public readonly string? Thumbprint;
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        public readonly string? Type;
-        /// <summary>
-        /// Version
-        /// </summary>
-        public readonly int? Version;
+        public readonly int Version;
 
         [OutputConstructor]
         private CertificateDetailsResponse(
-            string? id,
+            string issuer,
 
-            string? issuer,
+            string notAfter,
 
-            string? kind,
+            string notBefore,
 
-            string location,
+            string rawData,
 
-            string? name,
+            string serialNumber,
 
-            string? notAfter,
+            string signatureAlgorithm,
 
-            string? notBefore,
+            string subject,
 
-            string? rawData,
+            string thumbprint,
 
-            string? serialNumber,
-
-            string? signatureAlgorithm,
-
-            string? subject,
-
-            ImmutableDictionary<string, string>? tags,
-
-            string? thumbprint,
-
-            string? type,
-
-            int? version)
+            int version)
         {
-            Id = id;
             Issuer = issuer;
-            Kind = kind;
-            Location = location;
-            Name = name;
             NotAfter = notAfter;
             NotBefore = notBefore;
             RawData = rawData;
             SerialNumber = serialNumber;
             SignatureAlgorithm = signatureAlgorithm;
             Subject = subject;
-            Tags = tags;
             Thumbprint = thumbprint;
-            Type = type;
             Version = version;
         }
     }

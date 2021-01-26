@@ -96,7 +96,6 @@ namespace Pulumi.AzureNextGen.Authorization.V20190101
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20151001preview:PolicyDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20151101:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160401:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20161201:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180301:PolicyDefinition"},

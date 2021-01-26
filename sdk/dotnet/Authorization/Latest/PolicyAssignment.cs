@@ -120,7 +120,6 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20151001preview:PolicyAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20151101:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160401:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20161201:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20170601preview:PolicyAssignment"},
