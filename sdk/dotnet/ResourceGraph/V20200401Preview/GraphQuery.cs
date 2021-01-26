@@ -24,8 +24,8 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
         /// <summary>
         /// This will be used to handle Optimistic Concurrency.
         /// </summary>
-        [Output("eTag")]
-        public Output<string?> ETag { get; private set; } = null!;
+        [Output("etag")]
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource
@@ -133,8 +133,8 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
         /// <summary>
         /// This will be used to handle Optimistic Concurrency.
         /// </summary>
-        [Input("eTag")]
-        public Input<string>? ETag { get; set; }
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
 
         /// <summary>
         /// KQL query that will be graph.

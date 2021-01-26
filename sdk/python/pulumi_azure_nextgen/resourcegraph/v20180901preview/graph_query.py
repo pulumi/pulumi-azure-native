@@ -16,7 +16,7 @@ class GraphQuery(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 e_tag: Optional[pulumi.Input[str]] = None,
+                 etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class GraphQuery(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of a graph query.
-        :param pulumi.Input[str] e_tag: This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
+        :param pulumi.Input[str] etag: This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         :param pulumi.Input[str] location: The location of the resource
         :param pulumi.Input[str] query: KQL query that will be graph.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -56,7 +56,7 @@ class GraphQuery(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            __props__['e_tag'] = e_tag
+            __props__['etag'] = etag
             __props__['location'] = location
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
@@ -107,12 +107,12 @@ class GraphQuery(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
         This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         """
-        return pulumi.get(self, "e_tag")
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter

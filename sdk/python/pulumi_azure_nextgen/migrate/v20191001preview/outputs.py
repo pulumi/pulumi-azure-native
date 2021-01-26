@@ -13,8 +13,10 @@ from ._enums import *
 __all__ = [
     'AutomaticResolutionPropertiesResponse',
     'AvailabilitySetResourceSettingsResponse',
+    'DiskEncryptionSetResourceSettingsResponse',
     'IdentityResponse',
     'JobStatusResponse',
+    'KeyVaultResourceSettingsResponse',
     'LBBackendAddressPoolResourceSettingsResponse',
     'LBFrontendIPConfigurationResourceSettingsResponse',
     'LoadBalancerBackendAddressPoolReferenceResponse',
@@ -138,6 +140,44 @@ class AvailabilitySetResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
+class DiskEncryptionSetResourceSettingsResponse(dict):
+    """
+    Defines the disk encryption set resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str):
+        """
+        Defines the disk encryption set resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.Compute/diskEncryptionSets'.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Compute/diskEncryptionSets')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.Compute/diskEncryptionSets'.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class IdentityResponse(dict):
     """
     Defines the MSI properties of the Move Collection.
@@ -218,6 +258,44 @@ class JobStatusResponse(dict):
         Gets or sets the monitoring job percentage.
         """
         return pulumi.get(self, "job_progress")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KeyVaultResourceSettingsResponse(dict):
+    """
+    Defines the key vault resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str):
+        """
+        Defines the key vault resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+               Expected value is 'Microsoft.KeyVault/vaults'.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.KeyVault/vaults')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        Expected value is 'Microsoft.KeyVault/vaults'.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -844,11 +922,11 @@ class MoveResourcePropertiesResponse(dict):
         :param 'MoveResourcePropertiesResponseMoveStatusArgs' move_status: Defines the move resource status.
         :param str provisioning_state: Defines the provisioning states.
         :param str source_id: Gets or sets the Source ARM Id of the resource.
-        :param Union['AvailabilitySetResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] source_resource_settings: Gets or sets the source resource settings.
+        :param Union['AvailabilitySetResourceSettingsResponseArgs', 'DiskEncryptionSetResourceSettingsResponseArgs', 'KeyVaultResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] source_resource_settings: Gets or sets the source resource settings.
         :param str target_id: Gets or sets the Target ARM Id of the resource.
         :param Sequence['MoveResourceDependencyOverrideResponseArgs'] depends_on_overrides: Gets or sets the move resource dependencies overrides.
         :param str existing_target_id: Gets or sets the existing target ARM Id of the resource.
-        :param Union['AvailabilitySetResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] resource_settings: Gets or sets the resource settings.
+        :param Union['AvailabilitySetResourceSettingsResponseArgs', 'DiskEncryptionSetResourceSettingsResponseArgs', 'KeyVaultResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] resource_settings: Gets or sets the resource settings.
         """
         pulumi.set(__self__, "depends_on", depends_on)
         pulumi.set(__self__, "errors", errors)

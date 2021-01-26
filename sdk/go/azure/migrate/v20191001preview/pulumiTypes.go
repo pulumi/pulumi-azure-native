@@ -318,6 +318,140 @@ func (o AvailabilitySetResourceSettingsResponseOutput) UpdateDomain() pulumi.Int
 	return o.ApplyT(func(v AvailabilitySetResourceSettingsResponse) *int { return v.UpdateDomain }).(pulumi.IntPtrOutput)
 }
 
+// Defines the disk encryption set resource settings.
+type DiskEncryptionSetResourceSettings struct {
+	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
+	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the target Resource name.
+	TargetResourceName string `pulumi:"targetResourceName"`
+}
+
+// DiskEncryptionSetResourceSettingsInput is an input type that accepts DiskEncryptionSetResourceSettingsArgs and DiskEncryptionSetResourceSettingsOutput values.
+// You can construct a concrete instance of `DiskEncryptionSetResourceSettingsInput` via:
+//
+//          DiskEncryptionSetResourceSettingsArgs{...}
+type DiskEncryptionSetResourceSettingsInput interface {
+	pulumi.Input
+
+	ToDiskEncryptionSetResourceSettingsOutput() DiskEncryptionSetResourceSettingsOutput
+	ToDiskEncryptionSetResourceSettingsOutputWithContext(context.Context) DiskEncryptionSetResourceSettingsOutput
+}
+
+// Defines the disk encryption set resource settings.
+type DiskEncryptionSetResourceSettingsArgs struct {
+	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Gets or sets the target Resource name.
+	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+}
+
+func (DiskEncryptionSetResourceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskEncryptionSetResourceSettings)(nil)).Elem()
+}
+
+func (i DiskEncryptionSetResourceSettingsArgs) ToDiskEncryptionSetResourceSettingsOutput() DiskEncryptionSetResourceSettingsOutput {
+	return i.ToDiskEncryptionSetResourceSettingsOutputWithContext(context.Background())
+}
+
+func (i DiskEncryptionSetResourceSettingsArgs) ToDiskEncryptionSetResourceSettingsOutputWithContext(ctx context.Context) DiskEncryptionSetResourceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetResourceSettingsOutput)
+}
+
+// Defines the disk encryption set resource settings.
+type DiskEncryptionSetResourceSettingsOutput struct{ *pulumi.OutputState }
+
+func (DiskEncryptionSetResourceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskEncryptionSetResourceSettings)(nil)).Elem()
+}
+
+func (o DiskEncryptionSetResourceSettingsOutput) ToDiskEncryptionSetResourceSettingsOutput() DiskEncryptionSetResourceSettingsOutput {
+	return o
+}
+
+func (o DiskEncryptionSetResourceSettingsOutput) ToDiskEncryptionSetResourceSettingsOutputWithContext(ctx context.Context) DiskEncryptionSetResourceSettingsOutput {
+	return o
+}
+
+// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
+func (o DiskEncryptionSetResourceSettingsOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskEncryptionSetResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Gets or sets the target Resource name.
+func (o DiskEncryptionSetResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskEncryptionSetResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
+}
+
+// Defines the disk encryption set resource settings.
+type DiskEncryptionSetResourceSettingsResponse struct {
+	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
+	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the target Resource name.
+	TargetResourceName string `pulumi:"targetResourceName"`
+}
+
+// DiskEncryptionSetResourceSettingsResponseInput is an input type that accepts DiskEncryptionSetResourceSettingsResponseArgs and DiskEncryptionSetResourceSettingsResponseOutput values.
+// You can construct a concrete instance of `DiskEncryptionSetResourceSettingsResponseInput` via:
+//
+//          DiskEncryptionSetResourceSettingsResponseArgs{...}
+type DiskEncryptionSetResourceSettingsResponseInput interface {
+	pulumi.Input
+
+	ToDiskEncryptionSetResourceSettingsResponseOutput() DiskEncryptionSetResourceSettingsResponseOutput
+	ToDiskEncryptionSetResourceSettingsResponseOutputWithContext(context.Context) DiskEncryptionSetResourceSettingsResponseOutput
+}
+
+// Defines the disk encryption set resource settings.
+type DiskEncryptionSetResourceSettingsResponseArgs struct {
+	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Gets or sets the target Resource name.
+	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+}
+
+func (DiskEncryptionSetResourceSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskEncryptionSetResourceSettingsResponse)(nil)).Elem()
+}
+
+func (i DiskEncryptionSetResourceSettingsResponseArgs) ToDiskEncryptionSetResourceSettingsResponseOutput() DiskEncryptionSetResourceSettingsResponseOutput {
+	return i.ToDiskEncryptionSetResourceSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i DiskEncryptionSetResourceSettingsResponseArgs) ToDiskEncryptionSetResourceSettingsResponseOutputWithContext(ctx context.Context) DiskEncryptionSetResourceSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetResourceSettingsResponseOutput)
+}
+
+// Defines the disk encryption set resource settings.
+type DiskEncryptionSetResourceSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (DiskEncryptionSetResourceSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskEncryptionSetResourceSettingsResponse)(nil)).Elem()
+}
+
+func (o DiskEncryptionSetResourceSettingsResponseOutput) ToDiskEncryptionSetResourceSettingsResponseOutput() DiskEncryptionSetResourceSettingsResponseOutput {
+	return o
+}
+
+func (o DiskEncryptionSetResourceSettingsResponseOutput) ToDiskEncryptionSetResourceSettingsResponseOutputWithContext(ctx context.Context) DiskEncryptionSetResourceSettingsResponseOutput {
+	return o
+}
+
+// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.Compute/diskEncryptionSets'.
+func (o DiskEncryptionSetResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskEncryptionSetResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Gets or sets the target Resource name.
+func (o DiskEncryptionSetResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskEncryptionSetResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
+}
+
 // Defines the MSI properties of the Move Collection.
 type Identity struct {
 	// Gets or sets the principal id.
@@ -813,6 +947,140 @@ func (o JobStatusResponsePtrOutput) JobProgress() pulumi.StringPtrOutput {
 		}
 		return &v.JobProgress
 	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the key vault resource settings.
+type KeyVaultResourceSettings struct {
+	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.KeyVault/vaults'.
+	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the target Resource name.
+	TargetResourceName string `pulumi:"targetResourceName"`
+}
+
+// KeyVaultResourceSettingsInput is an input type that accepts KeyVaultResourceSettingsArgs and KeyVaultResourceSettingsOutput values.
+// You can construct a concrete instance of `KeyVaultResourceSettingsInput` via:
+//
+//          KeyVaultResourceSettingsArgs{...}
+type KeyVaultResourceSettingsInput interface {
+	pulumi.Input
+
+	ToKeyVaultResourceSettingsOutput() KeyVaultResourceSettingsOutput
+	ToKeyVaultResourceSettingsOutputWithContext(context.Context) KeyVaultResourceSettingsOutput
+}
+
+// Defines the key vault resource settings.
+type KeyVaultResourceSettingsArgs struct {
+	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.KeyVault/vaults'.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Gets or sets the target Resource name.
+	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+}
+
+func (KeyVaultResourceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultResourceSettings)(nil)).Elem()
+}
+
+func (i KeyVaultResourceSettingsArgs) ToKeyVaultResourceSettingsOutput() KeyVaultResourceSettingsOutput {
+	return i.ToKeyVaultResourceSettingsOutputWithContext(context.Background())
+}
+
+func (i KeyVaultResourceSettingsArgs) ToKeyVaultResourceSettingsOutputWithContext(ctx context.Context) KeyVaultResourceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultResourceSettingsOutput)
+}
+
+// Defines the key vault resource settings.
+type KeyVaultResourceSettingsOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultResourceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultResourceSettings)(nil)).Elem()
+}
+
+func (o KeyVaultResourceSettingsOutput) ToKeyVaultResourceSettingsOutput() KeyVaultResourceSettingsOutput {
+	return o
+}
+
+func (o KeyVaultResourceSettingsOutput) ToKeyVaultResourceSettingsOutputWithContext(ctx context.Context) KeyVaultResourceSettingsOutput {
+	return o
+}
+
+// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.KeyVault/vaults'.
+func (o KeyVaultResourceSettingsOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Gets or sets the target Resource name.
+func (o KeyVaultResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
+}
+
+// Defines the key vault resource settings.
+type KeyVaultResourceSettingsResponse struct {
+	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.KeyVault/vaults'.
+	ResourceType string `pulumi:"resourceType"`
+	// Gets or sets the target Resource name.
+	TargetResourceName string `pulumi:"targetResourceName"`
+}
+
+// KeyVaultResourceSettingsResponseInput is an input type that accepts KeyVaultResourceSettingsResponseArgs and KeyVaultResourceSettingsResponseOutput values.
+// You can construct a concrete instance of `KeyVaultResourceSettingsResponseInput` via:
+//
+//          KeyVaultResourceSettingsResponseArgs{...}
+type KeyVaultResourceSettingsResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultResourceSettingsResponseOutput() KeyVaultResourceSettingsResponseOutput
+	ToKeyVaultResourceSettingsResponseOutputWithContext(context.Context) KeyVaultResourceSettingsResponseOutput
+}
+
+// Defines the key vault resource settings.
+type KeyVaultResourceSettingsResponseArgs struct {
+	// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+	// Expected value is 'Microsoft.KeyVault/vaults'.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Gets or sets the target Resource name.
+	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+}
+
+func (KeyVaultResourceSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultResourceSettingsResponse)(nil)).Elem()
+}
+
+func (i KeyVaultResourceSettingsResponseArgs) ToKeyVaultResourceSettingsResponseOutput() KeyVaultResourceSettingsResponseOutput {
+	return i.ToKeyVaultResourceSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultResourceSettingsResponseArgs) ToKeyVaultResourceSettingsResponseOutputWithContext(ctx context.Context) KeyVaultResourceSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultResourceSettingsResponseOutput)
+}
+
+// Defines the key vault resource settings.
+type KeyVaultResourceSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultResourceSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultResourceSettingsResponse)(nil)).Elem()
+}
+
+func (o KeyVaultResourceSettingsResponseOutput) ToKeyVaultResourceSettingsResponseOutput() KeyVaultResourceSettingsResponseOutput {
+	return o
+}
+
+func (o KeyVaultResourceSettingsResponseOutput) ToKeyVaultResourceSettingsResponseOutputWithContext(ctx context.Context) KeyVaultResourceSettingsResponseOutput {
+	return o
+}
+
+// The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+// Expected value is 'Microsoft.KeyVault/vaults'.
+func (o KeyVaultResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Gets or sets the target Resource name.
+func (o KeyVaultResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
 
 // Defines load balancer backend address pool properties.
@@ -7507,12 +7775,16 @@ func init() {
 	pulumi.RegisterOutputType(AutomaticResolutionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AvailabilitySetResourceSettingsOutput{})
 	pulumi.RegisterOutputType(AvailabilitySetResourceSettingsResponseOutput{})
+	pulumi.RegisterOutputType(DiskEncryptionSetResourceSettingsOutput{})
+	pulumi.RegisterOutputType(DiskEncryptionSetResourceSettingsResponseOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobStatusResponseOutput{})
 	pulumi.RegisterOutputType(JobStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultResourceSettingsOutput{})
+	pulumi.RegisterOutputType(KeyVaultResourceSettingsResponseOutput{})
 	pulumi.RegisterOutputType(LBBackendAddressPoolResourceSettingsOutput{})
 	pulumi.RegisterOutputType(LBBackendAddressPoolResourceSettingsArrayOutput{})
 	pulumi.RegisterOutputType(LBBackendAddressPoolResourceSettingsResponseOutput{})
