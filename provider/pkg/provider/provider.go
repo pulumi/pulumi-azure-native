@@ -586,7 +586,21 @@ func (k *azureNextGenProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*r
 		v.InputDiff = true
 
 		switch v.Kind {
-		case rpc.PropertyDiff_ADD_REPLACE, rpc.PropertyDiff_DELETE_REPLACE, rpc.PropertyDiff_UPDATE_REPLACE:
+		case rpc.PropertyDiff_ADD_REPLACE:
+			// Special case: previously, the property input had no value but is now set to X.
+			// If the output contains this property and it's X, that's not a replacement.
+			// Workaround for https://github.com/pulumi/pulumi-azure-nextgen/issues/238
+			// TODO: remove this block before GA.
+			key := resource.PropertyKey(k)
+			_, hasOldInput := oldInputs[key]
+			newInputValue, hasNewInput := newResInputs[key]
+			outputValue, hasOutput := oldState[key]
+			if !hasOldInput && hasNewInput && hasOutput && newInputValue == outputValue {
+				v.Kind = rpc.PropertyDiff_ADD
+			} else {
+				replaces = append(replaces, k)
+			}
+		case rpc.PropertyDiff_DELETE_REPLACE, rpc.PropertyDiff_UPDATE_REPLACE:
 			replaces = append(replaces, k)
 		}
 	}
