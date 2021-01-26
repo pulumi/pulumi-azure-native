@@ -845,7 +845,7 @@ func (k *azureNextGenProvider) Update(ctx context.Context, req *rpc.UpdateReques
 
 		previewOutputs, err := plugin.MarshalProperties(
 			outputs,
-			plugin.MarshalOptions{Label: fmt.Sprintf("%s.previewOutputs", label), KeepUnknowns: false, SkipNulls: true},
+			plugin.MarshalOptions{Label: fmt.Sprintf("%s.previewOutputs", label), KeepUnknowns: true, SkipNulls: true},
 		)
 		if err != nil {
 			return nil, err
