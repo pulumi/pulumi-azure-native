@@ -40,7 +40,7 @@ type LookupMetricAlertResult struct {
 	// Azure resource Id
 	Id string `pulumi:"id"`
 	// the value indicating whether this alert rule is migrated.
-	IsMigrated string `pulumi:"isMigrated"`
+	IsMigrated bool `pulumi:"isMigrated"`
 	// Last time the rule was updated in ISO8601 format.
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	// Resource location

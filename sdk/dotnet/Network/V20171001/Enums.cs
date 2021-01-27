@@ -1485,4 +1485,35 @@ namespace Pulumi.AzureNextGen.Network.V20171001
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type of this DNS zone (Public or Private).
+    /// </summary>
+    [EnumType]
+    public readonly struct ZoneType : IEquatable<ZoneType>
+    {
+        private readonly string _value;
+
+        private ZoneType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ZoneType Public { get; } = new ZoneType("Public");
+        public static ZoneType Private { get; } = new ZoneType("Private");
+
+        public static bool operator ==(ZoneType left, ZoneType right) => left.Equals(right);
+        public static bool operator !=(ZoneType left, ZoneType right) => !left.Equals(right);
+
+        public static explicit operator string(ZoneType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ZoneType other && Equals(other);
+        public bool Equals(ZoneType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

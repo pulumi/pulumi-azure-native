@@ -63,7 +63,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * the value indicating whether this alert rule is migrated.
      */
-    public /*out*/ readonly isMigrated!: pulumi.Output<string>;
+    public /*out*/ readonly isMigrated!: pulumi.Output<boolean>;
     /**
      * Last time the rule was updated in ISO8601 format.
      */

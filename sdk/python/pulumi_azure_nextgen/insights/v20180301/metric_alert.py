@@ -187,7 +187,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isMigrated")
-    def is_migrated(self) -> pulumi.Output[str]:
+    def is_migrated(self) -> pulumi.Output[bool]:
         """
         the value indicating whether this alert rule is migrated.
         """

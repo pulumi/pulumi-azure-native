@@ -74,4 +74,8 @@ export interface GetZoneResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * The type of this DNS zone (Public or Private).
+     */
+    readonly zoneType?: string;
 }

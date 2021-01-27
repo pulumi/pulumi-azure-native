@@ -56,7 +56,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// the value indicating whether this alert rule is migrated.
         /// </summary>
         [Output("isMigrated")]
-        public Output<string> IsMigrated { get; private set; } = null!;
+        public Output<bool> IsMigrated { get; private set; } = null!;
 
         /// <summary>
         /// Last time the rule was updated in ISO8601 format.

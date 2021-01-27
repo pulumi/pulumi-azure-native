@@ -6,6 +6,7 @@ import * as latest from "./latest";
 import * as v20150501preview from "./v20150501preview";
 import * as v20150615 from "./v20150615";
 import * as v20160330 from "./v20160330";
+import * as v20160401 from "./v20160401";
 import * as v20160601 from "./v20160601";
 import * as v20160901 from "./v20160901";
 import * as v20161201 from "./v20161201";
@@ -53,6 +54,7 @@ export {
     v20150501preview,
     v20150615,
     v20160330,
+    v20160401,
     v20160601,
     v20160901,
     v20161201,

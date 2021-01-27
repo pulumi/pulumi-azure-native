@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Zone']
 
@@ -22,6 +23,7 @@ class Zone(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
+                 zone_type: Optional[pulumi.Input['ZoneType']] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -37,6 +39,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
+        :param pulumi.Input['ZoneType'] zone_type: The type of this DNS zone (Public or Private).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,6 +71,9 @@ class Zone(pulumi.CustomResource):
             if zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
+            if zone_type is None:
+                zone_type = 'Public'
+            __props__['zone_type'] = zone_type
             __props__['max_number_of_records_per_record_set'] = None
             __props__['name'] = None
             __props__['name_servers'] = None
@@ -169,6 +175,14 @@ class Zone(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="zoneType")
+    def zone_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of this DNS zone (Public or Private).
+        """
+        return pulumi.get(self, "zone_type")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

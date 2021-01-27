@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Describes a DNS RecordSet (a set of DNS records with the same name and type).
+ * Describes a DNS record set (a collection of DNS records with the same name and type).
  */
 export class RecordSet extends pulumi.CustomResource {
     /**
@@ -36,27 +36,59 @@ export class RecordSet extends pulumi.CustomResource {
     }
 
     /**
-     * Gets or sets the ETag of the RecordSet.
+     * Gets or sets the list of AAAA records in the RecordSet.
+     */
+    public readonly aAAARecords!: pulumi.Output<outputs.network.v20150504preview.AaaaRecordResponse[] | undefined>;
+    /**
+     * Gets or sets the list of A records in the RecordSet.
+     */
+    public readonly aRecords!: pulumi.Output<outputs.network.v20150504preview.ARecordResponse[] | undefined>;
+    /**
+     * Gets or sets the CNAME record in the RecordSet.
+     */
+    public readonly cNAMERecord!: pulumi.Output<outputs.network.v20150504preview.CnameRecordResponse | undefined>;
+    /**
+     * The etag of the record set.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
-     * The geo-location where the resource lives
+     * Fully qualified domain name of the record set.
      */
-    public readonly location!: pulumi.Output<string>;
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * The name of the resource
+     * Gets or sets the list of MX records in the RecordSet.
+     */
+    public readonly mXRecords!: pulumi.Output<outputs.network.v20150504preview.MxRecordResponse[] | undefined>;
+    /**
+     * Gets or sets the list of NS records in the RecordSet.
+     */
+    public readonly nSRecords!: pulumi.Output<outputs.network.v20150504preview.NsRecordResponse[] | undefined>;
+    /**
+     * The name of the record set.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the properties of the RecordSet.
+     * Gets or sets the list of PTR records in the RecordSet.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20150504preview.RecordSetPropertiesResponse>;
+    public readonly pTRRecords!: pulumi.Output<outputs.network.v20150504preview.PtrRecordResponse[] | undefined>;
     /**
-     * Resource tags.
+     * Gets or sets the SOA record in the RecordSet.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly sOARecord!: pulumi.Output<outputs.network.v20150504preview.SoaRecordResponse | undefined>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Gets or sets the list of SRV records in the RecordSet.
+     */
+    public readonly sRVRecords!: pulumi.Output<outputs.network.v20150504preview.SrvRecordResponse[] | undefined>;
+    /**
+     * Gets or sets the list of TXT records in the RecordSet.
+     */
+    public readonly tXTRecords!: pulumi.Output<outputs.network.v20150504preview.TxtRecordResponse[] | undefined>;
+    /**
+     * Gets or sets the TTL of the records in the RecordSet.
+     */
+    public readonly ttl!: pulumi.Output<number | undefined>;
+    /**
+     * The type of the record set.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -70,9 +102,6 @@ export class RecordSet extends pulumi.CustomResource {
     constructor(name: string, args: RecordSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
-                throw new Error("Missing required property 'location'");
-            }
             if ((!args || args.recordType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'recordType'");
             }
@@ -85,22 +114,38 @@ export class RecordSet extends pulumi.CustomResource {
             if ((!args || args.zoneName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'zoneName'");
             }
+            inputs["aAAARecords"] = args ? args.aAAARecords : undefined;
+            inputs["aRecords"] = args ? args.aRecords : undefined;
+            inputs["cNAMERecord"] = args ? args.cNAMERecord : undefined;
             inputs["etag"] = args ? args.etag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["mXRecords"] = args ? args.mXRecords : undefined;
+            inputs["nSRecords"] = args ? args.nSRecords : undefined;
+            inputs["pTRRecords"] = args ? args.pTRRecords : undefined;
             inputs["recordType"] = args ? args.recordType : undefined;
             inputs["relativeRecordSetName"] = args ? args.relativeRecordSetName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            inputs["sOARecord"] = args ? args.sOARecord : undefined;
+            inputs["sRVRecords"] = args ? args.sRVRecords : undefined;
+            inputs["tXTRecords"] = args ? args.tXTRecords : undefined;
+            inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["fqdn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["aAAARecords"] = undefined /*out*/;
+            inputs["aRecords"] = undefined /*out*/;
+            inputs["cNAMERecord"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
+            inputs["mXRecords"] = undefined /*out*/;
+            inputs["nSRecords"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
+            inputs["pTRRecords"] = undefined /*out*/;
+            inputs["sOARecord"] = undefined /*out*/;
+            inputs["sRVRecords"] = undefined /*out*/;
+            inputs["tXTRecords"] = undefined /*out*/;
+            inputs["ttl"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -121,17 +166,33 @@ export class RecordSet extends pulumi.CustomResource {
  */
 export interface RecordSetArgs {
     /**
-     * Gets or sets the ETag of the RecordSet.
+     * Gets or sets the list of AAAA records in the RecordSet.
+     */
+    readonly aAAARecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.AaaaRecord>[]>;
+    /**
+     * Gets or sets the list of A records in the RecordSet.
+     */
+    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.ARecord>[]>;
+    /**
+     * Gets or sets the CNAME record in the RecordSet.
+     */
+    readonly cNAMERecord?: pulumi.Input<inputs.network.v20150504preview.CnameRecord>;
+    /**
+     * The etag of the record set.
      */
     readonly etag?: pulumi.Input<string>;
     /**
-     * The geo-location where the resource lives
+     * Gets or sets the list of MX records in the RecordSet.
      */
-    readonly location: pulumi.Input<string>;
+    readonly mXRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.MxRecord>[]>;
     /**
-     * Gets or sets the properties of the RecordSet.
+     * Gets or sets the list of NS records in the RecordSet.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20150504preview.RecordSetProperties>;
+    readonly nSRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.NsRecord>[]>;
+    /**
+     * Gets or sets the list of PTR records in the RecordSet.
+     */
+    readonly pTRRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.PtrRecord>[]>;
     /**
      * The type of DNS record.
      */
@@ -145,9 +206,21 @@ export interface RecordSetArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Resource tags.
+     * Gets or sets the SOA record in the RecordSet.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly sOARecord?: pulumi.Input<inputs.network.v20150504preview.SoaRecord>;
+    /**
+     * Gets or sets the list of SRV records in the RecordSet.
+     */
+    readonly sRVRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.SrvRecord>[]>;
+    /**
+     * Gets or sets the list of TXT records in the RecordSet.
+     */
+    readonly tXTRecords?: pulumi.Input<pulumi.Input<inputs.network.v20150504preview.TxtRecord>[]>;
+    /**
+     * Gets or sets the TTL of the records in the RecordSet.
+     */
+    readonly ttl?: pulumi.Input<number>;
     /**
      * The name of the zone without a terminating dot.
      */

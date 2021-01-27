@@ -41,35 +41,67 @@ export interface GetRecordSetArgs {
 }
 
 /**
- * Describes a DNS RecordSet (a set of DNS records with the same name and type).
+ * Describes a DNS record set (a collection of DNS records with the same name and type).
  */
 export interface GetRecordSetResult {
     /**
-     * Gets or sets the ETag of the RecordSet.
+     * Gets or sets the list of AAAA records in the RecordSet.
+     */
+    readonly aAAARecords?: outputs.network.v20150504preview.AaaaRecordResponse[];
+    /**
+     * Gets or sets the list of A records in the RecordSet.
+     */
+    readonly aRecords?: outputs.network.v20150504preview.ARecordResponse[];
+    /**
+     * Gets or sets the CNAME record in the RecordSet.
+     */
+    readonly cNAMERecord?: outputs.network.v20150504preview.CnameRecordResponse;
+    /**
+     * The etag of the record set.
      */
     readonly etag?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified domain name of the record set.
+     */
+    readonly fqdn: string;
+    /**
+     * The ID of the record set.
      */
     readonly id: string;
     /**
-     * The geo-location where the resource lives
+     * Gets or sets the list of MX records in the RecordSet.
      */
-    readonly location: string;
+    readonly mXRecords?: outputs.network.v20150504preview.MxRecordResponse[];
     /**
-     * The name of the resource
+     * Gets or sets the list of NS records in the RecordSet.
+     */
+    readonly nSRecords?: outputs.network.v20150504preview.NsRecordResponse[];
+    /**
+     * The name of the record set.
      */
     readonly name: string;
     /**
-     * Gets or sets the properties of the RecordSet.
+     * Gets or sets the list of PTR records in the RecordSet.
      */
-    readonly properties: outputs.network.v20150504preview.RecordSetPropertiesResponse;
+    readonly pTRRecords?: outputs.network.v20150504preview.PtrRecordResponse[];
     /**
-     * Resource tags.
+     * Gets or sets the SOA record in the RecordSet.
      */
-    readonly tags?: {[key: string]: string};
+    readonly sOARecord?: outputs.network.v20150504preview.SoaRecordResponse;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Gets or sets the list of SRV records in the RecordSet.
+     */
+    readonly sRVRecords?: outputs.network.v20150504preview.SrvRecordResponse[];
+    /**
+     * Gets or sets the list of TXT records in the RecordSet.
+     */
+    readonly tXTRecords?: outputs.network.v20150504preview.TxtRecordResponse[];
+    /**
+     * Gets or sets the TTL of the records in the RecordSet.
+     */
+    readonly ttl?: number;
+    /**
+     * The type of the record set.
      */
     readonly type: string;
 }

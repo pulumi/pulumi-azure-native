@@ -18,6 +18,10 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview.Outputs
         /// </summary>
         public readonly double? MaxNumberOfRecordSets;
         /// <summary>
+        /// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        public readonly double MaxNumberOfRecordsPerRecordSet;
+        /// <summary>
         /// Gets or sets the current number of record sets in this zone.
         /// </summary>
         public readonly double? NumberOfRecordSets;
@@ -26,9 +30,12 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview.Outputs
         private ZonePropertiesResponse(
             double? maxNumberOfRecordSets,
 
+            double maxNumberOfRecordsPerRecordSet,
+
             double? numberOfRecordSets)
         {
             MaxNumberOfRecordSets = maxNumberOfRecordSets;
+            MaxNumberOfRecordsPerRecordSet = maxNumberOfRecordsPerRecordSet;
             NumberOfRecordSets = numberOfRecordSets;
         }
     }

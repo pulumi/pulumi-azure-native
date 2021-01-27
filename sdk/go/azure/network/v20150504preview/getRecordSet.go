@@ -27,20 +27,36 @@ type LookupRecordSetArgs struct {
 	ZoneName string `pulumi:"zoneName"`
 }
 
-// Describes a DNS RecordSet (a set of DNS records with the same name and type).
+// Describes a DNS record set (a collection of DNS records with the same name and type).
 type LookupRecordSetResult struct {
-	// Gets or sets the ETag of the RecordSet.
+	// Gets or sets the list of AAAA records in the RecordSet.
+	AAAARecords []AaaaRecordResponse `pulumi:"aAAARecords"`
+	// Gets or sets the list of A records in the RecordSet.
+	ARecords []ARecordResponse `pulumi:"aRecords"`
+	// Gets or sets the CNAME record in the RecordSet.
+	CNAMERecord *CnameRecordResponse `pulumi:"cNAMERecord"`
+	// The etag of the record set.
 	Etag *string `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// Fully qualified domain name of the record set.
+	Fqdn string `pulumi:"fqdn"`
+	// The ID of the record set.
 	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
+	// Gets or sets the list of MX records in the RecordSet.
+	MXRecords []MxRecordResponse `pulumi:"mXRecords"`
+	// Gets or sets the list of NS records in the RecordSet.
+	NSRecords []NsRecordResponse `pulumi:"nSRecords"`
+	// The name of the record set.
 	Name string `pulumi:"name"`
-	// Gets or sets the properties of the RecordSet.
-	Properties RecordSetPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Gets or sets the list of PTR records in the RecordSet.
+	PTRRecords []PtrRecordResponse `pulumi:"pTRRecords"`
+	// Gets or sets the SOA record in the RecordSet.
+	SOARecord *SoaRecordResponse `pulumi:"sOARecord"`
+	// Gets or sets the list of SRV records in the RecordSet.
+	SRVRecords []SrvRecordResponse `pulumi:"sRVRecords"`
+	// Gets or sets the list of TXT records in the RecordSet.
+	TXTRecords []TxtRecordResponse `pulumi:"tXTRecords"`
+	// Gets or sets the TTL of the records in the RecordSet.
+	Ttl *float64 `pulumi:"ttl"`
+	// The type of the record set.
 	Type string `pulumi:"type"`
 }

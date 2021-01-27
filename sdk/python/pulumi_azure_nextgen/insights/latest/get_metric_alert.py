@@ -42,8 +42,8 @@ class GetMetricAlertResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if is_migrated and not isinstance(is_migrated, str):
-            raise TypeError("Expected argument 'is_migrated' to be a str")
+        if is_migrated and not isinstance(is_migrated, bool):
+            raise TypeError("Expected argument 'is_migrated' to be a bool")
         pulumi.set(__self__, "is_migrated", is_migrated)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
@@ -134,7 +134,7 @@ class GetMetricAlertResult:
 
     @property
     @pulumi.getter(name="isMigrated")
-    def is_migrated(self) -> str:
+    def is_migrated(self) -> bool:
         """
         the value indicating whether this alert rule is migrated.
         """

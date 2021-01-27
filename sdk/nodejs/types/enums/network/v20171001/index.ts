@@ -535,3 +535,13 @@ export const VpnType = {
  * The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
  */
 export type VpnType = (typeof VpnType)[keyof typeof VpnType];
+
+export const ZoneType = {
+    Public: "Public",
+    Private: "Private",
+} as const;
+
+/**
+ * The type of this DNS zone (Public or Private).
+ */
+export type ZoneType = (typeof ZoneType)[keyof typeof ZoneType];

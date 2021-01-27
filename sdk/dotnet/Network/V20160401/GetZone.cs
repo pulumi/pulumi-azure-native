@@ -79,6 +79,10 @@ namespace Pulumi.AzureNextGen.Network.V20160401
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The type of this DNS zone (Public or Private).
+        /// </summary>
+        public readonly string? ZoneType;
 
         [OutputConstructor]
         private GetZoneResult(
@@ -100,7 +104,9 @@ namespace Pulumi.AzureNextGen.Network.V20160401
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? zoneType)
         {
             Etag = etag;
             Id = id;
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNextGen.Network.V20160401
             NumberOfRecordSets = numberOfRecordSets;
             Tags = tags;
             Type = type;
+            ZoneType = zoneType;
         }
     }
 }
