@@ -11,7 +11,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
 {
     /// <summary>
     /// Registered Server resource.
-    /// Latest API Version: 2020-09-01.
+    /// Latest API Version: 2020-03-01.
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:storagesync/latest:RegisteredServer")]
     public partial class RegisteredServer : Pulumi.CustomResource
@@ -21,18 +21,6 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// </summary>
         [Output("agentVersion")]
         public Output<string?> AgentVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// Registered Server Agent Version Expiration Date
-        /// </summary>
-        [Output("agentVersionExpirationDate")]
-        public Output<string> AgentVersionExpirationDate { get; private set; } = null!;
-
-        /// <summary>
-        /// Registered Server Agent Version Status
-        /// </summary>
-        [Output("agentVersionStatus")]
-        public Output<string> AgentVersionStatus { get; private set; } = null!;
 
         /// <summary>
         /// Registered Server clusterId
@@ -50,7 +38,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// Resource discoveryEndpointUri
         /// </summary>
         [Output("discoveryEndpointUri")]
-        public Output<string> DiscoveryEndpointUri { get; private set; } = null!;
+        public Output<string?> DiscoveryEndpointUri { get; private set; } = null!;
 
         /// <summary>
         /// Friendly Name
@@ -62,37 +50,37 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// Registered Server last heart beat
         /// </summary>
         [Output("lastHeartBeat")]
-        public Output<string> LastHeartBeat { get; private set; } = null!;
+        public Output<string?> LastHeartBeat { get; private set; } = null!;
 
         /// <summary>
         /// Resource Last Operation Name
         /// </summary>
         [Output("lastOperationName")]
-        public Output<string> LastOperationName { get; private set; } = null!;
+        public Output<string?> LastOperationName { get; private set; } = null!;
 
         /// <summary>
         /// Registered Server lastWorkflowId
         /// </summary>
         [Output("lastWorkflowId")]
-        public Output<string> LastWorkflowId { get; private set; } = null!;
+        public Output<string?> LastWorkflowId { get; private set; } = null!;
 
         /// <summary>
         /// Management Endpoint Uri
         /// </summary>
         [Output("managementEndpointUri")]
-        public Output<string> ManagementEndpointUri { get; private set; } = null!;
+        public Output<string?> ManagementEndpointUri { get; private set; } = null!;
 
         /// <summary>
         /// Monitoring Configuration
         /// </summary>
         [Output("monitoringConfiguration")]
-        public Output<string> MonitoringConfiguration { get; private set; } = null!;
+        public Output<string?> MonitoringConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Telemetry Endpoint Uri
         /// </summary>
         [Output("monitoringEndpointUri")]
-        public Output<string> MonitoringEndpointUri { get; private set; } = null!;
+        public Output<string?> MonitoringEndpointUri { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -104,13 +92,13 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// Registered Server Provisioning State
         /// </summary>
         [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource Location
         /// </summary>
         [Output("resourceLocation")]
-        public Output<string> ResourceLocation { get; private set; } = null!;
+        public Output<string?> ResourceLocation { get; private set; } = null!;
 
         /// <summary>
         /// Registered Server Certificate
@@ -128,13 +116,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// Registered Server Management Error Code
         /// </summary>
         [Output("serverManagementErrorCode")]
-        public Output<int> ServerManagementErrorCode { get; private set; } = null!;
-
-        /// <summary>
-        /// Server name
-        /// </summary>
-        [Output("serverName")]
-        public Output<string> ServerName { get; private set; } = null!;
+        public Output<int?> ServerManagementErrorCode { get; private set; } = null!;
 
         /// <summary>
         /// Registered Server OS Version
@@ -152,13 +134,13 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// Service Location
         /// </summary>
         [Output("serviceLocation")]
-        public Output<string> ServiceLocation { get; private set; } = null!;
+        public Output<string?> ServiceLocation { get; private set; } = null!;
 
         /// <summary>
         /// Registered Server storageSyncServiceUid
         /// </summary>
         [Output("storageSyncServiceUid")]
-        public Output<string> StorageSyncServiceUid { get; private set; } = null!;
+        public Output<string?> StorageSyncServiceUid { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

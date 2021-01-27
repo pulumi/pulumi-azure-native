@@ -64,10 +64,6 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest
         /// </summary>
         public readonly string OwnerEmail;
         /// <summary>
-        /// The sku of the workspace.
-        /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
-        /// <summary>
         /// The regional endpoint for the machine learning studio service which hosts this workspace.
         /// </summary>
         public readonly string StudioEndpoint;
@@ -110,8 +106,6 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest
 
             string ownerEmail,
 
-            Outputs.SkuResponse? sku,
-
             string studioEndpoint,
 
             ImmutableDictionary<string, string>? tags,
@@ -132,7 +126,6 @@ namespace Pulumi.AzureNextGen.MachineLearning.Latest
             Location = location;
             Name = name;
             OwnerEmail = ownerEmail;
-            Sku = sku;
             StudioEndpoint = studioEndpoint;
             Tags = tags;
             Type = type;

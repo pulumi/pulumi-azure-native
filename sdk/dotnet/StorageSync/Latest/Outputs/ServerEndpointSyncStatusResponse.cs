@@ -14,10 +14,6 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
     public sealed class ServerEndpointSyncStatusResponse
     {
         /// <summary>
-        /// Background data download activity
-        /// </summary>
-        public readonly Outputs.ServerEndpointBackgroundDataDownloadActivityResponse BackgroundDataDownloadActivity;
-        /// <summary>
         /// Combined Health Status.
         /// </summary>
         public readonly string CombinedHealth;
@@ -64,8 +60,6 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
 
         [OutputConstructor]
         private ServerEndpointSyncStatusResponse(
-            Outputs.ServerEndpointBackgroundDataDownloadActivityResponse backgroundDataDownloadActivity,
-
             string combinedHealth,
 
             Outputs.ServerEndpointSyncActivityStatusResponse downloadActivity,
@@ -88,7 +82,6 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest.Outputs
 
             Outputs.ServerEndpointSyncSessionStatusResponse uploadStatus)
         {
-            BackgroundDataDownloadActivity = backgroundDataDownloadActivity;
             CombinedHealth = combinedHealth;
             DownloadActivity = downloadActivity;
             DownloadHealth = downloadHealth;

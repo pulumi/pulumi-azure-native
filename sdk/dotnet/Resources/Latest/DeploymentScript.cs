@@ -7,12 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNextGen.Resources.V20201001
+namespace Pulumi.AzureNextGen.Resources.Latest
 {
     /// <summary>
     /// Deployment script object.
+    /// Latest API Version: 2020-10-01.
     /// </summary>
-    [AzureNextGenResourceType("azure-nextgen:resources/v20201001:DeploymentScript")]
+    [AzureNextGenResourceType("azure-nextgen:resources/latest:DeploymentScript")]
     public partial class DeploymentScript : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +67,12 @@ namespace Pulumi.AzureNextGen.Resources.V20201001
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeploymentScript(string name, DeploymentScriptArgs args, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20201001:DeploymentScript", name, args ?? new DeploymentScriptArgs(), MakeResourceOptions(options, ""))
+            : base("azure-nextgen:resources/latest:DeploymentScript", name, args ?? new DeploymentScriptArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeploymentScript(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-nextgen:resources/v20201001:DeploymentScript", name, null, MakeResourceOptions(options, id))
+            : base("azure-nextgen:resources/latest:DeploymentScript", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,8 +83,8 @@ namespace Pulumi.AzureNextGen.Resources.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001preview:DeploymentScript"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentScript"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +118,7 @@ namespace Pulumi.AzureNextGen.Resources.V20201001
         /// Type of the script.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNextGen.Resources.V20201001.ScriptType> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Resources.Latest.ScriptType> Kind { get; set; } = null!;
 
         /// <summary>
         /// The location of the ACI and the storage account for the deployment script.

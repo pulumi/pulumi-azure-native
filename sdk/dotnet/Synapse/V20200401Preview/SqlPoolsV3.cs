@@ -106,7 +106,6 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:SqlPoolsV3"},
                 },

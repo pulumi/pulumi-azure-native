@@ -116,10 +116,6 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// </summary>
         public readonly string? ServerLocalPath;
         /// <summary>
-        /// Server name
-        /// </summary>
-        public readonly string ServerName;
-        /// <summary>
         /// Server Resource Id.
         /// </summary>
         public readonly string? ServerResourceId;
@@ -174,8 +170,6 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
 
             string? serverLocalPath,
 
-            string serverName,
-
             string? serverResourceId,
 
             Outputs.ServerEndpointSyncStatusResponse syncStatus,
@@ -202,7 +196,6 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
             ProvisioningState = provisioningState;
             RecallStatus = recallStatus;
             ServerLocalPath = serverLocalPath;
-            ServerName = serverName;
             ServerResourceId = serverResourceId;
             SyncStatus = syncStatus;
             TierFilesOlderThanDays = tierFilesOlderThanDays;
