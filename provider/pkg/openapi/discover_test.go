@@ -39,9 +39,17 @@ var versionMap = map[string]VersionResources{
 			"Res4":        makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v2"),
 		},
 	},
+	// The next version is "unknown" yet.
+	"2020-04-01": {
+		Resources: map[string]*ResourceSpec{
+			"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v4"),
+			"Res4":        makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v3"),
+		},
+	},
 }
 
 func TestFindingLatestResourceVersions(t *testing.T) {
+	knownVersions := codegen.NewStringSet("2020-01-01", "2020-02-01", "2020-03-01")
 	expected := map[string]*ResourceSpec{
 		"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v3"),
 		"Res2":        makeResource("/someprefix/Microsoft.Foo/res2/{res2Name}", "Res 2 v2"),
@@ -49,16 +57,16 @@ func TestFindingLatestResourceVersions(t *testing.T) {
 		"Res4":        makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v2"),
 	}
 
-	actual := calculateLatestVersions("test", versionMap, false /* invokes */, false /* preview */)
-	assert.Equal(t, actual, expected)
+	actual := calculateLatestVersions(knownVersions, "test", versionMap, false /* invokes */, false /* preview */)
+	assert.Equal(t, expected, actual)
 }
 
 func TestFindingPathVersions(t *testing.T) {
 	expected := map[string]codegen.StringSet{
-		"/someprefix/microsoft.foo/res1/{}": codegen.NewStringSet("2020-01-01", "2020-02-01", "2020-03-01"),
+		"/someprefix/microsoft.foo/res1/{}": codegen.NewStringSet("2020-01-01", "2020-02-01", "2020-03-01", "2020-04-01"),
 		"/someprefix/microsoft.foo/res2/{}": codegen.NewStringSet("2020-01-01", "2020-02-01"),
 		"/someprefix/microsoft.foo/res3/{}": codegen.NewStringSet("2020-01-01", "2020-02-01", "2020-03-01"),
-		"/someprefix/microsoft.foo/res4/{}": codegen.NewStringSet("2020-02-01", "2020-03-01"),
+		"/someprefix/microsoft.foo/res4/{}": codegen.NewStringSet("2020-02-01", "2020-03-01", "2020-04-01"),
 	}
 
 	actual := calculatePathVersions(versionMap)
