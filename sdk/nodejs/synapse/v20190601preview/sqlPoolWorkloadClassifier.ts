@@ -125,7 +125,7 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/latest:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlPoolWorkloadClassifier.__pulumiType, name, inputs, opts);
     }

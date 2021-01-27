@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Registered Server resource.
- * Latest API Version: 2020-09-01.
+ * Latest API Version: 2020-03-01.
  */
 export class RegisteredServer extends pulumi.CustomResource {
     /**
@@ -40,14 +40,6 @@ export class RegisteredServer extends pulumi.CustomResource {
      */
     public readonly agentVersion!: pulumi.Output<string | undefined>;
     /**
-     * Registered Server Agent Version Expiration Date
-     */
-    public /*out*/ readonly agentVersionExpirationDate!: pulumi.Output<string>;
-    /**
-     * Registered Server Agent Version Status
-     */
-    public /*out*/ readonly agentVersionStatus!: pulumi.Output<string>;
-    /**
      * Registered Server clusterId
      */
     public readonly clusterId!: pulumi.Output<string | undefined>;
@@ -58,7 +50,7 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Resource discoveryEndpointUri
      */
-    public /*out*/ readonly discoveryEndpointUri!: pulumi.Output<string>;
+    public /*out*/ readonly discoveryEndpointUri!: pulumi.Output<string | undefined>;
     /**
      * Friendly Name
      */
@@ -66,27 +58,27 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Registered Server last heart beat
      */
-    public readonly lastHeartBeat!: pulumi.Output<string>;
+    public readonly lastHeartBeat!: pulumi.Output<string | undefined>;
     /**
      * Resource Last Operation Name
      */
-    public /*out*/ readonly lastOperationName!: pulumi.Output<string>;
+    public /*out*/ readonly lastOperationName!: pulumi.Output<string | undefined>;
     /**
      * Registered Server lastWorkflowId
      */
-    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string>;
+    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string | undefined>;
     /**
      * Management Endpoint Uri
      */
-    public /*out*/ readonly managementEndpointUri!: pulumi.Output<string>;
+    public /*out*/ readonly managementEndpointUri!: pulumi.Output<string | undefined>;
     /**
      * Monitoring Configuration
      */
-    public /*out*/ readonly monitoringConfiguration!: pulumi.Output<string>;
+    public /*out*/ readonly monitoringConfiguration!: pulumi.Output<string | undefined>;
     /**
      * Telemetry Endpoint Uri
      */
-    public /*out*/ readonly monitoringEndpointUri!: pulumi.Output<string>;
+    public /*out*/ readonly monitoringEndpointUri!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -94,11 +86,11 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Registered Server Provisioning State
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource Location
      */
-    public /*out*/ readonly resourceLocation!: pulumi.Output<string>;
+    public /*out*/ readonly resourceLocation!: pulumi.Output<string | undefined>;
     /**
      * Registered Server Certificate
      */
@@ -110,11 +102,7 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Registered Server Management Error Code
      */
-    public /*out*/ readonly serverManagementErrorCode!: pulumi.Output<number>;
-    /**
-     * Server name
-     */
-    public /*out*/ readonly serverName!: pulumi.Output<string>;
+    public /*out*/ readonly serverManagementErrorCode!: pulumi.Output<number | undefined>;
     /**
      * Registered Server OS Version
      */
@@ -126,11 +114,11 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Service Location
      */
-    public /*out*/ readonly serviceLocation!: pulumi.Output<string>;
+    public /*out*/ readonly serviceLocation!: pulumi.Output<string | undefined>;
     /**
      * Registered Server storageSyncServiceUid
      */
-    public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string>;
+    public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -166,8 +154,6 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
             inputs["serverRole"] = args ? args.serverRole : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            inputs["agentVersionExpirationDate"] = undefined /*out*/;
-            inputs["agentVersionStatus"] = undefined /*out*/;
             inputs["discoveryEndpointUri"] = undefined /*out*/;
             inputs["lastOperationName"] = undefined /*out*/;
             inputs["lastWorkflowId"] = undefined /*out*/;
@@ -178,14 +164,11 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceLocation"] = undefined /*out*/;
             inputs["serverManagementErrorCode"] = undefined /*out*/;
-            inputs["serverName"] = undefined /*out*/;
             inputs["serviceLocation"] = undefined /*out*/;
             inputs["storageSyncServiceUid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["agentVersion"] = undefined /*out*/;
-            inputs["agentVersionExpirationDate"] = undefined /*out*/;
-            inputs["agentVersionStatus"] = undefined /*out*/;
             inputs["clusterId"] = undefined /*out*/;
             inputs["clusterName"] = undefined /*out*/;
             inputs["discoveryEndpointUri"] = undefined /*out*/;
@@ -202,7 +185,6 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["serverCertificate"] = undefined /*out*/;
             inputs["serverId"] = undefined /*out*/;
             inputs["serverManagementErrorCode"] = undefined /*out*/;
-            inputs["serverName"] = undefined /*out*/;
             inputs["serverOSVersion"] = undefined /*out*/;
             inputs["serverRole"] = undefined /*out*/;
             inputs["serviceLocation"] = undefined /*out*/;

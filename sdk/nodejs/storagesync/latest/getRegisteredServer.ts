@@ -44,14 +44,6 @@ export interface GetRegisteredServerResult {
      */
     readonly agentVersion?: string;
     /**
-     * Registered Server Agent Version Expiration Date
-     */
-    readonly agentVersionExpirationDate: string;
-    /**
-     * Registered Server Agent Version Status
-     */
-    readonly agentVersionStatus: string;
-    /**
      * Registered Server clusterId
      */
     readonly clusterId?: string;
@@ -62,7 +54,7 @@ export interface GetRegisteredServerResult {
     /**
      * Resource discoveryEndpointUri
      */
-    readonly discoveryEndpointUri: string;
+    readonly discoveryEndpointUri?: string;
     /**
      * Friendly Name
      */
@@ -74,27 +66,27 @@ export interface GetRegisteredServerResult {
     /**
      * Registered Server last heart beat
      */
-    readonly lastHeartBeat: string;
+    readonly lastHeartBeat?: string;
     /**
      * Resource Last Operation Name
      */
-    readonly lastOperationName: string;
+    readonly lastOperationName?: string;
     /**
      * Registered Server lastWorkflowId
      */
-    readonly lastWorkflowId: string;
+    readonly lastWorkflowId?: string;
     /**
      * Management Endpoint Uri
      */
-    readonly managementEndpointUri: string;
+    readonly managementEndpointUri?: string;
     /**
      * Monitoring Configuration
      */
-    readonly monitoringConfiguration: string;
+    readonly monitoringConfiguration?: string;
     /**
      * Telemetry Endpoint Uri
      */
-    readonly monitoringEndpointUri: string;
+    readonly monitoringEndpointUri?: string;
     /**
      * The name of the resource
      */
@@ -102,11 +94,11 @@ export interface GetRegisteredServerResult {
     /**
      * Registered Server Provisioning State
      */
-    readonly provisioningState: string;
+    readonly provisioningState?: string;
     /**
      * Resource Location
      */
-    readonly resourceLocation: string;
+    readonly resourceLocation?: string;
     /**
      * Registered Server Certificate
      */
@@ -118,11 +110,7 @@ export interface GetRegisteredServerResult {
     /**
      * Registered Server Management Error Code
      */
-    readonly serverManagementErrorCode: number;
-    /**
-     * Server name
-     */
-    readonly serverName: string;
+    readonly serverManagementErrorCode?: number;
     /**
      * Registered Server OS Version
      */
@@ -134,11 +122,11 @@ export interface GetRegisteredServerResult {
     /**
      * Service Location
      */
-    readonly serviceLocation: string;
+    readonly serviceLocation?: string;
     /**
      * Registered Server storageSyncServiceUid
      */
-    readonly storageSyncServiceUid: string;
+    readonly storageSyncServiceUid?: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

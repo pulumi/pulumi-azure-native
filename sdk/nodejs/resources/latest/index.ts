@@ -10,11 +10,13 @@ export * from "./deploymentAtManagementGroupScope";
 export * from "./deploymentAtScope";
 export * from "./deploymentAtSubscriptionScope";
 export * from "./deploymentAtTenantScope";
+export * from "./deploymentScript";
 export * from "./getDeployment";
 export * from "./getDeploymentAtManagementGroupScope";
 export * from "./getDeploymentAtScope";
 export * from "./getDeploymentAtSubscriptionScope";
 export * from "./getDeploymentAtTenantScope";
+export * from "./getDeploymentScript";
 export * from "./getResource";
 export * from "./getResourceGroup";
 export * from "./getTagAtScope";
@@ -31,6 +33,7 @@ import { DeploymentAtManagementGroupScope } from "./deploymentAtManagementGroupS
 import { DeploymentAtScope } from "./deploymentAtScope";
 import { DeploymentAtSubscriptionScope } from "./deploymentAtSubscriptionScope";
 import { DeploymentAtTenantScope } from "./deploymentAtTenantScope";
+import { DeploymentScript } from "./deploymentScript";
 import { Resource } from "./resource";
 import { ResourceGroup } from "./resourceGroup";
 import { TagAtScope } from "./tagAtScope";
@@ -49,6 +52,8 @@ const _module = {
                 return new DeploymentAtSubscriptionScope(name, <any>undefined, { urn })
             case "azure-nextgen:resources/latest:DeploymentAtTenantScope":
                 return new DeploymentAtTenantScope(name, <any>undefined, { urn })
+            case "azure-nextgen:resources/latest:DeploymentScript":
+                return new DeploymentScript(name, <any>undefined, { urn })
             case "azure-nextgen:resources/latest:Resource":
                 return new Resource(name, <any>undefined, { urn })
             case "azure-nextgen:resources/latest:ResourceGroup":

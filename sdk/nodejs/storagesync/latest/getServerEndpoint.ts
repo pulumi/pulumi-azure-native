@@ -109,10 +109,6 @@ export interface GetServerEndpointResult {
      */
     readonly serverLocalPath?: string;
     /**
-     * Server name
-     */
-    readonly serverName: string;
-    /**
      * Server Resource Id.
      */
     readonly serverResourceId?: string;

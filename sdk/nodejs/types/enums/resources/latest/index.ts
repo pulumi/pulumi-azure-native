@@ -12,6 +12,26 @@ export const DeploymentMode = {
  */
 export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
 
+export const ExpressionEvaluationOptionsScopeType = {
+    NotSpecified: "NotSpecified",
+    Outer: "Outer",
+    Inner: "Inner",
+} as const;
+
+/**
+ * The scope to be used for evaluation of parameters, variables and functions in a nested template.
+ */
+export type ExpressionEvaluationOptionsScopeType = (typeof ExpressionEvaluationOptionsScopeType)[keyof typeof ExpressionEvaluationOptionsScopeType];
+
+export const ManagedServiceIdentityType = {
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * Type of the managed identity.
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const OnErrorDeploymentType = {
     LastSuccessful: "LastSuccessful",
     SpecificDeployment: "SpecificDeployment",
@@ -33,3 +53,13 @@ export const ResourceIdentityType = {
  * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const ScriptType = {
+    AzurePowerShell: "AzurePowerShell",
+    AzureCLI: "AzureCLI",
+} as const;
+
+/**
+ * Type of the script.
+ */
+export type ScriptType = (typeof ScriptType)[keyof typeof ScriptType];
