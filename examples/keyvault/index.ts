@@ -1,8 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
 import * as authorization from "@pulumi/azure-nextgen/authorization/latest";
-// TODO change to latest when https://github.com/Azure/azure-rest-api-specs/issues/11634 is fixed
-import * as containerinstance from "@pulumi/azure-nextgen/containerinstance/v20191201";
+import * as containerinstance from "@pulumi/azure-nextgen/containerinstance/latest";
 import * as keyvault from "@pulumi/azure-nextgen/keyvault/latest";
 import * as managedidentity from "@pulumi/azure-nextgen/managedidentity/latest";
 import * as resources from "@pulumi/azure-nextgen/resources/latest";

@@ -6,7 +6,7 @@ import * as resources from "@pulumi/azure-nextgen/resources/latest";
 import * as sql from "@pulumi/azure-nextgen/sql/v20200801preview";
 import * as sqltde from "@pulumi/azure-nextgen/sql/latest";
 import * as storage from "@pulumi/azure-nextgen/storage/latest";
-import * as web from "@pulumi/azure-nextgen/web/v20200601";
+import * as web from "@pulumi/azure-nextgen/web/latest";
 
 const randomString = new random.RandomString("random", {
     length: 12,
