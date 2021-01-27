@@ -12,7 +12,7 @@ import (
 )
 
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
-// Latest API Version: 2020-12-01.
+// Latest API Version: 2020-10-01.
 type ProtectionContainer struct {
 	pulumi.CustomResourceState
 

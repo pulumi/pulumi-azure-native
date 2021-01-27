@@ -12,7 +12,7 @@ import (
 )
 
 // Server Endpoint object.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-03-01.
 type ServerEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -46,8 +46,6 @@ type ServerEndpoint struct {
 	RecallStatus ServerEndpointRecallStatusResponseOutput `pulumi:"recallStatus"`
 	// Server Local path.
 	ServerLocalPath pulumi.StringPtrOutput `pulumi:"serverLocalPath"`
-	// Server name
-	ServerName pulumi.StringOutput `pulumi:"serverName"`
 	// Server Resource Id.
 	ServerResourceId pulumi.StringPtrOutput `pulumi:"serverResourceId"`
 	// Server Endpoint sync status
@@ -164,8 +162,6 @@ type serverEndpointState struct {
 	RecallStatus *ServerEndpointRecallStatusResponse `pulumi:"recallStatus"`
 	// Server Local path.
 	ServerLocalPath *string `pulumi:"serverLocalPath"`
-	// Server name
-	ServerName *string `pulumi:"serverName"`
 	// Server Resource Id.
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Server Endpoint sync status
@@ -209,8 +205,6 @@ type ServerEndpointState struct {
 	RecallStatus ServerEndpointRecallStatusResponsePtrInput
 	// Server Local path.
 	ServerLocalPath pulumi.StringPtrInput
-	// Server name
-	ServerName pulumi.StringPtrInput
 	// Server Resource Id.
 	ServerResourceId pulumi.StringPtrInput
 	// Server Endpoint sync status

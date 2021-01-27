@@ -78,9 +78,6 @@ func NewBigDataPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/latest:BigDataPool"),
-		},
-		{
 			Type: pulumi.String("azure-nextgen:synapse/v20201201:BigDataPool"),
 		},
 	})

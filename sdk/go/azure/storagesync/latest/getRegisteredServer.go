@@ -29,54 +29,48 @@ type LookupRegisteredServerArgs struct {
 type LookupRegisteredServerResult struct {
 	// Registered Server Agent Version
 	AgentVersion *string `pulumi:"agentVersion"`
-	// Registered Server Agent Version Expiration Date
-	AgentVersionExpirationDate string `pulumi:"agentVersionExpirationDate"`
-	// Registered Server Agent Version Status
-	AgentVersionStatus string `pulumi:"agentVersionStatus"`
 	// Registered Server clusterId
 	ClusterId *string `pulumi:"clusterId"`
 	// Registered Server clusterName
 	ClusterName *string `pulumi:"clusterName"`
 	// Resource discoveryEndpointUri
-	DiscoveryEndpointUri string `pulumi:"discoveryEndpointUri"`
+	DiscoveryEndpointUri *string `pulumi:"discoveryEndpointUri"`
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Registered Server last heart beat
-	LastHeartBeat string `pulumi:"lastHeartBeat"`
+	LastHeartBeat *string `pulumi:"lastHeartBeat"`
 	// Resource Last Operation Name
-	LastOperationName string `pulumi:"lastOperationName"`
+	LastOperationName *string `pulumi:"lastOperationName"`
 	// Registered Server lastWorkflowId
-	LastWorkflowId string `pulumi:"lastWorkflowId"`
+	LastWorkflowId *string `pulumi:"lastWorkflowId"`
 	// Management Endpoint Uri
-	ManagementEndpointUri string `pulumi:"managementEndpointUri"`
+	ManagementEndpointUri *string `pulumi:"managementEndpointUri"`
 	// Monitoring Configuration
-	MonitoringConfiguration string `pulumi:"monitoringConfiguration"`
+	MonitoringConfiguration *string `pulumi:"monitoringConfiguration"`
 	// Telemetry Endpoint Uri
-	MonitoringEndpointUri string `pulumi:"monitoringEndpointUri"`
+	MonitoringEndpointUri *string `pulumi:"monitoringEndpointUri"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Registered Server Provisioning State
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource Location
-	ResourceLocation string `pulumi:"resourceLocation"`
+	ResourceLocation *string `pulumi:"resourceLocation"`
 	// Registered Server Certificate
 	ServerCertificate *string `pulumi:"serverCertificate"`
 	// Registered Server serverId
 	ServerId *string `pulumi:"serverId"`
 	// Registered Server Management Error Code
-	ServerManagementErrorCode int `pulumi:"serverManagementErrorCode"`
-	// Server name
-	ServerName string `pulumi:"serverName"`
+	ServerManagementErrorCode *int `pulumi:"serverManagementErrorCode"`
 	// Registered Server OS Version
 	ServerOSVersion *string `pulumi:"serverOSVersion"`
 	// Registered Server serverRole
 	ServerRole *string `pulumi:"serverRole"`
 	// Service Location
-	ServiceLocation string `pulumi:"serviceLocation"`
+	ServiceLocation *string `pulumi:"serviceLocation"`
 	// Registered Server storageSyncServiceUid
-	StorageSyncServiceUid string `pulumi:"storageSyncServiceUid"`
+	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

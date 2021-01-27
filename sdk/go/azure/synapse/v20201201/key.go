@@ -43,9 +43,6 @@ func NewKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/latest:Key"),
-		},
-		{
 			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:Key"),
 		},
 	})

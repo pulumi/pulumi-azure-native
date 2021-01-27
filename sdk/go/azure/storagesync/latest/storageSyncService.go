@@ -12,7 +12,7 @@ import (
 )
 
 // Storage Sync Service object.
-// Latest API Version: 2020-09-01.
+// Latest API Version: 2020-03-01.
 type StorageSyncService struct {
 	pulumi.CustomResourceState
 
