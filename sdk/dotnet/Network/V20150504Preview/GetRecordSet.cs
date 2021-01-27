@@ -52,56 +52,112 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview
     public sealed class GetRecordSetResult
     {
         /// <summary>
-        /// Gets or sets the ETag of the RecordSet.
+        /// Gets or sets the list of AAAA records in the RecordSet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AaaaRecordResponse> AAAARecords;
+        /// <summary>
+        /// Gets or sets the list of A records in the RecordSet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ARecordResponse> ARecords;
+        /// <summary>
+        /// Gets or sets the CNAME record in the RecordSet.
+        /// </summary>
+        public readonly Outputs.CnameRecordResponse? CNAMERecord;
+        /// <summary>
+        /// The etag of the record set.
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified domain name of the record set.
+        /// </summary>
+        public readonly string Fqdn;
+        /// <summary>
+        /// The ID of the record set.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The geo-location where the resource lives
+        /// Gets or sets the list of MX records in the RecordSet.
         /// </summary>
-        public readonly string Location;
+        public readonly ImmutableArray<Outputs.MxRecordResponse> MXRecords;
         /// <summary>
-        /// The name of the resource
+        /// Gets or sets the list of NS records in the RecordSet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NsRecordResponse> NSRecords;
+        /// <summary>
+        /// The name of the record set.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the properties of the RecordSet.
+        /// Gets or sets the list of PTR records in the RecordSet.
         /// </summary>
-        public readonly Outputs.RecordSetPropertiesResponse Properties;
+        public readonly ImmutableArray<Outputs.PtrRecordResponse> PTRRecords;
         /// <summary>
-        /// Resource tags.
+        /// Gets or sets the SOA record in the RecordSet.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly Outputs.SoaRecordResponse? SOARecord;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Gets or sets the list of SRV records in the RecordSet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SrvRecordResponse> SRVRecords;
+        /// <summary>
+        /// Gets or sets the list of TXT records in the RecordSet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TxtRecordResponse> TXTRecords;
+        /// <summary>
+        /// Gets or sets the TTL of the records in the RecordSet.
+        /// </summary>
+        public readonly double? Ttl;
+        /// <summary>
+        /// The type of the record set.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetRecordSetResult(
+            ImmutableArray<Outputs.AaaaRecordResponse> aAAARecords,
+
+            ImmutableArray<Outputs.ARecordResponse> aRecords,
+
+            Outputs.CnameRecordResponse? cNAMERecord,
+
             string? etag,
+
+            string fqdn,
 
             string id,
 
-            string location,
+            ImmutableArray<Outputs.MxRecordResponse> mXRecords,
+
+            ImmutableArray<Outputs.NsRecordResponse> nSRecords,
 
             string name,
 
-            Outputs.RecordSetPropertiesResponse properties,
+            ImmutableArray<Outputs.PtrRecordResponse> pTRRecords,
 
-            ImmutableDictionary<string, string>? tags,
+            Outputs.SoaRecordResponse? sOARecord,
+
+            ImmutableArray<Outputs.SrvRecordResponse> sRVRecords,
+
+            ImmutableArray<Outputs.TxtRecordResponse> tXTRecords,
+
+            double? ttl,
 
             string type)
         {
+            AAAARecords = aAAARecords;
+            ARecords = aRecords;
+            CNAMERecord = cNAMERecord;
             Etag = etag;
+            Fqdn = fqdn;
             Id = id;
-            Location = location;
+            MXRecords = mXRecords;
+            NSRecords = nSRecords;
             Name = name;
-            Properties = properties;
-            Tags = tags;
+            PTRRecords = pTRRecords;
+            SOARecord = sOARecord;
+            SRVRecords = sRVRecords;
+            TXTRecords = tXTRecords;
+            Ttl = ttl;
             Type = type;
         }
     }

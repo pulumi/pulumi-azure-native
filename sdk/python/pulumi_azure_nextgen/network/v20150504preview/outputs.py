@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'ARecordResponse',
@@ -16,7 +15,6 @@ __all__ = [
     'MxRecordResponse',
     'NsRecordResponse',
     'PtrRecordResponse',
-    'RecordSetPropertiesResponse',
     'SoaRecordResponse',
     'SrvRecordResponse',
     'TxtRecordResponse',
@@ -186,140 +184,6 @@ class PtrRecordResponse(dict):
         Gets or sets the PTR target domain name for this record without a terminating dot.
         """
         return pulumi.get(self, "ptrdname")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class RecordSetPropertiesResponse(dict):
-    """
-    Represents the properties of the records in the RecordSet.
-    """
-    def __init__(__self__, *,
-                 a_aaa_records: Optional[Sequence['outputs.AaaaRecordResponse']] = None,
-                 a_records: Optional[Sequence['outputs.ARecordResponse']] = None,
-                 c_name_record: Optional['outputs.CnameRecordResponse'] = None,
-                 m_x_records: Optional[Sequence['outputs.MxRecordResponse']] = None,
-                 n_s_records: Optional[Sequence['outputs.NsRecordResponse']] = None,
-                 p_tr_records: Optional[Sequence['outputs.PtrRecordResponse']] = None,
-                 s_oa_record: Optional['outputs.SoaRecordResponse'] = None,
-                 s_rv_records: Optional[Sequence['outputs.SrvRecordResponse']] = None,
-                 t_xt_records: Optional[Sequence['outputs.TxtRecordResponse']] = None,
-                 ttl: Optional[float] = None):
-        """
-        Represents the properties of the records in the RecordSet.
-        :param Sequence['AaaaRecordResponseArgs'] a_aaa_records: Gets or sets the list of AAAA records in the RecordSet.
-        :param Sequence['ARecordResponseArgs'] a_records: Gets or sets the list of A records in the RecordSet.
-        :param 'CnameRecordResponseArgs' c_name_record: Gets or sets the CNAME record in the RecordSet.
-        :param Sequence['MxRecordResponseArgs'] m_x_records: Gets or sets the list of MX records in the RecordSet.
-        :param Sequence['NsRecordResponseArgs'] n_s_records: Gets or sets the list of NS records in the RecordSet.
-        :param Sequence['PtrRecordResponseArgs'] p_tr_records: Gets or sets the list of PTR records in the RecordSet.
-        :param 'SoaRecordResponseArgs' s_oa_record: Gets or sets the SOA record in the RecordSet.
-        :param Sequence['SrvRecordResponseArgs'] s_rv_records: Gets or sets the list of SRV records in the RecordSet.
-        :param Sequence['TxtRecordResponseArgs'] t_xt_records: Gets or sets the list of TXT records in the RecordSet.
-        :param float ttl: Gets or sets the TTL of the records in the RecordSet.
-        """
-        if a_aaa_records is not None:
-            pulumi.set(__self__, "a_aaa_records", a_aaa_records)
-        if a_records is not None:
-            pulumi.set(__self__, "a_records", a_records)
-        if c_name_record is not None:
-            pulumi.set(__self__, "c_name_record", c_name_record)
-        if m_x_records is not None:
-            pulumi.set(__self__, "m_x_records", m_x_records)
-        if n_s_records is not None:
-            pulumi.set(__self__, "n_s_records", n_s_records)
-        if p_tr_records is not None:
-            pulumi.set(__self__, "p_tr_records", p_tr_records)
-        if s_oa_record is not None:
-            pulumi.set(__self__, "s_oa_record", s_oa_record)
-        if s_rv_records is not None:
-            pulumi.set(__self__, "s_rv_records", s_rv_records)
-        if t_xt_records is not None:
-            pulumi.set(__self__, "t_xt_records", t_xt_records)
-        if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
-
-    @property
-    @pulumi.getter(name="aAAARecords")
-    def a_aaa_records(self) -> Optional[Sequence['outputs.AaaaRecordResponse']]:
-        """
-        Gets or sets the list of AAAA records in the RecordSet.
-        """
-        return pulumi.get(self, "a_aaa_records")
-
-    @property
-    @pulumi.getter(name="aRecords")
-    def a_records(self) -> Optional[Sequence['outputs.ARecordResponse']]:
-        """
-        Gets or sets the list of A records in the RecordSet.
-        """
-        return pulumi.get(self, "a_records")
-
-    @property
-    @pulumi.getter(name="cNAMERecord")
-    def c_name_record(self) -> Optional['outputs.CnameRecordResponse']:
-        """
-        Gets or sets the CNAME record in the RecordSet.
-        """
-        return pulumi.get(self, "c_name_record")
-
-    @property
-    @pulumi.getter(name="mXRecords")
-    def m_x_records(self) -> Optional[Sequence['outputs.MxRecordResponse']]:
-        """
-        Gets or sets the list of MX records in the RecordSet.
-        """
-        return pulumi.get(self, "m_x_records")
-
-    @property
-    @pulumi.getter(name="nSRecords")
-    def n_s_records(self) -> Optional[Sequence['outputs.NsRecordResponse']]:
-        """
-        Gets or sets the list of NS records in the RecordSet.
-        """
-        return pulumi.get(self, "n_s_records")
-
-    @property
-    @pulumi.getter(name="pTRRecords")
-    def p_tr_records(self) -> Optional[Sequence['outputs.PtrRecordResponse']]:
-        """
-        Gets or sets the list of PTR records in the RecordSet.
-        """
-        return pulumi.get(self, "p_tr_records")
-
-    @property
-    @pulumi.getter(name="sOARecord")
-    def s_oa_record(self) -> Optional['outputs.SoaRecordResponse']:
-        """
-        Gets or sets the SOA record in the RecordSet.
-        """
-        return pulumi.get(self, "s_oa_record")
-
-    @property
-    @pulumi.getter(name="sRVRecords")
-    def s_rv_records(self) -> Optional[Sequence['outputs.SrvRecordResponse']]:
-        """
-        Gets or sets the list of SRV records in the RecordSet.
-        """
-        return pulumi.get(self, "s_rv_records")
-
-    @property
-    @pulumi.getter(name="tXTRecords")
-    def t_xt_records(self) -> Optional[Sequence['outputs.TxtRecordResponse']]:
-        """
-        Gets or sets the list of TXT records in the RecordSet.
-        """
-        return pulumi.get(self, "t_xt_records")
-
-    @property
-    @pulumi.getter
-    def ttl(self) -> Optional[float]:
-        """
-        Gets or sets the TTL of the records in the RecordSet.
-        """
-        return pulumi.get(self, "ttl")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -517,17 +381,28 @@ class ZonePropertiesResponse(dict):
     Represents the properties of the zone.
     """
     def __init__(__self__, *,
+                 max_number_of_records_per_record_set: float,
                  max_number_of_record_sets: Optional[float] = None,
                  number_of_record_sets: Optional[float] = None):
         """
         Represents the properties of the zone.
+        :param float max_number_of_records_per_record_set: The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         :param float max_number_of_record_sets: Gets or sets the maximum number of record sets that can be created in this zone.
         :param float number_of_record_sets: Gets or sets the current number of record sets in this zone.
         """
+        pulumi.set(__self__, "max_number_of_records_per_record_set", max_number_of_records_per_record_set)
         if max_number_of_record_sets is not None:
             pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
         if number_of_record_sets is not None:
             pulumi.set(__self__, "number_of_record_sets", number_of_record_sets)
+
+    @property
+    @pulumi.getter(name="maxNumberOfRecordsPerRecordSet")
+    def max_number_of_records_per_record_set(self) -> float:
+        """
+        The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        """
+        return pulumi.get(self, "max_number_of_records_per_record_set")
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")

@@ -19,7 +19,7 @@ class GetZoneResult:
     """
     Describes a DNS zone.
     """
-    def __init__(__self__, etag=None, id=None, location=None, max_number_of_record_sets=None, max_number_of_records_per_record_set=None, name=None, name_servers=None, number_of_record_sets=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, max_number_of_record_sets=None, max_number_of_records_per_record_set=None, name=None, name_servers=None, number_of_record_sets=None, tags=None, type=None, zone_type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -50,6 +50,9 @@ class GetZoneResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if zone_type and not isinstance(zone_type, str):
+            raise TypeError("Expected argument 'zone_type' to be a str")
+        pulumi.set(__self__, "zone_type", zone_type)
 
     @property
     @pulumi.getter
@@ -131,6 +134,14 @@ class GetZoneResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="zoneType")
+    def zone_type(self) -> Optional[str]:
+        """
+        The type of this DNS zone (Public or Private).
+        """
+        return pulumi.get(self, "zone_type")
+
 
 class AwaitableGetZoneResult(GetZoneResult):
     # pylint: disable=using-constant-test
@@ -147,7 +158,8 @@ class AwaitableGetZoneResult(GetZoneResult):
             name_servers=self.name_servers,
             number_of_record_sets=self.number_of_record_sets,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            zone_type=self.zone_type)
 
 
 def get_zone(resource_group_name: Optional[str] = None,
@@ -178,4 +190,5 @@ def get_zone(resource_group_name: Optional[str] = None,
         name_servers=__ret__.name_servers,
         number_of_record_sets=__ret__.number_of_record_sets,
         tags=__ret__.tags,
-        type=__ret__.type)
+        type=__ret__.type,
+        zone_type=__ret__.zone_type)

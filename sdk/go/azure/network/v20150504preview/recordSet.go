@@ -11,21 +11,37 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Describes a DNS RecordSet (a set of DNS records with the same name and type).
+// Describes a DNS record set (a collection of DNS records with the same name and type).
 type RecordSet struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the ETag of the RecordSet.
+	// Gets or sets the list of AAAA records in the RecordSet.
+	AAAARecords AaaaRecordResponseArrayOutput `pulumi:"aAAARecords"`
+	// Gets or sets the list of A records in the RecordSet.
+	ARecords ARecordResponseArrayOutput `pulumi:"aRecords"`
+	// Gets or sets the CNAME record in the RecordSet.
+	CNAMERecord CnameRecordResponsePtrOutput `pulumi:"cNAMERecord"`
+	// The etag of the record set.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
+	// Fully qualified domain name of the record set.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	// Gets or sets the list of MX records in the RecordSet.
+	MXRecords MxRecordResponseArrayOutput `pulumi:"mXRecords"`
+	// Gets or sets the list of NS records in the RecordSet.
+	NSRecords NsRecordResponseArrayOutput `pulumi:"nSRecords"`
+	// The name of the record set.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the properties of the RecordSet.
-	Properties RecordSetPropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Gets or sets the list of PTR records in the RecordSet.
+	PTRRecords PtrRecordResponseArrayOutput `pulumi:"pTRRecords"`
+	// Gets or sets the SOA record in the RecordSet.
+	SOARecord SoaRecordResponsePtrOutput `pulumi:"sOARecord"`
+	// Gets or sets the list of SRV records in the RecordSet.
+	SRVRecords SrvRecordResponseArrayOutput `pulumi:"sRVRecords"`
+	// Gets or sets the list of TXT records in the RecordSet.
+	TXTRecords TxtRecordResponseArrayOutput `pulumi:"tXTRecords"`
+	// Gets or sets the TTL of the records in the RecordSet.
+	Ttl pulumi.Float64PtrOutput `pulumi:"ttl"`
+	// The type of the record set.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -36,9 +52,6 @@ func NewRecordSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Location == nil {
-		return nil, errors.New("invalid value for required argument 'Location'")
-	}
 	if args.RecordType == nil {
 		return nil, errors.New("invalid value for required argument 'RecordType'")
 	}
@@ -91,32 +104,64 @@ func GetRecordSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RecordSet resources.
 type recordSetState struct {
-	// Gets or sets the ETag of the RecordSet.
+	// Gets or sets the list of AAAA records in the RecordSet.
+	AAAARecords []AaaaRecordResponse `pulumi:"aAAARecords"`
+	// Gets or sets the list of A records in the RecordSet.
+	ARecords []ARecordResponse `pulumi:"aRecords"`
+	// Gets or sets the CNAME record in the RecordSet.
+	CNAMERecord *CnameRecordResponse `pulumi:"cNAMERecord"`
+	// The etag of the record set.
 	Etag *string `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
+	// Fully qualified domain name of the record set.
+	Fqdn *string `pulumi:"fqdn"`
+	// Gets or sets the list of MX records in the RecordSet.
+	MXRecords []MxRecordResponse `pulumi:"mXRecords"`
+	// Gets or sets the list of NS records in the RecordSet.
+	NSRecords []NsRecordResponse `pulumi:"nSRecords"`
+	// The name of the record set.
 	Name *string `pulumi:"name"`
-	// Gets or sets the properties of the RecordSet.
-	Properties *RecordSetPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Gets or sets the list of PTR records in the RecordSet.
+	PTRRecords []PtrRecordResponse `pulumi:"pTRRecords"`
+	// Gets or sets the SOA record in the RecordSet.
+	SOARecord *SoaRecordResponse `pulumi:"sOARecord"`
+	// Gets or sets the list of SRV records in the RecordSet.
+	SRVRecords []SrvRecordResponse `pulumi:"sRVRecords"`
+	// Gets or sets the list of TXT records in the RecordSet.
+	TXTRecords []TxtRecordResponse `pulumi:"tXTRecords"`
+	// Gets or sets the TTL of the records in the RecordSet.
+	Ttl *float64 `pulumi:"ttl"`
+	// The type of the record set.
 	Type *string `pulumi:"type"`
 }
 
 type RecordSetState struct {
-	// Gets or sets the ETag of the RecordSet.
+	// Gets or sets the list of AAAA records in the RecordSet.
+	AAAARecords AaaaRecordResponseArrayInput
+	// Gets or sets the list of A records in the RecordSet.
+	ARecords ARecordResponseArrayInput
+	// Gets or sets the CNAME record in the RecordSet.
+	CNAMERecord CnameRecordResponsePtrInput
+	// The etag of the record set.
 	Etag pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
+	// Fully qualified domain name of the record set.
+	Fqdn pulumi.StringPtrInput
+	// Gets or sets the list of MX records in the RecordSet.
+	MXRecords MxRecordResponseArrayInput
+	// Gets or sets the list of NS records in the RecordSet.
+	NSRecords NsRecordResponseArrayInput
+	// The name of the record set.
 	Name pulumi.StringPtrInput
-	// Gets or sets the properties of the RecordSet.
-	Properties RecordSetPropertiesResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// Gets or sets the list of PTR records in the RecordSet.
+	PTRRecords PtrRecordResponseArrayInput
+	// Gets or sets the SOA record in the RecordSet.
+	SOARecord SoaRecordResponsePtrInput
+	// Gets or sets the list of SRV records in the RecordSet.
+	SRVRecords SrvRecordResponseArrayInput
+	// Gets or sets the list of TXT records in the RecordSet.
+	TXTRecords TxtRecordResponseArrayInput
+	// Gets or sets the TTL of the records in the RecordSet.
+	Ttl pulumi.Float64PtrInput
+	// The type of the record set.
 	Type pulumi.StringPtrInput
 }
 
@@ -125,40 +170,68 @@ func (RecordSetState) ElementType() reflect.Type {
 }
 
 type recordSetArgs struct {
-	// Gets or sets the ETag of the RecordSet.
+	// Gets or sets the list of AAAA records in the RecordSet.
+	AAAARecords []AaaaRecord `pulumi:"aAAARecords"`
+	// Gets or sets the list of A records in the RecordSet.
+	ARecords []ARecord `pulumi:"aRecords"`
+	// Gets or sets the CNAME record in the RecordSet.
+	CNAMERecord *CnameRecord `pulumi:"cNAMERecord"`
+	// The etag of the record set.
 	Etag *string `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// Gets or sets the properties of the RecordSet.
-	Properties *RecordSetProperties `pulumi:"properties"`
+	// Gets or sets the list of MX records in the RecordSet.
+	MXRecords []MxRecord `pulumi:"mXRecords"`
+	// Gets or sets the list of NS records in the RecordSet.
+	NSRecords []NsRecord `pulumi:"nSRecords"`
+	// Gets or sets the list of PTR records in the RecordSet.
+	PTRRecords []PtrRecord `pulumi:"pTRRecords"`
 	// The type of DNS record.
 	RecordType string `pulumi:"recordType"`
 	// The name of the RecordSet, relative to the name of the zone.
 	RelativeRecordSetName string `pulumi:"relativeRecordSetName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	// Gets or sets the SOA record in the RecordSet.
+	SOARecord *SoaRecord `pulumi:"sOARecord"`
+	// Gets or sets the list of SRV records in the RecordSet.
+	SRVRecords []SrvRecord `pulumi:"sRVRecords"`
+	// Gets or sets the list of TXT records in the RecordSet.
+	TXTRecords []TxtRecord `pulumi:"tXTRecords"`
+	// Gets or sets the TTL of the records in the RecordSet.
+	Ttl *float64 `pulumi:"ttl"`
 	// The name of the zone without a terminating dot.
 	ZoneName string `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a RecordSet resource.
 type RecordSetArgs struct {
-	// Gets or sets the ETag of the RecordSet.
+	// Gets or sets the list of AAAA records in the RecordSet.
+	AAAARecords AaaaRecordArrayInput
+	// Gets or sets the list of A records in the RecordSet.
+	ARecords ARecordArrayInput
+	// Gets or sets the CNAME record in the RecordSet.
+	CNAMERecord CnameRecordPtrInput
+	// The etag of the record set.
 	Etag pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringInput
-	// Gets or sets the properties of the RecordSet.
-	Properties RecordSetPropertiesPtrInput
+	// Gets or sets the list of MX records in the RecordSet.
+	MXRecords MxRecordArrayInput
+	// Gets or sets the list of NS records in the RecordSet.
+	NSRecords NsRecordArrayInput
+	// Gets or sets the list of PTR records in the RecordSet.
+	PTRRecords PtrRecordArrayInput
 	// The type of DNS record.
 	RecordType pulumi.StringInput
 	// The name of the RecordSet, relative to the name of the zone.
 	RelativeRecordSetName pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	// Gets or sets the SOA record in the RecordSet.
+	SOARecord SoaRecordPtrInput
+	// Gets or sets the list of SRV records in the RecordSet.
+	SRVRecords SrvRecordArrayInput
+	// Gets or sets the list of TXT records in the RecordSet.
+	TXTRecords TxtRecordArrayInput
+	// Gets or sets the TTL of the records in the RecordSet.
+	Ttl pulumi.Float64PtrInput
 	// The name of the zone without a terminating dot.
 	ZoneName pulumi.StringInput
 }

@@ -65,7 +65,7 @@ export interface GetMetricAlertResult {
     /**
      * the value indicating whether this alert rule is migrated.
      */
-    readonly isMigrated: string;
+    readonly isMigrated: boolean;
     /**
      * Last time the rule was updated in ISO8601 format.
      */

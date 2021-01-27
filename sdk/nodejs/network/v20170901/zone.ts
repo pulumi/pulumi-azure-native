@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -70,6 +71,10 @@ export class Zone extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The type of this DNS zone (Public or Private).
+     */
+    public readonly zoneType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -95,6 +100,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["zoneType"] = (args ? args.zoneType : undefined) || "Public";
             inputs["maxNumberOfRecordSets"] = undefined /*out*/;
             inputs["maxNumberOfRecordsPerRecordSet"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -111,6 +117,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["numberOfRecordSets"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["zoneType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -149,4 +156,8 @@ export interface ZoneArgs {
      * The name of the DNS zone (without a terminating dot).
      */
     readonly zoneName: pulumi.Input<string>;
+    /**
+     * The type of this DNS zone (Public or Private).
+     */
+    readonly zoneType?: pulumi.Input<enums.network.v20170901.ZoneType>;
 }

@@ -33,6 +33,8 @@ type Zone struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The type of this DNS zone (Public or Private).
+	ZoneType pulumi.StringPtrOutput `pulumi:"zoneType"`
 }
 
 // NewZone registers a new resource with the given unique name, arguments, and options.
@@ -50,6 +52,9 @@ func NewZone(ctx *pulumi.Context,
 	}
 	if args.ZoneName == nil {
 		return nil, errors.New("invalid value for required argument 'ZoneName'")
+	}
+	if args.ZoneType == nil {
+		args.ZoneType = ZoneType("Public")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -112,6 +117,8 @@ type zoneState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
+	// The type of this DNS zone (Public or Private).
+	ZoneType *string `pulumi:"zoneType"`
 }
 
 type ZoneState struct {
@@ -133,6 +140,8 @@ type ZoneState struct {
 	Tags pulumi.StringMapInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
+	// The type of this DNS zone (Public or Private).
+	ZoneType pulumi.StringPtrInput
 }
 
 func (ZoneState) ElementType() reflect.Type {
@@ -150,6 +159,8 @@ type zoneArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the DNS zone (without a terminating dot).
 	ZoneName string `pulumi:"zoneName"`
+	// The type of this DNS zone (Public or Private).
+	ZoneType *string `pulumi:"zoneType"`
 }
 
 // The set of arguments for constructing a Zone resource.
@@ -164,6 +175,8 @@ type ZoneArgs struct {
 	Tags pulumi.StringMapInput
 	// The name of the DNS zone (without a terminating dot).
 	ZoneName pulumi.StringInput
+	// The type of this DNS zone (Public or Private).
+	ZoneType ZoneType
 }
 
 func (ZoneArgs) ElementType() reflect.Type {

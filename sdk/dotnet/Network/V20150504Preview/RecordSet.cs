@@ -10,43 +10,91 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNextGen.Network.V20150504Preview
 {
     /// <summary>
-    /// Describes a DNS RecordSet (a set of DNS records with the same name and type).
+    /// Describes a DNS record set (a collection of DNS records with the same name and type).
     /// </summary>
     [AzureNextGenResourceType("azure-nextgen:network/v20150504preview:RecordSet")]
     public partial class RecordSet : Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets or sets the ETag of the RecordSet.
+        /// Gets or sets the list of AAAA records in the RecordSet.
+        /// </summary>
+        [Output("aAAARecords")]
+        public Output<ImmutableArray<Outputs.AaaaRecordResponse>> AAAARecords { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the list of A records in the RecordSet.
+        /// </summary>
+        [Output("aRecords")]
+        public Output<ImmutableArray<Outputs.ARecordResponse>> ARecords { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the CNAME record in the RecordSet.
+        /// </summary>
+        [Output("cNAMERecord")]
+        public Output<Outputs.CnameRecordResponse?> CNAMERecord { get; private set; } = null!;
+
+        /// <summary>
+        /// The etag of the record set.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The geo-location where the resource lives
+        /// Fully qualified domain name of the record set.
         /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource
+        /// Gets or sets the list of MX records in the RecordSet.
+        /// </summary>
+        [Output("mXRecords")]
+        public Output<ImmutableArray<Outputs.MxRecordResponse>> MXRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the list of NS records in the RecordSet.
+        /// </summary>
+        [Output("nSRecords")]
+        public Output<ImmutableArray<Outputs.NsRecordResponse>> NSRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the record set.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the properties of the RecordSet.
+        /// Gets or sets the list of PTR records in the RecordSet.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RecordSetPropertiesResponse> Properties { get; private set; } = null!;
+        [Output("pTRRecords")]
+        public Output<ImmutableArray<Outputs.PtrRecordResponse>> PTRRecords { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags.
+        /// Gets or sets the SOA record in the RecordSet.
         /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        [Output("sOARecord")]
+        public Output<Outputs.SoaRecordResponse?> SOARecord { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Gets or sets the list of SRV records in the RecordSet.
+        /// </summary>
+        [Output("sRVRecords")]
+        public Output<ImmutableArray<Outputs.SrvRecordResponse>> SRVRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the list of TXT records in the RecordSet.
+        /// </summary>
+        [Output("tXTRecords")]
+        public Output<ImmutableArray<Outputs.TxtRecordResponse>> TXTRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the TTL of the records in the RecordSet.
+        /// </summary>
+        [Output("ttl")]
+        public Output<double?> Ttl { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the record set.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -104,23 +152,77 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview
 
     public sealed class RecordSetArgs : Pulumi.ResourceArgs
     {
+        [Input("aAAARecords")]
+        private InputList<Inputs.AaaaRecordArgs>? _aAAARecords;
+
         /// <summary>
-        /// Gets or sets the ETag of the RecordSet.
+        /// Gets or sets the list of AAAA records in the RecordSet.
+        /// </summary>
+        public InputList<Inputs.AaaaRecordArgs> AAAARecords
+        {
+            get => _aAAARecords ?? (_aAAARecords = new InputList<Inputs.AaaaRecordArgs>());
+            set => _aAAARecords = value;
+        }
+
+        [Input("aRecords")]
+        private InputList<Inputs.ARecordArgs>? _aRecords;
+
+        /// <summary>
+        /// Gets or sets the list of A records in the RecordSet.
+        /// </summary>
+        public InputList<Inputs.ARecordArgs> ARecords
+        {
+            get => _aRecords ?? (_aRecords = new InputList<Inputs.ARecordArgs>());
+            set => _aRecords = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the CNAME record in the RecordSet.
+        /// </summary>
+        [Input("cNAMERecord")]
+        public Input<Inputs.CnameRecordArgs>? CNAMERecord { get; set; }
+
+        /// <summary>
+        /// The etag of the record set.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// The geo-location where the resource lives
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
+        [Input("mXRecords")]
+        private InputList<Inputs.MxRecordArgs>? _mXRecords;
 
         /// <summary>
-        /// Gets or sets the properties of the RecordSet.
+        /// Gets or sets the list of MX records in the RecordSet.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RecordSetPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.MxRecordArgs> MXRecords
+        {
+            get => _mXRecords ?? (_mXRecords = new InputList<Inputs.MxRecordArgs>());
+            set => _mXRecords = value;
+        }
+
+        [Input("nSRecords")]
+        private InputList<Inputs.NsRecordArgs>? _nSRecords;
+
+        /// <summary>
+        /// Gets or sets the list of NS records in the RecordSet.
+        /// </summary>
+        public InputList<Inputs.NsRecordArgs> NSRecords
+        {
+            get => _nSRecords ?? (_nSRecords = new InputList<Inputs.NsRecordArgs>());
+            set => _nSRecords = value;
+        }
+
+        [Input("pTRRecords")]
+        private InputList<Inputs.PtrRecordArgs>? _pTRRecords;
+
+        /// <summary>
+        /// Gets or sets the list of PTR records in the RecordSet.
+        /// </summary>
+        public InputList<Inputs.PtrRecordArgs> PTRRecords
+        {
+            get => _pTRRecords ?? (_pTRRecords = new InputList<Inputs.PtrRecordArgs>());
+            set => _pTRRecords = value;
+        }
 
         /// <summary>
         /// The type of DNS record.
@@ -140,17 +242,41 @@ namespace Pulumi.AzureNextGen.Network.V20150504Preview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
+        /// <summary>
+        /// Gets or sets the SOA record in the RecordSet.
+        /// </summary>
+        [Input("sOARecord")]
+        public Input<Inputs.SoaRecordArgs>? SOARecord { get; set; }
+
+        [Input("sRVRecords")]
+        private InputList<Inputs.SrvRecordArgs>? _sRVRecords;
 
         /// <summary>
-        /// Resource tags.
+        /// Gets or sets the list of SRV records in the RecordSet.
         /// </summary>
-        public InputMap<string> Tags
+        public InputList<Inputs.SrvRecordArgs> SRVRecords
         {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
+            get => _sRVRecords ?? (_sRVRecords = new InputList<Inputs.SrvRecordArgs>());
+            set => _sRVRecords = value;
         }
+
+        [Input("tXTRecords")]
+        private InputList<Inputs.TxtRecordArgs>? _tXTRecords;
+
+        /// <summary>
+        /// Gets or sets the list of TXT records in the RecordSet.
+        /// </summary>
+        public InputList<Inputs.TxtRecordArgs> TXTRecords
+        {
+            get => _tXTRecords ?? (_tXTRecords = new InputList<Inputs.TxtRecordArgs>());
+            set => _tXTRecords = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the TTL of the records in the RecordSet.
+        /// </summary>
+        [Input("ttl")]
+        public Input<double>? Ttl { get; set; }
 
         /// <summary>
         /// The name of the zone without a terminating dot.

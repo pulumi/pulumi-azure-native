@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// <summary>
         /// the value indicating whether this alert rule is migrated.
         /// </summary>
-        public readonly string IsMigrated;
+        public readonly bool IsMigrated;
         /// <summary>
         /// Last time the rule was updated in ISO8601 format.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 
             string id,
 
-            string isMigrated,
+            bool isMigrated,
 
             string lastUpdatedTime,
 

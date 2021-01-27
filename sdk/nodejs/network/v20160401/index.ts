@@ -10,6 +10,9 @@ export * from "./getZone";
 export * from "./recordSet";
 export * from "./zone";
 
+// Export enums:
+export * from "../../types/enums/network/v20160401";
+
 // Import resources to register:
 import { RecordSet } from "./recordSet";
 import { Zone } from "./zone";

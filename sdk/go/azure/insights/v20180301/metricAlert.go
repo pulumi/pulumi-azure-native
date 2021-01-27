@@ -28,7 +28,7 @@ type MetricAlert struct {
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency pulumi.StringOutput `pulumi:"evaluationFrequency"`
 	// the value indicating whether this alert rule is migrated.
-	IsMigrated pulumi.StringOutput `pulumi:"isMigrated"`
+	IsMigrated pulumi.BoolOutput `pulumi:"isMigrated"`
 	// Last time the rule was updated in ISO8601 format.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Resource location
@@ -126,7 +126,7 @@ type metricAlertState struct {
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
 	// the value indicating whether this alert rule is migrated.
-	IsMigrated *string `pulumi:"isMigrated"`
+	IsMigrated *bool `pulumi:"isMigrated"`
 	// Last time the rule was updated in ISO8601 format.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Resource location
@@ -163,7 +163,7 @@ type MetricAlertState struct {
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency pulumi.StringPtrInput
 	// the value indicating whether this alert rule is migrated.
-	IsMigrated pulumi.StringPtrInput
+	IsMigrated pulumi.BoolPtrInput
 	// Last time the rule was updated in ISO8601 format.
 	LastUpdatedTime pulumi.StringPtrInput
 	// Resource location

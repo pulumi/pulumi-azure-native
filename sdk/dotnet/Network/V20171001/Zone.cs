@@ -69,6 +69,12 @@ namespace Pulumi.AzureNextGen.Network.V20171001
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of this DNS zone (Public or Private).
+        /// </summary>
+        [Output("zoneType")]
+        public Output<string?> ZoneType { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Zone resource with the given unique name, arguments, and options.
@@ -159,8 +165,15 @@ namespace Pulumi.AzureNextGen.Network.V20171001
         [Input("zoneName", required: true)]
         public Input<string> ZoneName { get; set; } = null!;
 
+        /// <summary>
+        /// The type of this DNS zone (Public or Private).
+        /// </summary>
+        [Input("zoneType")]
+        public Input<Pulumi.AzureNextGen.Network.V20171001.ZoneType>? ZoneType { get; set; }
+
         public ZoneArgs()
         {
+            ZoneType = Pulumi.AzureNextGen.Network.V20171001.ZoneType.Public;
         }
     }
 }

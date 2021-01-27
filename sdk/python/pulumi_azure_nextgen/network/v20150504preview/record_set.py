@@ -17,29 +17,43 @@ class RecordSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 a_aaa_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]]] = None,
+                 a_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ARecordArgs']]]]] = None,
+                 c_name_record: Optional[pulumi.Input[pulumi.InputType['CnameRecordArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['RecordSetPropertiesArgs']]] = None,
+                 m_x_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordArgs']]]]] = None,
+                 n_s_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NsRecordArgs']]]]] = None,
+                 p_tr_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]]] = None,
                  record_type: Optional[pulumi.Input[str]] = None,
                  relative_record_set_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 s_oa_record: Optional[pulumi.Input[pulumi.InputType['SoaRecordArgs']]] = None,
+                 s_rv_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]]] = None,
+                 t_xt_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
+                 ttl: Optional[pulumi.Input[float]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Describes a DNS RecordSet (a set of DNS records with the same name and type).
+        Describes a DNS record set (a collection of DNS records with the same name and type).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Gets or sets the ETag of the RecordSet.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['RecordSetPropertiesArgs']] properties: Gets or sets the properties of the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]] a_aaa_records: Gets or sets the list of AAAA records in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ARecordArgs']]]] a_records: Gets or sets the list of A records in the RecordSet.
+        :param pulumi.Input[pulumi.InputType['CnameRecordArgs']] c_name_record: Gets or sets the CNAME record in the RecordSet.
+        :param pulumi.Input[str] etag: The etag of the record set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordArgs']]]] m_x_records: Gets or sets the list of MX records in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NsRecordArgs']]]] n_s_records: Gets or sets the list of NS records in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]] p_tr_records: Gets or sets the list of PTR records in the RecordSet.
         :param pulumi.Input[str] record_type: The type of DNS record.
         :param pulumi.Input[str] relative_record_set_name: The name of the RecordSet, relative to the name of the zone.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['SoaRecordArgs']] s_oa_record: Gets or sets the SOA record in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]] s_rv_records: Gets or sets the list of SRV records in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]] t_xt_records: Gets or sets the list of TXT records in the RecordSet.
+        :param pulumi.Input[float] ttl: Gets or sets the TTL of the records in the RecordSet.
         :param pulumi.Input[str] zone_name: The name of the zone without a terminating dot.
         """
         if __name__ is not None:
@@ -59,11 +73,13 @@ class RecordSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['a_aaa_records'] = a_aaa_records
+            __props__['a_records'] = a_records
+            __props__['c_name_record'] = c_name_record
             __props__['etag'] = etag
-            if location is None and not opts.urn:
-                raise TypeError("Missing required property 'location'")
-            __props__['location'] = location
-            __props__['properties'] = properties
+            __props__['m_x_records'] = m_x_records
+            __props__['n_s_records'] = n_s_records
+            __props__['p_tr_records'] = p_tr_records
             if record_type is None and not opts.urn:
                 raise TypeError("Missing required property 'record_type'")
             __props__['record_type'] = record_type
@@ -73,10 +89,14 @@ class RecordSet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
+            __props__['s_oa_record'] = s_oa_record
+            __props__['s_rv_records'] = s_rv_records
+            __props__['t_xt_records'] = t_xt_records
+            __props__['ttl'] = ttl
             if zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
+            __props__['fqdn'] = None
             __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20160401:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20170901:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20171001:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20180301preview:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20180501:RecordSet")])
@@ -106,50 +126,114 @@ class RecordSet(pulumi.CustomResource):
         return RecordSet(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="aAAARecords")
+    def a_aaa_records(self) -> pulumi.Output[Optional[Sequence['outputs.AaaaRecordResponse']]]:
+        """
+        Gets or sets the list of AAAA records in the RecordSet.
+        """
+        return pulumi.get(self, "a_aaa_records")
+
+    @property
+    @pulumi.getter(name="aRecords")
+    def a_records(self) -> pulumi.Output[Optional[Sequence['outputs.ARecordResponse']]]:
+        """
+        Gets or sets the list of A records in the RecordSet.
+        """
+        return pulumi.get(self, "a_records")
+
+    @property
+    @pulumi.getter(name="cNAMERecord")
+    def c_name_record(self) -> pulumi.Output[Optional['outputs.CnameRecordResponse']]:
+        """
+        Gets or sets the CNAME record in the RecordSet.
+        """
+        return pulumi.get(self, "c_name_record")
+
+    @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[str]]:
         """
-        Gets or sets the ETag of the RecordSet.
+        The etag of the record set.
         """
         return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
+    def fqdn(self) -> pulumi.Output[str]:
         """
-        The geo-location where the resource lives
+        Fully qualified domain name of the record set.
         """
-        return pulumi.get(self, "location")
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="mXRecords")
+    def m_x_records(self) -> pulumi.Output[Optional[Sequence['outputs.MxRecordResponse']]]:
+        """
+        Gets or sets the list of MX records in the RecordSet.
+        """
+        return pulumi.get(self, "m_x_records")
+
+    @property
+    @pulumi.getter(name="nSRecords")
+    def n_s_records(self) -> pulumi.Output[Optional[Sequence['outputs.NsRecordResponse']]]:
+        """
+        Gets or sets the list of NS records in the RecordSet.
+        """
+        return pulumi.get(self, "n_s_records")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        The name of the record set.
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.RecordSetPropertiesResponse']:
+    @pulumi.getter(name="pTRRecords")
+    def p_tr_records(self) -> pulumi.Output[Optional[Sequence['outputs.PtrRecordResponse']]]:
         """
-        Gets or sets the properties of the RecordSet.
+        Gets or sets the list of PTR records in the RecordSet.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "p_tr_records")
+
+    @property
+    @pulumi.getter(name="sOARecord")
+    def s_oa_record(self) -> pulumi.Output[Optional['outputs.SoaRecordResponse']]:
+        """
+        Gets or sets the SOA record in the RecordSet.
+        """
+        return pulumi.get(self, "s_oa_record")
+
+    @property
+    @pulumi.getter(name="sRVRecords")
+    def s_rv_records(self) -> pulumi.Output[Optional[Sequence['outputs.SrvRecordResponse']]]:
+        """
+        Gets or sets the list of SRV records in the RecordSet.
+        """
+        return pulumi.get(self, "s_rv_records")
+
+    @property
+    @pulumi.getter(name="tXTRecords")
+    def t_xt_records(self) -> pulumi.Output[Optional[Sequence['outputs.TxtRecordResponse']]]:
+        """
+        Gets or sets the list of TXT records in the RecordSet.
+        """
+        return pulumi.get(self, "t_xt_records")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def ttl(self) -> pulumi.Output[Optional[float]]:
         """
-        Resource tags.
+        Gets or sets the TTL of the records in the RecordSet.
         """
-        return pulumi.get(self, "tags")
+        return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        The type of the record set.
         """
         return pulumi.get(self, "type")
 

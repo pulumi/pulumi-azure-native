@@ -50,6 +50,7 @@ __all__ = [
     'VirtualNetworkPeeringState',
     'VpnClientProtocol',
     'VpnType',
+    'ZoneType',
 ]
 
 
@@ -495,3 +496,11 @@ class VpnType(str, Enum):
     """
     POLICY_BASED = "PolicyBased"
     ROUTE_BASED = "RouteBased"
+
+
+class ZoneType(str, Enum):
+    """
+    The type of this DNS zone (Public or Private).
+    """
+    PUBLIC = "Public"
+    PRIVATE = "Private"
