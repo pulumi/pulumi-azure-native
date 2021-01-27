@@ -770,7 +770,7 @@ func (t *TemplateElements) ensureGlobals() (
 
 	resourceGroupVar = t.lookup("resourceGroupVar")
 	if resourceGroupVar == nil {
-		invoke := pcl.Invoke("azure-nextgen:resources/latest:getResourceGroup",
+		invoke := pcl.Invoke("azure-nextgen:resources:getResourceGroup",
 			pcl.ObjectConsItem("resourceGroupName", model.VariableReference(resourceGroupName)))
 
 		resourceGroupVar, err = t.addVariable("resourceGroupVar", invoke, false)

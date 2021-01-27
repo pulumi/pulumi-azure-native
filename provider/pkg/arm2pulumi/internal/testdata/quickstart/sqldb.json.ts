@@ -5,7 +5,7 @@ const config = new pulumi.Config();
 const administratorLoginParam = config.require("administratorLoginParam");
 const administratorLoginPasswordParam = config.require("administratorLoginPasswordParam");
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const resourceGroupVar = azure_nextgen.resources.latest.getResourceGroup({
+const resourceGroupVar = azure_nextgen.resources.getResourceGroup({
     resourceGroupName: resourceGroupNameParam,
 });
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);

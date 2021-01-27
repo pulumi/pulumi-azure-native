@@ -484,7 +484,7 @@ func TestFlattenParams(t *testing.T) {
 		{
 			name:         "VMScaleSet",
 			inputFunc:    serialize(vmScaleSet),
-			resourceName: "azure-nextgen:compute/latest:VirtualMachineScaleSet",
+			resourceName: "azure-nextgen:compute:VirtualMachineScaleSet",
 			expected: map[string]interface{}{
 				"location":          "westus",
 				"overprovision":     true,
@@ -563,7 +563,7 @@ func TestFlattenParams(t *testing.T) {
 					"appName":           "myapp",
 				},
 			},
-			resourceName: "azure-nextgen:appplatform/latest:App",
+			resourceName: "azure-nextgen:appplatform:App",
 			expected: map[string]interface{}{
 				"appName":  "myapp",
 				"location": "eastus",
@@ -626,7 +626,7 @@ func TestFlattenParams(t *testing.T) {
     }
   }
 }`),
-			resourceName: "azure-nextgen:containerinstance/latest:ContainerGroup",
+			resourceName: "azure-nextgen:containerinstance:ContainerGroup",
 			expected: map[string]interface{}{
 				"containers": []interface{}{
 					map[string]interface{}{

@@ -75,6 +75,14 @@ func AllVersions() AzureProviders {
 			Invokes:   latestInvokes,
 		}
 
+		// Add a default version for each resource and invoke.
+		defaultResources := calculateLatestVersions(knownProviderVersions, providerName, versionMap, false /* invokes */, true /* preview */)
+		defaultInvokes := calculateLatestVersions(knownProviderVersions, providerName, versionMap, true /* invokes */, true /* preview */)
+		versionMap[""] = VersionResources{
+			Resources: defaultResources,
+			Invokes:   defaultInvokes,
+		}
+
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := calculatePathVersions(versionMap)
 		for version, items := range versionMap {
@@ -98,60 +106,8 @@ func AllVersions() AzureProviders {
 func SingleVersion(providers AzureProviders) AzureProviders {
 	singleVersion := AzureProviders{}
 
-	knownVersions, err := readKnownVersions()
-	if err != nil {
-		panic(errors.Wrapf(err, "reading provider versions"))
-	}
-
 	for providerName, allVersionMap := range providers {
-		knownProviderVersions := knownVersions[strings.ToLower(providerName)]
-
-		latest := allVersionMap["latest"]
-		versions := ProviderVersions{
-			"latest": latest,
-		}
-
-		findVersion := func(resource *ResourceSpec) *VersionResources {
-			apiVersion := "v" + strings.ReplaceAll(resource.Swagger.Info.Version, "-", "")
-			if !IsPreview(apiVersion) || strings.Contains(apiVersion, "privatepreview") {
-				return nil
-			}
-			version, ok := versions[apiVersion]
-			if !ok {
-				version = VersionResources{
-					Resources: map[string]*ResourceSpec{},
-					Invokes:   map[string]*ResourceSpec{},
-				}
-				versions[apiVersion] = version
-			}
-			return &version
-		}
-
-		previewResources := calculateLatestVersions(knownProviderVersions, providerName, allVersionMap, false /* invokes */, true /* preview */)
-		for resourceName, resource := range previewResources {
-			if _, ok := latest.Resources[resourceName]; ok {
-				continue
-			}
-
-			version := findVersion(resource)
-			if version != nil {
-				version.Resources[resourceName] = resource
-			}
-		}
-
-		previewInvokes := calculateLatestVersions(knownProviderVersions, providerName, allVersionMap, true /* invokes */, true /* preview */)
-		for invokeName, invoke := range previewInvokes {
-			if _, ok := latest.Invokes[invokeName]; ok {
-				continue
-			}
-
-			version := findVersion(invoke)
-			if version != nil {
-				version.Invokes[invokeName] = invoke
-			}
-		}
-
-		singleVersion[providerName] = versions
+		singleVersion[providerName] = ProviderVersions{ "": allVersionMap[""] }
 	}
 
 	return singleVersion
@@ -307,13 +263,18 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 // provider. The result is a map from a resource type name to resource specs.
 func calculateLatestVersions(knownVersions codegen.StringSet, provider string, versionMap ProviderVersions, invokes,
 	preview bool) (latestResources map[string]*ResourceSpec) {
-	var versions []string
+	var stables, previews []string
 	for version := range versionMap {
-		if preview || !IsPreview(version) {
-			versions = append(versions, version)
+		if !IsPreview(version) {
+			stables = append(stables, version)
+		} else if preview {
+			previews = append(previews, version)
 		}
 	}
-	sort.Strings(versions)
+	// Sort the versions from earliest to latest previews, then from earliest to latest stable.
+	sort.Strings(previews)
+	sort.Strings(stables)
+	versions := append(previews, stables...)
 
 	pathTypeNames := map[string]string{}
 	latestResources = map[string]*ResourceSpec{}

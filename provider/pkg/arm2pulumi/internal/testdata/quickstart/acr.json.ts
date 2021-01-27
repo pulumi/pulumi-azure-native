@@ -6,7 +6,7 @@ const acrAdminUserEnabledParam = config.getBoolean("acrAdminUserEnabledParam") |
 const acrNameParam = config.require("acrNameParam");
 const acrSkuParam = config.get("acrSkuParam") || "Basic";
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const resourceGroupVar = azure_nextgen.resources.latest.getResourceGroup({
+const resourceGroupVar = azure_nextgen.resources.getResourceGroup({
     resourceGroupName: resourceGroupNameParam,
 });
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);
