@@ -7,34 +7,38 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
-__all__ = ['SqlPoolTransparentDataEncryption']
+__all__ = ['DeploymentScript']
 
 
-class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
+class DeploymentScript(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ScriptType']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sql_pool_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']]] = None,
-                 transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
-                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 script_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
-        Represents a Sql pool transparent data encryption configuration.
-        Latest API Version: 2020-12-01.
+        Deployment script object.
+        Latest API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
+        :param pulumi.Input[Union[str, 'ScriptType']] kind: Type of the script.
+        :param pulumi.Input[str] location: The location of the ACI and the storage account for the deployment script.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] sql_pool_name: SQL pool name
-        :param pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']] status: The status of the database transparent data encryption.
-        :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] script_name: Name of the deployment script.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,26 +57,27 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['identity'] = identity
+            if kind is None and not opts.urn:
+                raise TypeError("Missing required property 'kind'")
+            __props__['kind'] = kind
+            if location is None and not opts.urn:
+                raise TypeError("Missing required property 'location'")
+            __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_pool_name'")
-            __props__['sql_pool_name'] = sql_pool_name
-            __props__['status'] = status
-            if transparent_data_encryption_name is None and not opts.urn:
-                raise TypeError("Missing required property 'transparent_data_encryption_name'")
-            __props__['transparent_data_encryption_name'] = transparent_data_encryption_name
-            if workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['location'] = None
+            if script_name is None and not opts.urn:
+                raise TypeError("Missing required property 'script_name'")
+            __props__['script_name'] = script_name
+            __props__['tags'] = tags
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolTransparentDataEncryption")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources/v20191001preview:DeploymentScript"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:DeploymentScript")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        super(SqlPoolTransparentDataEncryption, __self__).__init__(
-            'azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption',
+        super(DeploymentScript, __self__).__init__(
+            'azure-nextgen:resources/latest:DeploymentScript',
             resource_name,
             __props__,
             opts)
@@ -80,9 +85,9 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'SqlPoolTransparentDataEncryption':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DeploymentScript':
         """
-        Get an existing SqlPoolTransparentDataEncryption resource's state with the given name, id, and optional extra
+        Get an existing DeploymentScript resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -93,13 +98,29 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
 
         __props__ = dict()
 
-        return SqlPoolTransparentDataEncryption(resource_name, opts=opts, __props__=__props__)
+        return DeploymentScript(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[str]:
+        """
+        Type of the script.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Resource location.
+        The location of the ACI and the storage account for the deployment script.
         """
         return pulumi.get(self, "location")
 
@@ -107,23 +128,31 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        Name of this resource.
         """
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata related to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        The status of the database transparent data encryption.
+        Resource tags.
         """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Type of this resource.
         """
         return pulumi.get(self, "type")
 

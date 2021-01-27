@@ -12,7 +12,9 @@ from ._enums import *
 __all__ = [
     'DebugSettingArgs',
     'DeploymentPropertiesArgs',
+    'ExpressionEvaluationOptionsArgs',
     'IdentityArgs',
+    'ManagedServiceIdentityArgs',
     'OnErrorDeploymentArgs',
     'ParametersLinkArgs',
     'PlanArgs',
@@ -50,6 +52,7 @@ class DeploymentPropertiesArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input['DeploymentMode'],
                  debug_setting: Optional[pulumi.Input['DebugSettingArgs']] = None,
+                 expression_evaluation_options: Optional[pulumi.Input['ExpressionEvaluationOptionsArgs']] = None,
                  on_error_deployment: Optional[pulumi.Input['OnErrorDeploymentArgs']] = None,
                  parameters: Optional[Any] = None,
                  parameters_link: Optional[pulumi.Input['ParametersLinkArgs']] = None,
@@ -59,6 +62,7 @@ class DeploymentPropertiesArgs:
         Deployment properties.
         :param pulumi.Input['DeploymentMode'] mode: The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
         :param pulumi.Input['DebugSettingArgs'] debug_setting: The debug setting of the deployment.
+        :param pulumi.Input['ExpressionEvaluationOptionsArgs'] expression_evaluation_options: Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
         :param pulumi.Input['OnErrorDeploymentArgs'] on_error_deployment: The deployment on error behavior.
         :param Any parameters: Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
         :param pulumi.Input['ParametersLinkArgs'] parameters_link: The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
@@ -68,6 +72,8 @@ class DeploymentPropertiesArgs:
         pulumi.set(__self__, "mode", mode)
         if debug_setting is not None:
             pulumi.set(__self__, "debug_setting", debug_setting)
+        if expression_evaluation_options is not None:
+            pulumi.set(__self__, "expression_evaluation_options", expression_evaluation_options)
         if on_error_deployment is not None:
             pulumi.set(__self__, "on_error_deployment", on_error_deployment)
         if parameters is not None:
@@ -102,6 +108,18 @@ class DeploymentPropertiesArgs:
     @debug_setting.setter
     def debug_setting(self, value: Optional[pulumi.Input['DebugSettingArgs']]):
         pulumi.set(self, "debug_setting", value)
+
+    @property
+    @pulumi.getter(name="expressionEvaluationOptions")
+    def expression_evaluation_options(self) -> Optional[pulumi.Input['ExpressionEvaluationOptionsArgs']]:
+        """
+        Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
+        """
+        return pulumi.get(self, "expression_evaluation_options")
+
+    @expression_evaluation_options.setter
+    def expression_evaluation_options(self, value: Optional[pulumi.Input['ExpressionEvaluationOptionsArgs']]):
+        pulumi.set(self, "expression_evaluation_options", value)
 
     @property
     @pulumi.getter(name="onErrorDeployment")
@@ -165,6 +183,30 @@ class DeploymentPropertiesArgs:
 
 
 @pulumi.input_type
+class ExpressionEvaluationOptionsArgs:
+    def __init__(__self__, *,
+                 scope: Optional[pulumi.Input[Union[str, 'ExpressionEvaluationOptionsScopeType']]] = None):
+        """
+        Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
+        :param pulumi.Input[Union[str, 'ExpressionEvaluationOptionsScopeType']] scope: The scope to be used for evaluation of parameters, variables and functions in a nested template.
+        """
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[Union[str, 'ExpressionEvaluationOptionsScopeType']]]:
+        """
+        The scope to be used for evaluation of parameters, variables and functions in a nested template.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[Union[str, 'ExpressionEvaluationOptionsScopeType']]]):
+        pulumi.set(self, "scope", value)
+
+
+@pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
@@ -196,6 +238,46 @@ class IdentityArgs:
     def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        Managed identity generic object.
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of the managed identity.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]:
+        """
+        Type of the managed identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
         return pulumi.get(self, "user_assigned_identities")
 
@@ -500,19 +582,23 @@ class TemplateLinkArgs:
     def __init__(__self__, *,
                  content_version: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 query_string: Optional[pulumi.Input[str]] = None,
                  relative_path: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         Entity representing the reference to the template.
         :param pulumi.Input[str] content_version: If included, must match the ContentVersion in the template.
         :param pulumi.Input[str] id: The resource id of a Template Spec. Use either the id or uri property, but not both.
-        :param pulumi.Input[str] relative_path: Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+        :param pulumi.Input[str] query_string: The query string (for example, a SAS token) to be used with the templateLink URI.
+        :param pulumi.Input[str] relative_path: The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
         :param pulumi.Input[str] uri: The URI of the template to deploy. Use either the uri or id property, but not both.
         """
         if content_version is not None:
             pulumi.set(__self__, "content_version", content_version)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
         if relative_path is not None:
             pulumi.set(__self__, "relative_path", relative_path)
         if uri is not None:
@@ -543,10 +629,22 @@ class TemplateLinkArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The query string (for example, a SAS token) to be used with the templateLink URI.
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_string", value)
+
+    @property
     @pulumi.getter(name="relativePath")
     def relative_path(self) -> Optional[pulumi.Input[str]]:
         """
-        Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+        The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
         """
         return pulumi.get(self, "relative_path")
 

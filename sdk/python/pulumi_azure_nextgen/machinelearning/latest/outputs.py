@@ -29,7 +29,6 @@ __all__ = [
     'OutputPortResponse',
     'RealtimeConfigurationResponse',
     'ServiceInputOutputSpecificationResponse',
-    'SkuResponse',
     'StorageAccountResponse',
     'TableSpecificationResponse',
     'WebServiceKeysResponse',
@@ -864,44 +863,6 @@ class ServiceInputOutputSpecificationResponse(dict):
         The title of your Swagger schema.
         """
         return pulumi.get(self, "title")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class SkuResponse(dict):
-    """
-    Sku of the resource
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 tier: Optional[str] = None):
-        """
-        Sku of the resource
-        :param str name: Name of the sku
-        :param str tier: Tier of the sku like Basic or Enterprise
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of the sku
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional[str]:
-        """
-        Tier of the sku like Basic or Enterprise
-        """
-        return pulumi.get(self, "tier")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

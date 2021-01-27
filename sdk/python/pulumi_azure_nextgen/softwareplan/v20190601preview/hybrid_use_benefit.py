@@ -64,7 +64,7 @@ class HybridUseBenefit(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:softwareplan/latest:HybridUseBenefit"), pulumi.Alias(type_="azure-nextgen:softwareplan/v20191201:HybridUseBenefit")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:softwareplan/v20191201:HybridUseBenefit")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HybridUseBenefit, __self__).__init__(
             'azure-nextgen:softwareplan/v20190601preview:HybridUseBenefit',
