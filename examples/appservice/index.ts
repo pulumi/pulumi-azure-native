@@ -1,12 +1,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
 
-import * as insights from "@pulumi/azure-nextgen/insights/latest";
-import * as resources from "@pulumi/azure-nextgen/resources/latest";
+import * as insights from "@pulumi/azure-nextgen/insights";
+import * as resources from "@pulumi/azure-nextgen/resources";
 import * as sql from "@pulumi/azure-nextgen/sql/v20200801preview";
-import * as sqltde from "@pulumi/azure-nextgen/sql/latest";
-import * as storage from "@pulumi/azure-nextgen/storage/latest";
-import * as web from "@pulumi/azure-nextgen/web/latest";
+import * as sqltde from "@pulumi/azure-nextgen/sql";
+import * as storage from "@pulumi/azure-nextgen/storage";
+import * as web from "@pulumi/azure-nextgen/web";
 
 const randomString = new random.RandomString("random", {
     length: 12,

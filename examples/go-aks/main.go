@@ -3,8 +3,8 @@ package main
 import (
 	"encoding/base64"
 
-	containerservice "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure/containerservice/latest"
-	resources "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure/resources/latest"
+	"github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure/containerservice"
+	"github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure/resources"
 	"github.com/pulumi/pulumi-azuread/sdk/v2/go/azuread"
 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
 	"github.com/pulumi/pulumi-tls/sdk/v2/go/tls"

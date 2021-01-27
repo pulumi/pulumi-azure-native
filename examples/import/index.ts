@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
-import * as network from "@pulumi/azure-nextgen/network/latest";
-import * as resources from "@pulumi/azure-nextgen/resources/latest";
+import * as network from "@pulumi/azure-nextgen/network";
+import * as resources from "@pulumi/azure-nextgen/resources";
 import * as manual from "./manualResource";
 
 function hashCode(s: string) {
